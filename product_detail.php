@@ -152,7 +152,7 @@
         </div>
         <div class="col-sm-6">
           <div class="detail_pro margintop40">
-            <h3 class="bottom30">Pipe Clamps </h3>
+            <h1 class="bottom30">Pipe Clamps </h1>
 				  <p>Brand: <a href="https://www.anhussunally.com/product-brand/alfomega-pipe-clamps/">Alfomega Pipe Clamps</a></p>
           <div class="product_meta">
 

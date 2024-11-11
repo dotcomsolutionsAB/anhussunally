@@ -138,11 +138,11 @@
           <div id="js-pagination-slider">
             <div class="cbp-pagination-item cbp-pagination-active">
               <img src="images/Pipe_Clamps.jpg" alt="">
-            <!-- </div>
-            <div class="cbp-pagination-item cbp-pagination-active">
-              <img src="images/detail2.jpg" alt="">
             </div>
-            <div class="cbp-pagination-item">
+            <div class="cbp-pagination-item cbp-pagination-active">
+              <img src="images/Twin_Clamps.jpg" alt="">
+            </div>
+            <!-- <div class="cbp-pagination-item">
               <img src="images/detail3.jpg" alt="">
             </div>
             <div class="cbp-pagination-item">

@@ -113,7 +113,7 @@
               <img src="#" alt="" >
             </div>
             <!-- LAYER NR. 1 -->
-            <h3 class="tp-caption tp-resizeme uppercase" 							
+            <!-- <h3 class="tp-caption tp-resizeme uppercase" 							
                 data-x="left"
                 data-y="185"							
                 data-width="full"
@@ -121,8 +121,8 @@
                 data-transform_in="y:-50px;opacity:0;s:1500;e:Power3.easeOut;" 
                 data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" 							 
                 data-start="800">new arrivals
-            </h3>
-            <h1 class="tp-caption tp-resizeme uppercase" 							
+            </h3> -->
+            <!-- <h1 class="tp-caption tp-resizeme uppercase" 							
                 data-x="left"
                 data-y="228"							
                 data-width="full"
@@ -132,8 +132,8 @@
                 data-start="1000">
               <strong>new style
               </strong> for lamp
-            </h1>
-            <div class="tp-caption tp-resizeme" 							
+            </h1> -->
+            <!-- <div class="tp-caption tp-resizeme" 							
                  data-x="left"
                  data-y="415"							
                  data-width="full"
@@ -144,8 +144,8 @@
               <p>Claritas est etiam processus dynamicus, qui sequitur mutationem
                 <br>consuetudium lectorum.
               </p>
-            </div>
-            <div class="tp-caption tp-resizeme" 							
+            </div> -->
+            <!-- <div class="tp-caption tp-resizeme" 							
                  data-x="left"
                  data-y="510"							
                  data-width="full"
@@ -155,8 +155,8 @@
                  data-start="1600">
               <a href="#." class="btn-common">Shop Now
               </a>
-            </div>
-          </li>
+            </div> -->
+          <!-- </li>
           <li data-transition="fade">
             <img src="images/banner2.jpg"  alt="" data-bgposition="center center" data-bgfit="cover">	
             <div class="tp-caption tp-resizeme"
@@ -218,7 +218,7 @@
             </div>
           </li>
         </ul>				
-      </div>
+      </div> -->
       <!-- END REVOLUTION SLIDER -->
     </section>
     <!--Three Box Products-->

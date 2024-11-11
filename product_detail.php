@@ -164,6 +164,38 @@
 </div><br><p class="stock in-stock"><strong>Status: </strong>In stock</p><br>
             <p class="bottom30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
             <p><a href="images/pdf.png" download=""><img class="brochure-pdf" src="images/pdf.png" alt="W3Schools" style="max-width:160px"><br><a></p>
+            <style>
+        .gmail-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #DB4437;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .gmail-button img {
+            margin-right: 10px;
+            width: 24px;
+            height: 24px;
+        }
+
+        .gmail-button:hover {
+            background-color: #C03527;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+    <a href="mailto:your-email@gmail.com" class="gmail-button">
+        <img src="https://www.gstatic.com/images/branding/product/1x/gmail_2020q4_48dp.png" alt="Gmail Logo">
+        Send Email
+    </a>
             <!-- <ul class="review_list marginbottom15">
               <li><img src="images/star.png" alt="star">
               </li>
@@ -435,111 +467,6 @@
 
 
   <!--Footer-->
-  <footer class="padding_top bottom_half">
-    <a href="#." class="go-top text-center"><i class="fa fa-angle-double-up"></i></a>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-6">
-          <div class="footer_panel content_space">
-            <h4 class="heading_border heading_space">about store</h4>
-            <ul class="about_foot">
-              <li><i class="fa fa-home"></i>234 Heaven Stress, Beverly Hill.</li>
-              <li><i class="fa fa-phone"></i>800) 123 456 789</li>
-              <li><a href="#."><i class="fa fa-envelope-o"></i>Contact@erentheme.com</a>
-              </li>
-              <li>
-                <span><img src="images/paymennt1.png" alt="payment"></span>
-                <span><img src="images/payment2.png" alt="payment"></span>
-                <span><img src="images/payment3.jpg" alt="payment"></span>
-                <span><img src="images/payment4.png" alt="payment"></span>
-                <span><img src="images/payment5.png" alt="payment"></span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="footer_panel content_space">
-            <h4 class="heading_border heading_space">My Account</h4>
-            <ul class="account_foot">
-              <li><a href="#.">My Account</a>
-              </li>
-              <li><a href="#.">Login</a>
-              </li>
-              <li><a href="#.">My Cart</a>
-              </li>
-              <li><a href="#.">Wishlist</a>
-              </li>
-              <li><a href="#.">Checkout</a>
-              </li>
-              <li><a href="#.">Userinfo</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="footer_panel content_space">
-            <h4 class="heading_border heading_space">INFORMATION</h4>
-            <ul class="account_foot">
-              <li><a href="#.">My Account</a>
-              </li>
-              <li><a href="#.">Login</a>
-              </li>
-              <li><a href="#.">My Cart</a>
-              </li>
-              <li><a href="#.">Wishlist</a>
-              </li>
-              <li><a href="#.">Checkout</a>
-              </li>
-              <li><a href="#.">Userinfo</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="footer_panel content_space">
-            <h4 class="heading_border heading_space">Customer Service</h4>
-            <ul class="account_foot">
-              <li><a href="#.">Shipping Policy</a>
-              </li>
-              <li><a href="#.">Compensation First</a>
-              </li>
-              <li><a href="#.">My Account</a>
-              </li>
-              <li><a href="#.">Return Policy</a>
-              </li>
-              <li><a href="#.">Contact Us</a>
-              </li>
-              <li><a href="#.">Shipping Info</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <div class="copyright">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4">
-          <p>Copyright &copy; 2016 <a href="#.">Erentheme</a>. All Right Reserved.</p>
-        </div>
-        <div class="col-sm-8">
-          <ul class="social">
-            <li><a href="#."><i class="fa fa-facebook"></i></a>
-            </li>
-            <li><a href="#."><i class="fa fa-twitter"></i></a>
-            </li>
-            <li><a href="#."><i class="fa fa-rss"></i></a>
-            </li>
-            <li><a href="#."><i class="fa fa-google-plus"></i></a>
-            </li>
-            <li><a href="#."><i class="fa fa-linkedin"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script src="js/jquery-2.2.3.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOBKD6V47-g_3opmidcmFapb3kSNAR70U"></script>

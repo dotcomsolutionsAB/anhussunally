@@ -410,17 +410,16 @@
             <div class="tag-btn"><span class="uppercase text-center">New</span>
             </div>
             <div class="image">
-              <a class="fancybox" href="images/product1.jpg"><img src="images/product1.jpg" alt="Product" class="img-responsive">
+              <a class="fancybox" href="images/h04732a.jpg"><img src="images/product1.jpg" alt="Product" class="img-responsive">
               </a>
             </div>
             <div class="product_desc">
-              <p class="title">Sacrificial Chair Design </p>
-              <span class="price"><i class="fa fa-gbp"></i>170.00</span>
-              <a class="fancybox" href="images/product1.jpg" data-fancybox-group="gallery"><i class="fa fa-shopping-bag open"></i></a>
+              <p class="title">7TR/AM/PCS - Tube and Pipe Clamps </p>
+              <a class="fancybox" href="images/h04732a.jpg" data-fancybox-group="gallery"><i class="fa fa-shopping-bag open"></i></a>
             </div>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
+        <!-- <div class="col-md-3 col-sm-6">
           <div class="product_wrap bottom_half">
             <div class="image">
               <a class="fancybox" href="images/product2.jpg"><img src="images/product2.jpg" alt="Product" class="img-responsive">
@@ -432,8 +431,8 @@
               <a class="fancybox" href="images/product2.jpg" data-fancybox-group="gallery"><i class="fa fa-shopping-bag open"></i></a>
             </div>
           </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
+        </div> -->
+        <!-- <div class="col-md-3 col-sm-6">
           <div class="product_wrap bottom_half">
             <div class="tag-btn"><span class="uppercase text-center">New</span>
             </div>
@@ -447,8 +446,8 @@
               <a class="fancybox" href="images/product8.jpg" data-fancybox-group="gallery"><i class="fa fa-shopping-bag open"></i></a>
             </div>
           </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
+        </div> -->
+        <!-- <div class="col-md-3 col-sm-6">
           <div class="product_wrap bottom_half">
             <div class="image">
               <a class="fancybox" href="images/product4.jpg"><img src="images/product4.jpg" alt="Product" class="img-responsive">
@@ -460,7 +459,7 @@
               <a class="fancybox" href="images/product4.jpg" data-fancybox-group="gallery"><i class="fa fa-shopping-bag open"></i></a>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>

@@ -1,8 +1,8 @@
 <?php
 // Database configuration
 $host = 'localhost';
-$dbname = 'your_database_name';
-$username = 'your_username';
+$dbname = 'anhussunally';
+$username = 'anhussunally';
 $password = 'your_password';
 
 // Establish database connection

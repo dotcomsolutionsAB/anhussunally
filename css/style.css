@@ -608,18 +608,21 @@ header .navbar-brand {
   padding:24px 0;
   display:inline-block;
 }
+.navbar-brand>img{
+	width: 250px;
+}
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
   margin-left:0;
 }
 header .wrap-sticky nav.navbar.bootsnav{
-	background:#303030;
+	background:#fff;
 	border:none;
 }
 header nav.navbar.bootsnav ul.nav > li {
 	margin:0 2px;
 }
 header nav.navbar.bootsnav ul.nav > li > a{
-  color: #fff;
+  color: #000;
   font-weight: normal;
   font-size:12px;
   text-transform:uppercase;
@@ -629,7 +632,7 @@ header nav.navbar.bootsnav ul.nav > li > a{
 }
 header nav.navbar.bootsnav ul.nav > li.active > a,
 header nav.navbar.bootsnav ul.nav > li > a:hover, header nav.navbar.bootsnav ul.nav > li > a:focus{
-  color: #437c8a;
+  color: #021e40;
 }
 
 /*dropdown*/
@@ -651,7 +654,7 @@ header nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li > a{
 }
 header nav.navbar.bootsnav ul.dropdown-menu.megamenu-content .content ul.menu-col li a:hover,
 header nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li > a:hover{
-	color:#437c8a;
+	color:#021e40;
 }
 header nav.navbar.bootsnav li.dropdown ul.dropdown-menu {
 	border:none !important;

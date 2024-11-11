@@ -34,7 +34,7 @@
       </div>
     </div>
     <!--TOPBAR-->
-    <div class="topbar">
+    <!-- <div class="topbar">
       <div class="container">
         <div class="row">
           <div class="col-sm-4">
@@ -87,29 +87,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--HEADER-->
     <header>
       <nav class="navbar navbar-default navbar-sticky bootsnav">
         <div class="container">
-          <div class="attr-nav">
-            <ul>
-              <li class="cart-toggler">
-                <a href="#.">
-                  <i class="fa fa-shopping-cart">
-                  </i>
-                  <span class="badge">3
-                  </span>
-                </a>
-              </li>
-              <li class="search">
-                <a href="#.">
-                  <i class="fa fa-search">
-                  </i>
-                </a>
-              </li>
-            </ul>
-          </div>
           <!-- Start Header Navigation -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
@@ -318,10 +300,10 @@
                  data-splitout="none" 
                  data-responsive_offset="on" 
                  style="z-index: 7; white-space: nowrap;">
-              <img src="images/home2-banner1layer1.png" alt="" >
+              <img src="#" alt="" >
             </div>
             <!-- LAYER NR. 1 -->
-            <h3 class="tp-caption tp-resizeme uppercase" 							
+            <!-- <h3 class="tp-caption tp-resizeme uppercase" 							
                 data-x="left"
                 data-y="185"							
                 data-width="full"
@@ -426,7 +408,7 @@
             </div>
           </li>
         </ul>				
-      </div>
+      </div> -->
       <!-- END REVOLUTION SLIDER -->
     </section>
     <!--Three Box Products-->

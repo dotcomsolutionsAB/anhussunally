@@ -116,7 +116,7 @@
             <div class="cbp-item">
               <div class="cbp-caption">
                 <div class="cbp-caption-defaultWrap">
-                  <img src="images/detail2.jpg" alt="">
+                  <img src="images/Twin_Clamps.jpg" alt="">
                 </div>
               </div>
             </div>

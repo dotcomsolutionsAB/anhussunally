@@ -415,7 +415,7 @@
             </div>
             <div class="product_desc">
               <p class="title">7TR/AM/PCS - Tube and Pipe Clamps </p>
-              <a class="fancybox" href="images/h04732a.jpg" data-fancybox-group="gallery"><i class="fa fa-shopping-bag open"></i></a>
+              <a class="fancybox" href="images/h04732a.jpg" data-fancybox-group="gallery"></a>
             </div>
           </div>
         </div>

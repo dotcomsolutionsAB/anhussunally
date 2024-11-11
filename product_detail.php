@@ -370,7 +370,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h4 class="heading uppercase bottom30">upsell products</h4>
+          <h4 class="heading uppercase bottom30">Related Products</h4>
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="product_wrap bottom_half">

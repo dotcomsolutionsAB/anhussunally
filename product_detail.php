@@ -153,9 +153,9 @@
         <div class="col-sm-6">
           <div class="detail_pro margintop40">
             <h1 class="bottom30">Pipe Clamps </h1>
-				  <p>Brand: <a href="https://www.anhussunally.com/product-brand/alfomega-pipe-clamps/">Alfomega Pipe Clamps</a></p>
+				  <p>Brand: <a href="https://www.anhussunally.com/product-brand/alfomega-pipe-clamps/">Alfomega Pipe Clamps</a></p><br>
           <div class="product_meta">
-        <span class="sku_wrapper"><br>
+        <span class="sku_wrapper">
             <strong>SKU: </strong>
             <span class="sku">
                 ANH-PC</span>

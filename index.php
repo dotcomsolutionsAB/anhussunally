@@ -219,60 +219,8 @@
           </li>
         </ul>				
       </div> -->
-        <div class="grid-item">
-            <img src="https://anhussunally.ongoingwp.xyz/public/uploads/all/miIw6ORDNquPDryVIRBVnL9DFsHaC1wN9A7E50jc.png" alt="Image 1">
-            <div class="overlay">Alfomega Pipe Clamps</div>
-        </div>
-        <div class="grid-item">
-            <img src="https://anhussunally.ongoingwp.xyz/public/uploads/all/RNQwgno0GGR5oVjXcl0vFMqCUcsDCsnjAdCHOTCW.png" alt="Image 2">
-            <div class="overlay">Atos</div>
-        </div>
-        <div class="grid-item">
-            <img src="https://anhussunally.ongoingwp.xyz/public/uploads/all/7kYePPJvZSZMDAhJlXsr8RkChqpCGmK4lhe8tjby.png" alt="Image 3">
-            <div class="overlay">Dowty</div>
-        </div>
-        <div class="grid-item">
-            <img src="https://anhussunally.ongoingwp.xyz/public/uploads/all/o022m85T5dbjVRmlizwlC5YNPMOaijLNF3Pyxug5.png" alt="Image 4">
-            <div class="overlay">Danfoss</div>
-        </div>
-        <div class="grid-item">
-            <img src="https://anhussunally.ongoingwp.xyz/public/uploads/all/e6a0XVURs5Mso9SuXv7WaF53Hq2EYgalYbVuChBC.png" alt="Image 5">
-            <div class="overlay">Polyhydron</div>
-        </div>
-        <div class="grid-item">
-            <img src="https://anhussunally.ongoingwp.xyz/public/uploads/all/a6W6hqARl0NZGTgJkNUS3pRN7r3XT36hshO2ZLGz.png" alt="Image 6">
-            <div class="overlay">Hydroline</div>
-        </div>
       <!-- END REVOLUTION SLIDER -->
     </section>
-    <!--Brands-->
-    <div class="grid-container">
-        <div class="grid-item">
-            <img src="https://anhussunally.ongoingwp.xyz/public/uploads/all/miIw6ORDNquPDryVIRBVnL9DFsHaC1wN9A7E50jc.png" alt="Image 1">
-            <div class="overlay">Alfomega Pipe Clamps</div>
-        </div>
-        <div class="grid-item">
-            <img src="https://anhussunally.ongoingwp.xyz/public/uploads/all/RNQwgno0GGR5oVjXcl0vFMqCUcsDCsnjAdCHOTCW.png" alt="Image 2">
-            <div class="overlay">Atos</div>
-        </div>
-        <div class="grid-item">
-            <img src="https://anhussunally.ongoingwp.xyz/public/uploads/all/7kYePPJvZSZMDAhJlXsr8RkChqpCGmK4lhe8tjby.png" alt="Image 3">
-            <div class="overlay">Dowty</div>
-        </div>
-        <div class="grid-item">
-            <img src="https://anhussunally.ongoingwp.xyz/public/uploads/all/o022m85T5dbjVRmlizwlC5YNPMOaijLNF3Pyxug5.png" alt="Image 4">
-            <div class="overlay">Danfoss</div>
-        </div>
-        <div class="grid-item">
-            <img src="https://anhussunally.ongoingwp.xyz/public/uploads/all/e6a0XVURs5Mso9SuXv7WaF53Hq2EYgalYbVuChBC.png" alt="Image 5">
-            <div class="overlay">Polyhydron</div>
-        </div>
-        <div class="grid-item">
-            <img src="https://anhussunally.ongoingwp.xyz/public/uploads/all/a6W6hqARl0NZGTgJkNUS3pRN7r3XT36hshO2ZLGz.png" alt="Image 6">
-            <div class="overlay">Hydroline</div>
-        </div>
-        <!-- Add more grid items as needed -->
-    </div>
     <!--Three Box Products-->
     <section id="grid_box">
       <div class="container">
@@ -947,7 +895,7 @@
       </div>
     </section>
     <!--Slogan-->
-    <!-- <section id="slogan">
+    <section id="slogan">
       <div class="container sloganBg">
         <div class="row">
           <div class="col-md-12">
@@ -966,7 +914,7 @@
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
     <!--OUR BLOG-->
     <!-- <section id="blog" class="padding">
       <div class="container">

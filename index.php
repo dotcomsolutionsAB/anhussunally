@@ -661,7 +661,7 @@
       </div>
     </section>
     <!--Special Design Product-->
-    <section>
+    <!-- <section>
       <div class="container">
         <div class="row">
           <div class="design clearfix">
@@ -730,15 +730,11 @@
                             <p class="val">0
                             </p>
                           </div>
-                          <!-- /.text -->
                           <p class="type-days type-time">DAYS
                           </p>
                         </div>
-                        <!-- /.inner -->
                       </div>
-                      <!-- /.wrap -->
                     </div>
-                    <!-- /.clock-item -->
                     <div class="clock-item clock-hours countdown-time-value col-xs-6 col-sm-3">
                       <div class="wrap">
                         <div class="inner">
@@ -788,7 +784,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!--FEATURED PRODUCTS-->
     <section id="featured_product" class="padding_top">
       <div class="container">

@@ -109,7 +109,7 @@
             <div class="cbp-item">
               <div class="cbp-caption">
                 <div class="cbp-caption-defaultWrap">
-                  <img src="Pipe_Clamps.jpg" alt="">
+                  <img src="images/Pipe_Clamps.jpg" alt="">
                 </div>
               </div>
             </div>

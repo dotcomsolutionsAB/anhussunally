@@ -40,11 +40,11 @@
                   </li>
                 </ul>
               </li>
-              <li>
+              <!-- <li>
                 <a href="#.">collection
                 </a>
-              </li>
-              <li class="dropdown megamenu-fw">
+              </li> -->
+              <!-- <li class="dropdown megamenu-fw">
                 <a href="#." class="dropdown-toggle" data-toggle="dropdown">pages
                 </a>
                 <ul class="dropdown-menu megamenu-content" role="menu">
@@ -118,7 +118,7 @@
                     </div>
                   </li>
                 </ul>
-              </li>
+              </li> -->
               <li>
                 <a href="#.">about us
                 </a>

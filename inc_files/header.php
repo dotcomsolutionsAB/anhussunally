@@ -7,7 +7,7 @@
               <i class="fa fa-bars">
               </i>
             </button>
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="index.php">
               <img src="images/logo.png" class="logo" alt="">
             </a>
           </div>
@@ -17,39 +17,25 @@
               <li class="dropdown active">
                 <a href="#." class="#" data-toggle="#">Home
                 </a>
-                <!-- <ul class="#">
-                  <li>
-                    <a href="index.html">Home V1
-                    </a>
-                  </li>
-                  <li>
-                    <a href="index2.html">Home V2
-                    </a>
-                  </li>
-                  <li>
-                    <a href="index3.html">Home V3
-                    </a>
-                  </li>
-                </ul> -->
               </li>
               <li class="dropdown">
                 <a href="#." class="dropdown-toggle" data-toggle="dropdown">Products
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a href="grid.html">Grid Default
+                    <a href="grid.php">Grid Default
                     </a>
                   </li>
                   <li>
-                    <a href="grid_list.html">Grid Lists
+                    <a href="grid_list.php">Grid Lists
                     </a>
                   </li>
                   <li>
-                    <a href="grid_sidebar.html">Grid Sidebar
+                    <a href="grid_sidebar.php">Grid Sidebar
                     </a>
                   </li>
                   <li>
-                    <a href="list_sidebar.html">Lists Sidebar
+                    <a href="list_sidebar.php">Lists Sidebar
                     </a>
                   </li>
                 </ul>
@@ -70,15 +56,15 @@
                         <div class="content">
                           <ul class="menu-col">
                             <li>
-                              <a href="blog1.html">Blog Two Cols
+                              <a href="blog1.php">Blog Two Cols
                               </a>
                             </li>
                             <li>
-                              <a href="blog2.html">Blog Three Cols
+                              <a href="blog2.php">Blog Three Cols
                               </a>
                             </li>
                             <li>
-                              <a href="blog_post.html">Blog Posts
+                              <a href="blog_post.php">Blog Posts
                               </a>
                             </li>
                           </ul>
@@ -90,15 +76,15 @@
                         <div class="content">
                           <ul class="menu-col">
                             <li>
-                              <a href="checkout.html">Product Chekouts
+                              <a href="checkout.php">Product Chekouts
                               </a>
                             </li>
                             <li>
-                              <a href="product_detail.html">Products Details
+                              <a href="product_detail.php">Products Details
                               </a>
                             </li>
                             <li>
-                              <a href="cart.html">Shopping Cart
+                              <a href="cart.php">Shopping Cart
                               </a>
                             </li> 
                           </ul>
@@ -118,7 +104,7 @@
                               </a>
                             </li>
                             <li>
-                              <a href="404.html">Errors
+                              <a href="404.php">Errors
                               </a>
                             </li>
                           </ul>
@@ -138,7 +124,7 @@
                 </a>
               </li>
               <li>
-                <a href="contact.html">contact us
+                <a href="contact.php">contact us
                 </a>
               </li>
             </ul>

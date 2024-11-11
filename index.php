@@ -226,7 +226,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-4">
-            <a class="grid_box clearfix" href="grid_list.html">
+            <a class="grid_box clearfix" href="grid_list.php">
               <div class="image_left">
                 <img src="images/product-box1.png" alt="Product">
               </div>
@@ -241,7 +241,7 @@
             </a>
           </div>
           <div class="col-sm-4">
-            <a class="grid_box clearfix" href="grid_list.html">
+            <a class="grid_box clearfix" href="grid_list.php">
               <div class="image_left">
                 <img src="images/product-box2.png" alt="Product">
               </div>
@@ -257,7 +257,7 @@
             </a>
           </div>
           <div class="col-sm-4">
-            <a class="grid_box clearfix" href="grid_list.html">
+            <a class="grid_box clearfix" href="grid_list.php">
               <div class="image_left">
                 <img src="images/product-box3.png" alt="Product">
               </div>
@@ -679,7 +679,7 @@
             <div class="col-md-5 col-md-offset-1">
               <div class="descrp">
                 <h3 class="uppercase heading_space">
-                  <a href="product_detail.html">Sacrificial Chair Design
+                  <a href="product_detail.php">Sacrificial Chair Design
                   </a>
                 </h3>
                 <ul class="review">
@@ -932,7 +932,7 @@
           <div class="col-md-6">
             <div class="media blog_box">
               <div class="media-left">
-                <a href="blog_post.html">
+                <a href="blog_post.php">
                   <img class="media-object" src="images/blog1.jpg" alt="...">
                 </a>
               </div>
@@ -942,13 +942,13 @@
                   </sub>
                 </h2>
                 <h5 class="uppercase bottom30">
-                  <a href="blog_post.html">Claritas est etiam processus 
+                  <a href="blog_post.php">Claritas est etiam processus 
                     <br>dynamicus.
                   </a>
                 </h5>
                 <p class="bottom30">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum...
                 </p>
-                <a href="blog_post.html" class="readmor uppercase">read more 
+                <a href="blog_post.php" class="readmor uppercase">read more 
                   <i class="fa fa-angle-double-right">
                   </i>
                 </a>
@@ -958,7 +958,7 @@
           <div class="col-md-6">
             <div class="media blog_box">
               <div class="media-left">
-                <a href="blog_post.html">
+                <a href="blog_post.php">
                   <img class="media-object" src="images/blog2.jpg" alt="...">
                 </a>
               </div>
@@ -968,13 +968,13 @@
                   </sub>
                 </h2>
                 <h5 class="uppercase bottom30">
-                  <a href="blog_post.html">Claritas est etiam processus 
+                  <a href="blog_post.php">Claritas est etiam processus 
                     <br>dynamicus.
                   </a>
                 </h5>
                 <p class="bottom30">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum...
                 </p>
-                <a href="blog_post.html" class="readmor uppercase">read more 
+                <a href="blog_post.php" class="readmor uppercase">read more 
                   <i class="fa fa-angle-double-right">
                   </i>
                 </a>

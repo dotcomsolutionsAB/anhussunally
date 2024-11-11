@@ -465,6 +465,7 @@
 
 
   <!--Footer-->
+  <?php include("inc_files/footer.php");?>
 
   <script src="js/jquery-2.2.3.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOBKD6V47-g_3opmidcmFapb3kSNAR70U"></script>

@@ -103,12 +103,12 @@
             </a>
           </div>
           <!-- End Header Navigation -->
-          <!-- <div class="collapse navbar-collapse" id="navbar-menu">
+          <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
               <li class="dropdown active">
                 <a href="#." class="dropdown-toggle" data-toggle="dropdown">Home
                 </a>
-                <ul class="dropdown-menu">
+                <ul class="#">
                   <li>
                     <a href="index.html">Home V1
                     </a>
@@ -233,7 +233,7 @@
                 </a>
               </li>
             </ul>
-          </div> -->
+          </div>
           <!-- /.navbar-collapse -->
           <div class=" search-toggle">
             <div class="top-search">

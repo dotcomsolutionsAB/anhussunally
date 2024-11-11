@@ -895,7 +895,7 @@
       </div>
     </section>
     <!--Slogan-->
-    <section id="slogan">
+    <!-- <section id="slogan">
       <div class="container sloganBg">
         <div class="row">
           <div class="col-md-12">
@@ -914,9 +914,9 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!--OUR BLOG-->
-    <section id="blog" class="padding">
+    <!-- <section id="blog" class="padding">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
@@ -979,7 +979,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!--BRANDS-->
     <section id="brands" class="padding_bottom">
       <h3 class="hidden">hidden
@@ -1024,7 +1024,7 @@
       </div>
     </section>
     <!--NEWSLETER-->
-    <section id="newsletter" class="padding">
+    <!-- <section id="newsletter" class="padding">
       <div class="container">
         <div class="row">
           <div class="col-md-2">
@@ -1052,9 +1052,9 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!--Testinomial-->
-    <section id="testinomial" class="padding">
+    <!-- <section id="testinomial" class="padding">
       <div class="container">
         <div class="row">
           <div class="col-md-1">
@@ -1135,7 +1135,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!--Footer-->
 <?php include("inc_files/footer.php");?>
     <script src="js/jquery-2.2.3.js">

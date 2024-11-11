@@ -895,7 +895,7 @@
       </div>
     </section>
     <!--Slogan-->
-    <section id="slogan">
+    <!-- <section id="slogan">
       <div class="container sloganBg">
         <div class="row">
           <div class="col-md-12">
@@ -914,7 +914,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!--OUR BLOG-->
     <!-- <section id="blog" class="padding">
       <div class="container">

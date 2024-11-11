@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <title>Eren | Product Detail</title>
+  <title>AN Hussunally & Co</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/animate.min.css">
@@ -254,7 +254,7 @@
   </section>
 
 
-  <section class="bottom_half">
+  <!-- <section class="bottom_half">
     <div class="container">
       <div class="row">
         <div class="clearfix col-md-12">
@@ -364,7 +364,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
 
   <section id="feature_product" class="bottom_half">

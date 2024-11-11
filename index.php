@@ -219,8 +219,6 @@
           </li>
         </ul>				
       </div> -->
-      <!--Brands-->
-      <div class="grid-container">
         <div class="grid-item">
             <img src="https://anhussunally.ongoingwp.xyz/public/uploads/all/miIw6ORDNquPDryVIRBVnL9DFsHaC1wN9A7E50jc.png" alt="Image 1">
             <div class="overlay">Alfomega Pipe Clamps</div>
@@ -247,6 +245,8 @@
         </div>
       <!-- END REVOLUTION SLIDER -->
     </section>
+    <!--Brands-->
+    <div class="grid-container">
     <!--Three Box Products-->
     <section id="grid_box">
       <div class="container">

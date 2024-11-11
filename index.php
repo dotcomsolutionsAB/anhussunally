@@ -245,8 +245,6 @@
         </div>
       <!-- END REVOLUTION SLIDER -->
     </section>
-    <!--Brands-->
-    <div class="grid-container">
     <!--Three Box Products-->
     <section id="grid_box">
       <div class="container">
@@ -686,6 +684,8 @@
         </div>
       </div>
     </section>
+    <!--Brands-->
+    <div class="grid-container">
     <!--Special Design Product-->
     <!-- <section>
       <div class="container">

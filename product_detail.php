@@ -137,8 +137,8 @@
           </div>
           <div id="js-pagination-slider">
             <div class="cbp-pagination-item cbp-pagination-active">
-              <img src="images/detail1.jpg" alt="">
-            </div>
+              <img src="images/Pipe_Clamps.jpg" alt="">
+            <!-- </div>
             <div class="cbp-pagination-item cbp-pagination-active">
               <img src="images/detail2.jpg" alt="">
             </div>
@@ -147,7 +147,7 @@
             </div>
             <div class="cbp-pagination-item">
               <img src="images/detail4.jpg" alt="">
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="col-sm-6">
@@ -155,20 +155,12 @@
             <h1 class="bottom30">Pipe Clamps </h1>
 				  <p>Brand: <a href="https://www.anhussunally.com/product-brand/alfomega-pipe-clamps/">Alfomega Pipe Clamps</a></p>
           <div class="product_meta">
-
-	
-	
         <span class="sku_wrapper">
             <strong>SKU: </strong>
             <span class="sku">
                 ANH-PC            </span>
         </span>
-
-	
-	
 	<span class="posted_in"><strong>Categories: </strong><a href="https://www.anhussunally.com/product-category/clamps/" rel="tag">Clamps</a>, <a href="https://www.anhussunally.com/product-category/clamps/pipe-clamps/" rel="tag">Pipe Clamps</a></span>
-	
-	
 </div><br>
             <p class="bottom30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
             <!-- <ul class="review_list marginbottom15">

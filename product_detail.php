@@ -153,10 +153,8 @@
         <div class="col-sm-6">
           <div class="detail_pro margintop40">
             <h4 class="bottom30">Pipe Clamps </h4>
+				  <p>Brand:<a href="https://www.anhussunally.com/product-brand/alfomega-pipe-clamps/">Alfomega Pipe Clamps</a></p>
             <p class="bottom30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-            <li>
-				  Brand:<a href="https://www.anhussunally.com/product-brand/alfomega-pipe-clamps/">Alfomega Pipe Clamps</a>
-            </li>
             <ul class="review_list marginbottom15">
               <li><img src="images/star.png" alt="star">
               </li>

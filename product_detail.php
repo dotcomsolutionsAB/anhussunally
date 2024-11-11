@@ -83,6 +83,23 @@
   <?php include("inc_files/header.php");?>
 
 
+  <section class="page_menu">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="hidden">hidden</h3>
+          <ul class="breadcrumb">
+            <li><a href="index.html">Home</a>
+            </li>
+            <li>Products</li>
+            <li class="active"> Sacrificial Chair Design </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!--Cart Detail -->
   <section id="cart" class="padding_bottom">
     <div class="container">

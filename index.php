@@ -113,7 +113,7 @@
               <img src="#" alt="" >
             </div>
             <!-- LAYER NR. 1 -->
-            <!-- <h3 class="tp-caption tp-resizeme uppercase" 							
+            <h3 class="tp-caption tp-resizeme uppercase" 							
                 data-x="left"
                 data-y="185"							
                 data-width="full"
@@ -218,7 +218,7 @@
             </div>
           </li>
         </ul>				
-      </div> -->
+      </div>
       <!-- END REVOLUTION SLIDER -->
     </section>
     <!--Three Box Products-->

@@ -153,19 +153,19 @@
         <div class="col-sm-6">
           <div class="detail_pro margintop40">
             <h4 class="bottom30">Pipe Clamps </h4>
-				  <p>Brand:<a href="https://www.anhussunally.com/product-brand/alfomega-pipe-clamps/">Alfomega Pipe Clamps</a></p>
+				  <p>Brand: <a href="https://www.anhussunally.com/product-brand/alfomega-pipe-clamps/">Alfomega Pipe Clamps</a></p>
             <p class="bottom30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-            <ul class="review_list marginbottom15">
+            <!-- <ul class="review_list marginbottom15">
               <li><img src="images/star.png" alt="star">
               </li>
               <li><a href="#.">10 review(s) </a>
               </li>
               <li><a href="#.">Add your review</a>
               </li>
-            </ul>
-            <h2 class="price marginbottom15"><i class="fa fa-gbp"></i>70.00</h2>
+            </ul> -->
+            <!-- <h2 class="price marginbottom15"><i class="fa fa-gbp"></i>70.00</h2> -->
 
-            <form class="cart-form">
+            <!-- <form class="cart-form">
               <div class="form-group">
                 <label for="city">
                   Size *
@@ -193,8 +193,8 @@
                 </label>
               </div>
               <p class="text-danger">Repuired Fiields *</p>
-            </form>
-            <form class="cart-form">
+            </form> -->
+            <!-- <form class="cart-form">
               <div class="form-group">
                 <div class="row">
                   <div class="col-sm-3">
@@ -214,8 +214,8 @@
                   </div>
                 </div>
               </div>
-            </form>
-            <div class="cart-buttons">
+            </form> -->
+            <!-- <div class="cart-buttons">
               <a class="uppercase border-radius btn-dark" href="cart.html"><i class="fa fa-shopping-basket"></i> &nbsp; Add to cart</a>
               <a class="icons" href="#.">
                 <i class="fa fa-heart-o"></i>
@@ -223,9 +223,9 @@
               <a class="icons" href="#.">
                 <i class="fa fa-exchange"></i>
               </a>
-            </div>
+            </div> -->
 
-            <div class="cart-share margintop30">
+            <!-- <div class="cart-share margintop30">
               <ul>
                 <li><a href="#." class="facebook"><i class="fa fa-facebook-official"></i><span>Like</span></a>
                 </li>
@@ -236,7 +236,7 @@
                 <li><a href="#." class="share"><i class="fa fa-plus-square"></i><span>Share</span></a>
                 </li>
               </ul>
-            </div>
+            </div> -->
 
           </div>
         </div>

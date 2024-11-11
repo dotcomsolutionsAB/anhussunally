@@ -419,19 +419,18 @@
             </div>
           </div>
         </div>
-        <!-- <div class="col-md-3 col-sm-6">
+        <div class="col-md-3 col-sm-6">
           <div class="product_wrap bottom_half">
             <div class="image">
-              <a class="fancybox" href="images/product2.jpg"><img src="images/product2.jpg" alt="Product" class="img-responsive">
+              <a class="fancybox" href="images/Pipe_Clamps.jpg"><img src="images/Pipe_Clamps.jpg" alt="Product" class="img-responsive">
               </a>
             </div>
             <div class="product_desc">
-              <p class="title">Sacrificial Chair Design </p>
-              <span class="price"><i class="fa fa-gbp"></i>170.00</span>
-              <a class="fancybox" href="images/product2.jpg" data-fancybox-group="gallery"><i class="fa fa-shopping-bag open"></i></a>
+              <p class="title">Twin Clamps</p>
+              <a class="fancybox" href="images/Pipe_Clamps.jpg" data-fancybox-group="gallery"></a>
             </div>
           </div>
-        </div> -->
+        </div>
         <!-- <div class="col-md-3 col-sm-6">
           <div class="product_wrap bottom_half">
             <div class="tag-btn"><span class="uppercase text-center">New</span>

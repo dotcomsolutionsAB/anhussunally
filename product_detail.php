@@ -160,7 +160,7 @@
             <span class="sku">
                 ANH-PC</span>
         </span>
-	<span class="posted_in"><strong>Categories: </strong><a href="https://www.anhussunally.com/product-category/clamps/" rel="tag">Clamps</a>, <a href="https://www.anhussunally.com/product-category/clamps/pipe-clamps/" rel="tag">Pipe Clamps</a></span>
+        <br><span class="posted_in"><strong>Categories: </strong><a href="https://www.anhussunally.com/product-category/clamps/" rel="tag">Clamps</a>, <a href="https://www.anhussunally.com/product-category/clamps/pipe-clamps/" rel="tag">Pipe Clamps</a></span>
 </div><br><p class="stock in-stock"><strong>Status: </strong>In stock</p><br>
             <p class="bottom30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
             <!-- <ul class="review_list marginbottom15">

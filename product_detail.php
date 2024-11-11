@@ -154,6 +154,22 @@
           <div class="detail_pro margintop40">
             <h4 class="bottom30">Pipe Clamps </h4>
 				  <p>Brand: <a href="https://www.anhussunally.com/product-brand/alfomega-pipe-clamps/">Alfomega Pipe Clamps</a></p>
+          <div class="product_meta">
+
+	
+	
+        <span class="sku_wrapper">
+            <strong>SKU: </strong>
+            <span class="sku">
+                ANH-PC            </span>
+        </span>
+
+	
+	
+	<span class="posted_in"><strong>Categories: </strong><a href="https://www.anhussunally.com/product-category/clamps/" rel="tag">Clamps</a>, <a href="https://www.anhussunally.com/product-category/clamps/pipe-clamps/" rel="tag">Pipe Clamps</a></span>
+	
+	
+</div>
             <p class="bottom30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
             <!-- <ul class="review_list marginbottom15">
               <li><img src="images/star.png" alt="star">
@@ -224,32 +240,6 @@
                 <i class="fa fa-exchange"></i>
               </a>
             </div> -->
-            <style>
-        .pdf-button {
-            display: inline-block;
-            text-align: center;
-            text-decoration: none;
-            color: #000;
-            font-weight: bold;
-            transition: transform 0.2s;
-        }
-        
-        .pdf-button img {
-            max-width: 160px;
-            width: 100%;
-            height: auto;
-        }
-
-        .pdf-button:hover {
-            transform: scale(1.05);
-        }
-    </style>
-     <p>
-        <a href="/wp-content/uploads/brochure/ALFOMEGA-pipe-clamp-Catalouge.pdf" class="pdf-button" download="">
-            <img class="brochure-pdf" src="/wp-content/uploads/brochure/pdf.png" alt="Download PDF">
-            <br>Download PDF
-        </a>
-    </p>
 
             <!-- <div class="cart-share margintop30">
               <ul>

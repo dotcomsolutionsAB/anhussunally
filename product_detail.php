@@ -410,7 +410,7 @@
             <div class="tag-btn"><span class="uppercase text-center">New</span>
             </div>
             <div class="image">
-              <a class="fancybox" href="images/h04732a.jpg"><img src="images/product1.jpg" alt="Product" class="img-responsive">
+              <a class="fancybox" href="images/h04732a.jpg"><img src="images/h04732a.jpg" alt="Product" class="img-responsive">
               </a>
             </div>
             <div class="product_desc">

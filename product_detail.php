@@ -224,28 +224,33 @@
                 <i class="fa fa-exchange"></i>
               </a>
             </div> -->
-
             <style>
-        .download-btn {
+        .pdf-button {
             display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
             text-align: center;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        
+        .pdf-button img {
+            max-width: 160px;
+            width: 100%;
+            height: auto;
         }
 
-        .download-btn:hover {
-            background-color: #0056b3;
+        .pdf-button:hover {
+            transform: scale(1.05);
         }
     </style>
-    <a href="path-to-your-file.pdf" class="download-btn" download="YourFileName.pdf">Download PDF</a> 
-           
+     <p>
+        <a href="/wp-content/uploads/brochure/ALFOMEGA-pipe-clamp-Catalouge.pdf" class="pdf-button" download="">
+            <img class="brochure-pdf" src="/wp-content/uploads/brochure/pdf.png" alt="Download PDF">
+            <br>Download PDF
+        </a>
+    </p>
+
             <!-- <div class="cart-share margintop30">
               <ul>
                 <li><a href="#." class="facebook"><i class="fa fa-facebook-official"></i><span>Like</span></a>

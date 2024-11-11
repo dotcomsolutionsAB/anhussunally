@@ -155,8 +155,6 @@
             <h4 class="bottom30">Pipe Clamps </h4>
 				  <p>Brand: <a href="https://www.anhussunally.com/product-brand/alfomega-pipe-clamps/">Alfomega Pipe Clamps</a></p>
             <p class="bottom30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-            <p><a href="/wp-content/uploads/brochure/ALFOMEGA-pipe-clamp-Catalouge.pdf" download=""><img class="brochure-pdf" src="/wp-content/uploads/brochure/pdf.png" alt="W3Schools" style="max-width:160px"><br>
-</a></p>
             <!-- <ul class="review_list marginbottom15">
               <li><img src="images/star.png" alt="star">
               </li>
@@ -227,10 +225,27 @@
               </a>
             </div> -->
 
-            <a href="path/to/yourfile.pdf" download>
-            <button>Download PDF</button>
-            </a>
-          
+            <style>
+        .download-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <a href="path-to-your-file.pdf" class="download-btn" download="YourFileName.pdf">Download PDF</a> 
+           
             <!-- <div class="cart-share margintop30">
               <ul>
                 <li><a href="#." class="facebook"><i class="fa fa-facebook-official"></i><span>Like</span></a>

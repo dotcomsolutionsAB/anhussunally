@@ -17,7 +17,7 @@
               <li class="dropdown active">
                 <a href="#." class="#" data-toggle="#">Home
                 </a>
-                <ul class="#">
+                <!-- <ul class="#">
                   <li>
                     <a href="index.html">Home V1
                     </a>
@@ -30,7 +30,7 @@
                     <a href="index3.html">Home V3
                     </a>
                   </li>
-                </ul>
+                </ul> -->
               </li>
               <li class="dropdown">
                 <a href="#." class="dropdown-toggle" data-toggle="dropdown">Products

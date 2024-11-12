@@ -2334,6 +2334,7 @@ footer{
 	background:url() no-repeat;
 	background-size:cover;
 	background-position:center top;
+	background-color: #000;
 	color:#fff;
 	position:relative;
 }
@@ -2373,7 +2374,7 @@ footer.plain_footer{
 	vertical-align:top;
 }
 .footer_panel .about_foot li, .footer_panel .account_foot li a{
-	color:#8e8e8e;
+	color:#fff;
 	font-size:14px;
 } 
 .footer_panel .account_foot{

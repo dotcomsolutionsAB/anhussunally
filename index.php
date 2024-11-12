@@ -897,35 +897,68 @@
     </div>
   </section>
   <style>
-    .containercc {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      margin: 20px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-    }
+  /* Container Styling */
+  .containercc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    height: 100vh; /* Full view height */
+    background: linear-gradient(135deg, #f5f7fa 25%, #c3cfe2 100%); /* Background gradient */
+    overflow: hidden;
+    position: relative;
+  }
 
-    .text123 {
-      flex: 1;
-      margin-right: 20px;
-    }
+  /* Background Design Elements */
+  .background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); /* Example pattern */
+    opacity: 0.1; /* Subtle design effect */
+  }
 
-    .image22 {
-      flex-shrink: 0;
-      width: 150px;
-      /* Adjust the image width as needed */
-      height: auto;
-    }
-  </style>
+  /* Text Section Styling */
+  .text123 {
+    flex: 1;
+    padding: 20px;
+    z-index: 1; /* Make sure the text is above the background */
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+  }
 
-  <div class="containercc">
-    <div class="text123">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quas temporibus ad error assumenda omnis perferendis corrupti cupiditate cum dolores nesciunt repellendus ipsam sit dicta vitae modi, in voluptatum fugit eos aliquam ratione fugiat illum! Quibusdam iste expedita, ipsa modi non exercitationem sint aspernatur neque quae quod culpa quisquam in. Earum quis sapiente laborum magnam quae fugit sint corrupti quas eos libero. Harum omnis similique debitis cupiditate autem repellendus reprehenderit ipsam asperiores, ut eligendi quam odit eum blanditiis saepe nisi? Nemo placeat quae rerum aliquid aspernatur deleniti, maxime similique? Ea autem odit quaerat voluptatum totam, nobis accusantium praesentium ipsam fuga?</p>
-    </div>
-    <img class="image22" src="https://picsum.photos/200/300" alt="Example Image">
+  /* Image Styling */
+  .image22 {
+    flex: 1;
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for zoom and shadow */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
+    border-radius: 8px;
+    z-index: 1;
+  }
+
+  /* Hover Effect on Image */
+  .image22:hover {
+    transform: scale(1.1); /* Zoom effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+  }
+</style>
+
+<div class="containercc">
+  <div class="background-elements"></div> <!-- Background Design -->
+  <div class="text123">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quas temporibus ad error assumenda omnis perferendis corrupti cupiditate cum dolores nesciunt repellendus ipsam sit dicta vitae modi, in voluptatum fugit eos aliquam ratione fugiat illum! Quibusdam iste expedita, ipsa modi non exercitationem sint aspernatur neque quae quod culpa quisquam in. Earum quis sapiente laborum magnam quae fugit sint corrupti quas eos libero. Harum omnis similique debitis cupiditate autem repellendus reprehenderit ipsam asperiores, ut eligendi quam odit eum blanditiis saepe nisi? Nemo placeat quae rerum aliquid aspernatur deleniti, maxime similique? Ea autem odit quaerat voluptatum totam, nobis accusantium praesentium ipsam fuga?</p>
   </div>
+  <img class="image22" src="https://picsum.photos/400/400" alt="Example Image">
+</div>
   <!--Slogan-->
   <!-- <section id="slogan">
       <div class="container sloganBg">

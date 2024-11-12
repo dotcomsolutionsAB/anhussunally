@@ -12,7 +12,7 @@
               <ul class="about_foot">
                 <li>
                   <i class="fa fa-home">
-                  </i>Hussunally Buildings
+                  </i>Hussunally Buildings<br>
                       Post Box No. 68628,
                       Strand Road, Kolkata
                       West Bengal-700 001..
@@ -27,7 +27,7 @@
                     </i>hussunally@gmail.com
                   </a>
                 </li>
-                <li>
+                <!-- <li>
                   <span>
                     <img src="images/paymennt1.png" alt="payment">
                   </span> 
@@ -43,7 +43,7 @@
                   <span>
                     <img src="images/payment5.png" alt="payment">
                   </span>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>
@@ -150,12 +150,12 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-4">
-            <p>Copyright &copy; 2016 
-              <a href="#.">Eren
-              </a>. All Right Reserved.
+            <p>Copyright &copy; 2024 
+              <a href="#.">A N Hussunally & Co
+              </a>. All Rights Reserved.
             </p>
           </div>
-          <div class="col-sm-8">
+          <!-- <div class="col-sm-8">
             <ul class="social">
               <li>
                 <a href="#.">
@@ -188,7 +188,7 @@
                 </a>
               </li>
             </ul>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

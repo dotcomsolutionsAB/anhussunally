@@ -30,7 +30,7 @@
                 <li>
                   <!-- <span>
                     <img src="images/paymennt1.png" alt="payment">
-                  </span>  -->
+                  </span> 
                   <span>
                     <img src="images/payment2.png" alt="payment">
                   </span> 
@@ -42,7 +42,7 @@
                   </span> 
                   <span>
                     <img src="images/payment5.png" alt="payment">
-                  </span>
+                  </span> -->
                 </li>
               </ul>
             </div>

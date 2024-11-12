@@ -894,6 +894,34 @@
         </div>
       </div>
     </section>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .text {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .image {
+            flex-shrink: 0;
+            width: 150px; /* Adjust the image width as needed */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text">
+            <p>This is some text on the left side. Add any content or text you'd like here.</p>
+        </div>
+        <img class="image" src="path/to/your/image.jpg" alt="Example Image">
+    </div>
     <!--Slogan-->
     <!-- <section id="slogan">
       <div class="container sloganBg">

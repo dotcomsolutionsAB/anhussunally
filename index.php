@@ -1,31 +1,33 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>AN Hussunally & Co
-    </title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="css/owl.transitions.css">
-    <link rel="stylesheet" type="text/css" href="css/cubeportfolio.min.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css">
-    <link rel="stylesheet" type="text/css" href="css/bootsnav.css">
-    <link rel="stylesheet" type="text/css" href="css/settings.css">
-    <link rel="stylesheet" type="text/css" href="css/loader.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="shortcut icon" href="images/favicon.png">
-    <!--[if lt IE 9]>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>AN Hussunally & Co
+  </title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+  <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+  <link rel="stylesheet" type="text/css" href="css/owl.transitions.css">
+  <link rel="stylesheet" type="text/css" href="css/cubeportfolio.min.css">
+  <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css">
+  <link rel="stylesheet" type="text/css" href="css/bootsnav.css">
+  <link rel="stylesheet" type="text/css" href="css/settings.css">
+  <link rel="stylesheet" type="text/css" href="css/loader.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="shortcut icon" href="images/favicon.png">
+  <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
-  </head>
-  <body>
-    <!--Loader-->
-    <!-- <div class="loader">
+</head>
+
+<body>
+  <!--Loader-->
+  <!-- <div class="loader">
       <div class="spinner-load">
         <div class="dot1">
         </div>
@@ -33,8 +35,8 @@
         </div>
       </div>
     </div> -->
-    <!--TOPBAR-->
-    <!-- <div class="topbar">
+  <!--TOPBAR-->
+  <!-- <div class="topbar">
       <div class="container">
         <div class="row">
           <div class="col-sm-4">
@@ -88,32 +90,32 @@
         </div>
       </div>
     </div> -->
-    <!--HEADER-->
-    <?php include("inc_files/header.php");?>
-    <section class="rev_slider_wrapper">	
-      <div id="rev_slider" class="rev_slider"  data-version="5.0">
-        <ul>	
-          <!-- SLIDE  -->
-          <li data-transition="fade">
-            <!-- MAIN IMAGE -->
-            <img src="images/home2-banner1.jpg" alt="" data-bgposition="center center" data-bgfit="cover">						
-            <div class="tp-caption tp-resizeme"
-                 data-x="right" data-hoffset="" 
-                 data-y="0" data-voffset="10" 
-                 data-width="['auto','auto','auto','auto']"
-                 data-height="['auto','auto','auto','auto']"
-                 data-transform_idle="o:1;"
-                 data-transform_in="x:right;s:2000;e:Power4.easeInOut;" 
-                 data-transform_out="s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                 data-start="3000" 
-                 data-splitin="none" 
-                 data-splitout="none" 
-                 data-responsive_offset="on" 
-                 style="z-index: 7; white-space: nowrap;">
-              <img src="#" alt="" >
-            </div>
-            <!-- LAYER NR. 1 -->
-            <!-- <h3 class="tp-caption tp-resizeme uppercase" 							
+  <!--HEADER-->
+  <?php include("inc_files/header.php"); ?>
+  <section class="rev_slider_wrapper">
+    <div id="rev_slider" class="rev_slider" data-version="5.0">
+      <ul>
+        <!-- SLIDE  -->
+        <li data-transition="fade">
+          <!-- MAIN IMAGE -->
+          <img src="images/home2-banner1.jpg" alt="" data-bgposition="center center" data-bgfit="cover">
+          <div class="tp-caption tp-resizeme"
+            data-x="right" data-hoffset=""
+            data-y="0" data-voffset="10"
+            data-width="['auto','auto','auto','auto']"
+            data-height="['auto','auto','auto','auto']"
+            data-transform_idle="o:1;"
+            data-transform_in="x:right;s:2000;e:Power4.easeInOut;"
+            data-transform_out="s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+            data-start="3000"
+            data-splitin="none"
+            data-splitout="none"
+            data-responsive_offset="on"
+            style="z-index: 7; white-space: nowrap;">
+            <img src="#" alt="">
+          </div>
+          <!-- LAYER NR. 1 -->
+          <!-- <h3 class="tp-caption tp-resizeme uppercase" 							
                 data-x="left"
                 data-y="185"							
                 data-width="full"
@@ -122,7 +124,7 @@
                 data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" 							 
                 data-start="800">new arrivals
             </h3> -->
-            <!-- <h1 class="tp-caption tp-resizeme uppercase" 							
+          <!-- <h1 class="tp-caption tp-resizeme uppercase" 							
                 data-x="left"
                 data-y="228"							
                 data-width="full"
@@ -133,7 +135,7 @@
               <strong>new style
               </strong> for lamp
             </h1> -->
-            <!-- <div class="tp-caption tp-resizeme" 							
+          <!-- <div class="tp-caption tp-resizeme" 							
                  data-x="left"
                  data-y="415"							
                  data-width="full"
@@ -145,7 +147,7 @@
                 <br>consuetudium lectorum.
               </p>
             </div> -->
-            <!-- <div class="tp-caption tp-resizeme" 							
+          <!-- <div class="tp-caption tp-resizeme" 							
                  data-x="left"
                  data-y="510"							
                  data-width="full"
@@ -219,10 +221,10 @@
           </li>
         </ul>				
       </div> -->
-      <!-- END REVOLUTION SLIDER -->
-    </section>
-    <!--Three Box Products-->
-    <!-- <section id="grid_box">
+          <!-- END REVOLUTION SLIDER -->
+  </section>
+  <!--Three Box Products-->
+  <!-- <section id="grid_box">
       <div class="container">
         <div class="row">
           <div class="col-sm-4">
@@ -275,393 +277,393 @@
         </div>
       </div>
     </section> -->
-    <!--NEW ARRIVALS-->
-    <section id="arrivals" class="padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <h2 class="heading_space uppercase">new arrivals
-            </h2>
-            <p class="bottom_half">Claritas est etiam processus dynamicus, qui sequitur.
-            </p>
-          </div>
+  <!--NEW ARRIVALS-->
+  <section id="arrivals" class="padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2 class="heading_space uppercase">new arrivals
+          </h2>
+          <p class="bottom_half">Claritas est etiam processus dynamicus, qui sequitur.
+          </p>
         </div>
-        <div class="row">
-          <div id="fourCol-slider" class="owl-carousel">
-            <div class="item">
-              <div class="product_wrap">
-                <div class="image">
-                  <div class="social">
-                    <ul>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-expand">
-                          </i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-exchange">
-                          </i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-heart-o">
-                          </i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <a class="fancybox" href="images/product5.jpg">
-                    <img src="images/product5.jpg" alt="Product" class="img-responsive">
-                  </a>
+      </div>
+      <div class="row">
+        <div id="fourCol-slider" class="owl-carousel">
+          <div class="item">
+            <div class="product_wrap">
+              <div class="image">
+                <div class="social">
+                  <ul>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-expand">
+                        </i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-exchange">
+                        </i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-heart-o">
+                        </i>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
-                <div class="product_desc">
-                  <p>Sacrificial Chair Design 
-                  </p>
-                  <span class="price">
-                    <i class="fa fa-gbp">
-                    </i>170.00
-                  </span>
-                  <a class="fancybox" href="images/product5.jpg" data-fancybox-group="gallery">
-                    <i class="fa fa-shopping-bag open">
-                    </i>
-                  </a>
-                </div>
+                <a class="fancybox" href="images/product5.jpg">
+                  <img src="images/product5.jpg" alt="Product" class="img-responsive">
+                </a>
+              </div>
+              <div class="product_desc">
+                <p>Sacrificial Chair Design
+                </p>
+                <span class="price">
+                  <i class="fa fa-gbp">
+                  </i>170.00
+                </span>
+                <a class="fancybox" href="images/product5.jpg" data-fancybox-group="gallery">
+                  <i class="fa fa-shopping-bag open">
+                  </i>
+                </a>
               </div>
             </div>
-            <div class="item">
-              <div class="product_wrap">
-                <div class="image">
-                  <div class="tag">
-                    <div class="tag-btn">
-                      <span class="uppercase text-center">New
-                      </span>
-                    </div>
-                  </div>
-                  <a class="fancybox" href="images/product6.jpg">
-                    <img src="images/product6.jpg" alt="Product" class="img-responsive">
-                  </a>
-                  <div class="social">
-                    <ul>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-expand">
-                          </i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-exchange">
-                          </i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-heart-o">
-                          </i>
-                        </a>
-                      </li>
-                    </ul>
+          </div>
+          <div class="item">
+            <div class="product_wrap">
+              <div class="image">
+                <div class="tag">
+                  <div class="tag-btn">
+                    <span class="uppercase text-center">New
+                    </span>
                   </div>
                 </div>
-                <div class="product_desc">
-                  <p>Sacrificial Chair Design 
-                  </p>
-                  <span class="price">
-                    <i class="fa fa-gbp">
-                    </i>170.00
-                  </span>
-                  <a class="fancybox" href="images/product6.jpg" data-fancybox-group="gallery">
-                    <i class="fa fa-shopping-bag open">
-                    </i>
-                  </a>
+                <a class="fancybox" href="images/product6.jpg">
+                  <img src="images/product6.jpg" alt="Product" class="img-responsive">
+                </a>
+                <div class="social">
+                  <ul>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-expand">
+                        </i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-exchange">
+                        </i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-heart-o">
+                        </i>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
               </div>
-            </div>
-            <div class="item">
-              <div class="product_wrap">
-                <div class="image">
-                  <a class="fancybox" href="images/product7.jpg">
-                    <img src="images/product7.jpg" alt="Product" class="img-responsive">
-                  </a>
-                  <div class="social">
-                    <ul>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-expand">
-                          </i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-exchange">
-                          </i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-heart-o">
-                          </i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="product_desc">
-                  <p>Sacrificial Chair Design 
-                  </p>
-                  <span class="price">
-                    <i class="fa fa-gbp">
-                    </i>170.00
-                  </span>
-                  <a class="fancybox" href="images/product7.jpg" data-fancybox-group="gallery">
-                    <i class="fa fa-shopping-bag open">
-                    </i>
-                  </a>
-                </div>
+              <div class="product_desc">
+                <p>Sacrificial Chair Design
+                </p>
+                <span class="price">
+                  <i class="fa fa-gbp">
+                  </i>170.00
+                </span>
+                <a class="fancybox" href="images/product6.jpg" data-fancybox-group="gallery">
+                  <i class="fa fa-shopping-bag open">
+                  </i>
+                </a>
               </div>
             </div>
-            <div class="item">
-              <div class="product_wrap">
-                <div class="image">
-                  <a class="fancybox" href="images/product8.jpg">
-                    <img src="images/product8.jpg" alt="Product" class="img-responsive">
-                  </a>
-                  <div class="social">
-                    <ul>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-expand">
-                          </i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-exchange">
-                          </i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-heart-o">
-                          </i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="product_desc">
-                  <p>Sacrificial Chair Design 
-                  </p>
-                  <span class="price">
-                    <i class="fa fa-gbp">
-                    </i>170.00
-                  </span>
-                  <a class="fancybox" href="images/product8.jpg" data-fancybox-group="gallery">
-                    <i class="fa fa-shopping-bag open">
-                    </i>
-                  </a>
+          </div>
+          <div class="item">
+            <div class="product_wrap">
+              <div class="image">
+                <a class="fancybox" href="images/product7.jpg">
+                  <img src="images/product7.jpg" alt="Product" class="img-responsive">
+                </a>
+                <div class="social">
+                  <ul>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-expand">
+                        </i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-exchange">
+                        </i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-heart-o">
+                        </i>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
               </div>
-            </div>
-            <div class="item">
-              <div class="product_wrap">
-                <div class="image">
-                  <a class="fancybox" href="images/product1.jpg"> 
-                    <img src="images/product1.jpg" alt="Product" class="img-responsive">
-                  </a>
-                  <div class="social">
-                    <ul>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-expand">
-                          </i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-exchange">
-                          </i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-heart-o">
-                          </i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="product_desc">
-                  <p>Sacrificial Chair Design 
-                  </p>
-                  <span class="price">
-                    <i class="fa fa-gbp">
-                    </i>170.00
-                  </span>
-                  <a class="fancybox" href="images/product1.jpg" data-fancybox-group="gallery">
-                    <i class="fa fa-shopping-bag open">
-                    </i>
-                  </a>
-                </div>
+              <div class="product_desc">
+                <p>Sacrificial Chair Design
+                </p>
+                <span class="price">
+                  <i class="fa fa-gbp">
+                  </i>170.00
+                </span>
+                <a class="fancybox" href="images/product7.jpg" data-fancybox-group="gallery">
+                  <i class="fa fa-shopping-bag open">
+                  </i>
+                </a>
               </div>
             </div>
-            <div class="item">
-              <div class="product_wrap">
-                <div class="image">
-                  <div class="tag">
-                    <div class="tag-btn">
-                      <span class="uppercase text-center">New
-                      </span>
-                    </div>
-                  </div>
-                  <a class="fancybox" href="images/product2.jpg">
-                    <img src="images/product2.jpg" alt="Product" class="img-responsive">
-                  </a>
-                  <div class="social">
-                    <ul>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-expand">
-                          </i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-exchange">
-                          </i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-heart-o">
-                          </i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="product_desc">
-                  <p>Sacrificial Chair Design 
-                  </p>
-                  <span class="price">
-                    <i class="fa fa-gbp">
-                    </i>170.00
-                  </span>
-                  <a class="fancybox" href="images/product2.jpg" data-fancybox-group="gallery">
-                    <i class="fa fa-shopping-bag open">
-                    </i>
-                  </a>
+          </div>
+          <div class="item">
+            <div class="product_wrap">
+              <div class="image">
+                <a class="fancybox" href="images/product8.jpg">
+                  <img src="images/product8.jpg" alt="Product" class="img-responsive">
+                </a>
+                <div class="social">
+                  <ul>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-expand">
+                        </i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-exchange">
+                        </i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-heart-o">
+                        </i>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
               </div>
-            </div>
-            <div class="item">
-              <div class="product_wrap">
-                <div class="image">
-                  <div class="tag">
-                    <div class="tag-btn">
-                      <span class="uppercase text-center">New
-                      </span>
-                    </div>
-                  </div>
-                  <a class="fancybox" href="images/product3.jpg">
-                    <img src="images/product3.jpg" alt="Product" class="img-responsive">
-                  </a>
-                  <div class="social">
-                    <ul>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-expand">
-                          </i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-exchange">
-                          </i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-heart-o">
-                          </i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="product_desc">
-                  <p>Sacrificial Chair Design 
-                  </p>
-                  <span class="price">
-                    <i class="fa fa-gbp">
-                    </i>170.00
-                  </span>
-                  <a class="fancybox" href="images/product3.jpg" data-fancybox-group="gallery">
-                    <i class="fa fa-shopping-bag open">
-                    </i>
-                  </a>
-                </div>
+              <div class="product_desc">
+                <p>Sacrificial Chair Design
+                </p>
+                <span class="price">
+                  <i class="fa fa-gbp">
+                  </i>170.00
+                </span>
+                <a class="fancybox" href="images/product8.jpg" data-fancybox-group="gallery">
+                  <i class="fa fa-shopping-bag open">
+                  </i>
+                </a>
               </div>
             </div>
-            <div class="item">
-              <div class="product_wrap">
-                <div class="image">
-                  <div class="tag">
-                    <div class="tag-btn">
-                      <span class="uppercase text-center">New
-                      </span>
-                    </div>
-                  </div>
-                  <a class="fancybox" href="images/product4.jpg">
-                    <img src="images/product4.jpg" alt="Product" class="img-responsive">
-                  </a>
-                  <div class="social">
-                    <ul>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-expand">
-                          </i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-exchange">
-                          </i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#.">
-                          <i class="fa fa-heart-o">
-                          </i>
-                        </a>
-                      </li>
-                    </ul>
+          </div>
+          <div class="item">
+            <div class="product_wrap">
+              <div class="image">
+                <a class="fancybox" href="images/product1.jpg">
+                  <img src="images/product1.jpg" alt="Product" class="img-responsive">
+                </a>
+                <div class="social">
+                  <ul>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-expand">
+                        </i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-exchange">
+                        </i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-heart-o">
+                        </i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="product_desc">
+                <p>Sacrificial Chair Design
+                </p>
+                <span class="price">
+                  <i class="fa fa-gbp">
+                  </i>170.00
+                </span>
+                <a class="fancybox" href="images/product1.jpg" data-fancybox-group="gallery">
+                  <i class="fa fa-shopping-bag open">
+                  </i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="product_wrap">
+              <div class="image">
+                <div class="tag">
+                  <div class="tag-btn">
+                    <span class="uppercase text-center">New
+                    </span>
                   </div>
                 </div>
-                <div class="product_desc">
-                  <p>Sacrificial Chair Design 
-                  </p>
-                  <span class="price">
-                    <i class="fa fa-gbp">
-                    </i>170.00
-                  </span>
-                  <a class="fancybox" href="images/product4.jpg" data-fancybox-group="gallery">
-                    <i class="fa fa-shopping-bag open">
-                    </i>
-                  </a>
+                <a class="fancybox" href="images/product2.jpg">
+                  <img src="images/product2.jpg" alt="Product" class="img-responsive">
+                </a>
+                <div class="social">
+                  <ul>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-expand">
+                        </i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-exchange">
+                        </i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-heart-o">
+                        </i>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
+              </div>
+              <div class="product_desc">
+                <p>Sacrificial Chair Design
+                </p>
+                <span class="price">
+                  <i class="fa fa-gbp">
+                  </i>170.00
+                </span>
+                <a class="fancybox" href="images/product2.jpg" data-fancybox-group="gallery">
+                  <i class="fa fa-shopping-bag open">
+                  </i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="product_wrap">
+              <div class="image">
+                <div class="tag">
+                  <div class="tag-btn">
+                    <span class="uppercase text-center">New
+                    </span>
+                  </div>
+                </div>
+                <a class="fancybox" href="images/product3.jpg">
+                  <img src="images/product3.jpg" alt="Product" class="img-responsive">
+                </a>
+                <div class="social">
+                  <ul>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-expand">
+                        </i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-exchange">
+                        </i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-heart-o">
+                        </i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="product_desc">
+                <p>Sacrificial Chair Design
+                </p>
+                <span class="price">
+                  <i class="fa fa-gbp">
+                  </i>170.00
+                </span>
+                <a class="fancybox" href="images/product3.jpg" data-fancybox-group="gallery">
+                  <i class="fa fa-shopping-bag open">
+                  </i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="product_wrap">
+              <div class="image">
+                <div class="tag">
+                  <div class="tag-btn">
+                    <span class="uppercase text-center">New
+                    </span>
+                  </div>
+                </div>
+                <a class="fancybox" href="images/product4.jpg">
+                  <img src="images/product4.jpg" alt="Product" class="img-responsive">
+                </a>
+                <div class="social">
+                  <ul>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-expand">
+                        </i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-exchange">
+                        </i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#.">
+                        <i class="fa fa-heart-o">
+                        </i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="product_desc">
+                <p>Sacrificial Chair Design
+                </p>
+                <span class="price">
+                  <i class="fa fa-gbp">
+                  </i>170.00
+                </span>
+                <a class="fancybox" href="images/product4.jpg" data-fancybox-group="gallery">
+                  <i class="fa fa-shopping-bag open">
+                  </i>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!--Special Design Product-->
-    <!-- <section>
+    </div>
+  </section>
+  <!--Special Design Product-->
+  <!-- <section>
       <div class="container">
         <div class="row">
           <div class="design clearfix">
@@ -785,144 +787,147 @@
         </div>
       </div>
     </section> -->
-    <!--FEATURED PRODUCTS-->
-    <section id="featured_product" class="padding_top">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <h2 class="heading_space uppercase">featured products
-            </h2>
-            <p class="bottom_half">Claritas est etiam processus dynamicus, qui sequitur.
-            </p>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="product_wrap bottom_half">
-              <div class="image">
-                <div class="tag">
-                  <div class="tag-btn">
-                    <span class="uppercase text-center">New
-                    </span>
-                  </div>
+  <!--FEATURED PRODUCTS-->
+  <section id="featured_product" class="padding_top">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2 class="heading_space uppercase">featured products
+          </h2>
+          <p class="bottom_half">Claritas est etiam processus dynamicus, qui sequitur.
+          </p>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="product_wrap bottom_half">
+            <div class="image">
+              <div class="tag">
+                <div class="tag-btn">
+                  <span class="uppercase text-center">New
+                  </span>
                 </div>
-                <a class="fancybox" href="images/product1.jpg">
-                  <img src="images/product1.jpg" alt="Product" class="img-responsive">
-                </a>
               </div>
-              <div class="product_desc">
-                <p>Sacrificial Chair Design 
-                </p>
-                <span class="price">
-                  <i class="fa fa-gbp">
-                  </i>170.00
-                </span>
-                <a class="fancybox" href="images/product1.jpg" data-fancybox-group="gallery">
-                  <i class="fa fa-shopping-bag open">
-                  </i>
-                </a>
-              </div>
+              <a class="fancybox" href="images/product1.jpg">
+                <img src="images/product1.jpg" alt="Product" class="img-responsive">
+              </a>
+            </div>
+            <div class="product_desc">
+              <p>Sacrificial Chair Design
+              </p>
+              <span class="price">
+                <i class="fa fa-gbp">
+                </i>170.00
+              </span>
+              <a class="fancybox" href="images/product1.jpg" data-fancybox-group="gallery">
+                <i class="fa fa-shopping-bag open">
+                </i>
+              </a>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="product_wrap bottom_half">
-              <div class="image">
-                <a class="fancybox" href="images/product2.jpg">
-                  <img src="images/product2.jpg" alt="Product" class="img-responsive">
-                </a>
-              </div>
-              <div class="product_desc">
-                <p>Sacrificial Chair Design 
-                </p>
-                <span class="price">
-                  <i class="fa fa-gbp">
-                  </i>170.00
-                </span>
-                <a class="fancybox" href="images/product2.jpg" data-fancybox-group="gallery">
-                  <i class="fa fa-shopping-bag open">
-                  </i>
-                </a>
-              </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="product_wrap bottom_half">
+            <div class="image">
+              <a class="fancybox" href="images/product2.jpg">
+                <img src="images/product2.jpg" alt="Product" class="img-responsive">
+              </a>
+            </div>
+            <div class="product_desc">
+              <p>Sacrificial Chair Design
+              </p>
+              <span class="price">
+                <i class="fa fa-gbp">
+                </i>170.00
+              </span>
+              <a class="fancybox" href="images/product2.jpg" data-fancybox-group="gallery">
+                <i class="fa fa-shopping-bag open">
+                </i>
+              </a>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="product_wrap bottom_half">
-              <div class="image">
-                <div class="tag">
-                  <div class="tag-btn">
-                    <span class="uppercase text-center">New
-                    </span>
-                  </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="product_wrap bottom_half">
+            <div class="image">
+              <div class="tag">
+                <div class="tag-btn">
+                  <span class="uppercase text-center">New
+                  </span>
                 </div>
-                <a class="fancybox" href="images/product3.jpg">
-                  <img src="images/product3.jpg" alt="Product" class="img-responsive">
-                </a>
               </div>
-              <div class="product_desc">
-                <p>Sacrificial Chair Design 
-                </p>
-                <span class="price">
-                  <i class="fa fa-gbp">
-                  </i>170.00
-                </span>
-                <a class="fancybox" href="images/product3.jpg" data-fancybox-group="gallery">
-                  <i class="fa fa-shopping-bag open">
-                  </i>
-                </a>
-              </div>
+              <a class="fancybox" href="images/product3.jpg">
+                <img src="images/product3.jpg" alt="Product" class="img-responsive">
+              </a>
+            </div>
+            <div class="product_desc">
+              <p>Sacrificial Chair Design
+              </p>
+              <span class="price">
+                <i class="fa fa-gbp">
+                </i>170.00
+              </span>
+              <a class="fancybox" href="images/product3.jpg" data-fancybox-group="gallery">
+                <i class="fa fa-shopping-bag open">
+                </i>
+              </a>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="product_wrap bottom_half">
-              <div class="image">
-                <a class="fancybox" href="images/product4.jpg">
-                  <img src="images/product4.jpg" alt="Product" class="img-responsive">
-                </a>
-              </div>
-              <div class="product_desc">
-                <p>Sacrificial Chair Design 
-                </p>
-                <span class="price">
-                  <i class="fa fa-gbp">
-                  </i>170.00
-                </span>
-                <a class="fancybox" href="images/product4.jpg" data-fancybox-group="gallery">
-                  <i class="fa fa-shopping-bag open">
-                  </i>
-                </a>
-              </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="product_wrap bottom_half">
+            <div class="image">
+              <a class="fancybox" href="images/product4.jpg">
+                <img src="images/product4.jpg" alt="Product" class="img-responsive">
+              </a>
+            </div>
+            <div class="product_desc">
+              <p>Sacrificial Chair Design
+              </p>
+              <span class="price">
+                <i class="fa fa-gbp">
+                </i>170.00
+              </span>
+              <a class="fancybox" href="images/product4.jpg" data-fancybox-group="gallery">
+                <i class="fa fa-shopping-bag open">
+                </i>
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <style>
-        .containercc {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            margin: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
-        .text123 {
-            flex: 1;
-            margin-right: 20px;
-        }
-        .image22 {
-            flex-shrink: 0;
-            width: 150px; /* Adjust the image width as needed */
-            height: auto;
-        }
-    </style>
-
-    <div class="containercc">
-        <div class="text123">
-            <p>This is some text on the left side. Add any content or text you'd like here.</p>
-        </div>
-        <img class="image22" src="path/to/your/image.jpg" alt="Example Image">
     </div>
-    <!--Slogan-->
-    <!-- <section id="slogan">
+  </section>
+  <style>
+    .containercc {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      margin: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .text123 {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .image22 {
+      flex-shrink: 0;
+      width: 150px;
+      /* Adjust the image width as needed */
+      height: auto;
+    }
+  </style>
+
+  <div class="containercc">
+    <div class="text123">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quas temporibus ad error assumenda omnis perferendis corrupti cupiditate cum dolores nesciunt repellendus ipsam sit dicta vitae modi, in voluptatum fugit eos aliquam ratione fugiat illum! Quibusdam iste expedita, ipsa modi non exercitationem sint aspernatur neque quae quod culpa quisquam in. Earum quis sapiente laborum magnam quae fugit sint corrupti quas eos libero. Harum omnis similique debitis cupiditate autem repellendus reprehenderit ipsam asperiores, ut eligendi quam odit eum blanditiis saepe nisi? Nemo placeat quae rerum aliquid aspernatur deleniti, maxime similique? Ea autem odit quaerat voluptatum totam, nobis accusantium praesentium ipsam fuga?</p>
+    </div>
+    <img class="image22" src="https://picsum.photos/200/300" alt="Example Image">
+  </div>
+  <!--Slogan-->
+  <!-- <section id="slogan">
       <div class="container sloganBg">
         <div class="row">
           <div class="col-md-12">
@@ -942,8 +947,8 @@
         </div>
       </div>
     </section> -->
-    <!--OUR BLOG-->
-    <!-- <section id="blog" class="padding">
+  <!--OUR BLOG-->
+  <!-- <section id="blog" class="padding">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
@@ -1007,51 +1012,51 @@
         </div>
       </div>
     </section> -->
-    <!--BRANDS-->
-    <section id="brands" class="padding_bottom">
-      <h3 class="hidden">hidden
-      </h3>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div id="brand-slider" class="owl-carousel">
-              <div class="item text-center">
-                <img src="images/logo1.png" alt="Brand Logo">
-              </div>
-              <div class="item text-center">
-                <img src="images/logo2.png" alt="Brand Logo">
-              </div>
-              <div class="item text-center">
-                <img src="images/logo3.png" alt="Brand Logo">
-              </div>
-              <div class="item text-center">
-                <img src="images/logo4.png" alt="Brand Logo">
-              </div>
-              <div class="item text-center">
-                <img src="images/logo5.png" alt="Brand Logo">
-              </div>
-              <div class="item text-center">
-                <img src="images/logo1.png" alt="Brand Logo">
-              </div>
-              <div class="item text-center">
-                <img src="images/logo2.png" alt="Brand Logo">
-              </div>
-              <div class="item text-center">
-                <img src="images/logo3.png" alt="Brand Logo">
-              </div>
-              <div class="item text-center">
-                <img src="images/logo4.png" alt="Brand Logo">
-              </div>
-              <div class="item text-center">
-                <img src="images/logo5.png" alt="Brand Logo">
-              </div>
+  <!--BRANDS-->
+  <section id="brands" class="padding_bottom">
+    <h3 class="hidden">hidden
+    </h3>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="brand-slider" class="owl-carousel">
+            <div class="item text-center">
+              <img src="images/logo1.png" alt="Brand Logo">
+            </div>
+            <div class="item text-center">
+              <img src="images/logo2.png" alt="Brand Logo">
+            </div>
+            <div class="item text-center">
+              <img src="images/logo3.png" alt="Brand Logo">
+            </div>
+            <div class="item text-center">
+              <img src="images/logo4.png" alt="Brand Logo">
+            </div>
+            <div class="item text-center">
+              <img src="images/logo5.png" alt="Brand Logo">
+            </div>
+            <div class="item text-center">
+              <img src="images/logo1.png" alt="Brand Logo">
+            </div>
+            <div class="item text-center">
+              <img src="images/logo2.png" alt="Brand Logo">
+            </div>
+            <div class="item text-center">
+              <img src="images/logo3.png" alt="Brand Logo">
+            </div>
+            <div class="item text-center">
+              <img src="images/logo4.png" alt="Brand Logo">
+            </div>
+            <div class="item text-center">
+              <img src="images/logo5.png" alt="Brand Logo">
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!--NEWSLETER-->
-    <!-- <section id="newsletter" class="padding">
+    </div>
+  </section>
+  <!--NEWSLETER-->
+  <!-- <section id="newsletter" class="padding">
       <div class="container">
         <div class="row">
           <div class="col-md-2">
@@ -1080,8 +1085,8 @@
         </div>
       </div>
     </section> -->
-    <!--Testinomial-->
-    <!-- <section id="testinomial" class="padding">
+  <!--Testinomial-->
+  <!-- <section id="testinomial" class="padding">
       <div class="container">
         <div class="row">
           <div class="col-md-1">
@@ -1163,47 +1168,48 @@
         </div>
       </div>
     </section> -->
-    <!--Footer-->
-<?php include("inc_files/footer.php");?>
-    <script src="js/jquery-2.2.3.js">
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOBKD6V47-g_3opmidcmFapb3kSNAR70U">
-    </script>
-    <script src="js/gmap3.min.js">
-    </script>
-    <script src="js/bootstrap.min.js">
-    </script>
-    <script src="js/bootsnav.js">
-    </script>
-    <script src="js/jquery.parallax-1.1.3.js">
-    </script>
-    <script src="js/jquery.appear.js">
-    </script>
-    <script src="js/owl.carousel.min.js">
-    </script>
-    <script src="js/jquery.cubeportfolio.min.js">
-    </script>
-    <script src="js/jquery.fancybox.js">
-    </script>
-    <script src="js/jquery.themepunch.tools.min.js">
-    </script>
-    <script src="js/jquery.themepunch.revolution.min.js">
-    </script>
-    <script src="js/revolution.extension.layeranimation.min.js">
-    </script>
-    <script src="js/revolution.extension.navigation.min.js">
-    </script>
-    <script src="js/revolution.extension.parallax.min.js">
-    </script>
-    <script src="js/revolution.extension.slideanims.min.js">
-    </script>
-    <script src="js/revolution.extension.video.min.js">
-    </script>
-    <script src="js/kinetic.js">
-    </script>
-    <script src="js/jquery.final-countdown.js">
-    </script>
-    <script src="js/functions.js">
-    </script>
-  </body>
+  <!--Footer-->
+  <?php include("inc_files/footer.php"); ?>
+  <script src="js/jquery-2.2.3.js">
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOBKD6V47-g_3opmidcmFapb3kSNAR70U">
+  </script>
+  <script src="js/gmap3.min.js">
+  </script>
+  <script src="js/bootstrap.min.js">
+  </script>
+  <script src="js/bootsnav.js">
+  </script>
+  <script src="js/jquery.parallax-1.1.3.js">
+  </script>
+  <script src="js/jquery.appear.js">
+  </script>
+  <script src="js/owl.carousel.min.js">
+  </script>
+  <script src="js/jquery.cubeportfolio.min.js">
+  </script>
+  <script src="js/jquery.fancybox.js">
+  </script>
+  <script src="js/jquery.themepunch.tools.min.js">
+  </script>
+  <script src="js/jquery.themepunch.revolution.min.js">
+  </script>
+  <script src="js/revolution.extension.layeranimation.min.js">
+  </script>
+  <script src="js/revolution.extension.navigation.min.js">
+  </script>
+  <script src="js/revolution.extension.parallax.min.js">
+  </script>
+  <script src="js/revolution.extension.slideanims.min.js">
+  </script>
+  <script src="js/revolution.extension.video.min.js">
+  </script>
+  <script src="js/kinetic.js">
+  </script>
+  <script src="js/jquery.final-countdown.js">
+  </script>
+  <script src="js/functions.js">
+  </script>
+</body>
+
 </html>

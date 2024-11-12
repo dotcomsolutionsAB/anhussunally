@@ -140,24 +140,25 @@
 
         <div class="col-md-4">
           <div class="contact_detail padding_bottom">
-            <h3 class="uppercase heading bottom30">Get office info.</h3>
-            <p class="bottom30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accum</p>
+            <h3 class="uppercase heading bottom30">Get Office Info.</h3>
+            <p class="bottom30">Pioneering the hydraulics market in Eastern India, the 100-year old A.N. Hussunally & Co. has today emerged as among the market leaders in providing customers with holistic hydraulic solutions.</p>
             <div class="address bottom30">
               <i class="fa fa-map-marker"></i>
               <h5 class="uppercase">Our Address</h5>
-              <p>1234 Heaven Stress, Beverly Hill.</p>
+              <p>Hussunally Buildings<br>
+                Post Box No. 68628,
+                Strand Road, Kolkata
+                West Bengal-700 001.</p>
             </div>
             <div class="address bottom30">
               <i class="fa  fa-phone"></i>
               <h5 class="uppercase">Phone Number</h5>
-              <p>1234 Heaven Stress, Beverly Hill.</p>
+              <p>+91-33-2230 4140</p>
             </div>
             <div class="address">
               <i class="fa fa-envelope-o"></i>
               <h5 class="uppercase">Email Address</h5>
-              <p>Email: <a href="#.">Erentheme@gmail.com</a>
-              </p>
-              <p>Email: <a href="#.">Erentheme@gmail.com</a>
+              <p>Email: <a href="mailto:hussunally@gmail.com.">hussunally@gmail.com</a>
               </p>
             </div>
           </div>

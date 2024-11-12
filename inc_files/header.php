@@ -19,7 +19,7 @@
                 </a>
               </li>
               <li class="dropdown">
-                <a href="#." class="dropdown-toggle" data-toggle="dropdown">Products
+                <a href="#." class="dropdown-toggle" data-toggle="dropdown">Brands
                 </a>
                 <ul class="dropdown-menu">
                   <li>

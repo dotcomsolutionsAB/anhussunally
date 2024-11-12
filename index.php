@@ -895,7 +895,7 @@
       </div>
     </section>
     <style>
-        .container {
+        .containercc {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -904,23 +904,22 @@
             border: 1px solid #ddd;
             border-radius: 8px;
         }
-        .text {
+        .text123 {
             flex: 1;
             margin-right: 20px;
         }
-        .image {
+        .image22 {
             flex-shrink: 0;
             width: 150px; /* Adjust the image width as needed */
             height: auto;
         }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="text">
+
+    <div class="containercc">
+        <div class="text123">
             <p>This is some text on the left side. Add any content or text you'd like here.</p>
         </div>
-        <img class="image" src="path/to/your/image.jpg" alt="Example Image">
+        <img class="image22" src="path/to/your/image.jpg" alt="Example Image">
     </div>
     <!--Slogan-->
     <!-- <section id="slogan">

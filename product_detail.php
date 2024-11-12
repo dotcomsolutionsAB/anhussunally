@@ -100,7 +100,7 @@
   </section>
 
 
-  <!--Cart Detail -->
+
   <section id="cart" class="padding_bottom">
     <div class="container">
       <div class="row">

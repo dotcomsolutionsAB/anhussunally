@@ -31,12 +31,12 @@
 <body>
 
   <!--Loader-->
-  <div class="loader">
+  <!-- <div class="loader">
     <div class="spinner-load">
       <div class="dot1"></div>
       <div class="dot2"></div>
     </div>
-  </div>
+  </div> -->
 
 
   <!--TOPBAR-->
@@ -89,7 +89,7 @@
       <div class="header_content padding">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h1 class="uppercase"> Contact us</h1>
+            <h1 class="uppercase"> Contact Us</h1>
             <p>Celebrating 100 years of Trust</p>
           </div>
         </div>

@@ -110,6 +110,47 @@
   </div>
 </section>
 
+<style>
+        .section {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 20px;
+        }
+        .column {
+            flex: 1;
+            min-width: 280px;
+            padding: 10px;
+        }
+        .image-container {
+            text-align: center;
+        }
+        .image-container img {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+        }
+        .text-container {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <div class="column image-container">
+            <img src="https://www.anhussunally.com/wp-content/uploads/2021/08/alfomega2.png" alt="ALFOMEGA Pipe Clamps" width="280" height="200">
+        </div>
+        <div class="column text-container">
+            <p>ALFOMEGA vibration-dampening pipe clamps are manufactured in different series for use in many different applications. The core range of pipe clamps encompasses Standard Series, Heavy Series, and Twin Series. They meet ASTM, Shipbuilding, Nuclear, Coast Guard, and other specifications. In addition to these main types of pipe clamps, ALFOMEGA also manufactures other clamping components and hardware. For large diameter pipes, ALFOMEGA patented Heavy Four Series offers unparalleled performance in securing and vibration dampening, as well as electrical isolation of piping from support structure.</p>
+        </div>
+    </section>
+</body>
+
 
 <section class="grid padding">
   <div class="container">

@@ -674,24 +674,24 @@
             <div class="tag-btn"><span class="uppercase text-center">New</span>
             </div>
             <div class="image">
-              <a class="fancybox" href="images/h04732a.jpg"><img src="images/h04732a.jpg" alt="Product" class="img-responsive">
+              <a class="fancybox" href="images/h04732a.jpg"><img src="images/Pipe_Clamps_Archive.jpg" alt="Product" class="img-responsive">
               </a>
             </div>
             <div class="product_desc">
               <p class="title">7TR/AM/PCS - Tube and Pipe Clamps </p>
-              <a class="fancybox" href="images/h04732a.jpg" data-fancybox-group="gallery"></a>
+              <a class="fancybox" href="images/Pipe_Clamps_Archive.jpg" data-fancybox-group="gallery"></a>
             </div>
           </div>
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="product_wrap bottom_half">
             <div class="image">
-              <a class="fancybox" href="images/Twin_Clamps.jpg"><img src="images/Twin_Clamps.jpg" alt="Product" class="img-responsive">
+              <a class="fancybox" href="images/Twin_Clamps.jpg"><img src="images/Twin_Clamps_Archive.jpg" alt="Product" class="img-responsive">
               </a>
             </div>
             <div class="product_desc">
               <p class="title">Twin Clamps</p>
-              <a class="fancybox" href="images/Twin_Clamps.jpg" data-fancybox-group="gallery"></a>
+              <a class="fancybox" href="images/Twin_Clamps_Archive.jpg" data-fancybox-group="gallery"></a>
             </div>
           </div>
         </div>

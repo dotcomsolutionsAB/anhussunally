@@ -7,21 +7,24 @@
         <div class="row">
           <div class="col-md-3 col-sm-6">
             <div class="footer_panel content_space">
-              <h4 class="heading_border heading_space">about store
+              <h4 class="heading_border heading_space">Contact Us
               </h4>
               <ul class="about_foot">
                 <li>
                   <i class="fa fa-home">
-                  </i>234 Heaven Stress, Beverly Hill.
+                  </i>Hussunally Buildings
+                      Post Box No. 68628,
+                      Strand Road, Kolkata
+                      West Bengal-700 001..
                 </li>
                 <li>
                   <i class="fa fa-phone">
-                  </i>800) 123 456 789
+                  </i>+91-33-2230 4140
                 </li>
                 <li>
                   <a href="#.">
                     <i class="fa fa-envelope-o">
-                    </i>Contact@erentheme.com
+                    </i>hussunally@gmail.com
                   </a>
                 </li>
                 <li>

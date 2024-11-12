@@ -27,10 +27,10 @@
                     </i>hussunally@gmail.com
                   </a>
                 </li>
-                <!-- <li>
-                  <span>
+                <li>
+                  <!-- <span>
                     <img src="images/paymennt1.png" alt="payment">
-                  </span> 
+                  </span>  -->
                   <span>
                     <img src="images/payment2.png" alt="payment">
                   </span> 
@@ -43,7 +43,7 @@
                   <span>
                     <img src="images/payment5.png" alt="payment">
                   </span>
-                </li> -->
+                </li>
               </ul>
             </div>
           </div>

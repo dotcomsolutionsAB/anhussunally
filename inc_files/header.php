@@ -124,7 +124,7 @@
                 </a>
               </li>
               <li>
-                <a href="contact.php">contact us
+                <a href="contact_us.php">contact us
                 </a>
               </li>
             </ul>

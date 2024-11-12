@@ -222,7 +222,7 @@
       <!-- END REVOLUTION SLIDER -->
     </section>
     <!--Three Box Products-->
-    <section id="grid_box">
+    <!-- <section id="grid_box">
       <div class="container">
         <div class="row">
           <div class="col-sm-4">
@@ -274,7 +274,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!--NEW ARRIVALS-->
     <section id="arrivals" class="padding">
       <div class="container">

@@ -156,7 +156,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-8">
-        <div class="shop-grid-controls">
+        <!-- <div class="shop-grid-controls">
           <a class="side-button bottom30" href="#.">
             Show Sidebar
           </a>
@@ -183,7 +183,7 @@
       </div>
       <div class="col-sm-4 text-right">
          <h5 class="result uppercase bottom30">Showing 1-12 of 20 relults</h5>
-      </div>
+      </div> -->
     </div>  
     <div class="row shop-grid grid-view">
       <div class="col-md-3 col-sm-6">

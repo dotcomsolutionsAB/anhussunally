@@ -102,8 +102,8 @@
       <div class="col-md-12">
         <h3 class="hidden">hidden</h3>
         <ul class="breadcrumb">
-          <li><a href="index.html">Home</a></li>
-          <li class="active">Products</li>
+          <li><a href="index.php">Home</a></li>
+          <li class="active">Alfomega Pipe Clamps</li>
         </ul>
       </div>
     </div>

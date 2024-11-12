@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <title>Eren | Contact</title>
+  <title>Contact Us</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/animate.min.css">
@@ -90,7 +90,7 @@
         <div class="row">
           <div class="col-md-12 text-center">
             <h1 class="uppercase"> Contact us</h1>
-            <p>Typi non habent claritatem insitam.</p>
+            <p>Celebrating 100 years of Trust</p>
           </div>
         </div>
       </div>
@@ -103,7 +103,7 @@
         <div class="col-md-12">
           <h3 class="hidden">hidden</h3>
           <ul class="breadcrumb">
-            <li><a href="index.html">Home</a>
+            <li><a href="index.php">Home</a>
             </li>
             <li class="active">Contact us</li>
           </ul>

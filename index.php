@@ -898,37 +898,24 @@
   </section>
   <style>
   /* Container Styling */
+  <style>
+  /* Container Styling */
   .containercc {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    margin: 20px;
-    border-radius: 8px;
+    margin: 0; /* Remove margin to stretch the container full width */
+    border-radius: 0; /* Remove border radius */
     height: 100vh; /* Full view height */
-    background: linear-gradient(135deg, #f5f7fa 25%, #c3cfe2 100%); /* Background gradient */
+    background: linear-gradient(135deg, #f5f7fa 25%, #c3cfe2 100%); /* Full-width background gradient */
     overflow: hidden;
-    position: relative;
-  }
-
-  /* Background Design Elements */
-  .background-elements {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-    background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); /* Example pattern */
-    opacity: 0.1; /* Subtle design effect */
   }
 
   /* Text Section Styling */
   .text123 {
     flex: 1;
     padding: 20px;
-    z-index: 1; /* Make sure the text is above the background */
     color: #333;
     font-size: 16px;
     line-height: 1.6;
@@ -937,23 +924,13 @@
   /* Image Styling */
   .image22 {
     flex: 1;
-    max-width: 100%;
-    height: auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for zoom and shadow */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
-    border-radius: 8px;
-    z-index: 1;
-  }
-
-  /* Hover Effect on Image */
-  .image22:hover {
-    transform: scale(1.1); /* Zoom effect */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    width: 100%; /* Make the image occupy the full width of its section */
+    height: 100%; /* Stretch the image to fill the height of the container */
+    object-fit: cover; /* Make the image cover its container */
   }
 </style>
 
 <div class="containercc">
-  <div class="background-elements"></div> <!-- Background Design -->
   <div class="text123">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quas temporibus ad error assumenda omnis perferendis corrupti cupiditate cum dolores nesciunt repellendus ipsam sit dicta vitae modi, in voluptatum fugit eos aliquam ratione fugiat illum! Quibusdam iste expedita, ipsa modi non exercitationem sint aspernatur neque quae quod culpa quisquam in. Earum quis sapiente laborum magnam quae fugit sint corrupti quas eos libero. Harum omnis similique debitis cupiditate autem repellendus reprehenderit ipsam asperiores, ut eligendi quam odit eum blanditiis saepe nisi? Nemo placeat quae rerum aliquid aspernatur deleniti, maxime similique? Ea autem odit quaerat voluptatum totam, nobis accusantium praesentium ipsam fuga?</p>
   </div>

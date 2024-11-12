@@ -2331,7 +2331,7 @@ input[type="number"] {
 /* ------------------ Footer  ------------------ */
 footer{
 	width:100%;
-	background:url(../images/pattern.jpg) no-repeat;
+	background:url() no-repeat;
 	background-size:cover;
 	background-position:center top;
 	color:#fff;

@@ -2338,14 +2338,14 @@ footer{
 	position:relative;
 }
 footer.plain_footer{
-	background:url() no-repeat;
+	background:url(../images/footer-plan.jpg) no-repeat;
 	background-size:cover;
 }
 .footer_panel h4{
 	text-transform:uppercase;
 }
 .footer_panel .about_foot{
-	background:url() no-repeat;
+	background:url(../images/map-footer.png) no-repeat;
 	background-size:cover;
 }
 .footer_panel .about_foot li{

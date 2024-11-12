@@ -112,37 +112,6 @@
                  style="z-index: 7; white-space: nowrap;">
               <img src="#" alt="" >
             </div>
-            <div class="tp-caption tp-resizeme"
-                 data-x="right" data-hoffset="" 
-                 data-y="0" data-voffset="10" 
-                 data-width="['auto','auto','auto','auto']"
-                 data-height="['auto','auto','auto','auto']"
-                 data-transform_idle="o:1;"
-                 data-transform_in="x:right;s:2000;e:Power4.easeInOut;" 
-                 data-transform_out="s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                 data-start="3000" 
-                 data-splitin="none" 
-                 data-splitout="none" 
-                 data-responsive_offset="on" 
-                 style="z-index: 7; white-space: nowrap;">
-              <img src="#" alt="" >
-            </div>
-            <img src="images/home2-banner2.jpg" alt="" data-bgposition="center center" data-bgfit="cover">
-            <div class="tp-caption tp-resizeme"
-                 data-x="right" data-hoffset="" 
-                 data-y="0" data-voffset="10" 
-                 data-width="['auto','auto','auto','auto']"
-                 data-height="['auto','auto','auto','auto']"
-                 data-transform_idle="o:1;"
-                 data-transform_in="x:right;s:2000;e:Power4.easeInOut;" 
-                 data-transform_out="s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                 data-start="3000" 
-                 data-splitin="none" 
-                 data-splitout="none" 
-                 data-responsive_offset="on" 
-                 style="z-index: 7; white-space: nowrap;">
-              <img src="#" alt="" >
-            </div>	
             <!-- LAYER NR. 1 -->
             <!-- <h3 class="tp-caption tp-resizeme uppercase" 							
                 data-x="left"

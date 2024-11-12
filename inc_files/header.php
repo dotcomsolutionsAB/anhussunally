@@ -21,7 +21,7 @@
               <li class="dropdown">
                 <a href="#." class="dropdown-toggle" data-toggle="dropdown">Brands
                 </a>
-                <ul class="dropdown-menu">
+                <!-- <ul class="dropdown-menu">
                   <li>
                     <a href="grid.php">Grid Default
                     </a>
@@ -38,7 +38,7 @@
                     <a href="list_sidebar.php">Lists Sidebar
                     </a>
                   </li>
-                </ul>
+                </ul> -->
               </li>
               <!-- <li>
                 <a href="#.">collection

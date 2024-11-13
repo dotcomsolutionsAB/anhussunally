@@ -105,7 +105,10 @@ if ($result && $result->num_rows > 0) {
                 $shopLines[] = "<li>" . htmlspecialchars($csvData["Shop_Line $i"]) . "</li>";
             }
         }
-        $shopLinesHtml = empty($shopLines) ? '[]' : '[' . implode(', ', $shopLines) . ']'; // Database column: 'shop_lines'
+        $shopLinesHtml = json_encode($shopLines); // Encode as JSON
+        if ($shopLinesHtml === false) {
+            $shopLinesHtml = '[]'; // Default to an empty JSON array if encoding fails
+        }
 
         // Show data fields for clarity
         // echo "Inserting Data for SKU: $sku\n";

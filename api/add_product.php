@@ -48,11 +48,31 @@ if ($result && $result->num_rows > 0) {
         // Mandatory fields
         $sku = $csvData['SKU'] ?? '';
         $productName = $csvData['Product Name'] ?? '';
+        $brand = $csvData['Brand'] ?? '';
+        $category = $csvData['Category'] ?? '';
 
-        if (empty($sku) || empty($productName)) {
+        if (empty($sku) || empty($productName) || empty($brand) || empty($category)) {
             $failedRows++;
-            continue; // Skip if mandatory fields are missing
+            continue; // Skip if any mandatory fields are missing
         }
+
+        // Features as HTML list
+        $features = [];
+        for ($i = 1; $i <= 12; $i++) {
+            if (!empty($csvData["Features $i"])) {
+                $features[] = "<li>" . htmlspecialchars($csvData["Features $i"]) . "</li>";
+            }
+        }
+        $featuresHtml = '[' . implode(', ', $features) . ']';
+
+        // Shop lines as HTML list
+        $shopLines = [];
+        for ($i = 1; $i <= 6; $i++) {
+            if (!empty($csvData["Shop_Line $i"])) {
+                $shopLines[] = "<li>" . htmlspecialchars($csvData["Shop_Line $i"]) . "</li>";
+            }
+        }
+        $shopLinesHtml = '[' . implode(', ', $shopLines) . ']';
 
         // Check if the product already exists in the database
         $checkQuery = "SELECT * FROM products WHERE sku = ? AND name = ?";
@@ -89,28 +109,23 @@ if ($result && $result->num_rows > 0) {
             $importedRows++;
         } else {
             // Product does not exist, insert new product
-            // Assign values to variables first
-            $description = $csvData['Description'];
-            $brand = $csvData['Brand'];
-            $category = $csvData['Category'];
-            $subCategory1 = $csvData['Sub Category Lv 1'];
-            $subCategory2 = $csvData['Sub Category Lv 2'];
-            $subCategory3 = $csvData['Sub Category Lv 3'];
-            $images = $csvData['Images'];
-            $pdf = $csvData['PDF'];
-            $weight = $csvData['Weight (Kgs)'] ?: 0; // Default to 0 if empty
-            $length = $csvData['Length (cm)'] ?: 0;  // Default to 0 if empty
-            $breadth = $csvData['Breadth (cm)'] ?: 0; // Default to 0 if empty
-            $height = $csvData['Height (cm)'] ?: 0;   // Default to 0 if empty
-            $sdTitle = $csvData['SD Title'];
-            $sdTitle2 = $csvData['SD Title_2'];
-            $features = json_encode(array_slice($csvData, 17, 10));
-            $shopLines = json_encode(array_slice($csvData, 27, 5));
+            // Assign values to variables
+            $description = $csvData['Description'] ?? '';
+            $subCategory1 = $csvData['Sub Category Lv 1'] ?? '';
+            $subCategory2 = $csvData['Sub Category Lv 2'] ?? '';
+            $subCategory3 = $csvData['Sub Category Lv 3'] ?? '';
+            $images = $csvData['Images'] ?? '';
+            $pdf = $csvData['PDF'] ?? '';
+            $weight = $csvData['Weight (Kgs)'] ?? 0;
+            $length = $csvData['Lenght (cm)'] ?? 0; // Corrected spelling: Length
+            $breadth = $csvData['Breadth (cm)'] ?? 0;
+            $height = $csvData['Height (cm)'] ?? 0;
+            $shortDescription = $csvData['Short Description'] ?? '';
 
-            $insertQuery = "INSERT INTO products (sku, name, description, brand, category, sub_category_1, sub_category_2, sub_category_3, images, pdf, weight, length, breadth, height, sd_title, sd_title_2, features, shop_lines) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $insertQuery = "INSERT INTO products (sku, name, description, brand, category, sub_category_1, sub_category_2, sub_category_3, images, pdf, weight, length, breadth, height, short_description, features, shop_lines) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($insertQuery);
             $stmt->bind_param(
-                "ssssssssssssssssss",
+                "sssssssssssssssss",
                 $sku,
                 $productName,
                 $description,
@@ -125,10 +140,9 @@ if ($result && $result->num_rows > 0) {
                 $length,
                 $breadth,
                 $height,
-                $sdTitle,
-                $sdTitle2,
-                $features,
-                $shopLines
+                $shortDescription,
+                $featuresHtml,
+                $shopLinesHtml
             );
 
             if ($stmt->execute()) {

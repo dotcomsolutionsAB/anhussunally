@@ -25,7 +25,7 @@ if ($result && $result->num_rows > 0) {
 
     // Fetch CSV content from the URL
     $csvContent = file_get_contents($csvUrl);
-    $lines = explode(PHP_EOL, $csvContent);
+    $lines = array_filter(array_map('trim', explode(PHP_EOL, $csvContent))); // Trim and filter empty lines
     $header = str_getcsv(array_shift($lines)); // Get headers
 
     $totalRows = count($lines);
@@ -83,29 +83,7 @@ if ($result && $result->num_rows > 0) {
         $stmt->close();
 
         if ($existingProduct) {
-            // Product exists, check for changes and update if necessary
-            $updateFields = [];
-            $updateValues = [];
-
-            foreach ($csvData as $column => $value) {
-                if ($column != 'SKU' && $column != 'Product Name' && isset($existingProduct[strtolower($column)]) && $existingProduct[strtolower($column)] != $value) {
-                    $updateFields[] = "`" . strtolower($column) . "` = ?";
-                    $updateValues[] = $value;
-                }
-            }
-
-            if (!empty($updateFields)) {
-                $updateQuery = "UPDATE products SET " . implode(", ", $updateFields) . " WHERE sku = ? AND name = ?";
-                $stmt = $conn->prepare($updateQuery);
-                $updateValues[] = $sku;
-                $updateValues[] = $productName;
-                $stmt->bind_param(str_repeat("s", count($updateValues)), ...$updateValues);
-                $stmt->execute();
-                $stmt->close();
-                echo "Product updated: " . $sku . "\n";
-            } else {
-                echo "No changes detected for: " . $sku . "\n";
-            }
+            echo "No changes detected for: " . $sku . "\n";
             $importedRows++;
         } else {
             // Product does not exist, insert new product

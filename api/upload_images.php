@@ -16,14 +16,14 @@ if ($conn->connect_error) {
 }
 
 // Check the status from google_sheet table
-$query = "SELECT id, path, sheet_name FROM google_sheet WHERE status = 1 LIMIT 1";
+$query = "SELECT id, path, name FROM google_sheet WHERE status = 1 LIMIT 1";
 $result = $conn->query($query);
 
 if ($result && $result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $sheetId = $row['id'];
     $csvUrl = $row['path'];
-    $sheetName = $row['sheet_name'];
+    $sheetName = $row['name'];
 
     // Open the CSV file
     $csvFile = fopen($csvUrl, 'r');

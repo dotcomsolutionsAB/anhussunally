@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 }
 
 // Check if the SKU is provided in the URL
-if (!isset($_GET['sku'])) {
+if (!isset($_GET['SDS180'])) {
     die("No SKU provided.");
 }
 

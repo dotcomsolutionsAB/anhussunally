@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 }
 
 // Check if the SKU is provided in the URL
-if (!isset($_GET['SDS180'])) {
+if (!isset($_GET['sku'])) {
     die("No SKU provided.");
 }
 
@@ -38,14 +38,17 @@ $images = [];
 
 if (!empty($imageIds)) {
     $placeholders = implode(',', array_fill(0, count($imageIds), '?'));
-    $imageQuery = "SELECT * FROM upload WHERE id IN ($placeholders)";
+    $imageQuery = "SELECT file_original_name FROM upload WHERE id IN ($placeholders)";
     $stmt = $conn->prepare($imageQuery);
     $stmt->bind_param(str_repeat('i', count($imageIds)), ...array_map('intval', $imageIds));
     $stmt->execute();
     $imageResult = $stmt->get_result();
     
     while ($image = $imageResult->fetch_assoc()) {
-        $images[] = $image['image_link'];
+        // Construct the correct full URL for the image
+        $imageLink = "https://anh.ongoingwp.xyz/api/uploads/assets/" . $image['file_original_name'];
+        $images[] = $imageLink;
+        // echo "Debug: Image URL - " . htmlspecialchars($imageLink) . "<br>"; // Debugging output
     }
     $stmt->close();
 }

@@ -76,7 +76,7 @@ if ($result && $result->num_rows > 0) {
         $features = [];
         for ($i = 1; $i <= 12; $i++) {
             if (!empty($csvData["Features $i"])) {
-                $features[] = htmlspecialchars($csvData["Features $i"]);
+                $features[] = "<li>".htmlspecialchars($csvData["Features $i"])."</li>";
             }
         }
         $featuresJson = json_encode($features);
@@ -85,7 +85,7 @@ if ($result && $result->num_rows > 0) {
         $shopLines = [];
         for ($i = 1; $i <= 6; $i++) {
             if (!empty($csvData["Shop_Line $i"])) {
-                $shopLines[] = htmlspecialchars($csvData["Shop_Line $i"]);
+                $shopLines[] = "<li>".htmlspecialchars($csvData["Shop_Line $i"])."</li>";
             }
         }
         $shopLinesJson = json_encode($shopLines);

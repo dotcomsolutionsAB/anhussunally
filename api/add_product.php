@@ -83,15 +83,19 @@ if ($result && $result->num_rows > 0) {
         $height = !empty($csvData['Height (cm)']) ? $csvData['Height (cm)'] : 0;   // Default to 0 if empty
         // CSV header: 'Height (cm)' -> Database column: 'height'
 
-        // Construct Features as HTML list
-        $features = [];
-        for ($i = 1; $i <= 12; $i++) {
-            if (!empty($csvData["Features $i"])) {
-                $features[] = "<li>" . htmlspecialchars($csvData["Features $i"]) . "</li>";
+        // Construct Features as an array
+            $features = [];
+            for ($i = 1; $i <= 12; $i++) {
+                if (!empty($csvData["Features $i"])) {
+                    $features[] = htmlspecialchars($csvData["Features $i"]);
+                }
             }
-        }
-        // Ensure `featuresHtml` is a valid string
-        $featuresHtml = empty($features) ? '[]' : '[' . implode(', ', $features) . ']'; // Default to '[]' if no features
+
+            // Convert the features array to a JSON string
+            $featuresHtml = json_encode($features); // Encode as JSON
+            if ($featuresHtml === false) {
+                $featuresHtml = '[]'; // Default to an empty JSON array if encoding fails
+            }
 
 
         // Construct Shop lines as HTML list

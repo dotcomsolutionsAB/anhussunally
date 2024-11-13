@@ -90,7 +90,9 @@ if ($result && $result->num_rows > 0) {
                 $features[] = "<li>" . htmlspecialchars($csvData["Features $i"]) . "</li>";
             }
         }
-        $featuresHtml = '[' . implode(', ', $features) . ']'; // Database column: 'features'
+        // Ensure `featuresHtml` is a valid string
+        $featuresHtml = empty($features) ? '[]' : '[' . implode(', ', $features) . ']'; // Default to '[]' if no features
+
 
         // Construct Shop lines as HTML list
         $shopLines = [];
@@ -99,7 +101,7 @@ if ($result && $result->num_rows > 0) {
                 $shopLines[] = "<li>" . htmlspecialchars($csvData["Shop_Line $i"]) . "</li>";
             }
         }
-        $shopLinesHtml = '[' . implode(', ', $shopLines) . ']'; // Database column: 'shop_lines'
+        $shopLinesHtml = empty($shopLines) ? '[]' : '[' . implode(', ', $shopLines) . ']'; // Database column: 'shop_lines'
 
         // Show data fields for clarity
         // echo "Inserting Data for SKU: $sku\n";

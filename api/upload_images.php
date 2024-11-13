@@ -36,12 +36,12 @@ if ($result && $result->num_rows > 0) {
         die("Failed to read the header row from the CSV file.");
     }
 
-    echo "Processing images from the sheet: $sheetName...\n\n";
+    echo "Processing images from the sheet: $sheetName"."<br>";
 
     // Iterate through each line and process data
     while (($data = fgetcsv($csvFile)) !== false) {
         if (count($data) != count($header)) {
-            echo "Skipping invalid line: " . htmlspecialchars(implode(", ", $data)) . "\n";
+            echo "Skipping invalid line: " . htmlspecialchars(implode(", ", $data)) ."<br>";
             continue; // Skip if the data line is invalid
         }
 
@@ -76,7 +76,7 @@ if ($result && $result->num_rows > 0) {
                 // Download the image
                 $imageContents = @file_get_contents($imageUrl);
                 if ($imageContents === false) {
-                    echo "Failed to download image: $imageUrl\n";
+                    echo "Failed to download image:". $imageUrl."<br>";
                     continue;
                 }
 
@@ -89,7 +89,7 @@ if ($result && $result->num_rows > 0) {
 
                 // Save the image to the uploads/assets directory
                 if (!file_put_contents($imagePath, $imageContents)) {
-                    echo "Failed to save image: $imagePath\n";
+                    echo "Failed to save image:". $imagePath."<br>";
                     continue;
                 }
 
@@ -103,9 +103,9 @@ if ($result && $result->num_rows > 0) {
 
                 if ($stmt->execute()) {
                     $imageIds[] = $stmt->insert_id;
-                    echo "Image uploaded successfully: $imageName\n";
+                    echo "Image uploaded successfully:". $imageName."<br>";
                 } else {
-                    echo "Failed to insert image details into the upload table: " . $stmt->error . "\n";
+                    echo "Failed to insert image details into the upload table: " . $stmt->error ."<br>";
                 }
                 $stmt->close();
             }
@@ -118,10 +118,10 @@ if ($result && $result->num_rows > 0) {
                 $updateStmt->bind_param("ss", $imageIdsString, $sku);
 
                 if ($updateStmt->execute()) {
-                    echo "Images updated for SKU: $sku\n";
+                    echo "Images updated for SKU: ".$sku."<br>";
                 } else {
-                    echo "Failed to update images for SKU: $sku\n";
-                    echo "Error: " . $updateStmt->error . "\n";
+                    echo "Failed to update images for SKU: ".$sku."<br>";
+                    echo "Error: " . $updateStmt->error ."<br>";
                 }
                 $updateStmt->close();
             }
@@ -131,7 +131,7 @@ if ($result && $result->num_rows > 0) {
 
     fclose($csvFile); // Close the CSV file
 } else {
-    echo "No CSV URL found with status 1 or no images to process.\n";
+    echo "No CSV URL found with status 1 or no images to process."."<br>";
 }
 
 // Close the connection

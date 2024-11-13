@@ -88,8 +88,8 @@ if ($result && $result->num_rows > 0) {
             $updateValues = [];
 
             foreach ($csvData as $column => $value) {
-                if ($column != 'SKU' && $column != 'Product Name' && $existingProduct[strtolower($column)] != $value) {
-                    $updateFields[] = strtolower($column) . " = ?";
+                if ($column != 'SKU' && $column != 'Product Name' && isset($existingProduct[strtolower($column)]) && $existingProduct[strtolower($column)] != $value) {
+                    $updateFields[] = "`" . strtolower($column) . "` = ?";
                     $updateValues[] = $value;
                 }
             }

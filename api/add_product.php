@@ -45,25 +45,41 @@ if ($result && $result->num_rows > 0) {
         $csvData = array_combine($header, $data);
 
         // Explicitly initialize variables for each CSV column
-        $sku = $csvData['SKU'] ?? '';                // CSV: 'SKU' -> DB: 'sku'
-        $name = $csvData['Product Name'] ?? '';      // CSV: 'Product Name' -> DB: 'name'
-        $description = $csvData['Description'] ?? ''; // CSV: 'Description' -> DB: 'description'
+        $sku = $csvData['SKU'] ?? '';
+        $name = $csvData['Product Name'] ?? '';
+        $description = $csvData['Description'] ?? '';
         $short_description = $csvData['Short Description'] ?? '';
-        $brand = $csvData['Brand'] ?? '';            // CSV: 'Brand' -> DB: 'brand'
-        $category = $csvData['Category'] ?? '';      // CSV: 'Category' -> DB: 'category'
-        $subCategory1 = $csvData['Sub Category Lv 1'] ?? ''; // CSV: 'Sub Category Lv 1' -> DB: 'sub_category_1'
-        $subCategory2 = $csvData['Sub Category Lv 2'] ?? ''; // CSV: 'Sub Category Lv 2' -> DB: 'sub_category_2'
-        $subCategory3 = $csvData['Sub Category Lv 3'] ?? ''; // CSV: 'Sub Category Lv 3' -> DB: 'sub_category_3'
-        $images = $csvData['Images'] ?? '';                 // CSV: 'Images' -> DB: 'images'
-        $pdf = $csvData['PDF'] ?? '';                       // CSV: 'PDF' -> DB: 'pdf'
-        $weight = !empty($csvData['Weight (Kgs)']) ? $csvData['Weight (Kgs)'] : 0; // CSV: 'Weight (Kgs)' -> DB: 'weight'
-        $length = !empty($csvData['Lenght (cm)']) ? $csvData['Lenght (cm)'] : 0;   // CSV: 'Lenght (cm)' -> DB: 'length'
-        $breadth = !empty($csvData['Breadth (cm)']) ? $csvData['Breadth (cm)'] : 0; // CSV: 'Breadth (cm)' -> DB: 'breadth'
-        $height = !empty($csvData['Height (cm)']) ? $csvData['Height (cm)'] : 0;   // CSV: 'Height (cm)' -> DB: 'height'
+        $brand = $csvData['Brand'] ?? '';
+        $category = $csvData['Category'] ?? '';
+        $subCategory1 = $csvData['Sub Category Lv 1'] ?? '';
+        $subCategory2 = $csvData['Sub Category Lv 2'] ?? '';
+        $subCategory3 = $csvData['Sub Category Lv 3'] ?? '';
+        $images = $csvData['Images'] ?? '';
+        $pdf = $csvData['PDF'] ?? '';
+        $weight = !empty($csvData['Weight (Kgs)']) ? $csvData['Weight (Kgs)'] : 0;
+        $length = !empty($csvData['Lenght (cm)']) ? $csvData['Lenght (cm)'] : 0;
+        $breadth = !empty($csvData['Breadth (cm)']) ? $csvData['Breadth (cm)'] : 0;
+        $height = !empty($csvData['Height (cm)']) ? $csvData['Height (cm)'] : 0;
 
         // Skip the row if any mandatory field is missing
         if (empty($sku) || empty($name) || empty($brand) || empty($category)) {
             $failedSKUs[] = $sku;
+            continue;
+        }
+
+        // Check if the SKU already exists in the database
+        $checkQuery = "SELECT COUNT(*) FROM products WHERE sku = ?";
+        $checkStmt = $conn->prepare($checkQuery);
+        $checkStmt->bind_param("s", $sku);
+        $checkStmt->execute();
+        $checkStmt->bind_result($count);
+        $checkStmt->fetch();
+        $checkStmt->close();
+
+        if ($count > 0) {
+            // SKU already exists, skip insertion
+            $failedSKUs[] = $sku;
+            echo "SKU already exists: " . $sku . "\n";
             continue;
         }
 
@@ -89,7 +105,7 @@ if ($result && $result->num_rows > 0) {
         $insertQuery = "INSERT INTO products (sku, name, description, short_description, brand, category, sub_category_1, sub_category_2, sub_category_3, images, pdf, weight, length, breadth, height, features, shop_lines)
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($insertQuery);
-        $stmt->bind_param("sssssssssssddddss", $sku, $name, $description, $short_description, $brand, $category, $subCategory1, $subCategory2, $subCategory3, $images, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson);
+        $stmt->bind_param("ssssssssssddddss", $sku, $name, $description, $short_description, $brand, $category, $subCategory1, $subCategory2, $subCategory3, $images, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson);
 
         if ($stmt->execute()) {
             $importedSKUs[] = $sku;

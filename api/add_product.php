@@ -40,13 +40,13 @@ if ($result && $result->num_rows > 0) {
     $updatedSKUs = [];
     $failedSKUs = [];
 
-    echo "Reading SKUs from the sheet: $sheetName\n\n";
+    echo "Reading SKUs from the sheet: $sheetName"."<br>";
 
     // Iterate through each line and process data
     while (($data = fgetcsv($csvFile)) !== false) {
         $totalRows++;
         if (count($data) != count($header)) {
-            echo "Skipping invalid line: " . htmlspecialchars(implode(", ", $data)) . "\n";
+            echo "Skipping invalid line: " . htmlspecialchars(implode(", ", $data)) . "<br>";
             continue; // Skip if the data line is invalid
         }
 
@@ -93,7 +93,7 @@ if ($result && $result->num_rows > 0) {
         // Skip the row if any mandatory field is missing
         if (empty($sku) || empty($name) || empty($brand) || empty($category)) {
             $failedSKUs[] = $sku;
-            echo "Skipping row due to missing mandatory fields: SKU = $sku\n";
+            echo "Skipping row due to missing mandatory fields: SKU = $sku"."<br>";
             continue;
         }
 
@@ -184,15 +184,15 @@ if ($result && $result->num_rows > 0) {
 
                 if ($stmt->execute()) {
                     $updatedSKUs[] = $sku;
-                    echo "Product updated: " . $sku . "\n";
+                    echo "Product updated: " . $sku . "<br>";
                 } else {
                     $failedSKUs[] = $sku;
-                    echo "Failed to update product: " . $sku . "\n";
-                    echo "Error: " . $stmt->error . "\n";
+                    echo "Failed to update product: " . $sku . "<br>";
+                    echo "Error: " . $stmt->error . "<br>";
                 }
                 $stmt->close();
             } else {
-                echo "No changes detected for: " . $sku . "\n";
+                echo "No changes detected for: " . $sku . "<br>";
             }
         } else {
             // Insert new product
@@ -203,24 +203,24 @@ if ($result && $result->num_rows > 0) {
 
             if ($stmt->execute()) {
                 $importedSKUs[] = $sku;
-                echo "New product added: " . $sku . "\n";
+                echo "New product added: " . $sku . "<br>";
             } else {
                 $failedSKUs[] = $sku;
-                echo "Failed to add product: " . $sku . "\n";
-                echo "Error: " . $stmt->error . "\n";
+                echo "Failed to add product: " . $sku . "<br>";
+                echo "Error: " . $stmt->error . "<br>";
             }
             $stmt->close();
         }
     }
 
     // Output import summary by SKU in a structured format
-    echo "\nSummary for sheet: $sheetName\n";
-    echo "------------------------\n";
-    echo "Total SKUs processed: $totalRows\n";
-    echo "SKUs successfully imported: " . (!empty($importedSKUs) ? implode(", ", $importedSKUs) : "None") . "\n";
-    echo "SKUs updated: " . (!empty($updatedSKUs) ? implode(", ", $updatedSKUs) : "None") . "\n";
-    echo "SKUs failed to import or update: " . (!empty($failedSKUs) ? implode(", ", $failedSKUs) : "None") . "\n";
-    echo "------------------------\n";
+    echo "\nSummary for sheet: $sheetName"."<br>";
+    echo "------------------------"."<br>";
+    echo "Total SKUs processed: $totalRows"."<br>";
+    echo "SKUs successfully imported: " . (!empty($importedSKUs) ? implode(", ", $importedSKUs) : "None") . "<br>";
+    echo "SKUs updated: " . (!empty($updatedSKUs) ? implode(", ", $updatedSKUs) : "None") . "<br>";
+    echo "SKUs failed to import or update: " . (!empty($failedSKUs) ? implode(", ", $failedSKUs) : "None") . "<br>";
+    echo "------------------------"."<br>";
 
     // Only update the status if at least one product was successfully imported or updated
     if (!empty($importedSKUs) || !empty($updatedSKUs)) {
@@ -229,19 +229,19 @@ if ($result && $result->num_rows > 0) {
         $stmt->bind_param("s", $csvUrl);
         $stmt->execute();
         $stmt->close();
-        echo "Status updated to 1 in google_sheet table for sheet: $sheetName.\n";
+        echo "Status updated to 1 in google_sheet table for sheet: $sheetName"."<br>";
     } else {
         $updateStatusQuery = "UPDATE google_sheet SET status = 1 WHERE path = ?";
         $stmt = $conn->prepare($updateStatusQuery);
         $stmt->bind_param("s", $csvUrl);
         $stmt->execute();
         $stmt->close();
-        echo "No products were imported or updated, so changing the status to 1 for sheet: $sheetName.\n";
+        echo "No products were imported or updated, so changing the status to 1 for sheet: $sheetName"."<br>";
     }
 
     fclose($csvFile); // Close the CSV file
 } else {
-    echo "No CSV URL found with status 0.\n";
+    echo "No CSV URL found with status 0"."<br>";
 }
 
 // Close the connection

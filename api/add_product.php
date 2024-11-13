@@ -15,16 +15,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Function to create a column if it does not exist
-function createColumnIfNotExists($conn, $tableName, $columnName, $columnType) {
-    $checkQuery = "SHOW COLUMNS FROM `$tableName` LIKE '$columnName'";
-    $result = $conn->query($checkQuery);
-    if ($result->num_rows == 0) {
-        $alterQuery = "ALTER TABLE `$tableName` ADD `$columnName` $columnType";
-        $conn->query($alterQuery);
-    }
-}
-
 // Fetch URL from google_sheet table where status is 0
 $query = "SELECT path FROM google_sheet WHERE status = 0 LIMIT 1";
 $result = $conn->query($query);
@@ -44,12 +34,6 @@ if ($result && $result->num_rows > 0) {
 
     echo "Total rows in the sheet: $totalRows\n";
 
-    // Check and create columns if they do not exist
-    foreach ($header as $column) {
-        $sanitizedColumn = str_replace(' ', '_', strtolower($column)); // Replace spaces with underscores
-        createColumnIfNotExists($conn, 'products', $sanitizedColumn, 'VARCHAR(255)'); // Default type as VARCHAR(255)
-    }
-
     // Iterate through each line and process data
     foreach ($lines as $line) {
         $data = str_getcsv($line);
@@ -61,29 +45,27 @@ if ($result && $result->num_rows > 0) {
         // Map CSV data to column names
         $csvData = array_combine($header, $data);
 
-        // Initialize mandatory fields
-        $sku = $csvData['SKU'] ?? '';                // CSV header: 'SKU' -> Database column: 'sku'
-        $productName = $csvData['Product Name'] ?? ''; // CSV header: 'Product Name' -> Database column: 'name'
-        $brand = $csvData['Brand'] ?? '';            // CSV header: 'Brand' -> Database column: 'brand'
-        $category = $csvData['Category'] ?? '';      // CSV header: 'Category' -> Database column: 'category'
+        // Explicitly initialize variables for each CSV column
+        $sku = $csvData['SKU'] ?? '';                // CSV: 'SKU' -> DB: 'sku'
+        $name = $csvData['Product Name'] ?? '';      // CSV: 'Product Name' -> DB: 'name'
+        $description = $csvData['Description'] ?? ''; // CSV: 'Description' -> DB: 'description'
+        $brand = $csvData['Brand'] ?? '';            // CSV: 'Brand' -> DB: 'brand'
+        $category = $csvData['Category'] ?? '';      // CSV: 'Category' -> DB: 'category'
+        $subCategory1 = $csvData['Sub Category Lv 1'] ?? ''; // CSV: 'Sub Category Lv 1' -> DB: 'sub_category_1'
+        $subCategory2 = $csvData['Sub Category Lv 2'] ?? ''; // CSV: 'Sub Category Lv 2' -> DB: 'sub_category_2'
+        $subCategory3 = $csvData['Sub Category Lv 3'] ?? ''; // CSV: 'Sub Category Lv 3' -> DB: 'sub_category_3'
+        $images = $csvData['Images'] ?? '';                 // CSV: 'Images' -> DB: 'images'
+        $pdf = $csvData['PDF'] ?? '';                       // CSV: 'PDF' -> DB: 'pdf'
+        $weight = !empty($csvData['Weight (Kgs)']) ? $csvData['Weight (Kgs)'] : 0; // CSV: 'Weight (Kgs)' -> DB: 'weight'
+        $length = !empty($csvData['Lenght (cm)']) ? $csvData['Lenght (cm)'] : 0;   // CSV: 'Lenght (cm)' -> DB: 'length'
+        $breadth = !empty($csvData['Breadth (cm)']) ? $csvData['Breadth (cm)'] : 0; // CSV: 'Breadth (cm)' -> DB: 'breadth'
+        $height = !empty($csvData['Height (cm)']) ? $csvData['Height (cm)'] : 0;   // CSV: 'Height (cm)' -> DB: 'height'
 
         // Skip the row if any mandatory field is missing
-        if (empty($sku) || empty($productName) || empty($brand) || empty($category)) {
+        if (empty($sku) || empty($name) || empty($brand) || empty($category)) {
             $failedRows++;
             continue;
         }
-
-        // Initialize other fields with default values if they are empty
-        $description = $csvData['Description'] ?? '';
-        $subCategory1 = $csvData['Sub Category Lv 1'] ?? '';
-        $subCategory2 = $csvData['Sub Category Lv 2'] ?? '';
-        $subCategory3 = $csvData['Sub Category Lv 3'] ?? '';
-        $images = $csvData['Images'] ?? '';
-        $pdf = $csvData['PDF'] ?? '';
-        $weight = !empty($csvData['Weight (Kgs)']) ? $csvData['Weight (Kgs)'] : 0;
-        $length = !empty($csvData['Lenght (cm)']) ? $csvData['Lenght (cm)'] : 0;
-        $breadth = !empty($csvData['Breadth (cm)']) ? $csvData['Breadth (cm)'] : 0;
-        $height = !empty($csvData['Height (cm)']) ? $csvData['Height (cm)'] : 0;
 
         // Construct Features as JSON
         $features = [];
@@ -103,14 +85,11 @@ if ($result && $result->num_rows > 0) {
         }
         $shopLinesJson = json_encode($shopLines);
 
-        // Prepare columns and values for the insert query
-        $columns = ['sku', 'name', 'brand', 'category', 'description', 'sub_category_1', 'sub_category_2', 'sub_category_3', 'images', 'pdf', 'weight', 'length', 'breadth', 'height', 'features', 'shop_lines'];
-        $values = [$sku, $productName, $brand, $category, $description, $subCategory1, $subCategory2, $subCategory3, $images, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson];
-
-        // Construct the final INSERT query
-        $insertQuery = "INSERT INTO products (" . implode(", ", $columns) . ") VALUES (" . implode(", ", array_fill(0, count($values), '?')) . ")";
+        // Construct the final INSERT query with explicitly initialized variables
+        $insertQuery = "INSERT INTO products (sku, name, description, brand, category, sub_category_1, sub_category_2, sub_category_3, images, pdf, weight, length, breadth, height, features, shop_lines)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($insertQuery);
-        $stmt->bind_param(str_repeat("s", count($values)), ...$values);
+        $stmt->bind_param("ssssssssssddddss", $sku, $name, $description, $brand, $category, $subCategory1, $subCategory2, $subCategory3, $images, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson);
 
         if ($stmt->execute()) {
             $importedRows++;

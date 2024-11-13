@@ -15,6 +15,16 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// Function to create a column if it does not exist
+function createColumnIfNotExists($conn, $tableName, $columnName, $columnType) {
+    $checkQuery = "SHOW COLUMNS FROM `$tableName` LIKE '$columnName'";
+    $result = $conn->query($checkQuery);
+    if ($result->num_rows == 0) {
+        $alterQuery = "ALTER TABLE `$tableName` ADD `$columnName` $columnType";
+        $conn->query($alterQuery);
+    }
+}
+
 // Fetch URL from google_sheet table where status is 0
 $query = "SELECT path FROM google_sheet WHERE status = 0 LIMIT 1";
 $result = $conn->query($query);
@@ -33,6 +43,12 @@ if ($result && $result->num_rows > 0) {
     $failedRows = 0;
 
     echo "Total rows in the sheet: $totalRows\n";
+
+    // Check and create columns if they do not exist
+    foreach ($header as $column) {
+        $sanitizedColumn = str_replace(' ', '_', strtolower($column)); // Replace spaces with underscores
+        createColumnIfNotExists($conn, 'products', $sanitizedColumn, 'VARCHAR(255)'); // Default type as VARCHAR(255)
+    }
 
     // Iterate through each line and process data
     foreach ($lines as $line) {
@@ -87,41 +103,30 @@ if ($result && $result->num_rows > 0) {
             $importedRows++;
         } else {
             // Product does not exist, insert new product
-            // Assign values to variables
-            $description = $csvData['Description'] ?? '';
-            $subCategory1 = $csvData['Sub Category Lv 1'] ?? '';
-            $subCategory2 = $csvData['Sub Category Lv 2'] ?? '';
-            $subCategory3 = $csvData['Sub Category Lv 3'] ?? '';
-            $images = $csvData['Images'] ?? '';
-            $pdf = $csvData['PDF'] ?? '';
-            $weight = $csvData['Weight (Kgs)'] ?? 0;
-            $length = $csvData['Lenght (cm)'] ?? 0; // Corrected spelling: Length
-            $breadth = $csvData['Breadth (cm)'] ?? 0;
-            $height = $csvData['Height (cm)'] ?? 0;
-            $shortDescription = $csvData['Short Description'] ?? '';
+            // Prepare columns and values for the insert query
+            $columns = [];
+            $placeholders = [];
+            $values = [];
 
-            $insertQuery = "INSERT INTO products (sku, name, description, brand, category, sub_category_1, sub_category_2, sub_category_3, images, pdf, weight, length, breadth, height, short_description, features, shop_lines) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            foreach ($csvData as $column => $value) {
+                $sanitizedColumn = str_replace(' ', '_', strtolower($column)); // Replace spaces with underscores
+                $columns[] = "`$sanitizedColumn`";
+                $placeholders[] = '?';
+                $values[] = $value;
+            }
+
+            // Add features and shop lines
+            $columns[] = "`features`";
+            $placeholders[] = '?';
+            $values[] = $featuresHtml;
+
+            $columns[] = "`shop_lines`";
+            $placeholders[] = '?';
+            $values[] = $shopLinesHtml;
+
+            $insertQuery = "INSERT INTO products (" . implode(", ", $columns) . ") VALUES (" . implode(", ", $placeholders) . ")";
             $stmt = $conn->prepare($insertQuery);
-            $stmt->bind_param(
-                "sssssssssssssssss",
-                $sku,
-                $productName,
-                $description,
-                $brand,
-                $category,
-                $subCategory1,
-                $subCategory2,
-                $subCategory3,
-                $images,
-                $pdf,
-                $weight,
-                $length,
-                $breadth,
-                $height,
-                $shortDescription,
-                $featuresHtml,
-                $shopLinesHtml
-            );
+            $stmt->bind_param(str_repeat("s", count($values)), ...$values);
 
             if ($stmt->execute()) {
                 $importedRows++;

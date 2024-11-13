@@ -80,28 +80,46 @@ if ($result && $result->num_rows > 0) {
             }
         } else {
             // Product does not exist, insert new product
+            // Assign values to variables first
+            $description = $csvData['Description'];
+            $brand = $csvData['Brand'];
+            $category = $csvData['Category'];
+            $subCategory1 = $csvData['Sub Category Lv 1'];
+            $subCategory2 = $csvData['Sub Category Lv 2'];
+            $subCategory3 = $csvData['Sub Category Lv 3'];
+            $images = $csvData['Images'];
+            $pdf = $csvData['PDF'];
+            $weight = $csvData['Weight (Kgs)'] ?: 0; // Default to 0 if empty
+            $length = $csvData['Length (cm)'] ?: 0;  // Default to 0 if empty
+            $breadth = $csvData['Breadth (cm)'] ?: 0; // Default to 0 if empty
+            $height = $csvData['Height (cm)'] ?: 0;   // Default to 0 if empty
+            $sdTitle = $csvData['SD Title'];
+            $sdTitle2 = $csvData['SD Title_2'];
+            $features = json_encode(array_slice($csvData, 17, 10));
+            $shopLines = json_encode(array_slice($csvData, 27, 5));
+
             $insertQuery = "INSERT INTO products (sku, name, description, brand, category, sub_category_1, sub_category_2, sub_category_3, images, pdf, weight, length, breadth, height, sd_title, sd_title_2, features, shop_lines) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($insertQuery);
             $stmt->bind_param(
                 "ssssssssssssssssss",
                 $sku,
                 $productName,
-                $csvData['Description'],
-                $csvData['Brand'],
-                $csvData['Category'],
-                $csvData['Sub Category Lv 1'],
-                $csvData['Sub Category Lv 2'],
-                $csvData['Sub Category Lv 3'],
-                $csvData['Images'],
-                $csvData['PDF'],
-                $csvData['Weight (Kgs)'],
-                $csvData['Length (cm)'],
-                $csvData['Breadth (cm)'],
-                $csvData['Height (cm)'],
-                $csvData['SD Title'],
-                $csvData['SD Title_2'],
-                json_encode(array_slice($csvData, 17, 10)), // Features as JSON
-                json_encode(array_slice($csvData, 27, 5))   // Shop lines as JSON
+                $description,
+                $brand,
+                $category,
+                $subCategory1,
+                $subCategory2,
+                $subCategory3,
+                $images,
+                $pdf,
+                $weight,
+                $length,
+                $breadth,
+                $height,
+                $sdTitle,
+                $sdTitle2,
+                $features,
+                $shopLines
             );
             $stmt->execute();
             $stmt->close();

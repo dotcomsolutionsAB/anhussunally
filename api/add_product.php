@@ -3,11 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Database configuration
-$host = 'localhost';
-$dbname = 'anh';
-$username = 'anh';
-$password = '9kCuzrb5tO53$xQtf';
+include("db_connection.php");
 
 // Establish database connection
 $conn = new mysqli($host, $username, $password, $dbname);
@@ -196,7 +192,7 @@ if ($result && $result->num_rows > 0) {
             }
         } else {
             // Insert new product
-            $insertQuery = "INSERT INTO products (sku, name, description, short_description, brand, category, sub_category_1, sub_category_2, sub_category_3, images, pdf, weight, length, breadth, height, features, shop_lines)
+            $insertQuery = "INSERT INTO products (sku, name, description, short_description, brand, category, sub_category_1, sub_category_2, sub_category_3, image_url, pdf, weight, length, breadth, height, features, shop_lines)
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($insertQuery);
             $stmt->bind_param("sssssssssssddddss", $sku, $name, $description, $short_description, $brand, $category, $subCategory1, $subCategory2, $subCategory3, $images, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson);

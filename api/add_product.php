@@ -46,6 +46,8 @@ if ($result && $result->num_rows > 0) {
 
         // Explicitly initialize variables for each CSV column
         $sku = $csvData['SKU'] ?? '';
+        $sku = str_replace(['–', '—'], '-', $sku); // Normalize the SKU: Replace en dash and em dash with hyphen
+
         $name = $csvData['Product Name'] ?? '';
         $description = $csvData['Description'] ?? '';
         $short_description = $csvData['Short Description'] ?? '';

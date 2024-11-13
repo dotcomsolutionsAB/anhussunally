@@ -29,16 +29,15 @@ if ($result && $result->num_rows > 0) {
     $header = str_getcsv(array_shift($lines)); // Get headers
 
     $totalRows = count($lines);
-    $importedRows = 0;
-    $failedRows = 0;
+    $importedSKUs = [];
+    $failedSKUs = [];
 
-    echo "Total rows in the sheet: $totalRows\n";
+    echo "Total SKUs in the sheet: $totalRows\n";
 
     // Iterate through each line and process data
     foreach ($lines as $line) {
         $data = str_getcsv($line);
         if (empty($data) || count($data) != count($header)) {
-            $failedRows++;
             continue; // Skip if the data line is invalid
         }
 
@@ -49,7 +48,7 @@ if ($result && $result->num_rows > 0) {
         $sku = $csvData['SKU'] ?? '';                // CSV: 'SKU' -> DB: 'sku'
         $name = $csvData['Product Name'] ?? '';      // CSV: 'Product Name' -> DB: 'name'
         $description = $csvData['Description'] ?? ''; // CSV: 'Description' -> DB: 'description'
-        $short_description=$csvData['Short Description'] ?? '';
+        $short_description = $csvData['Short Description'] ?? '';
         $brand = $csvData['Brand'] ?? '';            // CSV: 'Brand' -> DB: 'brand'
         $category = $csvData['Category'] ?? '';      // CSV: 'Category' -> DB: 'category'
         $subCategory1 = $csvData['Sub Category Lv 1'] ?? ''; // CSV: 'Sub Category Lv 1' -> DB: 'sub_category_1'
@@ -64,7 +63,7 @@ if ($result && $result->num_rows > 0) {
 
         // Skip the row if any mandatory field is missing
         if (empty($sku) || empty($name) || empty($brand) || empty($category)) {
-            $failedRows++;
+            $failedSKUs[] = $sku;
             continue;
         }
 
@@ -88,24 +87,25 @@ if ($result && $result->num_rows > 0) {
 
         // Construct the final INSERT query with explicitly initialized variables
         $insertQuery = "INSERT INTO products (sku, name, description, short_description, brand, category, sub_category_1, sub_category_2, sub_category_3, images, pdf, weight, length, breadth, height, features, shop_lines)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($insertQuery);
-        $stmt->bind_param("sssssssssssddddss", $sku, $name, $description, $short_description, $brand, $category, $subCategory1, $subCategory2, $subCategory3, $images, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson);
+        $stmt->bind_param("ssssssssssddddss", $sku, $name, $description, $short_description, $brand, $category, $subCategory1, $subCategory2, $subCategory3, $images, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson);
 
         if ($stmt->execute()) {
-            $importedRows++;
+            $importedSKUs[] = $sku;
             echo "New product added: " . $sku . "\n";
         } else {
-            $failedRows++;
+            $failedSKUs[] = $sku;
             echo "Failed to add product: " . $sku . "\n";
+            echo "Error: " . $stmt->error . "\n"; // Output the specific error message
         }
         $stmt->close();
     }
 
-    // Output import summary
-    echo "Total rows processed: $totalRows\n";
-    echo "Rows successfully imported: $importedRows\n";
-    echo "Rows failed to import: $failedRows\n";
+    // Output import summary by SKU
+    echo "Total SKUs processed: $totalRows\n";
+    echo "SKUs successfully imported: " . implode(", ", $importedSKUs) . "\n";
+    echo "SKUs failed to import: " . implode(", ", $failedSKUs) . "\n";
 
     // Update status in google_sheet table
     $updateStatusQuery = "UPDATE google_sheet SET status = 1 WHERE path = ?";

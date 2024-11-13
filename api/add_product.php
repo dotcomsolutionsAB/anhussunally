@@ -44,7 +44,8 @@ if ($result && $result->num_rows > 0) {
         // Map CSV data to column names
         $csvData = array_combine($header, $data);
         echo "<pre>";
-        die($csvData);
+        print_r($csvData);
+        die("hello");
         // Explicitly initialize variables for each CSV column
         $sku = $csvData['SKU'] ?? '';
         $sku = str_replace(['–', '—'], '-', $sku); // Normalize the SKU: Replace en dash and em dash with hyphen

@@ -3,11 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Database configuration
-$host = 'localhost';
-$dbname = 'anh';
-$username = 'anh';
-$password = '9kCuzrb5tO53$xQtf';
+include("db_connection.php");
 
 // Establish database connection
 $conn = new mysqli($host, $username, $password, $dbname);
@@ -80,10 +76,12 @@ if ($result && $result->num_rows > 0) {
         $subCategory3 = $csvData['Sub Category Lv 3'] ?? ''; // CSV header: 'Sub Category Lv 3' -> Database column: 'sub_category_3'
         $images = $csvData['Images'] ?? '';                 // CSV header: 'Images' -> Database column: 'images'
         $pdf = $csvData['PDF'] ?? '';                       // CSV header: 'PDF' -> Database column: 'pdf'
-        $weight = $csvData['Weight (Kgs)'] ?? 0;            // CSV header: 'Weight (Kgs)' -> Database column: 'weight'
-        $length = $csvData['Lenght (cm)'] ?? 0;             // CSV header: 'Lenght (cm)' -> Database column: 'length' (Note the spelling correction)
-        $breadth = $csvData['Breadth (cm)'] ?? 0;           // CSV header: 'Breadth (cm)' -> Database column: 'breadth'
-        $height = $csvData['Height (cm)'] ?? 0;             // CSV header: 'Height (cm)' -> Database column: 'height'
+        // Initialize numeric fields with default values if they are empty
+        $weight = !empty($csvData['Weight (Kgs)']) ? $csvData['Weight (Kgs)'] : 0; // Default to 0 if empty
+        $length = !empty($csvData['Lenght (cm)']) ? $csvData['Lenght (cm)'] : 0;   // Default to 0 if empty
+        $breadth = !empty($csvData['Breadth (cm)']) ? $csvData['Breadth (cm)'] : 0; // Default to 0 if empty
+        $height = !empty($csvData['Height (cm)']) ? $csvData['Height (cm)'] : 0;   // Default to 0 if empty
+        // CSV header: 'Height (cm)' -> Database column: 'height'
 
         // Construct Features as HTML list
         $features = [];

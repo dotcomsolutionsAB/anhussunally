@@ -184,12 +184,19 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-6">
+
           <div id="slider_product" class="cbp margintop40">
             <div class="cbp-item">
               <div class="cbp-caption">
-                <div class="cbp-caption-defaultWrap">
-                  <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="">
-                </div>
+                <?php if (!empty($images)): ?>
+                    <?php foreach ($images as $index => $imageLink): ?>
+                      <div class="cbp-caption-defaultWrap <?php echo $index === 0 ? 'cbp-pagination-active' : ''; ?>">
+                        <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="">
+                      </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                  <p>No images available.</p>
+                <?php endif; ?>
               </div>
             </div>
           </div>

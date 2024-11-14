@@ -33,7 +33,7 @@ error_reporting(E_ALL);
 
   // Fetch related products from the same brand
   $brand = $product['brand'];
-  $relatedProductsQuery = "SELECT *,, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brand = ? AND sku != ? LIMIT 4"; // Exclude the current product
+  $relatedProductsQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brand = ? AND sku != ? LIMIT 4"; // Exclude the current product
   $stmt = $conn->prepare($relatedProductsQuery);
   $stmt->bind_param("ss", $brand, $sku);
   $stmt->execute();

@@ -285,7 +285,7 @@ error_reporting(E_ALL);
   </section>
 
 
-  <section class="bottom_half">
+  <section class="bottom_half" style="padding-bottom: 0px;">
     <div class="container">
       <div class="row">
         <div class="clearfix col-md-12">
@@ -399,7 +399,7 @@ error_reporting(E_ALL);
   </section>
 
 
-  <section id="feature_product" class="bottom_half" style="padding-bottom: 0px;">
+  <section id="feature_product" class="bottom_half" >
     <div class="container">
       <div class="row">
         <div class="col-md-12">

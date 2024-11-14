@@ -132,7 +132,11 @@
         <div class="col-sm-6">
           <div class="detail_pro margintop40">
             <h1 class="bottom30"><?php echo htmlspecialchars($product['name']); ?></h1>
-				  <p>Brand: <a href="#"><?php echo htmlspecialchars($product['brand']); ?></a></p>
+            <p style="color: orangered; font-weight: bold;">Brand :
+              <a href="#">
+                <span class="title"> <?php echo htmlspecialchars($product['brand']); ?></span>
+              </a>
+            </p>
           <div class="product_meta">
             <span class="sku_wrapper">
               <strong>SKU: </strong>
@@ -148,11 +152,7 @@
           <!-- <p class="stock in-stock"><strong>Status: </strong>In stock</p> -->
           <br>
           <p class="bottom30"><?php echo nl2br(htmlspecialchars($product['short_description'])); ?></p>
-            <p>
-              <a href="images/pdf.png" download="">
-                <img class="brochure-pdf" src="images/pdf.png" alt="W3Schools" style="max-width:160px">
-              </a>
-            </p>
+            
             <style>
                 .gmail-button {
                     display: inline-flex;
@@ -181,10 +181,15 @@
                     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
                 }
             </style>
-            <a href="mailto:your-email@gmail.com" class="gmail-button">
-                <img src="https://www.gstatic.com/images/branding/product/1x/gmail_2020q4_48dp.png" alt="Gmail Logo">
-                Send Email
-            </a>
+            <div class="cc" style="display:flex; flex-direction:row; justify-content:space-evenly;">
+              <a href="images/pdf.png" download="">
+                <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="max-width:160px">
+              </a>
+              <a href="mailto:your-email@gmail.com">
+                  <img src="https://www.gstatic.com/images/branding/product/1x/gmail_2020q4_48dp.png" alt="mail">
+                  Send Email
+              </a>
+            </div>  
             <!-- <ul class="review_list marginbottom15">
               <li><img src="images/star.png" alt="star">
               </li>

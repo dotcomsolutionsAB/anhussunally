@@ -15,123 +15,124 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check the status from google_sheet table
-$query = "SELECT id, path, name FROM google_sheet WHERE status = 1 LIMIT 1";
-$result = $conn->query($query);
+// Check the google_sheet table where status is 1
+$sheetQuery = "SELECT id, path, name FROM google_sheet WHERE status = 1 LIMIT 1";
+$sheetResult = $conn->query($sheetQuery);
 
-if ($result && $result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $sheetId = $row['id'];
-    $csvUrl = $row['path'];
-    $sheetName = $row['name'];
+if ($sheetResult && $sheetResult->num_rows > 0) {
+    $sheetRow = $sheetResult->fetch_assoc();
+    echo "Processing images for sheet: " . htmlspecialchars($sheetRow['name']) . "<br>";
 
-    // Open the CSV file
-    $csvFile = fopen($csvUrl, 'r');
-    if ($csvFile === false) {
-        die("Failed to open the CSV file.");
-    }
+    // Query to check the products table
+    $productQuery = "SELECT sku, image_url, images FROM products WHERE image_url != ''";
+    $productResult = $conn->query($productQuery);
 
-    $header = fgetcsv($csvFile); // Get headers
-    if ($header === false) {
-        die("Failed to read the header row from the CSV file.");
-    }
+    if ($productResult && $productResult->num_rows > 0) {
+        while ($productRow = $productResult->fetch_assoc()) {
+            $sku = $productRow['sku'];
+            $imageUrl = $productRow['image_url'];
+            $imagesColumn = $productRow['images'];
 
-    echo "Processing images from the sheet: $sheetName"."<br>";
+            // Extract the filename from the image URL
+            $imageName = basename($imageUrl);
 
-    // Iterate through each line and process data
-    while (($data = fgetcsv($csvFile)) !== false) {
-        if (count($data) != count($header)) {
-            echo "Skipping invalid line: " . htmlspecialchars(implode(", ", $data)) ."<br>";
-            continue; // Skip if the data line is invalid
-        }
+            // Check if the file already exists in the upload table
+            $checkImageQuery = "SELECT id FROM upload WHERE file_original_name = ?";
+            $checkStmt = $conn->prepare($checkImageQuery);
+            $checkStmt->bind_param("s", $imageName);
+            $checkStmt->execute();
+            $checkStmt->store_result();
 
-        // Map CSV data to column names
-        $csvData = array_combine($header, $data);
-        $sku = $csvData['SKU'] ?? '';
-        $images = $csvData['Images'] ?? '';
+            if ($checkStmt->num_rows > 0) {
+                // File already exists, get the ID
+                $checkStmt->bind_result($imageId);
+                $checkStmt->fetch();
+                $checkStmt->close();
 
-        // Skip if SKU or images are empty
-        if (empty($sku) || empty($images)) {
-            continue;
-        }
+                // Check if the image ID is already in the images column
+                $imageIds = explode(',', $imagesColumn);
+                if (!in_array($imageId, $imageIds)) {
+                    $imageIds[] = $imageId;
+                    $imagesColumn = implode(',', $imageIds);
 
-        // Check if the images column in the products table is empty
-        $checkQuery = "SELECT images FROM products WHERE sku = ? AND (images IS NULL OR images = '')";
-        $checkStmt = $conn->prepare($checkQuery);
-        $checkStmt->bind_param("s", $sku);
-        $checkStmt->execute();
-        $checkStmt->store_result();
+                    // Update the images column in the products table
+                    $updateProductQuery = "UPDATE products SET images = ? WHERE sku = ?";
+                    $updateStmt = $conn->prepare($updateProductQuery);
+                    $updateStmt->bind_param("ss", $imagesColumn, $sku);
 
-        if ($checkStmt->num_rows > 0) {
-            // Images need to be downloaded and uploaded
-            $imageUrls = explode(',', $images);
-            $imageIds = [];
+                    if ($updateStmt->execute()) {
+                        echo "Images updated for SKU: " . htmlspecialchars($sku) . "<br>";
+                    } else {
+                        echo "Failed to update images for SKU: " . htmlspecialchars($sku) . "<br>";
+                        echo "Error: " . $updateStmt->error . "<br>";
+                    }
+                    $updateStmt->close();
+                } else {
+                    echo "Image ID already exists for SKU: " . htmlspecialchars($sku) . "<br>";
+                }
+            } else {
+                // File does not exist, attempt to download and add it
+                echo "Attempting to download image: " . htmlspecialchars($imageUrl) . "<br>";
+                $imageContents = @file_get_contents($imageUrl);
 
-            foreach ($imageUrls as $imageUrl) {
-                $imageUrl = trim($imageUrl);
-                if (empty($imageUrl)) {
+                if ($imageContents === false) {
+                    echo "Failed to download image: " . htmlspecialchars($imageUrl) . "<br>";
                     continue;
                 }
 
-                // Download the image
-                $imageContents = @file_get_contents($imageUrl);
-                if ($imageContents === false) {
-                    echo "Failed to download image:". $imageUrl."<br>";
+                // Save the image to the uploads/assets directory
+                $imagePath = __DIR__ . "/uploads/assets/" . $imageName;
+                if (!file_put_contents($imagePath, $imageContents)) {
+                    echo "Failed to save image: " . htmlspecialchars($imagePath) . "<br>";
                     continue;
                 }
 
                 // Get image details
-                $imageName = basename($imageUrl);
-                $imagePath = __DIR__ . "/uploads/assets/" . $imageName;
                 $fileSize = strlen($imageContents);
                 $extension = pathinfo($imageName, PATHINFO_EXTENSION);
                 $type = mime_content_type($imagePath);
-
-                // Save the image to the uploads/assets directory
-                if (!file_put_contents($imagePath, $imageContents)) {
-                    echo "Failed to save image:". $imagePath."<br>";
-                    continue;
-                }
+                $userId = 1; // You can change this to the appropriate user ID
+                $imageLink = "/uploads/assets/" . $imageName;
 
                 // Insert image details into the upload table
                 $insertImageQuery = "INSERT INTO upload (file_original_name, image_link, user_id, file_size, extension, type, created_at)
                                      VALUES (?, ?, ?, ?, ?, ?, NOW())";
                 $stmt = $conn->prepare($insertImageQuery);
-                $userId = 1; // You can change this to the appropriate user ID
-                $imageLink = "/uploads/assets/" . $imageName;
                 $stmt->bind_param("ssisss", $imageName, $imageLink, $userId, $fileSize, $extension, $type);
 
                 if ($stmt->execute()) {
-                    $imageIds[] = $stmt->insert_id;
-                    echo "Image uploaded successfully:". $imageName."<br>";
+                    $imageId = $stmt->insert_id;
+                    echo "Image uploaded successfully: " . htmlspecialchars($imageName) . "<br>";
+
+                    // Update the images column in the products table
+                    if (!empty($imagesColumn)) {
+                        $imagesColumn .= "," . $imageId;
+                    } else {
+                        $imagesColumn = $imageId;
+                    }
+
+                    $updateProductQuery = "UPDATE products SET images = ? WHERE sku = ?";
+                    $updateStmt = $conn->prepare($updateProductQuery);
+                    $updateStmt->bind_param("ss", $imagesColumn, $sku);
+
+                    if ($updateStmt->execute()) {
+                        echo "Images updated for SKU: " . htmlspecialchars($sku) . "<br>";
+                    } else {
+                        echo "Failed to update images for SKU: " . htmlspecialchars($sku) . "<br>";
+                        echo "Error: " . $updateStmt->error . "<br>";
+                    }
+                    $updateStmt->close();
                 } else {
-                    echo "Failed to insert image details into the upload table: " . $stmt->error ."<br>";
+                    echo "Failed to insert image details into the upload table: " . $stmt->error . "<br>";
                 }
                 $stmt->close();
             }
-
-            // Update the images column in the products table
-            if (!empty($imageIds)) {
-                $imageIdsString = implode(",", $imageIds);
-                $updateProductQuery = "UPDATE products SET images = ? WHERE sku = ?";
-                $updateStmt = $conn->prepare($updateProductQuery);
-                $updateStmt->bind_param("ss", $imageIdsString, $sku);
-
-                if ($updateStmt->execute()) {
-                    echo "Images updated for SKU: ".$sku."<br>";
-                } else {
-                    echo "Failed to update images for SKU: ".$sku."<br>";
-                    echo "Error: " . $updateStmt->error ."<br>";
-                }
-                $updateStmt->close();
-            }
         }
-        $checkStmt->close();
+    } else {
+        echo "No products found with valid image URLs." . "<br>";
     }
-
-    fclose($csvFile); // Close the CSV file
 } else {
-    echo "No CSV URL found with status 1 or no images to process."."<br>";
+    echo "No sheet found with status 1 in google_sheet table." . "<br>";
 }
 
 // Close the connection

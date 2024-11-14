@@ -1,10 +1,10 @@
-
 <?php include("api/db_connection.php"); ?>
 
 <?php
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
+    
     // Establish database connection
     $conn = mysqli_connect($host, $username, $password, $dbname);
     if ($conn->connect_error) {
@@ -20,8 +20,6 @@
         $conn->close();
         exit;
     }
-
-    
 ?>
 
 <!doctype html>
@@ -43,19 +41,17 @@
   <link rel="stylesheet" type="text/css" href="css/settings.css">
   <link rel="stylesheet" type="text/css" href="css/loader.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-
   <link rel="shortcut icon" href="images/favicon.png">
 </head>
 
 <body>
 
-  <!--Loader-->
-  <?php include("inc_files/loader.php"); ?>
-  <!--HEADER-->
-  <?php include("inc_files/header.php");?>
+  <!-- Loader -->
+
+  <!-- HEADER -->
+  <?php include("inc_files/header.php"); ?>
   <!-- Breadcumb -->
   <?php include("inc_files/breadcumb.php"); ?>
-
 
   <section id="feature_product" class="bottom_half">
     <div class="container">
@@ -70,11 +66,17 @@
                         <?php
                         // Get the first image from the images column
                         $imageIds = explode(',', $product['images']);
-                        $firstImageId = $imageIds[0];
-                        $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
-                        $imageResult = $conn->query($imageQuery);
-                        $image = $imageResult->fetch_assoc();
-                        $imageLink = $image ? "api/uploads/assets/" . $image['file_original_name'] : "path/to/default-image.jpg";
+                        $firstImageId = $imageIds[0] ?? null;
+                        
+                        $imageLink = "images/default.png"; // Default image
+                        if ($firstImageId) {
+                            $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
+                            $imageResult = $conn->query($imageQuery);
+                            if ($imageResult && $imageResult->num_rows > 0) {
+                                $image = $imageResult->fetch_assoc();
+                                $imageLink = "api/uploads/assets/" . $image['file_original_name'];
+                            }
+                        }
                         ?>
                         <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
                             <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="img-responsive">
@@ -82,33 +84,19 @@
                     </div>
                     <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox">
                         <div class="product_desc" style="padding: 2px; margin: 4px; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly;">
-                            <p ><span class="title"><?php echo htmlspecialchars($product['name']); ?></span></p>
-                            <p style="color: orangered; font-weight: bold;">Brand :<span class="title"> <?php echo htmlspecialchars($product['brand']); ?></span></p>
+                            <p><span class="title"><?php echo htmlspecialchars($product['name']); ?></span></p>
+                            <p style="color: orangered; font-weight: bold;">Brand: <span class="title"><?php echo htmlspecialchars($product['brand']); ?></span></p>
                         </div>
                     </a>
                 </div>
             </div>
         <?php endwhile; ?>
-        <!-- <div class="col-md-3 col-sm-6">
-          <div class="product_wrap bottom_half">
-            <div class="image">
-              <a class="fancybox" href="images/product4.jpg"><img src="images/product4.jpg" alt="Product" class="img-responsive">
-              </a>
-            </div>
-            <div class="product_desc">
-              <p class="title">Sacrificial Chair Design </p>
-              <span class="price"><i class="fa fa-gbp"></i>170.00</span>
-              <a class="fancybox" href="images/product4.jpg" data-fancybox-group="gallery"><i class="fa fa-shopping-bag open"></i></a>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
   </section>
 
-
-  <!--Footer-->
-  <?php include("inc_files/footer.php");?>
+  <!-- Footer -->
+  <?php include("inc_files/footer.php"); ?>
 
   <script src="js/jquery-2.2.3.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOBKD6V47-g_3opmidcmFapb3kSNAR70U"></script>
@@ -129,11 +117,10 @@
   <script src="js/revolution.extension.video.min.js"></script>
   <script src="js/kinetic.js"></script>
   <script src="js/jquery.final-countdown.js"></script>
-
   <script src="js/functions.js"></script>
 
 </body>
 
 </html>
 
-<?php  $conn->close();  ?>
+<?php $conn->close(); ?>

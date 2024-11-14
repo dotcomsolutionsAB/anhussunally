@@ -30,7 +30,7 @@
 
   // Fetch related products from the same brand
   $brand = $product['brand'];
-  $relatedProductsQuery = "SELECT * FROM products WHERE brand = ? AND sku != ? LIMIT 4"; // Exclude the current product
+  $relatedProductsQuery = "SELECT *,, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brand = ? AND sku != ? LIMIT 4"; // Exclude the current product
   $stmt = $conn->prepare($relatedProductsQuery);
   $stmt->bind_param("ss", $brand, $sku);
   $stmt->execute();
@@ -396,7 +396,7 @@
   </section>
 
 
-  <section id="feature_product" class="bottom_half">
+  <section id="feature_product" class="bottom_half" style="padding-bottom: 0px;">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -405,7 +405,9 @@
         <?php while ($relatedProduct = $relatedProductsResult->fetch_assoc()): ?>
             <div class="col-md-3 col-sm-6">
                 <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border: 4px solid grey;">
-                    <div class="tag-btn"><span class="uppercase text-center">New</span></div>
+                    <?php if ($relatedProduct['hours_since_creation'] <= 24): ?>
+                        <div class="tag-btn"><span class="uppercase text-center" style="color:red;">New</span></div>
+                    <?php endif; ?>
                     <div class="image">
                         <?php
                         // Get the first image from the images column
@@ -416,12 +418,12 @@
                         $image = $imageResult->fetch_assoc();
                         $imageLink = $image ? "api/uploads/assets/" . $image['file_original_name'] : "path/to/default-image.jpg";
                         ?>
-                        <a href="api/product_details.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
+                        <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
                             <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($relatedProduct['name']); ?>" class="img-responsive">
                         </a>
                     </div>
-                    <a href="api/product_details.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="fancybox">
-                        <div class="product_desc">
+                    <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="fancybox">
+                        <div class="product_desc" style="padding: 2px; margin: 4px; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly;">
                             <p class="title"><?php echo htmlspecialchars($relatedProduct['name']); ?></p>
                             <span class="brand"><?php echo htmlspecialchars($relatedProduct['brand']); ?></span>
                             <span class="brand"><?php echo htmlspecialchars($relatedProduct['category']); ?></span>

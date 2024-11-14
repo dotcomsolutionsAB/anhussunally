@@ -15,11 +15,11 @@
           <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
               <li class="dropdown active">
-                <a href="#." class="#" data-toggle="#">Home
+                <a href="https://anh.ongoingwp.xyz/index.php" class="#" data-toggle="#">Home
                 </a>
               </li>
               <li class="dropdown">
-                <a href="#." class="dropdown-toggle" data-toggle="dropdown">Brands
+                <a href="product_detail.php" class="dropdown-toggle" data-toggle="dropdown">Products
                 </a>
                 <!-- <ul class="dropdown-menu">
                   <li>

@@ -2,6 +2,9 @@
 // Include database connection
 include("../db_connection.php");
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Establish database connection
 $conn = new mysqli($host, $username, $password, $dbname);
 if ($conn->connect_error) {

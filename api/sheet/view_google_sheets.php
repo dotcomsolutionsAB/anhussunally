@@ -75,18 +75,24 @@
             document.getElementById("addModal").style.display = "none";
         }
 
-        // Function to sync Google Sheet
         function syncGoogleSheet(sheetId) {
             // Make an AJAX request to sync_google_sheet.php
             fetch(`sync_google_sheet.php?id=${sheetId}`)
                 .then(response => response.text())
                 .then(data => {
-                    alert(data);
-                    // Reload the page to update the status
-                    window.location.reload();
+                    alert(data); // This shows the response message
+
+                    // Check the response content
+                    if (data.includes("Status updated successfully")) {
+                        // Reload the page to update the status
+                        window.location.reload();
+                    } else {
+                        console.error("Failed to update status:", data);
+                    }
                 })
                 .catch(error => console.error('Error:', error));
         }
+
 
         // Close the modal when clicking outside of it
         window.onclick = function(event) {

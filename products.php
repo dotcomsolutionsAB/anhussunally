@@ -12,7 +12,7 @@
     }
 
     // Fetch all products from the products table
-    $productQuery = "SELECT sku, name, brand, category, images FROM products";
+    $productQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products";
     $result = $conn->query($productQuery);
 
     if ($result->num_rows === 0) {
@@ -50,71 +50,22 @@
 <body>
 
   <!--Loader-->
-  <!-- <div class="loader">
-    <div class="spinner-load">
-      <div class="dot1"></div>
-      <div class="dot2"></div>
-    </div>
-  </div> -->
+  <?php include("inc_files/loader.php"); ?>
   <!--HEADER-->
   <?php include("inc_files/header.php");?>
-
-    <?php
-        // Determine the current page or category dynamically
-        $current_page = basename($_SERVER['PHP_SELF'], ".php"); // Gets the current PHP file name without extension
-
-        // Example logic for generating breadcrumb items
-        $breadcrumb_items = [];
-        $breadcrumb_items[] = ['name' => 'Home', 'link' => 'index.html'];
-
-        if ($current_page === 'products') {
-            $breadcrumb_items[] = ['name' => 'Products', 'link' => 'products.php'];
-
-            // If there is a specific product category or name, you can add it here
-            if (isset($_GET['category'])) {
-                $breadcrumb_items[] = ['name' => htmlspecialchars($_GET['category']), 'link' => '#'];
-            } elseif (isset($_GET['sku'])) {
-                $breadcrumb_items[] = ['name' => 'Product Details', 'link' => '#'];
-            }
-        } else {
-            $breadcrumb_items[] = ['name' => ucfirst($current_page), 'link' => '#'];
-        }
-    ?>
-
-    <section class="page_menu">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="hidden">hidden</h3>
-                    <ul class="breadcrumb">
-                        <?php foreach ($breadcrumb_items as $index => $item): ?>
-                            <li <?php echo $index === count($breadcrumb_items) - 1 ? 'class="active"' : ''; ?>>
-                                <?php if ($index !== count($breadcrumb_items) - 1): ?>
-                                    <a href="<?php echo htmlspecialchars($item['link']); ?>">
-                                        <?php echo htmlspecialchars($item['name']); ?>
-                                    </a>
-                                <?php else: ?>
-                                    <?php echo htmlspecialchars($item['name']); ?>
-                                <?php endif; ?>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Breadcumb -->
+  <?php include("inc_files/breadcumb.php"); ?>
 
 
   <section id="feature_product" class="bottom_half">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <h4 class="heading uppercase bottom30">Related Products</h4>
-        </div>
         <?php while ($product = $result->fetch_assoc()): ?>
             <div class="col-md-3 col-sm-6">
                 <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border: 4px solid grey;">
-                    <div class="tag-btn"><span class="uppercase text-center">New</span></div>
+                    <?php if ($product['hours_since_creation'] <= 24): ?>
+                        <div class="tag-btn"><span class="uppercase text-center" style="color:red;">New</span></div>
+                    <?php endif; ?>
                     <div class="image">
                         <?php
                         // Get the first image from the images column
@@ -130,10 +81,9 @@
                         </a>
                     </div>
                     <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox">
-                        <div class="product_desc">
-                            <p class="title"><?php echo htmlspecialchars($product['name']); ?></p>
+                        <div class="product_desc" style="padding: 2px; margin: 4px; height: 15vh; display: flex; flex-direction: column;">
+                            <p ><span class="title"><?php echo htmlspecialchars($product['name']); ?></span></p>
                             <span class="brand"> <?php echo htmlspecialchars($product['brand']); ?></span>
-                            <span class="brand"> <?php echo htmlspecialchars($product['category']); ?></span>
                         </div>
                     </a>
                 </div>

@@ -64,101 +64,11 @@
 <body>
 
   <!--Loader-->
-  <!-- <div class="loader">
-    <div class="spinner-load">
-      <div class="dot1"></div>
-      <div class="dot2"></div>
-    </div>
-  </div> -->
-
-
-  <!--TOPBAR-->
-  <!-- <div class="topbar">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="header-top-entry">
-            <div class="title">
-              ENGLISH<i class="fa fa-angle-down"></i>
-            </div>
-            <div class="list">
-              <a class="list-entry" href="#.">English</a>
-              <a class="list-entry" href="#.">Spanish</a>
-            </div>
-          </div>
-          <div class="header-top-entry">
-            <div class="title">
-              USD<i class="fa fa-angle-down"></i>
-            </div>
-            <div class="list">
-              <a class="list-entry" href="#.">$ CAD</a>
-              <a class="list-entry" href="#.">€ EUR</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-8">
-          <ul class="top_link">
-            <li><a href="#." class="uppercase">My Account</a>
-            </li>
-            <li><a href="#." class="uppercase">wishlish</a>
-            </li>
-            <li><a href="#." class="uppercase">checkout</a>
-            </li>
-            <li><a href="#." class="uppercase">login</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
+  <?php include("inc_files/loader.php"); ?>
   <!--HEADER-->
   <?php include("inc_files/header.php");?>
-
-    <?php
-        // Determine the current page or category dynamically
-        $current_page = basename($_SERVER['PHP_SELF'], ".php"); // Gets the current PHP file name without extension
-
-        // Example logic for generating breadcrumb items
-        $breadcrumb_items = [];
-        $breadcrumb_items[] = ['name' => 'Home', 'link' => 'index.html'];
-
-        if ($current_page === 'products') {
-            $breadcrumb_items[] = ['name' => 'Products', 'link' => 'products.php'];
-
-            // If there is a specific product category or name, you can add it here
-            if (isset($_GET['category'])) {
-                $breadcrumb_items[] = ['name' => htmlspecialchars($_GET['category']), 'link' => '#'];
-            } elseif (isset($_GET['sku'])) {
-                $breadcrumb_items[] = ['name' => 'Product Details', 'link' => '#'];
-            }
-        } else {
-            $breadcrumb_items[] = ['name' => ucfirst($current_page), 'link' => '#'];
-        }
-    ?>
-
-    <section class="page_menu">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="hidden">hidden</h3>
-                    <ul class="breadcrumb">
-                        <?php foreach ($breadcrumb_items as $index => $item): ?>
-                            <li <?php echo $index === count($breadcrumb_items) - 1 ? 'class="active"' : ''; ?>>
-                                <?php if ($index !== count($breadcrumb_items) - 1): ?>
-                                    <a href="<?php echo htmlspecialchars($item['link']); ?>">
-                                        <?php echo htmlspecialchars($item['name']); ?>
-                                    </a>
-                                <?php else: ?>
-                                    <?php echo htmlspecialchars($item['name']); ?>
-                                <?php endif; ?>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Breadcumb -->
+  <?php include("inc_files/breadcumb.php"); ?>
 
 <?php
   // Fetch images from the upload table based on the image IDs in the images column
@@ -383,7 +293,7 @@
             </ul>
             <div class="tab_container">
               <div id="tab1" class="tab_content">
-                <p><?php echo nl2br(htmlspecialchars($product['description'])); ?>p>
+                <p><?php echo nl2br(htmlspecialchars($product['description'])); ?>
               </div>
 
               <div id="tab2" class="tab_content">

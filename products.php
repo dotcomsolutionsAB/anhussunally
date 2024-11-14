@@ -6,7 +6,7 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     // Establish database connection
-    $conn = new mysqli($host, $username, $password, $dbname);
+    $conn = mysqli_connect($host, $username, $password, $dbname);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
@@ -50,12 +50,12 @@
 <body>
 
   <!--Loader-->
-  <div class="loader">
+  <!-- <div class="loader">
     <div class="spinner-load">
       <div class="dot1"></div>
       <div class="dot2"></div>
     </div>
-  </div>
+  </div> -->
   <!--HEADER-->
   <?php include("inc_files/header.php");?>
 

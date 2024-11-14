@@ -2,26 +2,27 @@
 <html>
 <head>
     <title>Google Sheets</title>
-    <link rel="stylesheet" href="path/to/your-styles.css"> <!-- Include your CSS styles -->
+    <link rel="stylesheet" href="path/to/your-styles.css"> <!-- Update to your actual stylesheet path -->
     <style>
         /* Basic styles for the modal */
         .modal {
             display: none; /* Hidden by default */
             position: fixed;
-            z-index: 1;
+            z-index: 1000; /* Ensure modal is above everything else */
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.4); /* Black background with opacity */
+            background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
         }
         .modal-content {
             background-color: #fff;
-            margin: 15% auto;
+            margin: 10% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 50%; /* Adjust as needed */
+            width: 50%; /* Adjust width as needed */
+            max-width: 600px; /* Limit the maximum width */
         }
         .close {
             color: #aaa;
@@ -34,6 +35,19 @@
             color: black;
             text-decoration: none;
             cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
         }
     </style>
 </head>
@@ -59,7 +73,7 @@
     </div>
 
     <!-- Table of Google Sheets -->
-    <table border="1">
+    <table>
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -67,8 +81,10 @@
             <th>Status</th>
             <th>Action</th>
         </tr>
-        <?php include("api/db_connection.php"); ?>
         <?php
+        // Include database connection
+        include("api/db_connection.php");
+
         // Establish database connection
         $conn = new mysqli($host, $username, $password, $dbname);
         if ($conn->connect_error) {
@@ -92,6 +108,7 @@
         <?php endwhile; ?>
     </table>
 
+    <!-- JavaScript for Modal and Sync Button -->
     <script>
         // Function to open the modal
         function openModal() {

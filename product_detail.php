@@ -181,8 +181,8 @@
                     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
                 }
             </style>
-            <div class="cc" style="display:flex; flex-direction:row; justify-content:space-evenly;">
-              <a href="images/pdf.png" download="" style="background: #fb163e; padding: 5px 10px; border-radius: 8px; margin: 5px;"><span style="width: 22px;">📑</span>
+            <div class="cc" style="display:flex; flex-direction:row; justify-content: start; gap: 3vw;">
+              <a href="images/pdf.png" download="" style="background: #fb163e; padding: 5px 10px; border-radius: 8px; margin: 5px;"><span style="font-size: x-large;">📑</span>
                 <!-- <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="max-width:160px"> -->
                 <span style="color:white; font-weight:bold;">PDF</span>
               </a>

@@ -62,7 +62,7 @@
       <div class="row">
         <?php while ($product = $result->fetch_assoc()): ?>
             <div class="col-md-3 col-sm-6">
-                <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border: 4px solid grey;">
+                <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border: 4px solid grey; margin-bottom: 5px;">
                     <?php if ($product['hours_since_creation'] <= 24): ?>
                         <div class="tag-btn"><span class="uppercase text-center" style="color:red;">New</span></div>
                     <?php endif; ?>
@@ -81,9 +81,9 @@
                         </a>
                     </div>
                     <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox">
-                        <div class="product_desc" style="padding: 2px; margin: 4px; height: 15vh; display: flex; flex-direction: column;">
+                        <div class="product_desc" style="padding: 2px; margin: 4px; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly;">
                             <p ><span class="title"><?php echo htmlspecialchars($product['name']); ?></span></p>
-                            <span class="brand"> <?php echo htmlspecialchars($product['brand']); ?></span>
+                            <p style="color: orangered; font-weight: bold;">Brand :<span class="title"> <?php echo htmlspecialchars($product['brand']); ?></span></p>
                         </div>
                     </a>
                 </div>

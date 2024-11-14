@@ -1,3 +1,43 @@
+
+<?php include("api/db_connection.php"); ?>
+<?php
+  // Establish database connection
+  $conn = new mysqli($host, $username, $password, $dbname);
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  }
+
+  // Check if the SKU is provided in the URL
+  if (!isset($_GET['sku'])) {
+      die("No SKU provided.");
+  }
+
+  $sku = $_GET['sku'];
+
+  // Fetch product details from the products table
+  $productQuery = "SELECT * FROM products WHERE sku = ?";
+  $stmt = $conn->prepare($productQuery);
+  $stmt->bind_param("s", $sku);
+  $stmt->execute();
+  $productResult = $stmt->get_result();
+
+  if ($productResult->num_rows === 0) {
+      die("Product not found.");
+  }
+
+  $product = $productResult->fetch_assoc();
+  $stmt->close();
+
+  // Fetch related products from the same brand
+  $brand = $product['brand'];
+  $relatedProductsQuery = "SELECT * FROM products WHERE brand = ? AND sku != ? LIMIT 4"; // Exclude the current product
+  $stmt = $conn->prepare($relatedProductsQuery);
+  $stmt->bind_param("ss", $brand, $sku);
+  $stmt->execute();
+  $relatedProductsResult = $stmt->get_result();
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -19,13 +59,6 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
   <link rel="shortcut icon" href="images/favicon.png">
-
-
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-
 </head>
 
 <body>
@@ -132,7 +165,7 @@
   <section id="cart" class="padding_bottom">
     <div class="container">
       <div class="row">
-        <div class="col-sm-6">
+        <!-- <div class="col-sm-6">
           <div id="slider_product" class="cbp margintop40">
             <div class="cbp-item">
               <div class="cbp-caption">
@@ -170,28 +203,38 @@
             <div class="cbp-pagination-item cbp-pagination-active">
               <img src="images/Twin_Clamps.jpg" alt="">
             </div>
-            <!-- <div class="cbp-pagination-item">
+            <div class="cbp-pagination-item">
               <img src="images/detail3.jpg" alt="">
             </div>
             <div class="cbp-pagination-item">
               <img src="images/detail4.jpg" alt="">
-            </div> -->
+            </div>
           </div>
-        </div>
+        </div> -->
         <div class="col-sm-6">
           <div class="detail_pro margintop40">
-            <h1 class="bottom30">Pipe Clamps </h1>
-				  <p>Brand: <a href="https://www.anhussunally.com/product-brand/alfomega-pipe-clamps/">Alfomega Pipe Clamps</a></p>
+            <h1 class="bottom30"><?php echo htmlspecialchars($product['name']); ?></h1>
+				  <p>Brand: <a href="#"><?php echo htmlspecialchars($product['brand']); ?></a></p>
           <div class="product_meta">
-          <span class="sku_wrapper">
-            <strong>SKU: </strong>
-            <span class="sku">
-                ANH-PC</span>
-        </span>
-        <br><span class="posted_in"><strong>Categories: </strong><a href="https://www.anhussunally.com/product-category/clamps/" rel="tag">Clamps</a>, <a href="https://www.anhussunally.com/product-category/clamps/pipe-clamps/" rel="tag">Pipe Clamps</a></span>
-</div><br><p class="stock in-stock"><strong>Status: </strong>In stock</p><br>
-            <p class="bottom30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-            <p><a href="images/pdf.png" download=""><img class="brochure-pdf" src="images/pdf.png" alt="W3Schools" style="max-width:160px"><br><a></p>
+            <span class="sku_wrapper">
+              <strong>SKU: </strong>
+              <span class="sku"> <?php echo htmlspecialchars($product['sku']); ?></span>
+            </span>
+            <br>
+            <span class="posted_in">
+              <strong>Categories: </strong>
+              <a href="#" rel="tag"><?php echo htmlspecialchars($product['category']); ?></a>, <a href="#" rel="tag">Child Category</a>
+            </span>
+          </div>
+          <br>
+          <!-- <p class="stock in-stock"><strong>Status: </strong>In stock</p> -->
+          <br>
+          <p class="bottom30"><?php echo nl2br(htmlspecialchars($product['short_description'])); ?></p>
+            <p>
+              <a href="images/pdf.png" download="">
+                <img class="brochure-pdf" src="images/pdf.png" alt="W3Schools" style="max-width:160px">
+              </a>
+            </p>
             <style>
                 .gmail-button {
                     display: inline-flex;
@@ -332,7 +375,7 @@
             </ul>
             <div class="tab_container">
               <div id="tab1" class="tab_content">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
+                <p><?php echo nl2br(htmlspecialchars($product['description'])); ?>p>
               </div>
 
               <div id="tab2" class="tab_content">
@@ -375,6 +418,7 @@
                   </div>
                 </form>
               </div>
+              
               <div id="tab3" class="tab_content">
                 <div class="row">
                   <div class="col-md-6">
@@ -433,19 +477,34 @@
         <div class="col-md-12">
           <h4 class="heading uppercase bottom30">Related Products</h4>
         </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="product_wrap bottom_half">
-            <div class="image">
-              <a class="fancybox" href="images/product4.jpg"><img src="images/product4.jpg" alt="Product" class="img-responsive">
-              </a>
+        <?php while ($relatedProduct = $relatedProductsResult->fetch_assoc()): ?>
+            <div class="col-md-3 col-sm-6">
+                <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border: 4px solid grey;">
+                    <div class="tag-btn"><span class="uppercase text-center">New</span></div>
+                    <div class="image">
+                        <?php
+                        // Get the first image from the images column
+                        $imageIds = explode(',', $relatedProduct['images']);
+                        $firstImageId = $imageIds[0];
+                        $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
+                        $imageResult = $conn->query($imageQuery);
+                        $image = $imageResult->fetch_assoc();
+                        $imageLink = $image ? "api/uploads/assets/" . $image['file_original_name'] : "path/to/default-image.jpg";
+                        ?>
+                        <a href="api/product_details.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
+                            <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($relatedProduct['name']); ?>" class="img-responsive">
+                        </a>
+                    </div>
+                    <a href="api/product_details.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="fancybox">
+                        <div class="product_desc">
+                            <p class="title"><?php echo htmlspecialchars($relatedProduct['name']); ?></p>
+                            <span class="brand"><?php echo htmlspecialchars($relatedProduct['brand']); ?></span>
+                            <span class="brand"><?php echo htmlspecialchars($relatedProduct['category']); ?></span>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="product_desc">
-              <p class="title">Sacrificial Chair Design </p>
-              <span class="price"><i class="fa fa-gbp"></i>170.00</span>
-              <a class="fancybox" href="images/product4.jpg" data-fancybox-group="gallery"><i class="fa fa-shopping-bag open"></i></a>
-            </div>
-          </div>
-        </div>
+        <?php endwhile; ?>
       </div>
     </div>
   </section>
@@ -479,3 +538,5 @@
 </body>
 
 </html>
+
+<?php $conn->close(); ?>

@@ -40,7 +40,7 @@ $stmt->bind_param("ss", $brand, $sku);
 $stmt->execute();
 $relatedProductsResult = $stmt->get_result();
 
-$conn->close();
+// $conn->close();
 ?>
 
 <!DOCTYPE html>

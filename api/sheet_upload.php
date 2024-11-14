@@ -67,13 +67,8 @@
             <th>Status</th>
             <th>Action</th>
         </tr>
+        <?php include("api/db_connection.php"); ?>
         <?php
-        // Database configuration
-        $host = 'localhost';
-        $dbname = 'your_database_name';
-        $username = 'your_username';
-        $password = 'your_password';
-
         // Establish database connection
         $conn = new mysqli($host, $username, $password, $dbname);
         if ($conn->connect_error) {

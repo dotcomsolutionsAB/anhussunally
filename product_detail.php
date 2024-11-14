@@ -160,7 +160,25 @@
         </div>
     </section>
 
+<?php
+  // Fetch images from the upload table based on the image IDs in the images column
+  $imageIds = explode(',', $product['images']);
+  $images = [];
 
+  if (!empty($imageIds)) {
+      $placeholders = implode(',', array_fill(0, count($imageIds), '?'));
+      $imageQuery = "SELECT file_original_name FROM upload WHERE id IN ($placeholders)";
+      $stmt = $conn->prepare($imageQuery);
+      $stmt->bind_param(str_repeat('i', count($imageIds)), ...array_map('intval', $imageIds));
+      $stmt->execute();
+      $imageResult = $stmt->get_result();
+      
+      while ($image = $imageResult->fetch_assoc()) {
+          $images[] = "https://anh.ongoingwp.xyz/api/uploads/assets/" . $image['file_original_name'];
+      }
+      $stmt->close();
+  }
+?>
 
   <section id="cart" class="padding_bottom">
     <div class="container">
@@ -170,17 +188,29 @@
             <div class="cbp-item">
               <div class="cbp-caption">
                 <div class="cbp-caption-defaultWrap">
-                  <img src="images/Pipe_Clamps.jpg" alt="">
+                  <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="">
                 </div>
               </div>
             </div>
           </div>
 
-          <div id="js-pagination-slider">
+          <!-- <div id="js-pagination-slider">
             <div class="cbp-pagination-item cbp-pagination-active">
               <img src="images/Pipe_Clamps.jpg" alt="">
             </div>
-          </div>
+          </div> -->
+          <!-- Image Slider Section -->
+        <div id="js-pagination-slider">
+            <?php if (!empty($images)): ?>
+                <?php foreach ($images as $index => $imageLink): ?>
+                    <div class="cbp-pagination-item <?php echo $index === 0 ? 'cbp-pagination-active' : ''; ?>">
+                        <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="Product Image">
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>No images available.</p>
+            <?php endif; ?>
+        </div>
         </div>
         <div class="col-sm-6">
           <div class="detail_pro margintop40">

@@ -285,7 +285,7 @@ error_reporting(E_ALL);
   </section>
 
 
-  <section class="bottom_half" style="padding-bottom: 0px;">
+  <section class="bottom_half container" style="padding-bottom: 0px; background: beige;">
     <div class="container">
       <div class="row">
         <div class="clearfix col-md-12">

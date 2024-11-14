@@ -3,53 +3,6 @@
 <head>
     <title>Google Sheets</title>
     <link rel="stylesheet" href="style.css"> <!-- Update to your actual stylesheet path -->
-    <style>
-        /* Basic styles for the modal */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed;
-            z-index: 1000; /* Ensure modal is above everything else */
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
-        }
-        .modal-content {
-            background-color: #fff;
-            margin: 10% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 50%; /* Adjust width as needed */
-            max-width: 600px; /* Limit the maximum width */
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
 </head>
 <body>
     <h2>Google Sheets List</h2>
@@ -73,40 +26,42 @@
     </div>
 
     <!-- Table of Google Sheets -->
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Path</th>
-            <th>Status</th>
-            <th>Action</th>
-        </tr>
-        <?php
-        // Include database connection
-        include("../db_connection.php");
-
-        // Establish database connection
-        $conn = new mysqli($host, $username, $password, $dbname);
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-        // Fetch all Google Sheets data
-        $query = "SELECT * FROM google_sheet";
-        $result = $conn->query($query);
-
-        while ($row = $result->fetch_assoc()): ?>
+    <div class="div">
+        <table>
             <tr>
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo htmlspecialchars($row['name']); ?></td>
-                <td><?php echo htmlspecialchars($row['path']); ?></td>
-                <td><?php echo $row['status'] == 1 ? 'Active' : 'Inactive'; ?></td>
-                <td>
-                    <button onclick="syncGoogleSheet(<?php echo $row['id']; ?>)">Sync</button>
-                </td>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Path</th>
+                <th>Status</th>
+                <th>Action</th>
             </tr>
-        <?php endwhile; ?>
-    </table>
+            <?php
+            // Include database connection
+            include("../db_connection.php");
+
+            // Establish database connection
+            $conn = new mysqli($host, $username, $password, $dbname);
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            // Fetch all Google Sheets data
+            $query = "SELECT * FROM google_sheet";
+            $result = $conn->query($query);
+
+            while ($row = $result->fetch_assoc()): ?>
+                <tr>
+                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo htmlspecialchars($row['name']); ?></td>
+                    <td><?php echo htmlspecialchars($row['path']); ?></td>
+                    <td><?php echo $row['status'] == 1 ? 'Active' : 'Inactive'; ?></td>
+                    <td>
+                        <button onclick="syncGoogleSheet(<?php echo $row['id']; ?>)">Sync</button>
+                    </td>
+                </tr>
+            <?php endwhile; ?>
+        </table>
+    </div>
 
     <!-- JavaScript for Modal and Sync Button -->
     <script>

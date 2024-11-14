@@ -100,7 +100,7 @@ input[type="submit"]:hover {
 
 /* Table styles */
 table {
-    width: 100%;
+    width: 60vw;
     border-collapse: collapse;
     margin-top: 20px;
     background-color: #fff;
@@ -134,4 +134,10 @@ tr:hover {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
+}
+
+.div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

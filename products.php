@@ -125,11 +125,11 @@
                         $image = $imageResult->fetch_assoc();
                         $imageLink = $image ? "api/uploads/assets/" . $image['file_original_name'] : "path/to/default-image.jpg";
                         ?>
-                        <a href="api/product_details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
+                        <a href="product_details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
                             <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="img-responsive">
                         </a>
                     </div>
-                    <a href="api/product_details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox">
+                    <a href="product_details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox">
                         <div class="product_desc">
                             <p class="title"><?php echo htmlspecialchars($product['name']); ?></p>
                             <span class="brand"> <?php echo htmlspecialchars($product['brand']); ?></span>

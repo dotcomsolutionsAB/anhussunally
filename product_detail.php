@@ -165,7 +165,7 @@
   <section id="cart" class="padding_bottom">
     <div class="container">
       <div class="row">
-        <!-- <div class="col-sm-6">
+        <div class="col-sm-6">
           <div id="slider_product" class="cbp margintop40">
             <div class="cbp-item">
               <div class="cbp-caption">
@@ -174,43 +174,14 @@
                 </div>
               </div>
             </div>
-            <div class="cbp-item">
-              <div class="cbp-caption">
-                <div class="cbp-caption-defaultWrap">
-                  <img src="images/Twin_Clamps.jpg" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="cbp-item">
-              <div class="cbp-caption">
-                <div class="cbp-caption-defaultWrap">
-                  <img src="images/detail3.jpg" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="cbp-item">
-              <div class="cbp-caption">
-                <div class="cbp-caption-defaultWrap">
-                  <img src="images/detail4.jpg" alt="">
-                </div>
-              </div>
-            </div>
           </div>
+
           <div id="js-pagination-slider">
             <div class="cbp-pagination-item cbp-pagination-active">
               <img src="images/Pipe_Clamps.jpg" alt="">
             </div>
-            <div class="cbp-pagination-item cbp-pagination-active">
-              <img src="images/Twin_Clamps.jpg" alt="">
-            </div>
-            <div class="cbp-pagination-item">
-              <img src="images/detail3.jpg" alt="">
-            </div>
-            <div class="cbp-pagination-item">
-              <img src="images/detail4.jpg" alt="">
-            </div>
           </div>
-        </div> -->
+        </div>
         <div class="col-sm-6">
           <div class="detail_pro margintop40">
             <h1 class="bottom30"><?php echo htmlspecialchars($product['name']); ?></h1>
@@ -418,7 +389,7 @@
                   </div>
                 </form>
               </div>
-              
+
               <div id="tab3" class="tab_content">
                 <div class="row">
                   <div class="col-md-6">

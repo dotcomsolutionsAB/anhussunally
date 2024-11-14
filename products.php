@@ -405,7 +405,7 @@
         <div class="col-md-12">
           <h4 class="heading uppercase bottom30">Related Products</h4>
         </div>
-        <div class="col-md-3 col-sm-6">
+        <!-- <div class="col-md-3 col-sm-6">
           <div class="product_wrap bottom_half">
             <div class="tag-btn"><span class="uppercase text-center">New</span>
             </div>
@@ -418,8 +418,8 @@
               <a class="fancybox" href="images/h04732a.jpg" data-fancybox-group="gallery"></a>
             </div>
           </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
+        </div> -->
+        <!-- <div class="col-md-3 col-sm-6">
           <div class="product_wrap bottom_half">
             <div class="image">
               <a class="fancybox" href="images/Twin_Clamps.jpg"><img src="images/Twin_Clamps.jpg" alt="Product" class="img-responsive">
@@ -430,7 +430,7 @@
               <a class="fancybox" href="images/Twin_Clamps.jpg" data-fancybox-group="gallery"></a>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="col-md-3 col-sm-6">
           <div class="product_wrap bottom_half">
             <div class="tag-btn"><span class="uppercase text-center">New</span>

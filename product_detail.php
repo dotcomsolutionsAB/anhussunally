@@ -182,12 +182,13 @@
                 }
             </style>
             <div class="cc" style="display:flex; flex-direction:row; justify-content:space-evenly;">
-              <a href="images/pdf.png" download="">
-                <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="max-width:160px">
+              <a href="images/pdf.png" download="">📑
+                <!-- <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="max-width:160px"> -->
+                <span style="color:white; font-weight:bold;">Send Email</span>
               </a>
               <a href="mailto:your-email@gmail.com">
-                  <img src="https://www.gstatic.com/images/branding/product/1x/gmail_2020q4_48dp.png" alt="mail">
-                  Send Email
+                  <img src="images/gmail.png" alt="mail">
+                  <span style="color:white; font-weight:bold;">Send Email</span>
               </a>
             </div>  
             <!-- <ul class="review_list marginbottom15">

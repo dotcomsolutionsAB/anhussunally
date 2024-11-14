@@ -182,9 +182,10 @@
                 }
             </style>
             <div class="cc" style="display:flex; flex-direction:row; justify-content: start; gap: 3vw;">
-              <a href="images/pdf.png" download="" style="background: #fb163e; padding: 5px 10px; border-radius: 8px; margin: 5px;"><span style="font-size: x-large;">📑</span>
-                <!-- <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="max-width:160px"> -->
-                <span style="color:white; font-weight:bold;">PDF</span>
+              <a href="images/pdf.png" download="" >
+                <!-- <span style="font-size: x-large;">📑</span> -->
+                <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="max-width:160px">
+                <!-- <span style="color:white; font-weight:bold;">PDF</span> -->
               </a>
               <a href="mailto:your-email@gmail.com" style="background: #262424; padding: 5px 10px; border-radius: 8px; margin: 5px;">
                   <img src="images/gmail.png" alt="mail"style="width: 22px;">

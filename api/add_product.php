@@ -7,8 +7,8 @@ include("db_connection.php");
 
 // Establish database connection
 $conn = mysqli_connect($host, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 // Fetch URL and sheet name from google_sheet table where status is 0
@@ -36,14 +36,14 @@ if ($result && $result->num_rows > 0) {
     $updatedSKUs = [];
     $failedSKUs = [];
 
-    echo "Reading SKUs from the sheet: $sheetName"."<br>";
+    echo "Reading SKUs from the sheet: $sheetName" . "<br>";
 
     // Iterate through each line and process data
     while (($data = fgetcsv($csvFile)) !== false) {
         $totalRows++;
         if (count($data) != count($header)) {
             echo "Skipping invalid line: " . htmlspecialchars(implode(", ", $data)) . "<br>";
-            continue; // Skip if the data line is invalid
+            continue;
         }
 
         // Map CSV data to column names
@@ -61,18 +61,19 @@ if ($result && $result->num_rows > 0) {
         $subCategory1 = $csvData['Sub Category Lv 1'] ?? '';
         $subCategory2 = $csvData['Sub Category Lv 2'] ?? '';
         $subCategory3 = $csvData['Sub Category Lv 3'] ?? '';
-        $image_url = $csvData['Images'] ?? '';
+        $image_url = $csvData['Images'] ?? ''; // Use image_url from CSV
         $pdf = $csvData['PDF'] ?? '';
         $weight = !empty($csvData['Weight (Kgs)']) ? $csvData['Weight (Kgs)'] : 0;
         $length = !empty($csvData['Lenght (cm)']) ? $csvData['Lenght (cm)'] : 0;
         $breadth = !empty($csvData['Breadth (cm)']) ? $csvData['Breadth (cm)'] : 0;
         $height = !empty($csvData['Height (cm)']) ? $csvData['Height (cm)'] : 0;
+        $images = ''; // Default value for images
 
         // Construct Features as JSON
         $features = [];
         for ($i = 1; $i <= 12; $i++) {
             if (!empty($csvData["Features $i"])) {
-                $features[] = "<li>".htmlspecialchars($csvData["Features $i"])."</li>";
+                $features[] = "<li>" . htmlspecialchars($csvData["Features $i"]) . "</li>";
             }
         }
         $featuresJson = json_encode($features);
@@ -81,7 +82,7 @@ if ($result && $result->num_rows > 0) {
         $shopLines = [];
         for ($i = 1; $i <= 6; $i++) {
             if (!empty($csvData["Shop_Line $i"])) {
-                $shopLines[] = "<li>".htmlspecialchars($csvData["Shop_Line $i"])."</li>";
+                $shopLines[] = "<li>" . htmlspecialchars($csvData["Shop_Line $i"]) . "</li>";
             }
         }
         $shopLinesJson = json_encode($shopLines);
@@ -89,7 +90,7 @@ if ($result && $result->num_rows > 0) {
         // Skip the row if any mandatory field is missing
         if (empty($sku) || empty($name) || empty($brand) || empty($category)) {
             $failedSKUs[] = $sku;
-            echo "Skipping row due to missing mandatory fields: SKU = $sku"."<br>";
+            echo "Skipping row due to missing mandatory fields: SKU = $sku" . "<br>";
             continue;
         }
 
@@ -142,11 +143,6 @@ if ($result && $result->num_rows > 0) {
                 $updateFields[] = "image_url = ?";
                 $updateValues[] = $image_url;
             }
-            
-            if ($existingProduct['images'] != $images) {
-                $updateFields[] = "images = ?";
-                $updateValues[] = $images;
-            }
             if ($existingProduct['pdf'] != $pdf) {
                 $updateFields[] = "pdf = ?";
                 $updateValues[] = $pdf;
@@ -196,12 +192,11 @@ if ($result && $result->num_rows > 0) {
                 echo "No changes detected for: " . $sku . "<br>";
             }
         } else {
-            // Insert new product
-                $insertQuery = "INSERT INTO products (sku, name, description, short_description, brand, category, sub_category_1, sub_category_2, sub_category_3, images, image_url, pdf, weight, length, breadth, height, features, shop_lines)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                $stmt = $conn->prepare($insertQuery);
-                $stmt->bind_param("ssssssssssssddddss", $sku, $name, $description, $short_description, $brand, $category, $subCategory1, $subCategory2, $subCategory3, $images, $image_url, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson);
-
+            // Insert new product with default value for images
+            $insertQuery = "INSERT INTO products (sku, name, description, short_description, brand, category, sub_category_1, sub_category_2, sub_category_3, images, image_url, pdf, weight, length, breadth, height, features, shop_lines)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $conn->prepare($insertQuery);
+            $stmt->bind_param("ssssssssssssddddss", $sku, $name, $description, $short_description, $brand, $category, $subCategory1, $subCategory2, $subCategory3, $images, $image_url, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson);
 
             if ($stmt->execute()) {
                 $importedSKUs[] = $sku;
@@ -216,34 +211,26 @@ if ($result && $result->num_rows > 0) {
     }
 
     // Output import summary by SKU in a structured format
-    echo "\nSummary for sheet: $sheetName"."<br>";
-    echo "------------------------"."<br>";
-    echo "Total SKUs processed: $totalRows"."<br>";
+    echo "\nSummary for sheet: $sheetName" . "<br>";
+    echo "------------------------" . "<br>";
+    echo "Total SKUs processed: $totalRows" . "<br>";
     echo "SKUs successfully imported: " . (!empty($importedSKUs) ? implode(", ", $importedSKUs) : "None") . "<br>";
     echo "SKUs updated: " . (!empty($updatedSKUs) ? implode(", ", $updatedSKUs) : "None") . "<br>";
     echo "SKUs failed to import or update: " . (!empty($failedSKUs) ? implode(", ", $failedSKUs) : "None") . "<br>";
-    echo "------------------------"."<br>";
+    echo "------------------------" . "<br>";
 
-    // Only update the status if at least one product was successfully imported or updated
-    if (!empty($importedSKUs) || !empty($updatedSKUs)) {
-        $updateStatusQuery = "UPDATE google_sheet SET status = 1 WHERE path = ?";
-        $stmt = $conn->prepare($updateStatusQuery);
-        $stmt->bind_param("s", $csvUrl);
-        $stmt->execute();
-        $stmt->close();
-        echo "Status updated to 1 in google_sheet table for sheet: $sheetName"."<br>";
-    } else {
-        $updateStatusQuery = "UPDATE google_sheet SET status = 1 WHERE path = ?";
-        $stmt = $conn->prepare($updateStatusQuery);
-        $stmt->bind_param("s", $csvUrl);
-        $stmt->execute();
-        $stmt->close();
-        echo "No products were imported or updated, so changing the status to 1 for sheet: $sheetName"."<br>";
-    }
+    // Update the status if at least one product was successfully imported or updated
+    $updateStatusQuery = "UPDATE google_sheet SET status = 1 WHERE path = ?";
+    $stmt = $conn->prepare($updateStatusQuery);
+    $stmt->bind_param("s", $csvUrl);
+    $stmt->execute();
+    $stmt->close();
+
+    echo "Status updated to 1 in google_sheet table for sheet: $sheetName" . "<br>";
 
     fclose($csvFile); // Close the CSV file
 } else {
-    echo "No CSV URL found with status 0"."<br>";
+    echo "No CSV URL found with status 0" . "<br>";
 }
 
 // Close the connection

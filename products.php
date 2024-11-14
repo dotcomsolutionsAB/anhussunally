@@ -21,7 +21,7 @@
         exit;
     }
 
-    $conn->close();
+    
 ?>
 
 <!doctype html>
@@ -137,3 +137,5 @@
 </body>
 
 </html>
+
+<?php  $conn->close();  ?>

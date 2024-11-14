@@ -1,6 +1,6 @@
 <?php
 // Include database connection
-include("../api/db_connection.php");
+include("../db_connection.php");
 
 // Establish database connection
 $conn = new mysqli($host, $username, $password, $dbname);

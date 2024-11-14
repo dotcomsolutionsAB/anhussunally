@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Google Sheets</title>
-    <link rel="stylesheet" href="path/to/your-styles.css"> <!-- Update to your actual stylesheet path -->
+    <link rel="stylesheet" href="style.css"> <!-- Update to your actual stylesheet path -->
     <style>
         /* Basic styles for the modal */
         .modal {
@@ -83,7 +83,7 @@
         </tr>
         <?php
         // Include database connection
-        include("api/db_connection.php");
+        include("../db_connection.php");
 
         // Establish database connection
         $conn = new mysqli($host, $username, $password, $dbname);

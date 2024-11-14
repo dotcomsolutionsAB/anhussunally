@@ -61,7 +61,7 @@ if ($result && $result->num_rows > 0) {
         $subCategory1 = $csvData['Sub Category Lv 1'] ?? '';
         $subCategory2 = $csvData['Sub Category Lv 2'] ?? '';
         $subCategory3 = $csvData['Sub Category Lv 3'] ?? '';
-        $images = $csvData['Images'] ?? '';
+        $image_url = $csvData['Images'] ?? '';
         $pdf = $csvData['PDF'] ?? '';
         $weight = !empty($csvData['Weight (Kgs)']) ? $csvData['Weight (Kgs)'] : 0;
         $length = !empty($csvData['Lenght (cm)']) ? $csvData['Lenght (cm)'] : 0;
@@ -138,6 +138,11 @@ if ($result && $result->num_rows > 0) {
                 $updateFields[] = "sub_category_3 = ?";
                 $updateValues[] = $subCategory3;
             }
+            if ($existingProduct['image_url'] != $image_url) {
+                $updateFields[] = "image_url = ?";
+                $updateValues[] = $image_url;
+            }
+            
             if ($existingProduct['images'] != $images) {
                 $updateFields[] = "images = ?";
                 $updateValues[] = $images;
@@ -192,10 +197,11 @@ if ($result && $result->num_rows > 0) {
             }
         } else {
             // Insert new product
-            $insertQuery = "INSERT INTO products (sku, name, description, short_description, brand, category, sub_category_1, sub_category_2, sub_category_3, image_url, pdf, weight, length, breadth, height, features, shop_lines)
-                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            $stmt = $conn->prepare($insertQuery);
-            $stmt->bind_param("sssssssssssddddss", $sku, $name, $description, $short_description, $brand, $category, $subCategory1, $subCategory2, $subCategory3, $images, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson);
+                $insertQuery = "INSERT INTO products (sku, name, description, short_description, brand, category, sub_category_1, sub_category_2, sub_category_3, images, image_url, pdf, weight, length, breadth, height, features, shop_lines)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $conn->prepare($insertQuery);
+                $stmt->bind_param("ssssssssssssddddss", $sku, $name, $description, $short_description, $brand, $category, $subCategory1, $subCategory2, $subCategory3, $images, $image_url, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson);
+
 
             if ($stmt->execute()) {
                 $importedSKUs[] = $sku;

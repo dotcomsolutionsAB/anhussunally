@@ -20,13 +20,14 @@ $stmt = $conn->prepare($updateQuery);
 $stmt->bind_param("i", $sheet_id);
 
 if ($stmt->execute()) {
-    echo "Status updated successfully. Synchronization in progress...";
+    
 
     // Run the add_product and upload_images scripts after 10 seconds
-    sleep(10); // Delay execution for 10 seconds
+    // sleep(10); // Delay execution for 10 seconds
     // Assuming 'php' is recognized as a command and the scripts are in the parent directory
     exec("php ../add_product.php");
     exec("php ../upload_images.php");
+    echo "Status updated successfully. Synchronization in progress...";
 
 } else {
     echo "Error: " . $stmt->error;

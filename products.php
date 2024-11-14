@@ -113,7 +113,7 @@
         </div>
         <?php while ($product = $result->fetch_assoc()): ?>
             <div class="col-md-3 col-sm-6">
-                <div class="product_wrap bottom_half">
+                <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border: 4px solid grey;">
                     <div class="tag-btn"><span class="uppercase text-center">New</span></div>
                     <div class="image">
                         <?php
@@ -129,11 +129,13 @@
                             <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="img-responsive">
                         </a>
                     </div>
-                    <div class="product_desc">
-                        <p class="title"><?php echo htmlspecialchars($product['name']); ?></p>
-                        <span class="price"><i class="fa fa-gbp"></i>170.00</span> <!-- Adjust price display as needed -->
-                        <a href="api/product_details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox"><i class="fa fa-shopping-bag open"></i></a>
-                    </div>
+                    <a href="api/product_details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox">
+                        <div class="product_desc">
+                            <p class="title"><?php echo htmlspecialchars($product['name']); ?></p>
+                            <span class="brand"> <?php echo htmlspecialchars($product['brand']); ?></span>
+                            <span class="brand"> <?php echo htmlspecialchars($product['category']); ?></span>
+                        </div>
+                    </a>
                 </div>
             </div>
         <?php endwhile; ?>

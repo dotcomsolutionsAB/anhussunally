@@ -47,7 +47,7 @@
 <body>
 
   <!-- Loader -->
-
+  <?php include("inc_files/loader.php"); ?>
   <!-- HEADER -->
   <?php include("inc_files/header.php"); ?>
   <!-- Breadcumb -->
@@ -64,19 +64,22 @@
                     <?php endif; ?>
                     <div class="image">
                         <?php
-                        // Get the first image from the images column
-                        $imageIds = explode(',', $product['images']);
-                        $firstImageId = $imageIds[0] ?? null;
-                        
-                        $imageLink = "images/default.png"; // Default image
-                        if ($firstImageId) {
-                            $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
-                            $imageResult = $conn->query($imageQuery);
-                            if ($imageResult && $imageResult->num_rows > 0) {
-                                $image = $imageResult->fetch_assoc();
-                                $imageLink = "api/uploads/assets/" . $image['file_original_name'];
+                            if(isNotEmpty($product['images']) && $product['images'] != ''){
+                                // Get the first image from the images column
+                                $imageIds = explode(',', $product['images']);
+                                $firstImageId = $imageIds[0] ?? null;
+
+                                if ($firstImageId) {
+                                    $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
+                                    $imageResult = $conn->query($imageQuery);
+                                    if ($imageResult && $imageResult->num_rows > 0) {
+                                        $image = $imageResult->fetch_assoc();
+                                        $imageLink = "api/uploads/assets/" . $image['file_original_name'];
+                                    }
+                                }
+                            }else{
+                              $imageLink = "images/default.png"; // Default image
                             }
-                        }
                         ?>
                         <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
                             <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="img-responsive">

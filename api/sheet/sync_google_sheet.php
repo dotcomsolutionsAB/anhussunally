@@ -21,8 +21,10 @@ if ($stmt->execute()) {
 
     // Run the add_product and upload_images scripts after 10 seconds
     sleep(10); // Delay execution for 10 seconds
-    exec("../add_product.php");
-    exec("../upload_images.php");
+    // Assuming 'php' is recognized as a command and the scripts are in the parent directory
+    exec("php ../add_product.php");
+    exec("php ../upload_images.php");
+
 } else {
     echo "Error: " . $stmt->error;
 }

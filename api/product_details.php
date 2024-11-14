@@ -32,26 +32,13 @@ if ($productResult->num_rows === 0) {
 $product = $productResult->fetch_assoc();
 $stmt->close();
 
-// Fetch images from the upload table based on the image IDs in the images column
-$imageIds = explode(',', $product['images']);
-$images = [];
-
-if (!empty($imageIds)) {
-    $placeholders = implode(',', array_fill(0, count($imageIds), '?'));
-    $imageQuery = "SELECT file_original_name FROM upload WHERE id IN ($placeholders)";
-    $stmt = $conn->prepare($imageQuery);
-    $stmt->bind_param(str_repeat('i', count($imageIds)), ...array_map('intval', $imageIds));
-    $stmt->execute();
-    $imageResult = $stmt->get_result();
-    
-    while ($image = $imageResult->fetch_assoc()) {
-        // Construct the correct full URL for the image
-        $imageLink = "https://anh.ongoingwp.xyz/api/uploads/assets/" . $image['file_original_name'];
-        $images[] = $imageLink;
-        // echo "Debug: Image URL - " . htmlspecialchars($imageLink) . "<br>"; // Debugging output
-    }
-    $stmt->close();
-}
+// Fetch related products from the same brand
+$brand = $product['brand'];
+$relatedProductsQuery = "SELECT * FROM products WHERE brand = ? AND sku != ? LIMIT 4"; // Exclude the current product
+$stmt = $conn->prepare($relatedProductsQuery);
+$stmt->bind_param("ss", $brand, $sku);
+$stmt->execute();
+$relatedProductsResult = $stmt->get_result();
 
 $conn->close();
 ?>
@@ -60,47 +47,55 @@ $conn->close();
 <html>
 <head>
     <title>Product Details</title>
-    <style>
-        .product-details {
-            max-width: 800px;
-            margin: 0 auto;
-            font-family: Arial, sans-serif;
-        }
-        .product-details h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        .product-images img {
-            max-width: 100%;
-            margin: 10px 0;
-        }
-        .product-description {
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="path/to/font-awesome.css"> <!-- Include Font Awesome -->
+    <link rel="stylesheet" href="path/to/your-styles.css"> <!-- Include your CSS styles -->
 </head>
 <body>
+    <!-- Existing Product Details Section -->
     <div class="product-details">
         <h1><?php echo htmlspecialchars($product['name']); ?></h1>
         <p><strong>SKU:</strong> <?php echo htmlspecialchars($product['sku']); ?></p>
         <p><strong>Brand:</strong> <?php echo htmlspecialchars($product['brand']); ?></p>
         <p><strong>Category:</strong> <?php echo htmlspecialchars($product['category']); ?></p>
-
-        <div class="product-images">
-            <h2>Images</h2>
-            <?php if (!empty($images)): ?>
-                <?php foreach ($images as $imageLink): ?>
-                    <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="Product Image">
-                <?php endforeach; ?>
-            <?php else: ?>
-                <p>No images available.</p>
-            <?php endif; ?>
-        </div>
-
         <div class="product-description">
             <h2>Description</h2>
             <p><?php echo nl2br(htmlspecialchars($product['description'])); ?></p>
         </div>
+    </div>
+
+    <!-- Related Products Section -->
+    <div class="col-md-12">
+        <h4 class="heading uppercase bottom30">Related Products</h4>
+    </div>
+    <div class="row">
+        <?php while ($relatedProduct = $relatedProductsResult->fetch_assoc()): ?>
+            <div class="col-md-3 col-sm-6">
+                <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border: 4px solid grey;">
+                    <div class="tag-btn"><span class="uppercase text-center">New</span></div>
+                    <div class="image">
+                        <?php
+                        // Get the first image from the images column
+                        $imageIds = explode(',', $relatedProduct['images']);
+                        $firstImageId = $imageIds[0];
+                        $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
+                        $imageResult = $conn->query($imageQuery);
+                        $image = $imageResult->fetch_assoc();
+                        $imageLink = $image ? "api/uploads/assets/" . $image['file_original_name'] : "path/to/default-image.jpg";
+                        ?>
+                        <a href="api/product_details.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
+                            <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($relatedProduct['name']); ?>" class="img-responsive">
+                        </a>
+                    </div>
+                    <a href="api/product_details.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="fancybox">
+                        <div class="product_desc">
+                            <p class="title"><?php echo htmlspecialchars($relatedProduct['name']); ?></p>
+                            <span class="brand"><?php echo htmlspecialchars($relatedProduct['brand']); ?></span>
+                            <span class="brand"><?php echo htmlspecialchars($relatedProduct['category']); ?></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        <?php endwhile; ?>
     </div>
 </body>
 </html>

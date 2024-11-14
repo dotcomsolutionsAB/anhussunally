@@ -224,7 +224,7 @@
                 <img src="https://www.gstatic.com/images/branding/product/1x/gmail_2020q4_48dp.png" alt="Gmail Logo">
                 Send Email
             </a>
-            <ul class="review_list marginbottom15">
+            <!-- <ul class="review_list marginbottom15">
               <li><img src="images/star.png" alt="star">
               </li>
               <li><a href="#.">10 review(s) </a>
@@ -305,7 +305,7 @@
                 <li><a href="#." class="share"><i class="fa fa-plus-square"></i><span>Share</span></a>
                 </li>
               </ul>
-            </div>
+            </div> -->
 
           </div>
         </div>
@@ -459,7 +459,7 @@
             </div>
           </div>
         </div>
-        <!-- <div class="col-md-3 col-sm-6">
+        <div class="col-md-3 col-sm-6">
           <div class="product_wrap bottom_half">
             <div class="tag-btn"><span class="uppercase text-center">New</span>
             </div>
@@ -473,8 +473,8 @@
               <a class="fancybox" href="images/product8.jpg" data-fancybox-group="gallery"><i class="fa fa-shopping-bag open"></i></a>
             </div>
           </div>
-        </div> -->
-        <!-- <div class="col-md-3 col-sm-6">
+        </div>
+        <div class="col-md-3 col-sm-6">
           <div class="product_wrap bottom_half">
             <div class="image">
               <a class="fancybox" href="images/product4.jpg"><img src="images/product4.jpg" alt="Product" class="img-responsive">
@@ -486,7 +486,7 @@
               <a class="fancybox" href="images/product4.jpg" data-fancybox-group="gallery"><i class="fa fa-shopping-bag open"></i></a>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </section>

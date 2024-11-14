@@ -1,10 +1,7 @@
-<?php
-// Database configuration
-$host = 'localhost';
-$dbname = 'anh';
-$username = 'anh';
-$password = '9kCuzrb5tO53$xQtf';
 
+<?php include("api/db_connection.php"); ?>
+
+<?php
 // Establish database connection
 $conn = new mysqli($host, $username, $password, $dbname);
 if ($conn->connect_error) {
@@ -191,33 +188,33 @@ $conn->close();
             <p class="bottom30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
             <p><a href="images/pdf.png" download=""><img class="brochure-pdf" src="images/pdf.png" alt="W3Schools" style="max-width:160px"><br><a></p>
             <style>
-        .gmail-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #DB4437;
-            color: #fff;
-            font-size: 18px;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
+                .gmail-button {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #DB4437;
+                    color: #fff;
+                    font-size: 18px;
+                    font-weight: 600;
+                    text-decoration: none;
+                    padding: 12px 25px;
+                    border-radius: 50px;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                    transition: all 0.3s ease;
+                }
 
-        .gmail-button img {
-            margin-right: 10px;
-            width: 24px;
-            height: 24px;
-        }
+                .gmail-button img {
+                    margin-right: 10px;
+                    width: 24px;
+                    height: 24px;
+                }
 
-        .gmail-button:hover {
-            background-color: #C03527;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-        }
-    </style>
+                .gmail-button:hover {
+                    background-color: #C03527;
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+                }
+            </style>
     <a href="mailto:your-email@gmail.com" class="gmail-button">
         <img src="https://www.gstatic.com/images/branding/product/1x/gmail_2020q4_48dp.png" alt="Gmail Logo">
         Send Email
@@ -469,7 +466,7 @@ $conn->close();
                         $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
                         $imageResult = $conn->query($imageQuery);
                         $image = $imageResult->fetch_assoc();
-                        $imageLink = $image ? "https://anh.ongoingwp.xyz/api/uploads/assets/" . $image['file_original_name'] : "path/to/default-image.jpg";
+                        $imageLink = $image ? "api/uploads/assets/" . $image['file_original_name'] : "path/to/default-image.jpg";
                         ?>
                         <a href="product_details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
                             <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="img-responsive">
@@ -478,7 +475,7 @@ $conn->close();
                     <div class="product_desc">
                         <p class="title"><?php echo htmlspecialchars($product['name']); ?></p>
                         <span class="price"><i class="fa fa-gbp"></i>170.00</span> <!-- Adjust price display as needed -->
-                        <a href="product_details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox"><i class="fa fa-shopping-bag open"></i></a>
+                        <a href="api/product_details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox"><i class="fa fa-shopping-bag open"></i></a>
                     </div>
                 </div>
             </div>

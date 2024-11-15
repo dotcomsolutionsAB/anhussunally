@@ -181,5 +181,59 @@
             }
         }
     </script>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auto Run Script</title>
+</head>
+<body>
+    <h2>Auto Run Script for Google Sheets</h2>
+
+    <script>
+        // Function to check the status and call add_products.php
+        function checkAndRunAddProducts() {
+            // Fetch the sheets with status == 0
+            fetch('check_status.php')
+                .then(response => response.json())
+                .then(sheets => {
+                    if (sheets.length > 0) {
+                        sheets.forEach(sheet => {
+                            // Run add_products.php for each sheet with status 0
+                            fetch(`../add_products.php?id=${sheet.id}`)
+                                .then(response => response.text())
+                                .then(data => {
+                                    console.log(`Sheet ID: ${sheet.id} - ${data}`);
+
+                                    // After successful processing, update the status to 1
+                                    return fetch(`update_status_auto.php?id=${sheet.id}&status=1`);
+                                })
+                                .then(response => response.text())
+                                .then(updateMessage => {
+                                    console.log(`Status updated for Sheet ID: ${sheet.id} - ${updateMessage}`);
+                                })
+                                .catch(error => {
+                                    console.error(`Error processing Sheet ID: ${sheet.id} - ${error.message}`);
+                                });
+                        });
+                    } else {
+                        console.log("No sheets with status 0 found.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error checking status:", error);
+                });
+        }
+
+        // Automatically run the checkAndRunAddProducts function every 2 minutes (120000 milliseconds)
+        setInterval(checkAndRunAddProducts, 120000);
+
+        // Initial call to run the function as soon as the page loads
+        checkAndRunAddProducts();
+    </script>
+</body>
+</html>
+
 </body>
 </html>

@@ -16,7 +16,7 @@ $sheet_name = $_POST['sheet_name'];
 $sheet_path = $_POST['sheet_path'];
 
 // Insert into google_sheet table
-$query = "INSERT INTO google_sheet (name, path, status) VALUES (?, ?, 1)";
+$query = "INSERT INTO google_sheet (name, path, status) VALUES (?, ?, 0)";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("ss", $sheet_name, $sheet_path);
 

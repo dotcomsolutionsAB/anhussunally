@@ -135,7 +135,7 @@ error_reporting(E_ALL);
         <div class="col-sm-6">
           <div class="detail_pro margintop40">
             <h1 class="bottom30"><?php echo htmlspecialchars($product['name']); ?></h1>
-            <p style="color: orangered; font-weight: bold;">Brand :
+            <p style="color: #7ab6c8; font-weight: bold;">Brand :
               <a href="#">
                 <span class="title"> <?php echo htmlspecialchars($product['brand']); ?></span>
               </a>

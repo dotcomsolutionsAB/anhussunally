@@ -81,9 +81,9 @@
                               } else {
                                   $imageLink = "images/default.png"; // Default image if $firstImageId is null
                               }
-                          } else {
-                              $imageLink = "images/default.png"; // Default image if 'images' is empty or ''
-                          }
+                            } else {
+                                $imageLink = "images/default.png"; // Default image if 'images' is empty or ''
+                            }
                           
                         ?>
                         <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">

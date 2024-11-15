@@ -3,10 +3,35 @@
 <head>
     <title>Google Sheets</title>
     <link rel="stylesheet" href="style.css"> <!-- Update to your actual stylesheet path -->
+    <style>
+        /* Styling for the message notifications */
+        .message {
+            position: fixed;
+            padding: 10px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            display: none;
+            z-index: 1000;
+        }
+        .top-right {
+            top: 10px;
+            right: 10px;
+        }
+        .top-left {
+            top: 10px;
+            left: 10px;
+        }
+    </style>
 </head>
 <body>
     <h2>Google Sheets List</h2>
     <button onclick="openModal()">Add</button>
+
+    <!-- Message Notifications -->
+    <div id="syncMessage" class="message top-right"></div>
+    <div id="uploadMessage" class="message top-left"></div>
 
     <!-- Modal for Adding Google Sheet -->
     <div id="addModal" class="modal">
@@ -33,6 +58,7 @@
                 <th>Name</th>
                 <th>Path</th>
                 <th>Status</th>
+                <th>Last Updated</th>
                 <th>Action</th>
             </tr>
             <?php
@@ -54,16 +80,18 @@
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo htmlspecialchars($row['name']); ?></td>
                     <td><?php echo htmlspecialchars($row['path']); ?></td>
-                    <td><?php echo $row['status'] == 1 ? 'Active' : 'Inactive'; ?></td>
+                    <td><?php echo htmlspecialchars($row['status']); ?></td>
+                    <td><?php echo htmlspecialchars($row['last_updated']); ?></td>
                     <td>
                         <button onclick="syncGoogleSheet(<?php echo $row['id']; ?>)">Sync</button>
+                        <button onclick="uploadImages(<?php echo $row['id']; ?>)">Upload</button>
                     </td>
                 </tr>
             <?php endwhile; ?>
         </table>
     </div>
 
-    <!-- JavaScript for Modal and Sync Button -->
+    <!-- JavaScript for Modal and Buttons -->
     <script>
         // Function to open the modal
         function openModal() {
@@ -75,24 +103,50 @@
             document.getElementById("addModal").style.display = "none";
         }
 
-        function syncGoogleSheet(sheetId) {
-            // Make an AJAX request to sync_google_sheet.php
-            fetch(`sync_google_sheet.php?id=${sheetId}`)
-                .then(response => response.text())
-                .then(data => {
-                    alert(data); // This shows the response message
-
-                    // Check the response content
-                    if (data.includes("Status updated successfully")) {
-                        // Reload the page to update the status
-                        window.location.reload();
-                    } else {
-                        console.error("Failed to update status:", data);
-                    }
-                })
-                .catch(error => console.error('Error:', error));
+        // Function to display messages
+        function showMessage(message, elementId) {
+            const messageElement = document.getElementById(elementId);
+            messageElement.textContent = message;
+            messageElement.style.display = "block";
+            setTimeout(() => {
+                messageElement.style.display = "none";
+            }, 3000);
         }
 
+        // Function to sync Google Sheet
+        function syncGoogleSheet(sheetId) {
+            // First update the status
+            fetch(`update_status.php?id=${sheetId}&status=0`)
+                .then(response => response.text())
+                .then(data => {
+                    if (data.includes("Status updated successfully")) {
+                        // Now run the add_product.php script
+                        return fetch(`add_product.php?id=${sheetId}`);
+                    } else {
+                        throw new Error("Failed to update status");
+                    }
+                })
+                .then(response => response.text())
+                .then(data => {
+                    showMessage(data, "syncMessage");
+                    window.location.reload();
+                })
+                .catch(error => {
+                    showMessage(error.message, "syncMessage");
+                });
+        }
+
+        // Function to upload images
+        function uploadImages(sheetId) {
+            fetch(`upload_images.php?id=${sheetId}`)
+                .then(response => response.text())
+                .then(data => {
+                    showMessage(data, "uploadMessage");
+                })
+                .catch(error => {
+                    showMessage("Failed to upload images: " + error.message, "uploadMessage");
+                });
+        }
 
         // Close the modal when clicking outside of it
         window.onclick = function(event) {

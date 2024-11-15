@@ -135,7 +135,7 @@
         //             showMessage(error.message, "syncMessage");
         //         });
         // }
-        
+
         function syncGoogleSheet(sheetId) {
             console.log("Syncing sheet with ID:", sheetId); // Debugging line
             fetch(`update_status.php?id=${sheetId}&status=0`)
@@ -143,7 +143,7 @@
                 .then(data => {
                     console.log("Response from update_status.php:", data); // Debugging line
                     if (data.includes("Status updated successfully")) {
-                        return fetch(`add_product.php?id=${sheetId}`);
+                        return fetch(`../add_product.php?id=${sheetId}`);
                     } else {
                         throw new Error("Failed to update status");
                     }
@@ -163,7 +163,7 @@
 
         // Function to upload images
         function uploadImages(sheetId) {
-            fetch(`upload_images.php?id=${sheetId}`)
+            fetch(`../upload_images.php?id=${sheetId}`)
                 .then(response => response.text())
                 .then(data => {
                     showMessage(data, "uploadMessage");

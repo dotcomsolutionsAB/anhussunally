@@ -19,7 +19,7 @@
                 </a>
               </li>
               <li class="dropdown">
-                <a href="product_detail.php" class="dropdown-toggle" data-toggle="dropdown">Products
+                <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products
                 </a>
                 <!-- <ul class="dropdown-menu">
                   <li>
@@ -120,11 +120,11 @@
                 </ul>
               </li> -->
               <li>
-                <a href="#.">about us
+                <a href="#.">About Us
                 </a>
               </li>
               <li>
-                <a href="contact_us.php">contact us
+                <a href="contact_us.php">Contact us
                 </a>
               </li>
             </ul>

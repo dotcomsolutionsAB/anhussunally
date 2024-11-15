@@ -81,7 +81,7 @@
                     <td><?php echo htmlspecialchars($row['name']); ?></td>
                     <td><?php echo htmlspecialchars($row['path']); ?></td>
                     <td><?php echo htmlspecialchars($row['status']); ?></td>
-                    <td><?php echo htmlspecialchars($row['last_updated']); ?></td>
+                    <td><?php echo htmlspecialchars($row['updated_at']); ?></td>
                     <td>
                         <button onclick="syncGoogleSheet(<?php echo $row['id']; ?>)">Sync</button>
                         <button onclick="uploadImages(<?php echo $row['id']; ?>)">Upload</button>
@@ -114,13 +114,35 @@
         }
 
         // Function to sync Google Sheet
+        // function syncGoogleSheet(sheetId) {
+        //     // First update the status
+        //     fetch(`update_status.php?id=${sheetId}&status=0`)
+        //         .then(response => response.text())
+        //         .then(data => {
+        //             if (data.includes("Status updated successfully")) {
+        //                 // Now run the add_product.php script
+        //                 return fetch(`add_product.php?id=${sheetId}`);
+        //             } else {
+        //                 throw new Error("Failed to update status");
+        //             }
+        //         })
+        //         .then(response => response.text())
+        //         .then(data => {
+        //             showMessage(data, "syncMessage");
+        //             window.location.reload();
+        //         })
+        //         .catch(error => {
+        //             showMessage(error.message, "syncMessage");
+        //         });
+        // }
+        
         function syncGoogleSheet(sheetId) {
-            // First update the status
+            console.log("Syncing sheet with ID:", sheetId); // Debugging line
             fetch(`update_status.php?id=${sheetId}&status=0`)
                 .then(response => response.text())
                 .then(data => {
+                    console.log("Response from update_status.php:", data); // Debugging line
                     if (data.includes("Status updated successfully")) {
-                        // Now run the add_product.php script
                         return fetch(`add_product.php?id=${sheetId}`);
                     } else {
                         throw new Error("Failed to update status");
@@ -128,13 +150,16 @@
                 })
                 .then(response => response.text())
                 .then(data => {
+                    console.log("Response from add_product.php:", data); // Debugging line
                     showMessage(data, "syncMessage");
                     window.location.reload();
                 })
                 .catch(error => {
+                    console.error("Error:", error); // Debugging line
                     showMessage(error.message, "syncMessage");
                 });
         }
+
 
         // Function to upload images
         function uploadImages(sheetId) {

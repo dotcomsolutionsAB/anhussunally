@@ -2,8 +2,9 @@
 // Include database connection
 include("../db_connection.php");
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// Get the ID and Status from the request
+$id = $_GET['id'];
+$status = $_GET['status'];
 
 // Establish database connection
 $conn = new mysqli($host, $username, $password, $dbname);
@@ -11,26 +12,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get the Google Sheet ID
-$sheet_id = $_GET['id'];
-
-// Update the status to 0
-$updateQuery = "UPDATE google_sheet SET status = 0 WHERE id = ?";
-$stmt = $conn->prepare($updateQuery);
-$stmt->bind_param("i", $sheet_id);
+// Update status query
+$stmt = $conn->prepare("UPDATE google_sheet SET status = ? WHERE id = ?");
+$stmt->bind_param("ii", $status, $id);
 
 if ($stmt->execute()) {
-    
-
-    // Run the add_product and upload_images scripts after 10 seconds
-    // sleep(10); // Delay execution for 10 seconds
-    // Assuming 'php' is recognized as a command and the scripts are in the parent directory
-    exec("php ../add_product.php");
-    exec("php ../upload_images.php");
-    echo "Status updated successfully. Synchronization in progress...";
-
+    echo "Status updated successfully";
 } else {
-    echo "Error: " . $stmt->error;
+    echo "Failed to update status";
 }
 
 $stmt->close();

@@ -182,15 +182,6 @@
         }
     </script>
 
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Auto Run Script</title>
-</head>
-<body>
-    <h2>Auto Run Script for Google Sheets</h2>
-
     <script>
         // Function to check the status and call add_products.php
         function checkAndRunAddProducts() {
@@ -232,8 +223,6 @@
         // Initial call to run the function as soon as the page loads
         checkAndRunAddProducts();
     </script>
-</body>
-</html>
 
 </body>
 </html>

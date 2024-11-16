@@ -91,7 +91,7 @@
                         </a>
                     </div>
                     <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox">
-                        <div class="product_desc" style="padding: 2px; margin: 4px; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly;">
+                        <div class="product_desc" style="padding: 2px; margin: 4px; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly; text-align: center;">
                             <p><span style="text-align: center;" class="title"><?php echo htmlspecialchars($product['name']); ?></span></p>
                             <p style="color: #049ddf; font-weight: bold; text-align: center">Brand: <span class="title"><?php echo htmlspecialchars($product['brand']); ?></span></p>
                         </div>

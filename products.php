@@ -60,7 +60,7 @@
             <div class="col-md-3 col-sm-6">
                 <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border-radius: 20px; margin-bottom: 5px; box-shadow:-1px 4px 19px -9px rgba(0, 0, 0, 0.5); background-color: white;">
                     <?php if ($product['hours_since_creation'] <= 24): ?>
-                        <div class="tag-btn"><span class="uppercase text-center" style="color:red;">New</span></div>
+                        <div class="tag-btn"><span class="uppercase text-center" style="color:#049ddf;">New</span></div>
                     <?php endif; ?>
                     <div class="image" style="width:100%; ">
                         <?php

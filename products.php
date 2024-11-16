@@ -62,7 +62,7 @@
                     <?php if ($product['hours_since_creation'] <= 24): ?>
                         <div class="tag-btn"><span class="uppercase text-center" style="color:red;">New</span></div>
                     <?php endif; ?>
-                    <div class="image">
+                    <div class="image" style="width:100%; ">
                         <?php
                             if (!empty($product['images']) && $product['images'] != '') {
                               // Get the first image from the images column
@@ -87,14 +87,14 @@
                           
                         ?>
                         <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
-                            <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>"     display: block;
+                            <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="    display: block;
     width: 14vw;
     padding: 1vw;
-    margin: 1vw; class="img-responsive">
+    margin: 1vw;" class="img-responsive">
                         </a>
                     </div>
                     <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox">
-                        <div class="product_desc" style="padding: 2px; margin: 4px; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly; text-align: center;">
+                        <div class="product_desc" style="padding: 1vw; margin: 1vw; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly; text-align: center;">
                             <p><span style="text-align: center;" class="title"><?php echo htmlspecialchars($product['name']); ?></span></p>
                             <p style="color: #049ddf; font-weight: bold; text-align: center">Brand: <span class="title"><?php echo htmlspecialchars($product['brand']); ?></span></p>
                         </div>

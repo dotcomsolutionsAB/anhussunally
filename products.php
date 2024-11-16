@@ -60,7 +60,7 @@
             <div class="col-md-3 col-sm-6">
                 <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border-radius: 20px; margin-bottom: 5px; box-shadow:-1px 4px 19px -9px rgba(0, 0, 0, 0.5); background-color: white;">
                     <?php if ($product['hours_since_creation'] <= 24): ?>
-                        <div style="width: 0; height: 0; border-bottom: 10px solid transparent; border-top: 50px solid #79b6c8; border-left: 15px solid #79b6c8; border-right: 15px solid #79b6c8; display: inline-block;" class="tag-btn">
+                        <div class="tag-btn">
                     <span class="uppercase text-center">New
                     </span>
                   </div>

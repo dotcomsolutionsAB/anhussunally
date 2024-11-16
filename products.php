@@ -87,7 +87,10 @@
                           
                         ?>
                         <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
-                            <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="img-responsive">
+                            <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>"     display: block;
+    width: 14vw;
+    padding: 1vw;
+    margin: 1vw; class="img-responsive">
                         </a>
                     </div>
                     <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox">

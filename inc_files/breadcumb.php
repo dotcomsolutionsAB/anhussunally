@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="hidden">hidden</h3>
-                    <ul class="breadcrumb" style="background: beige;">
+                    <ul class="breadcrumb" style="background: #f3f3f3;">
                         <?php foreach ($breadcrumb_items as $index => $item): ?>
                             <li <?php echo $index === count($breadcrumb_items) - 1 ? 'class="active"' : ''; ?>>
                                 <?php if ($index !== count($breadcrumb_items) - 1): ?>

@@ -283,7 +283,7 @@ error_reporting(E_ALL);
   </section>
 
 
-  <section class="bottom_half container" style="padding-bottom: 0px; background: beige; padding: 5px 5px; border-radius: 10px;">
+  <section class="bottom_half container" style="padding-bottom: 0px; background: #f3f3f3; padding: 5px 5px; border-radius: 10px;">
     <div class="container">
       <div class="row">
         <div class="clearfix col-md-12">

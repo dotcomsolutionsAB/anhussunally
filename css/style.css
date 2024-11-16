@@ -64,6 +64,13 @@
 /*Brands*/
 
 /*General Styling*/
+.product_wrap{
+	padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: -1px 4px 19px -9px rgba(0, 0, 0, 0.5);
+}
 body,html{
 	height:100%;
 	width:100%;
@@ -2594,13 +2601,6 @@ footer.plain_footer{
 
 .topbar .col-sm-4{
   text-align: center;
-}
-.product_wrap{
-	padding: 5px;
-    margin-bottom: 5px;
-    border-radius: 20px;
-    background-color: white;
-    box-shadow: -1px 4px 19px -9px rgba(0, 0, 0, 0.5);
 }
  
 }

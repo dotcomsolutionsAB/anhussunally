@@ -282,7 +282,7 @@ $relatedProductsResult = $stmt->get_result();
   </section>
 
 
-  <section class="bottom_half container" style="padding-bottom: 0px; background: #fff; padding: 5px 5px; border-radius: 20px;">
+  <section class="bottom_half container" style="padding-bottom: 0px; background: #fff; padding: 5px 5px; border-radius: 20px; margin-top: 20px;">
     <div class="container">
       <div class="row">
         <div class="clearfix col-md-12">

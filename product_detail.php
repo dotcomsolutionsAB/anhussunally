@@ -1,43 +1,42 @@
-
 <?php include("api/db_connection.php"); ?>
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-  // Establish database connection
-  $conn = new mysqli($host, $username, $password, $dbname);
-  if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-  }
+// Establish database connection
+$conn = new mysqli($host, $username, $password, $dbname);
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
 
-  // Check if the SKU is provided in the URL
-  if (!isset($_GET['sku'])) {
-      die("No SKU provided.");
-  }
+// Check if the SKU is provided in the URL
+if (!isset($_GET['sku'])) {
+  die("No SKU provided.");
+}
 
-  $sku = $_GET['sku'];
+$sku = $_GET['sku'];
 
-  // Fetch product details from the products table
-  $productQuery = "SELECT * FROM products WHERE sku = ?";
-  $stmt = $conn->prepare($productQuery);
-  $stmt->bind_param("s", $sku);
-  $stmt->execute();
-  $productResult = $stmt->get_result();
+// Fetch product details from the products table
+$productQuery = "SELECT * FROM products WHERE sku = ?";
+$stmt = $conn->prepare($productQuery);
+$stmt->bind_param("s", $sku);
+$stmt->execute();
+$productResult = $stmt->get_result();
 
-  if ($productResult->num_rows === 0) {
-      die("Product not found.");
-  }
+if ($productResult->num_rows === 0) {
+  die("Product not found.");
+}
 
-  $product = $productResult->fetch_assoc();
-  $stmt->close();
+$product = $productResult->fetch_assoc();
+$stmt->close();
 
-  // Fetch related products from the same brand
-  $brand = $product['brand'];
-  $relatedProductsQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brand = ? AND sku != ? LIMIT 4"; // Exclude the current product
-  $stmt = $conn->prepare($relatedProductsQuery);
-  $stmt->bind_param("ss", $brand, $sku);
-  $stmt->execute();
-  $relatedProductsResult = $stmt->get_result();
+// Fetch related products from the same brand
+$brand = $product['brand'];
+$relatedProductsQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brand = ? AND sku != ? LIMIT 4"; // Exclude the current product
+$stmt = $conn->prepare($relatedProductsQuery);
+$stmt->bind_param("ss", $brand, $sku);
+$stmt->execute();
+$relatedProductsResult = $stmt->get_result();
 
 ?>
 
@@ -69,29 +68,29 @@ error_reporting(E_ALL);
   <!--Loader-->
   <?php include("inc_files/loader.php"); ?>
   <!--HEADER-->
-  <?php include("inc_files/header.php");?>
+  <?php include("inc_files/header.php"); ?>
   <!-- Breadcumb -->
   <?php include("inc_files/breadcumb.php"); ?>
 
-<?php
+  <?php
   // Fetch images from the upload table based on the image IDs in the images column
   $imageIds = explode(',', $product['images']);
   $images = [];
 
   if (!empty($imageIds)) {
-      $placeholders = implode(',', array_fill(0, count($imageIds), '?'));
-      $imageQuery = "SELECT file_original_name FROM upload WHERE id IN ($placeholders)";
-      $stmt = $conn->prepare($imageQuery);
-      $stmt->bind_param(str_repeat('i', count($imageIds)), ...array_map('intval', $imageIds));
-      $stmt->execute();
-      $imageResult = $stmt->get_result();
-      
-      while ($image = $imageResult->fetch_assoc()) {
-          $images[] = "https://anh.ongoingwp.xyz/api/uploads/assets/" . $image['file_original_name'];
-      }
-      $stmt->close();
+    $placeholders = implode(',', array_fill(0, count($imageIds), '?'));
+    $imageQuery = "SELECT file_original_name FROM upload WHERE id IN ($placeholders)";
+    $stmt = $conn->prepare($imageQuery);
+    $stmt->bind_param(str_repeat('i', count($imageIds)), ...array_map('intval', $imageIds));
+    $stmt->execute();
+    $imageResult = $stmt->get_result();
+
+    while ($image = $imageResult->fetch_assoc()) {
+      $images[] = "https://anh.ongoingwp.xyz/api/uploads/assets/" . $image['file_original_name'];
+    }
+    $stmt->close();
   }
-?>
+  ?>
 
   <section id="cart" class="padding_bottom">
     <div class="container">
@@ -102,11 +101,11 @@ error_reporting(E_ALL);
             <div class="cbp-item">
               <div class="cbp-caption">
                 <?php if (!empty($images)): ?>
-                    <?php foreach ($images as $index => $imageLink): ?>
-                      <div class="cbp-caption-defaultWrap <?php echo $index === 0 ? 'cbp-pagination-active' : ''; ?>">
-                        <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="">
-                      </div>
-                    <?php endforeach; ?>
+                  <?php foreach ($images as $index => $imageLink): ?>
+                    <div class="cbp-caption-defaultWrap <?php echo $index === 0 ? 'cbp-pagination-active' : ''; ?>">
+                      <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="">
+                    </div>
+                  <?php endforeach; ?>
                 <?php else: ?>
                   <p>No images available.</p>
                 <?php endif; ?>
@@ -120,17 +119,17 @@ error_reporting(E_ALL);
             </div>
           </div> -->
           <!-- Image Slider Section -->
-        <div id="js-pagination-slider">
+          <div id="js-pagination-slider">
             <?php if (!empty($images)): ?>
-                <?php foreach ($images as $index => $imageLink): ?>
-                    <div class="cbp-pagination-item <?php echo $index === 0 ? 'cbp-pagination-active' : ''; ?>">
-                        <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="Product Image">
-                    </div>
-                <?php endforeach; ?>
+              <?php foreach ($images as $index => $imageLink): ?>
+                <div class="cbp-pagination-item <?php echo $index === 0 ? 'cbp-pagination-active' : ''; ?>">
+                  <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="Product Image">
+                </div>
+              <?php endforeach; ?>
             <?php else: ?>
-                <p>No images available.</p>
+              <p>No images available.</p>
             <?php endif; ?>
-        </div>
+          </div>
         </div>
         <div class="col-sm-6">
           <div class="detail_pro margintop40">
@@ -140,60 +139,64 @@ error_reporting(E_ALL);
                 <span class="title"> <?php echo htmlspecialchars($product['brand']); ?></span>
               </a>
             </p>
-          <div class="product_meta">
-            <span class="sku_wrapper">
-              <strong>SKU: </strong>
-              <span class="sku"> <?php echo htmlspecialchars($product['sku']); ?></span>
-            </span>
+            <div class="product_meta">
+              <span class="sku_wrapper">
+                <strong>SKU: </strong>
+                <span class="sku"> <?php echo htmlspecialchars($product['sku']); ?></span>
+              </span>
+              <br>
+              <span class="posted_in">
+                <strong>Categories: </strong>
+                <a href="#" rel="tag"><?php echo htmlspecialchars($product['category']); ?></a>, <a href="#" rel="tag">Child Category</a>
+              </span>
+            </div>
             <br>
-            <span class="posted_in">
-              <strong>Categories: </strong>
-              <a href="#" rel="tag"><?php echo htmlspecialchars($product['category']); ?></a>, <a href="#" rel="tag">Child Category</a>
-            </span>
-          </div>
-          <br>
-          <!-- <p class="stock in-stock"><strong>Status: </strong>In stock</p> -->
-          <br>
-          <p class="bottom30"><?php echo nl2br(htmlspecialchars($product['short_description'])); ?></p>
-            
+            <!-- <p class="stock in-stock"><strong>Status: </strong>In stock</p> -->
+            <br>
+            <p class="bottom30"><?php echo nl2br(htmlspecialchars($product['short_description'])); ?></p>
+
             <style>
-                .gmail-button {
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    background-color: #DB4437;
-                    color: #fff;
-                    font-size: 18px;
-                    font-weight: 600;
-                    text-decoration: none;
-                    padding: 12px 25px;
-                    border-radius: 50px;
-                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-                    transition: all 0.3s ease;
-                }
+              .gmail-button {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #DB4437;
+                color: #fff;
+                font-size: 18px;
+                font-weight: 600;
+                text-decoration: none;
+                padding: 12px 25px;
+                border-radius: 50px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                transition: all 0.3s ease;
+              }
 
-                .gmail-button img {
-                    margin-right: 10px;
-                    width: 24px;
-                    height: 24px;
-                }
+              .gmail-button img {
+                margin-right: 10px;
+                width: 24px;
+                height: 24px;
+              }
 
-                .gmail-button:hover {
-                    background-color: #C03527;
-                    transform: translateY(-2px);
-                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-                }
+              .gmail-button:hover {
+                background-color: #C03527;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+              }
             </style>
             <div class="cc" style="display:flex; flex-direction:row; justify-content: start; gap: 3vw; align-items: center;">
-              <a href="images/pdf.png" download="" >
+              <a href="images/pdf.png" download="">
                 <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="max-width:160px">
               </a>
               <a href="mailto:your-email@gmail.com" style="background: #262424; padding: 5px 10px; border-radius: 8px; margin: 5px;">
-                  <img src="images/gmail.png" alt="mail"style="width: 30px;">
-                  <span style="color:white; font-weight:bold;">Send Email</span>
+                <img src="images/gmail.png" alt="mail" style="width: 30px;">
+                <span style="color:white; font-weight:bold;">Send Email</span>
               </a>
-            </div> 
-            <div class="wptwa-wc-buttons-container" data-ids="1902" data-page-title="Bandsaw Blade" data-page-url="https://jamalitoolsbd.com/product/bandsaw-blade/"><p><a href="https://web.whatsapp.com/send?phone=8801308881456&amp;text=Hello,%0D%0AI need to inquire regarding this product.%0D%0A%0D%0Ahttps://jamalitoolsbd.com/product/bandsaw-blade/" class="wptwa-button wptwa-account wptwa-clearfix" data-number="8801308881456" data-auto-text="Hello,%0D%0AI need to inquire regarding this product.%0D%0A%0D%0A[wptwa_page_url]" data-ga-label="Jamali Tools" target="_blank"><span class="wptwa-avatar"><svg class="WhatsApp" width="40px" height="40px" viewBox="0 0 92 92"><use xlink:href="#wptwa-logo"></use></svg></span><span class="wptwa-text"><span class="wptwa-profile">Support &nbsp;/&nbsp; Jamali Tools</span><span class="wptwa-copy">Need help? Chat via WhatsApp</span></span></a></p></div> 
+            </div>
+            <div class="wptwa-wc-buttons-container" data-ids="1902" data-page-title="Bandsaw Blade" data-page-url="https://jamalitoolsbd.com/product/bandsaw-blade/">
+              <p><a href="https://web.whatsapp.com/send?phone=8801308881456&amp;text=Hello,%0D%0AI need to inquire regarding this product.%0D%0A%0D%0Ahttps://jamalitoolsbd.com/product/bandsaw-blade/" class="wptwa-button wptwa-account wptwa-clearfix" data-number="8801308881456" data-auto-text="Hello,%0D%0AI need to inquire regarding this product.%0D%0A%0D%0A[wptwa_page_url]" data-ga-label="Jamali Tools" target="_blank"><span class="wptwa-avatar"><svg class="WhatsApp" width="40px" height="40px" viewBox="0 0 92 92">
+                      <use xlink:href="#wptwa-logo"></use>
+                    </svg></span><span class="wptwa-text"><span class="wptwa-profile">Support &nbsp;/&nbsp; Jamali Tools</span><span class="wptwa-copy">Need help? Chat via WhatsApp</span></span></a></p>
+            </div>
             <!-- <ul class="review_list marginbottom15">
               <li><img src="images/star.png" alt="star">
               </li>
@@ -398,40 +401,40 @@ error_reporting(E_ALL);
   </section>
 
 
-  <section id="feature_product" class="bottom_half" >
+  <section id="feature_product" class="bottom_half">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <h4 class="heading uppercase bottom30">Related Products</h4>
         </div>
         <?php while ($relatedProduct = $relatedProductsResult->fetch_assoc()): ?>
-            <div class="col-md-3 col-sm-6">
-                <div class="product_wrap bottom_half" style="padding: 5px; border-radius: 20px; margin-bottom: 5px; box-shadow: -1px 4px 19px -9px rgba(0, 0, 0, 0.5); background-color: white">
-                    <?php if ($relatedProduct['hours_since_creation'] <= 24): ?>
-                        <div class="tag-btn"><span class="uppercase text-center" style="color:#7ab6c8;">New</span></div>
-                    <?php endif; ?>
-                    <div style="display: block; width: 14vw; padding: 1vw; margin: 1vw" class="image">
-                        <?php
-                        // Get the first image from the images column
-                        $imageIds = explode(',', $relatedProduct['images']);
-                        $firstImageId = $imageIds[0];
-                        $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
-                        $imageResult = $conn->query($imageQuery);
-                        $image = $imageResult->fetch_assoc();
-                        $imageLink = $image ? "api/uploads/assets/" . $image['file_original_name'] : "path/to/default-image.jpg";
-                        ?>
-                        <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
-                            <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($relatedProduct['name']); ?>" class="img-responsive">
-                        </a>
-                    </div>
-                    <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="fancybox">
-                        <div class="product_desc" style="padding: 2px; margin: 4px; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly; text-align: center;">
-                            <p class="title"><?php echo htmlspecialchars($relatedProduct['name']); ?></p>
-                            <span style="color: #049ddf; font-weight: bold; text-align: center;" class="brand"><?php echo htmlspecialchars($relatedProduct['brand']); ?></span>
-                        </div>
-                    </a>
+          <div class="col-md-3 col-sm-6">
+            <div class="product_wrap bottom_half" style="padding: 5px; border-radius: 20px; margin-bottom: 5px; box-shadow: -1px 4px 19px -9px rgba(0, 0, 0, 0.5); background-color: white">
+              <?php if ($relatedProduct['hours_since_creation'] <= 24): ?>
+                <div class="tag-btn"><span class="uppercase text-center" style="color:#7ab6c8;">New</span></div>
+              <?php endif; ?>
+              <div style="display: block; width: 14vw; padding: 1vw; margin: 1vw" class="image">
+                <?php
+                // Get the first image from the images column
+                $imageIds = explode(',', $relatedProduct['images']);
+                $firstImageId = $imageIds[0];
+                $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
+                $imageResult = $conn->query($imageQuery);
+                $image = $imageResult->fetch_assoc();
+                $imageLink = $image ? "api/uploads/assets/" . $image['file_original_name'] : "path/to/default-image.jpg";
+                ?>
+                <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
+                  <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($relatedProduct['name']); ?>" class="img-responsive">
+                </a>
+              </div>
+              <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="fancybox">
+                <div class="product_desc" style="padding: 2px; margin: 4px; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly; text-align: center;">
+                  <p class="title"><?php echo htmlspecialchars($relatedProduct['name']); ?></p>
+                  <span style="color: #049ddf; font-weight: bold; text-align: center;" class="brand"><?php echo htmlspecialchars($relatedProduct['brand']); ?></span>
                 </div>
+              </a>
             </div>
+          </div>
         <?php endwhile; ?>
       </div>
     </div>
@@ -439,7 +442,7 @@ error_reporting(E_ALL);
 
 
   <!--Footer-->
-  <?php include("inc_files/footer.php");?>
+  <?php include("inc_files/footer.php"); ?>
 
   <script src="js/jquery-2.2.3.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOBKD6V47-g_3opmidcmFapb3kSNAR70U"></script>

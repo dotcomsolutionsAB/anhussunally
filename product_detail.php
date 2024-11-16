@@ -427,7 +427,6 @@ error_reporting(E_ALL);
                         <div class="product_desc" style="padding: 2px; margin: 4px; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly;">
                             <p class="title"><?php echo htmlspecialchars($relatedProduct['name']); ?></p>
                             <span class="brand"><?php echo htmlspecialchars($relatedProduct['brand']); ?></span>
-                            <span class="brand"><?php echo htmlspecialchars($relatedProduct['category']); ?></span>
                         </div>
                     </a>
                 </div>

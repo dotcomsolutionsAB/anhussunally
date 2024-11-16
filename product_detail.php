@@ -192,7 +192,8 @@ error_reporting(E_ALL);
                   <img src="images/gmail.png" alt="mail"style="width: 30px;">
                   <span style="color:white; font-weight:bold;">Send Email</span>
               </a>
-            </div>  
+            </div> 
+            <div class="wptwa-wc-buttons-container" data-ids="1902" data-page-title="Bandsaw Blade" data-page-url="https://jamalitoolsbd.com/product/bandsaw-blade/"><p><a href="https://web.whatsapp.com/send?phone=8801308881456&amp;text=Hello,%0D%0AI need to inquire regarding this product.%0D%0A%0D%0Ahttps://jamalitoolsbd.com/product/bandsaw-blade/" class="wptwa-button wptwa-account wptwa-clearfix" data-number="8801308881456" data-auto-text="Hello,%0D%0AI need to inquire regarding this product.%0D%0A%0D%0A[wptwa_page_url]" data-ga-label="Jamali Tools" target="_blank"><span class="wptwa-avatar"><svg class="WhatsApp" width="40px" height="40px" viewBox="0 0 92 92"><use xlink:href="#wptwa-logo"></use></svg></span><span class="wptwa-text"><span class="wptwa-profile">Support &nbsp;/&nbsp; Jamali Tools</span><span class="wptwa-copy">Need help? Chat via WhatsApp</span></span></a></p></div> 
             <!-- <ul class="review_list marginbottom15">
               <li><img src="images/star.png" alt="star">
               </li>

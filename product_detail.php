@@ -409,7 +409,7 @@ error_reporting(E_ALL);
                     <?php if ($relatedProduct['hours_since_creation'] <= 24): ?>
                         <div class="tag-btn"><span class="uppercase text-center" style="color:#7ab6c8;">New</span></div>
                     <?php endif; ?>
-                    <div class="image">
+                    <div style="display: block; width: 14vw; padding: 1vw; margin: 1vw" class="image">
                         <?php
                         // Get the first image from the images column
                         $imageIds = explode(',', $relatedProduct['images']);

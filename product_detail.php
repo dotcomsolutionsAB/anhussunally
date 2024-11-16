@@ -424,7 +424,7 @@ error_reporting(E_ALL);
                         </a>
                     </div>
                     <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="fancybox">
-                        <div class="product_desc" style="padding: 2px; margin: 4px; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly;">
+                        <div class="product_desc" style="padding: 2px; margin: 4px; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly; text-align: center;">
                             <p class="title"><?php echo htmlspecialchars($relatedProduct['name']); ?></p>
                             <span style="color: #049ddf; font-weight: bold; text-align: center;" class="brand"><?php echo htmlspecialchars($relatedProduct['brand']); ?></span>
                         </div>

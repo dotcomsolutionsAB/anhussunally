@@ -70,7 +70,7 @@ if ($result->num_rows === 0) {
         }
     </style>
 
-<div class="container1">
+<div class="container">
         <div class="image2">
             <img src="images/WALVOIL.png" alt="Demo Image">
         </div>

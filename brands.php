@@ -72,7 +72,7 @@ if ($result->num_rows === 0) {
 
 <div class="container1">
         <div class="image2">
-            <img src="https://via.placeholder.com/300" alt="Demo Image">
+            <img src="images/walvoil.png" alt="Demo Image">
         </div>
         <div class="text3">
             <h2>Lorem Ipsum</h2>

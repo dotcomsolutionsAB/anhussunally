@@ -84,12 +84,12 @@ if ($conn->connect_error) {
     <div class="container">
         <div class="row">
             <?php
-            // Define an array with the two brands you want to display
-            $allowedBrands = ['Brand1', 'Brand2'];
+            $counter = 0; // Initialize a counter
 
             while ($product = $result->fetch_assoc()):
-                // Check if the product's brand is in the allowed brands array
-                if (in_array($product['brand'], $allowedBrands)):
+                if ($counter >= 2) break; // Stop the loop after showing two products
+
+                // Your product box code
             ?>
                 <div class="col-md-3 col-sm-6">
                     <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border-radius: 20px; margin-bottom: 5px; box-shadow:-1px 4px 19px -9px rgba(0, 0, 0, 0.5); background-color: white;">
@@ -133,13 +133,12 @@ if ($conn->connect_error) {
                     </div>
                 </div>
             <?php
-                endif; // End brand check
+                $counter++; // Increment the counter
             endwhile;
             ?>
         </div>
     </div>
 </section>
-
     <!-- Footer -->
     <?php include("inc_files/footer.php"); ?>
 

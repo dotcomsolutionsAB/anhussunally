@@ -10,7 +10,7 @@ $conn = mysqli_connect($host, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$productQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brands = ''walvoil";
+$productQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brand like '%walvoil'";
 $result = $conn->query($productQuery);
 
 if ($result->num_rows === 0) {

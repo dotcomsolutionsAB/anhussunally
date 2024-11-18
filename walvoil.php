@@ -80,6 +80,66 @@ if ($conn->connect_error) {
         </div>
     </div>
 
+    <section id="feature_product" class="bottom_half">
+    <div class="container">
+        <div class="row">
+            <?php
+            // Define an array with the two brands you want to display
+            $allowedBrands = ['Brand1', 'Brand2'];
+
+            while ($product = $result->fetch_assoc()):
+                // Check if the product's brand is in the allowed brands array
+                if (in_array($product['brand'], $allowedBrands)):
+            ?>
+                <div class="col-md-3 col-sm-6">
+                    <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border-radius: 20px; margin-bottom: 5px; box-shadow:-1px 4px 19px -9px rgba(0, 0, 0, 0.5); background-color: white;">
+                        <?php if ($product['hours_since_creation'] <= 24): ?>
+                            <div style="width: 0; height: 0; border-bottom: 10px solid transparent; border-top: 50px solid #79b6c8; border-left: 15px solid #79b6c8; border-right: 15px solid #79b6c8; display: inline-block;" class="tag-btn">
+                                <span class="uppercase text-center">New</span>
+                            </div>
+                        <?php endif; ?>
+                        <div class="image" style="width:100%;">
+                            <?php
+                            if (!empty($product['images']) && $product['images'] != '') {
+                                $imageIds = explode(',', $product['images']);
+                                $firstImageId = $imageIds[0] ?? null;
+
+                                if ($firstImageId) {
+                                    $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
+                                    $imageResult = $conn->query($imageQuery);
+                                    if ($imageResult && $imageResult->num_rows > 0) {
+                                        $image = $imageResult->fetch_assoc();
+                                        $imageLink = "api/uploads/assets/" . $image['file_original_name'];
+                                    } else {
+                                        $imageLink = "images/default.png";
+                                    }
+                                } else {
+                                    $imageLink = "images/default.png";
+                                }
+                            } else {
+                                $imageLink = "images/default.png";
+                            }
+                            ?>
+                            <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
+                                <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="display: block; width: 14vw; padding: 1vw; margin: 1vw;" class="img-responsive">
+                            </a>
+                        </div>
+                        <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox">
+                            <div class="product_desc" style="padding: 1vw; margin: 1vw; height: 15vh; display: flex; flex-direction: column; justify-content: space-evenly; text-align: center;">
+                                <p><span style="text-align: center;" class="title"><?php echo htmlspecialchars($product['name']); ?></span></p>
+                                <p style="color: #049ddf; font-weight: bold; text-align: center">Brand: <span class="title"><?php echo htmlspecialchars($product['brand']); ?></span></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            <?php
+                endif; // End brand check
+            endwhile;
+            ?>
+        </div>
+    </div>
+</section>
+
     <!-- Footer -->
     <?php include("inc_files/footer.php"); ?>
 

@@ -76,7 +76,7 @@ if ($result->num_rows === 0) {
                 <img src="images/WALVOIL.png" alt="Demo Image">
             </div>
             <div class="text3">
-                <h2>Lorem Ipsum</h2>
+                <h2>Walvoil</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan tortor. Curabitur laoreet, lacus sit amet sodales vestibulum, lectus risus aliquam elit, at bibendum elit odio eu mi. Integer eu sapien quis felis consequat scelerisque. Nulla facilisi. Sed fringilla ipsum nec velit hendrerit, ut dictum lorem consequat.</p>
             </div>
         </div>

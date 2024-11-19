@@ -64,7 +64,7 @@ if ($result->num_rows === 0) {
 <body>
 
     <!-- Loader -->
-    <?php include("inc_files/loader.php"); ?>
+
     <!-- HEADER -->
     <?php include("inc_files/header.php"); ?>
     <!-- Breadcumb -->

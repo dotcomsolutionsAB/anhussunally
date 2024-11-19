@@ -332,6 +332,8 @@
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
+          background-color: #f9f9f9;
+          background-attachment: scroll;
         }
     </style>
     <div class="flex">

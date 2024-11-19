@@ -326,16 +326,36 @@
             max-height: 60px;
             object-fit: contain;
         }
-        .flex{
-          display: flex;
-          justify-content: center;
-          background-image: url("images/About_Us.png");
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-color: #f9f9f9;
-          background-attachment: scroll;
-        }
+        .flex {
+    position: relative; /* Needed to position the overlay correctly */
+    display: flex;
+    justify-content: center;
+    background-image: url("images/About_Us.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f9f9f9;
+    background-attachment: scroll;
+    height: 100vh; /* Adjust height as needed */
+    color: white; /* Text color to stand out against the dark overlay */
+}
+
+.flex::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    pointer-events: none; /* Ensure the overlay doesn’t interfere with interactions */
+    z-index: 1; /* Make sure the overlay is behind the content */
+}
+
+.flex > * {
+    position: relative;
+    z-index: 2; /* Bring the content above the overlay */
+}
     </style>
     <div class="flex">
       <div class="brand-grid">

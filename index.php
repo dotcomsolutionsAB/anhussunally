@@ -324,6 +324,10 @@
             max-height: 60px;
             object-fit: contain;
         }
+        .flex{
+          display: flex;
+          justify-content: center;
+        }
     </style>
     <div class="flex">
       <div class="brand-grid">

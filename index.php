@@ -298,6 +298,7 @@
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 30px;
             max-width: 1200px;
+            justify-content: center;
         }
 
         .brand-card {

@@ -35,7 +35,7 @@ if ($brandResult && $brandResult->num_rows > 0):
         if ($productResult && $productResult->num_rows > 0):
             while ($product = $productResult->fetch_assoc()):
                 // Define the image URL or use a default image if not available
-                $imageLink = !empty($product['images']) ? "api/uploads/assets/" . explode(',', $product['images'])[0] : "images/default.png";
+                $imageLink = !empty($product['images']) ? "../api/uploads/assets/" . explode(',', $product['images'])[0] : "../images/default.png";
 ?>
                 <!-- HTML structure for each product -->
                 <div class="item">

@@ -380,6 +380,7 @@
           <div class="brand-card"><img src="images/Water-Test-Pump.png" alt="Brand 19" class="brand-logo"></div>
           <div class="brand-card"><img src="images/YUKEN.png" alt="Brand 20" class="brand-logo"></div>
           <div class="brand-card"><img src="images/VIP.png" alt="Brand 20" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/Hose-Crimping-Machine.png" alt="Brand 20" class="brand-logo"></div>
       </div>
     </div>
     <!--NEW ARRIVALS-->

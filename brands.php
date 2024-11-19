@@ -22,10 +22,17 @@ if ($brandResult && $brandResult->num_rows > 0) {
     $brand = $brandResult->fetch_assoc();
     $brandName = $brand['name'];
     $brandDescription = $brand['description'];
+    $brandLogo = $brand['logo'];
 } else {
     echo "Brand not found.";
     $conn->close();
     exit;
+}
+
+if (!empty($brandLogo)) {
+    $brandLogo = "api/uploads/assets/" . $brandLogo;
+} else {
+    $brandLogo = "images/default.png";
 }
 
 // Fetch products for the given brand
@@ -93,7 +100,7 @@ if ($result->num_rows === 0) {
     <div class="container">
         <div class="container1">
             <div class="image2">
-                <img src="images/WALVOIL.png" alt="<?php echo htmlspecialchars($brandName); ?> Image">
+                <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($brandName); ?> Image">
             </div>
             <div class="text3">
                 <h2><?php echo htmlspecialchars($brandName); ?></h2>

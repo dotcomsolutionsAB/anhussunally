@@ -59,7 +59,7 @@ $brandResult = $conn->query($brandQuery);
                         <?php if ($brandResult && $brandResult->num_rows > 0): ?>
                             <?php while ($brand = $brandResult->fetch_assoc()): ?>
                                 <li>
-                                    <a href="brand_page.php?id=<?php echo htmlspecialchars($brand['id']); ?>" style="padding: 0px 10px; font-size: 15px;">
+                                    <a href="brands.php?id=<?php echo htmlspecialchars($brand['id']); ?>" style="padding: 0px 10px; font-size: 15px;">
                                         <?php echo htmlspecialchars($brand['name']); ?>
                                     </a>
                                 </li>

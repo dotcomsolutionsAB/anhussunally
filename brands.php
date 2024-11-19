@@ -10,11 +10,30 @@ $conn = mysqli_connect($host, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$productQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brand_id =1";
+
+// Get the brand ID from the URL
+$brandId = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+// Fetch brand details
+$brandQuery = "SELECT name, description FROM brand WHERE id = $brandId";
+$brandResult = $conn->query($brandQuery);
+
+if ($brandResult && $brandResult->num_rows > 0) {
+    $brand = $brandResult->fetch_assoc();
+    $brandName = $brand['name'];
+    $brandDescription = $brand['description'];
+} else {
+    echo "Brand not found.";
+    $conn->close();
+    exit;
+}
+
+// Fetch products for the given brand
+$productQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brand_id = $brandId";
 $result = $conn->query($productQuery);
 
 if ($result->num_rows === 0) {
-    echo "No products found.";
+    echo "No products found for this brand.";
     $conn->close();
     exit;
 }
@@ -27,7 +46,7 @@ if ($result->num_rows === 0) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>Brands - Walvoil</title>
+    <title>Brand - <?php echo htmlspecialchars($brandName); ?></title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/animate.min.css">
@@ -50,6 +69,7 @@ if ($result->num_rows === 0) {
     <?php include("inc_files/header.php"); ?>
     <!-- Breadcumb -->
     <?php include("inc_files/breadcumb.php"); ?>
+
     <style>
         .container1 {
             display: flex;
@@ -60,7 +80,7 @@ if ($result->num_rows === 0) {
             flex: 1;
             padding-right: 20px;
         }
-        .image img {
+        .image2 img {
             width: 100%;
             height: auto;
             border-radius: 8px;
@@ -70,14 +90,14 @@ if ($result->num_rows === 0) {
         }
     </style>
 
-<div class="container">
+    <div class="container">
         <div class="container1">
             <div class="image2">
-                <img src="images/WALVOIL.png" alt="Demo Image">
+                <img src="images/WALVOIL.png" alt="<?php echo htmlspecialchars($brandName); ?> Image">
             </div>
             <div class="text3">
-                <h2>Walvoil</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan tortor. Curabitur laoreet, lacus sit amet sodales vestibulum, lectus risus aliquam elit, at bibendum elit odio eu mi. Integer eu sapien quis felis consequat scelerisque. Nulla facilisi. Sed fringilla ipsum nec velit hendrerit, ut dictum lorem consequat.</p>
+                <h2><?php echo htmlspecialchars($brandName); ?></h2>
+                <p><?php echo htmlspecialchars($brandDescription); ?></p>
             </div>
         </div>
     </div>
@@ -87,17 +107,15 @@ if ($result->num_rows === 0) {
             <div class="row">
                 <?php while ($product = $result->fetch_assoc()): ?>
                     <div class="col-md-3 col-sm-6">
-                        <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border-radius: 20px; margin-bottom: 5px; box-shadow:-1px 4px 19px -9px rgba(0, 0, 0, 0.5); background-color: white;">
+                        <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border-radius: 20px; margin-bottom: 5px; box-shadow: -1px 4px 19px -9px rgba(0, 0, 0, 0.5); background-color: white;">
                             <?php if ($product['hours_since_creation'] <= 24): ?>
                                 <div style="width: 0; height: 0; border-bottom: 10px solid transparent; border-top: 50px solid #79b6c8; border-left: 15px solid #79b6c8; border-right: 15px solid #79b6c8; display: inline-block;" class="tag-btn">
-                                    <span class="uppercase text-center">New
-                                    </span>
+                                    <span class="uppercase text-center">New</span>
                                 </div>
                             <?php endif; ?>
-                            <div class="image" style="width:100%; ">
+                            <div class="image" style="width:100%;">
                                 <?php
-                                if (!empty($product['images']) && $product['images'] != '') {
-                                    // Get the first image from the images column
+                                if (!empty($product['images'])) {
                                     $imageIds = explode(',', $product['images']);
                                     $firstImageId = $imageIds[0] ?? null;
 
@@ -108,24 +126,23 @@ if ($result->num_rows === 0) {
                                             $image = $imageResult->fetch_assoc();
                                             $imageLink = "api/uploads/assets/" . $image['file_original_name'];
                                         } else {
-                                            $imageLink = "images/default.png"; // Default image if no matching image found
+                                            $imageLink = "images/default.png";
                                         }
                                     } else {
-                                        $imageLink = "images/default.png"; // Default image if $firstImageId is null
+                                        $imageLink = "images/default.png";
                                     }
                                 } else {
-                                    $imageLink = "images/default.png"; // Default image if 'images' is empty or ''
+                                    $imageLink = "images/default.png";
                                 }
-
                                 ?>
                                 <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
-                                    <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="    display: block; width: 14vw;  padding: 1vw;  margin: 1vw;" class="img-responsive">
+                                    <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="display: block; width: 14vw; padding: 1vw; margin: 1vw;" class="img-responsive">
                                 </a>
                             </div>
                             <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox">
-                                <div class="product_desc" style="padding: 1vw; margin: 1vw; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly; text-align: center;">
-                                    <p><span style="text-align: center;" class="title"><?php echo htmlspecialchars($product['name']); ?></span></p>
-                                    <p style="color: #049ddf; font-weight: bold; text-align: center">Brand: <span class="title"><?php echo htmlspecialchars($product['brand_id']); ?></span></p>
+                                <div class="product_desc" style="padding: 1vw; margin: 1vw; height: 15vh; display: flex; flex-direction: column; justify-content: space-evenly; text-align: center;">
+                                    <p><span class="title"><?php echo htmlspecialchars($product['name']); ?></span></p>
+                                    <p style="color: #049ddf; font-weight: bold; text-align: center">Brand: <span class="title"><?php echo htmlspecialchars($brandName); ?></span></p>
                                 </div>
                             </a>
                         </div>
@@ -134,6 +151,7 @@ if ($result->num_rows === 0) {
             </div>
         </div>
     </section>
+
     <!-- Footer -->
     <?php include("inc_files/footer.php"); ?>
 

@@ -1,8 +1,5 @@
 <?php
 session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header('Location: login.php');
@@ -29,69 +26,146 @@ $result = $conn->query($query);
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            font-size: 16px;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
             padding: 20px;
+        }
+        .navbar {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h2 {
             margin: 0;
         }
-        .brand-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .brand-item {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-        .brand-item:last-child {
-            border-bottom: none;
-        }
-        .brand-name {
+        .logout-btn {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
             font-weight: bold;
-            font-size: 18px;
-            color: #333;
         }
-        .brand-image {
-            display: block;
-            margin-top: 5px;
+        .logout-btn:hover {
+            background-color: #e60000;
+        }
+        .table-container {
+            overflow-y: auto;
+            max-height: 500px; /* Adjust the height as needed */
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .logo-image {
             width: 100px;
             height: auto;
         }
-        .back-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 8px 15px;
-            background-color: #4CAF50;
+        .action-btn {
+            padding: 8px 12px;
+            background-color: #007BFF;
             color: white;
-            text-decoration: none;
+            border: none;
             border-radius: 4px;
-            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
         }
-        .back-btn:hover {
-            background-color: #45a049;
+        .action-btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="brand-container">
-        <h2>All Brands</h2>
-        <?php
-        if ($result && $result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo '<div class="brand-item">';
-                echo '<div class="brand-name">' . htmlspecialchars($row['name']) . '</div>';
-                if (!empty($row['image'])) {
-                    echo '<img class="brand-image" src="' . htmlspecialchars($row['image']) . '" alt="' . htmlspecialchars($row['name']) . '">';
-                }
-                echo '</div>';
-            }
-        } else {
-            echo "<p>No brands found.</p>";
-        }
-        ?>
-        <a href="dashboard.php" class="back-btn">Back to Dashboard</a>
+    <div class="sidebar">
+        <a href="dashboard.php">Dashboard</a>
+        <a href="product.php">Products</a>
+        <a href="brand.php">Brands</a>
+        <a href="#">Category</a>
+        <a href="#">Edit</a>
+    </div>
+    <div class="main-content">
+        <div class="navbar">
+            <h2>Brands</h2>
+            <a href="logout.php" class="logout-btn">Logout</a>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Logo</th>
+                        <th>Created At</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($result && $result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . htmlspecialchars($row['id']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+                            echo "<td>";
+                            if (!empty($row['image'])) {
+                                echo '<img class="logo-image" src="' . htmlspecialchars($row['image']) . '" alt="' . htmlspecialchars($row['name']) . '">';
+                            } else {
+                                echo "No Logo";
+                            }
+                            echo "</td>";
+                            echo "<td>" . htmlspecialchars($row['created_at']) . "</td>";
+                            echo '<td><a href="#" class="action-btn">Action</a></td>';
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='5'>No brands found.</td></tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>

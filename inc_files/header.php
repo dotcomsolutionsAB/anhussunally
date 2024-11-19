@@ -40,8 +40,13 @@
                   </li>
                 </ul> -->
               </li>
+              <style>
+                header nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li > a .b{
+                  line-height: 5px;
+                }
+              </style>
               <li class="dropdown">
-                <a href="brands.php" class="dropdown-toggle" data-toggle="dropdown">Brands
+                <a href="brands.php" class="dropdown-toggle b" data-toggle="dropdown">Brands
                 </a>
                 <ul class="dropdown-menu">
                   <li>

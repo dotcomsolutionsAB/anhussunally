@@ -182,7 +182,7 @@
         }
     </script>
 
-    <script>
+    <!-- <script>
         // Function to check the status and call add_products.php
         function checkAndRunAddProducts() {
             // Fetch the sheets with status == 0
@@ -222,7 +222,7 @@
 
         // Initial call to run the function as soon as the page loads
         checkAndRunAddProducts();
-    </script>
+    </script> -->
 
 </body>
 </html>

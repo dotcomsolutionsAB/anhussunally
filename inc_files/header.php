@@ -46,23 +46,23 @@
                 }
               </style>
               <li class="dropdown">
-                <a href="brands.php" class="dropdown-toggle b" data-toggle="dropdown">Brands
+                <a href="brands.php" class="dropdown-toggle" data-toggle="dropdown">Brands
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a href="grid.php">Grid Default
+                    <a href="grid.php" class="b">Grid Default
                     </a>
                   </li>
                   <li>
-                    <a href="grid_list.php">Grid Lists
+                    <a href="grid_list.php" class="b">Grid Lists
                     </a>
                   </li>
                   <li>
-                    <a href="grid_sidebar.php">Grid Sidebar
+                    <a href="grid_sidebar.php" class="b">Grid Sidebar
                     </a>
                   </li>
                   <li>
-                    <a href="list_sidebar.php">Lists Sidebar
+                    <a href="list_sidebar.php" class="b">Lists Sidebar
                     </a>
                   </li>
                 </ul>

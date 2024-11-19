@@ -125,12 +125,13 @@ if ($result->num_rows === 0) {
                                 if (!empty($product['images'])) {
                                     $imageIds = explode(',', $product['images']);
                                     $firstImageId = $imageIds[0] ?? null;
-
                                     if ($firstImageId) {
                                         $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
                                         $imageResult = $conn->query($imageQuery);
+                                       
                                         if ($imageResult && $imageResult->num_rows > 0) {
-                                            $image = $imageResult->fetch_assoc();
+                                            $img = $imageResult->fetch_assoc();
+                                            
                                             $imageLink = "api/uploads/assets/" . $image['file_original_name'];
                                         } else {
                                             $imageLink = "images/default.png";

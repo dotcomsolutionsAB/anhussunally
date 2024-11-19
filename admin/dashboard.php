@@ -80,10 +80,10 @@ $loggedInId = $_SESSION['id'];
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
-        <a href="#">Products</a>
-        <a href="#">Brands</a>
-        <a href="#">Category</a>
-        <a href="#">Edit</a>
+        <a href="product.php">Products</a>
+        <a href="brand.php">Brands</a>
+        <a href="category.php">Category</a>
+        <a href="">Edit</a>
     </div>
 
     <!-- Main content area -->

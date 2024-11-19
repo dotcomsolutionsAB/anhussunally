@@ -329,6 +329,9 @@
           display: flex;
           justify-content: center;
           background-image: url("images/About_Us.png");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
         }
     </style>
     <div class="flex">

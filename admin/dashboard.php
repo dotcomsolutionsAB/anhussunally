@@ -16,47 +16,89 @@ $loggedInId = $_SESSION['id'];
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #e6e6fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
         }
-        .dashboard-container {
-            background-color: #fff;
-            padding: 30px 40px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 400px;
+        /* Sidebar styles */
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
         }
-        h2 {
-            color: #333;
-            margin-bottom: 15px;
-        }
-        p {
-            color: #555;
-            margin-bottom: 20px;
-        }
-        a {
+        .sidebar a {
+            padding: 15px;
             text-decoration: none;
             color: white;
-            background-color: #007BFF;
-            padding: 10px 15px;
-            border-radius: 4px;
-            font-weight: bold;
+            display: block;
+            font-size: 16px;
         }
-        a:hover {
-            background-color: #0056b3;
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        /* Navbar styles */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .navbar {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h2 {
+            margin: 0;
+        }
+        .logout-btn {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .logout-btn:hover {
+            background-color: #e60000;
+        }
+        /* Content styles */
+        .content {
+            padding: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="dashboard-container">
-        <h2>Welcome to the Dashboard!</h2>
-        <p>You are successfully logged in as: <strong><?php echo htmlspecialchars($loggedInId); ?></strong></p>
-        <a href="logout.php">Logout</a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#">Products</a>
+        <a href="#">Brands</a>
+        <a href="#">Category</a>
+        <a href="#">Edit</a>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content">
+        <!-- Navbar -->
+        <div class="navbar">
+            <h2>Dashboard</h2>
+            <a href="logout.php" class="logout-btn">Logout</a>
+        </div>
+
+        <!-- Content area -->
+        <div class="content">
+            <p>Welcome, <strong><?php echo htmlspecialchars($loggedInId); ?></strong>!</p>
+            <p>Select an option from the sidebar to manage your items.</p>
+        </div>
     </div>
 </body>
 </html>

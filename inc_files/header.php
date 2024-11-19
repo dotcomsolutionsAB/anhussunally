@@ -1,3 +1,16 @@
+<?php include("api/db_connection.php"); ?>
+
+<?php
+// Establish database connection
+$conn = mysqli_connect($host, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch all brands from the brand table
+$brandQuery = "SELECT id, name FROM brand";
+$brandResult = $conn->query($brandQuery);
+?>
 <header>
       <nav class="navbar navbar-default navbar-sticky bootsnav">
         <div class="container">
@@ -45,28 +58,24 @@
                   line-height: 5px;
                 }
               </style>
-              <li class="dropdown">
-                <a href="brands.php" class="dropdown-toggle" data-toggle="dropdown">Brands
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="grid.php" class="b">Grid Default
-                    </a>
-                  </li>
-                  <li>
-                    <a href="grid_list.php" class="b">Grid Lists
-                    </a>
-                  </li>
-                  <li>
-                    <a href="grid_sidebar.php" class="b">Grid Sidebar
-                    </a>
-                  </li>
-                  <li>
-                    <a href="list_sidebar.php" class="b">Lists Sidebar
-                    </a>
-                  </li>
-                </ul>
-              </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Brands</a>
+                    <ul class="dropdown-menu">
+                        <?php if ($brandResult && $brandResult->num_rows > 0): ?>
+                            <?php while ($brand = $brandResult->fetch_assoc()): ?>
+                                <li>
+                                    <a href="brand_page.php?id=<?php echo htmlspecialchars($brand['id']); ?>" style="line-height: 5px;">
+                                        <?php echo htmlspecialchars($brand['name']); ?>
+                                    </a>
+                                </li>
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <li><a href="#">No Brands Available</a></li>
+                        <?php endif; ?>
+                    </ul>
+                </li>
+
+                <?php $conn->close(); ?>
               <!-- <li>
                 <a href="#.">collection
                 </a>

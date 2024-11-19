@@ -328,6 +328,7 @@
         .flex{
           display: flex;
           justify-content: center;
+          background-image: url("images/About_Us.png");
         }
     </style>
     <div class="flex">

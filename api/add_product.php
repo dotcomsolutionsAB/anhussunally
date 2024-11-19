@@ -94,7 +94,36 @@ if ($result && $result->num_rows > 0) {
             continue;
         }
 
-        // Check if the SKU already exists in the database
+        // Check if the brand exists in the brand table
+        $brandId = null;
+        $brandCheckQuery = "SELECT id FROM brand WHERE name = ?";
+        $brandStmt = $conn->prepare($brandCheckQuery);
+        $brandStmt->bind_param("s", $brand);
+        $brandStmt->execute();
+        $brandResult = $brandStmt->get_result();
+
+        if ($brandResult->num_rows > 0) {
+            $brandRow = $brandResult->fetch_assoc();
+            $brandId = $brandRow['id'];
+        } else {
+            // Insert the new brand into the brand table
+            $brandInsertQuery = "INSERT INTO brand (name, image, created_at, updated_at) VALUES (?, '', NOW(), NOW())";
+            $brandStmt = $conn->prepare($brandInsertQuery);
+            $brandStmt->bind_param("s", $brand);
+
+            if ($brandStmt->execute()) {
+                $brandId = $conn->insert_id;
+                echo "New brand added: $brand (ID: $brandId)" . "<br>";
+            } else {
+                $failedSKUs[] = $sku;
+                echo "Failed to add brand: " . $brand . "<br>";
+                echo "Error: " . $brandStmt->error . "<br>";
+                continue;
+            }
+        }
+        $brandStmt->close();
+
+        // Check if the SKU already exists in the products table
         $checkQuery = "SELECT * FROM products WHERE sku = ?";
         $checkStmt = $conn->prepare($checkQuery);
         $checkStmt->bind_param("s", $sku);
@@ -119,9 +148,9 @@ if ($result && $result->num_rows > 0) {
                 $updateFields[] = "short_description = ?";
                 $updateValues[] = $short_description;
             }
-            if ($existingProduct['brand'] != $brand) {
-                $updateFields[] = "brand = ?";
-                $updateValues[] = $brand;
+            if ($existingProduct['brand_id'] != $brandId) {
+                $updateFields[] = "brand_id = ?";
+                $updateValues[] = $brandId;
             }
             if ($existingProduct['category'] != $category) {
                 $updateFields[] = "category = ?";
@@ -192,11 +221,11 @@ if ($result && $result->num_rows > 0) {
                 echo "No changes detected for: " . $sku . "<br>";
             }
         } else {
-            // Insert new product with default value for images
-            $insertQuery = "INSERT INTO products (sku, name, description, short_description, brand, category, sub_category_1, sub_category_2, sub_category_3, images, image_url, pdf, weight, length, breadth, height, features, shop_lines)
+            // Insert new product with the brand ID
+            $insertQuery = "INSERT INTO products (sku, name, description, short_description, brand_id, category, sub_category_1, sub_category_2, sub_category_3, images, image_url, pdf, weight, length, breadth, height, features, shop_lines)
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($insertQuery);
-            $stmt->bind_param("ssssssssssssddddss", $sku, $name, $description, $short_description, $brand, $category, $subCategory1, $subCategory2, $subCategory3, $images, $image_url, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson);
+            $stmt->bind_param("ssssssssssssddddss", $sku, $name, $description, $short_description, $brandId, $category, $subCategory1, $subCategory2, $subCategory3, $images, $image_url, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson);
 
             if ($stmt->execute()) {
                 $importedSKUs[] = $sku;

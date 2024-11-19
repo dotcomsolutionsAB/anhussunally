@@ -40,8 +40,8 @@
                   </li>
                 </ul> -->
               </li>
-              <li>
-                <a href="brands.php">Brands
+              <li class="dropdown">
+                <a href="brands.php" class="dropdown-toggle" data-toggle="dropdown">Brands
                 </a>
                 <ul class="dropdown-menu">
                   <li>

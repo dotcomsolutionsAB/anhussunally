@@ -15,17 +15,27 @@ if ($conn->connect_error) {
 $brandId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // Fetch brand details
-$brandQuery = "SELECT name, description FROM brand WHERE id = $brandId";
+$brandQuery = "SELECT name, description,logo FROM brand WHERE id = $brandId";
 $brandResult = $conn->query($brandQuery);
 
 if ($brandResult && $brandResult->num_rows > 0) {
     $brand = $brandResult->fetch_assoc();
     $brandName = $brand['name'];
     $brandDescription = $brand['description'];
+    $brandLogo = $brand['logo'];
 } else {
     echo "Brand not found.";
     $conn->close();
     exit;
+}
+if (empty($brandDescription)) {
+    $brandDescription = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum voluptatem quo facilis sapiente molestiae delectus labore excepturi eveniet temporibus repellendus! Odio laborum autem vitae sint! NULL DATA IN DATABASE ";
+}
+
+if (!empty($brandLogo)) {
+    $brandLogo = "api/uploads/assets/" . $brandLogo;
+} else {
+    $brandLogo = "images/default.png";
 }
 
 // Fetch products for the given brand
@@ -93,7 +103,7 @@ if ($result->num_rows === 0) {
     <div class="container">
         <div class="container1">
             <div class="image2">
-                <img src="images/WALVOIL.png" alt="<?php echo htmlspecialchars($brandName); ?> Image">
+                <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($brandName); ?> Image">
             </div>
             <div class="text3">
                 <h2><?php echo htmlspecialchars($brandName); ?></h2>
@@ -118,12 +128,13 @@ if ($result->num_rows === 0) {
                                 if (!empty($product['images'])) {
                                     $imageIds = explode(',', $product['images']);
                                     $firstImageId = $imageIds[0] ?? null;
-
                                     if ($firstImageId) {
                                         $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
                                         $imageResult = $conn->query($imageQuery);
+                                       
                                         if ($imageResult && $imageResult->num_rows > 0) {
                                             $image = $imageResult->fetch_assoc();
+                                            
                                             $imageLink = "api/uploads/assets/" . $image['file_original_name'];
                                         } else {
                                             $imageLink = "images/default.png";

@@ -70,7 +70,6 @@ $brandResult = $conn->query($brandQuery);
                     </ul>
                 </li>
 
-                <?php $conn->close(); ?>
               <!-- <li>
                 <a href="#.">collection
                 </a>

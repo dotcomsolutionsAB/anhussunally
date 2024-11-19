@@ -386,7 +386,8 @@
       </div>
     </div>
     <!--NEW ARRIVALS-->
-  <section id="arrivals" class="padding">
+    <?php include("inc_files/new_arrival.php"); ?>
+  <!-- <section id="arrivals" class="padding">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
@@ -769,7 +770,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!--Special Design Product-->
   <!-- <section>
       <div class="container">

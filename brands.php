@@ -28,6 +28,9 @@ if ($brandResult && $brandResult->num_rows > 0) {
     $conn->close();
     exit;
 }
+if (empty($brandDescription)) {
+    $brandDescription = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum voluptatem quo facilis sapiente molestiae delectus labore excepturi eveniet temporibus repellendus! Odio laborum autem vitae sint! NULL DATA IN DATABASE ";
+}
 
 if (!empty($brandLogo)) {
     $brandLogo = "api/uploads/assets/" . $brandLogo;
@@ -130,7 +133,7 @@ if ($result->num_rows === 0) {
                                         $imageResult = $conn->query($imageQuery);
                                        
                                         if ($imageResult && $imageResult->num_rows > 0) {
-                                            $img = $imageResult->fetch_assoc();
+                                            $image = $imageResult->fetch_assoc();
                                             
                                             $imageLink = "api/uploads/assets/" . $image['file_original_name'];
                                         } else {

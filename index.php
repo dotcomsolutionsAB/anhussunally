@@ -374,11 +374,11 @@
           <div class="brand-card"><img src="images/Positron-1.png" alt="Brand 13" class="brand-logo"></div>
           <div class="brand-card"><img src="images/REXROTH.png" alt="Brand 14" class="brand-logo"></div>
           <div class="brand-card"><img src="images/Spica.jpg" alt="Brand 15" class="brand-logo"></div>
-          <div class="brand-card"><img src="brand16.png" alt="Brand 16" class="brand-logo"></div>
-          <div class="brand-card"><img src="brand17.png" alt="Brand 17" class="brand-logo"></div>
-          <div class="brand-card"><img src="brand18.png" alt="Brand 18" class="brand-logo"></div>
-          <div class="brand-card"><img src="brand19.png" alt="Brand 19" class="brand-logo"></div>
-          <div class="brand-card"><img src="brand20.png" alt="Brand 20" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/Minitest.png" alt="Brand 16" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/VELJAN.png" alt="Brand 17" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/WIKAI.png" alt="Brand 18" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/Water-Test-Pump.png" alt="Brand 19" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/YUKEN.png" alt="Brand 20" class="brand-logo"></div>
       </div>
     </div>
     <!--NEW ARRIVALS-->

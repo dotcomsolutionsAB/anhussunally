@@ -96,7 +96,7 @@
     <div id="rev_slider" class="rev_slider" data-version="5.0">
       <ul>
         <!-- SLIDE  -->
-        <li data-transition="fade">
+        <!-- <li data-transition="fade"> -->
           <!-- MAIN IMAGE -->
           <img src="images/home2-banner1.jpg" alt="" data-bgposition="center center" data-bgfit="cover">
           <div class="tp-caption tp-resizeme"
@@ -222,7 +222,7 @@
         </ul>				
       </div> -->
           <!-- END REVOLUTION SLIDER -->
-  </section>
+  <!-- </section> -->
   <!--Three Box Products-->
   <!-- <section id="grid_box">
       <div class="container">
@@ -277,8 +277,8 @@
         </div>
       </div>
     </section> -->
-   <!--Brands-->
-    <style>
+    <!--Brands-->
+       <style>
         * {
             box-sizing: border-box;
             margin: 0;
@@ -349,7 +349,6 @@
           <div class="brand-card"><img src="brand20.png" alt="Brand 20" class="brand-logo"></div>
       </div>
     </div>
-  
     <!--NEW ARRIVALS-->
   <section id="arrivals" class="padding">
     <div class="container">

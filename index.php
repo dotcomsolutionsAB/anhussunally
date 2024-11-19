@@ -382,6 +382,7 @@
           <div class="brand-card"><img src="images/VIP.png" alt="Brand 20" class="brand-logo"></div>
           <div class="brand-card"><img src="images/Hose-Crimping-Machine.png" alt="Brand 20" class="brand-logo"></div>
           <div class="brand-card"><img src="images/STAUFF.png" alt="Brand 20" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/WALVOIL.png" alt="Brand 20" class="brand-logo"></div>
       </div>
     </div>
     <!--NEW ARRIVALS-->

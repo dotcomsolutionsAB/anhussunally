@@ -1,23 +1,23 @@
 <?php
-session_start();
+    session_start();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Trim the input to remove any extra spaces
-    $id = trim($_POST['id']);
-    $password = trim($_POST['password']);
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Trim the input to remove any extra spaces
+        $id = trim($_POST['id']);
+        $password = trim($_POST['password']);
 
-    // Static credentials
-    $staticId = "Shaqlin@89005";
-    $staticPassword = "Shaqlin@8905";
+        // Updated static credentials
+        $staticId = "Shaqlin@8905"; // Corrected ID
+        $staticPassword = "Shaqlin@8905"; // Corrected Password
 
-    if ($id === $staticId && $password === $staticPassword) {
-        $_SESSION['loggedin'] = true;
-        header('Location: dashboard.php');
-        exit;
-    } else {
-        $error = "Invalid ID or Password.";
+        if ($id === $staticId && $password === $staticPassword) {
+            $_SESSION['loggedin'] = true;
+            header('Location: dashboard.php');
+            exit;
+        } else {
+            $error = "Invalid ID or Password.";
+        }
     }
-}
 ?>
 
 

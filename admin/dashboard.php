@@ -83,6 +83,7 @@ $loggedInId = $_SESSION['id'];
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
+        <a href="dashboard.php">Home</a>
         <a href="product.php">Products</a>
         <a href="brand.php">Brands</a>
         <a href="category.php">Category</a>

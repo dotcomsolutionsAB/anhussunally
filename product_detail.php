@@ -31,7 +31,7 @@ $product = $productResult->fetch_assoc();
 $stmt->close();
 
 // Fetch related products from the same brand
-$brand = $product['brand'];
+$brand = $product['brand_id'];
 $relatedProductsQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brand = ? AND sku != ? LIMIT 4"; // Exclude the current product
 $stmt = $conn->prepare($relatedProductsQuery);
 $stmt->bind_param("ss", $brand, $sku);
@@ -136,7 +136,7 @@ $relatedProductsResult = $stmt->get_result();
             <h1 class="bottom30"><?php echo htmlspecialchars($product['name']); ?></h1>
             <p style="color: #7ab6c8; font-weight: bold;">Brand :
               <a href="#">
-                <span class="title"> <?php echo htmlspecialchars($product['brand']); ?></span>
+                <span class="title"> <?php echo htmlspecialchars($product['brand_id']); ?></span>
               </a>
             </p>
             <div class="product_meta">
@@ -425,7 +425,7 @@ $relatedProductsResult = $stmt->get_result();
               <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="fancybox">
                 <div class="product_desc" style="padding: 2px; margin: 4px; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly; text-align: center;">
                   <p class="title"><?php echo htmlspecialchars($relatedProduct['name']); ?></p>
-                  <span style="color: #049ddf; font-weight: bold; text-align: center;" class="brand"><?php echo htmlspecialchars($relatedProduct['brand']); ?></span>
+                  <span style="color: #049ddf; font-weight: bold; text-align: center;" class="brand"><?php echo htmlspecialchars($relatedProduct['brand_id']); ?></span>
                 </div>
               </a>
             </div>

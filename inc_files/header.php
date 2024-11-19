@@ -40,6 +40,10 @@
                   </li>
                 </ul> -->
               </li>
+              <li>
+                <a href="contact_us.php">Contact us
+                </a>
+              </li>
               <!-- <li>
                 <a href="#.">collection
                 </a>

@@ -11,8 +11,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch all products from the products table
-$productQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products";
+// Fetch all products with their brand names
+$productQuery = "SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
+                 FROM products
+                 LEFT JOIN brand ON products.brand_id = brand.id";
 $result = $conn->query($productQuery);
 
 if ($result->num_rows === 0) {
@@ -24,7 +26,6 @@ if ($result->num_rows === 0) {
 
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,8 +62,7 @@ if ($result->num_rows === 0) {
                         <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border-radius: 20px; margin-bottom: 5px; box-shadow:-1px 4px 19px -9px rgba(0, 0, 0, 0.5); background-color: white;">
                             <?php if ($product['hours_since_creation'] <= 24): ?>
                                 <div style="width: 0; height: 0; border-bottom: 10px solid transparent; border-top: 50px solid #79b6c8; border-left: 15px solid #79b6c8; border-right: 15px solid #79b6c8; display: inline-block;" class="tag-btn">
-                                    <span class="uppercase text-center">New
-                                    </span>
+                                    <span class="uppercase text-center">New</span>
                                 </div>
                             <?php endif; ?>
                             <div class="image" style="width:100%; ">
@@ -87,16 +87,15 @@ if ($result->num_rows === 0) {
                                 } else {
                                     $imageLink = "images/default.png"; // Default image if 'images' is empty or ''
                                 }
-
                                 ?>
                                 <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
-                                    <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="    display: block; width: 14vw;  padding: 1vw;  margin: 1vw;" class="img-responsive">
+                                    <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="display: block; width: 14vw; padding: 1vw; margin: 1vw;" class="img-responsive">
                                 </a>
                             </div>
                             <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox">
                                 <div class="product_desc" style="padding: 1vw; margin: 1vw; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly; text-align: center;">
                                     <p><span style="text-align: center;" class="title"><?php echo htmlspecialchars($product['name']); ?></span></p>
-                                    <p style="color: #049ddf; font-weight: bold; text-align: center">Brand: <span class="title"><?php echo htmlspecialchars($product['brand']); ?></span></p>
+                                    <p style="color: #049ddf; font-weight: bold; text-align: center">Brand: <span class="title"><?php echo htmlspecialchars($product['brand_name']); ?></span></p>
                                 </div>
                             </a>
                         </div>
@@ -131,7 +130,6 @@ if ($result->num_rows === 0) {
     <script src="js/functions.js"></script>
 
 </body>
-
 </html>
 
 <?php $conn->close(); ?>

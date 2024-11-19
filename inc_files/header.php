@@ -31,9 +31,9 @@ $brandResult = $conn->query($brandQuery);
                 <a href="https://anh.ongoingwp.xyz/index.php" class="#" data-toggle="#">Home
                 </a>
               </li>
-              <li class="dropdown">
+              <!-- <li class="dropdown">
                 <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products
-                </a>
+                </a> -->
                 <!-- <ul class="dropdown-menu">
                   <li>
                     <a href="grid.php">Grid Default

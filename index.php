@@ -325,27 +325,29 @@
             object-fit: contain;
         }
     </style>
-    <div class="brand-grid">
-        <div class="brand-card"><img src="images/ALFOMEGA.png" alt="Brand 1" class="brand-logo"></div>
-        <div class="brand-card"><img src="images/Atos.png" alt="Brand 2" class="brand-logo"></div>
-        <div class="brand-card"><img src="images/Bearing-Pullers.png" alt="Brand 3" class="brand-logo"></div>
-        <div class="brand-card"><img src="images/HYDROLINE.png" alt="Brand 4" class="brand-logo"></div>
-        <div class="brand-card"><img src="brand5.png" alt="Brand 5" class="brand-logo"></div>
-        <div class="brand-card"><img src="brand6.png" alt="Brand 6" class="brand-logo"></div>
-        <div class="brand-card"><img src="brand7.png" alt="Brand 7" class="brand-logo"></div>
-        <div class="brand-card"><img src="brand8.png" alt="Brand 8" class="brand-logo"></div>
-        <div class="brand-card"><img src="brand9.png" alt="Brand 9" class="brand-logo"></div>
-        <div class="brand-card"><img src="brand10.png" alt="Brand 10" class="brand-logo"></div>
-        <div class="brand-card"><img src="brand11.png" alt="Brand 11" class="brand-logo"></div>
-        <div class="brand-card"><img src="brand12.png" alt="Brand 12" class="brand-logo"></div>
-        <div class="brand-card"><img src="brand13.png" alt="Brand 13" class="brand-logo"></div>
-        <div class="brand-card"><img src="brand14.png" alt="Brand 14" class="brand-logo"></div>
-        <div class="brand-card"><img src="brand15.png" alt="Brand 15" class="brand-logo"></div>
-        <div class="brand-card"><img src="brand16.png" alt="Brand 16" class="brand-logo"></div>
-        <div class="brand-card"><img src="brand17.png" alt="Brand 17" class="brand-logo"></div>
-        <div class="brand-card"><img src="brand18.png" alt="Brand 18" class="brand-logo"></div>
-        <div class="brand-card"><img src="brand19.png" alt="Brand 19" class="brand-logo"></div>
-        <div class="brand-card"><img src="brand20.png" alt="Brand 20" class="brand-logo"></div>
+    <div class="flex">
+      <div class="brand-grid">
+          <div class="brand-card"><img src="images/ALFOMEGA.png" alt="Brand 1" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/Atos.png" alt="Brand 2" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/Bearing-Pullers.png" alt="Brand 3" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/HYDROLINE.png" alt="Brand 4" class="brand-logo"></div>
+          <div class="brand-card"><img src="brand5.png" alt="Brand 5" class="brand-logo"></div>
+          <div class="brand-card"><img src="brand6.png" alt="Brand 6" class="brand-logo"></div>
+          <div class="brand-card"><img src="brand7.png" alt="Brand 7" class="brand-logo"></div>
+          <div class="brand-card"><img src="brand8.png" alt="Brand 8" class="brand-logo"></div>
+          <div class="brand-card"><img src="brand9.png" alt="Brand 9" class="brand-logo"></div>
+          <div class="brand-card"><img src="brand10.png" alt="Brand 10" class="brand-logo"></div>
+          <div class="brand-card"><img src="brand11.png" alt="Brand 11" class="brand-logo"></div>
+          <div class="brand-card"><img src="brand12.png" alt="Brand 12" class="brand-logo"></div>
+          <div class="brand-card"><img src="brand13.png" alt="Brand 13" class="brand-logo"></div>
+          <div class="brand-card"><img src="brand14.png" alt="Brand 14" class="brand-logo"></div>
+          <div class="brand-card"><img src="brand15.png" alt="Brand 15" class="brand-logo"></div>
+          <div class="brand-card"><img src="brand16.png" alt="Brand 16" class="brand-logo"></div>
+          <div class="brand-card"><img src="brand17.png" alt="Brand 17" class="brand-logo"></div>
+          <div class="brand-card"><img src="brand18.png" alt="Brand 18" class="brand-logo"></div>
+          <div class="brand-card"><img src="brand19.png" alt="Brand 19" class="brand-logo"></div>
+          <div class="brand-card"><img src="brand20.png" alt="Brand 20" class="brand-logo"></div>
+      </div>
     </div>
   
     <!--NEW ARRIVALS-->

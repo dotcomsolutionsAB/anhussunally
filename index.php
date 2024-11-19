@@ -277,7 +277,77 @@
         </div>
       </div>
     </section> -->
-  <!--NEW ARRIVALS-->
+   <!--Brands-->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafafa;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+        }
+
+        .brand-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            height: 120px;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .brand-logo {
+            max-width: 100%;
+            max-height: 60px;
+            object-fit: contain;
+        }
+    </style>
+    <div class="brand-grid">
+        <div class="brand-card"><img src="images/ALFOMEGA.png" alt="Brand 1" class="brand-logo"></div>
+        <div class="brand-card"><img src="images/Atos.png" alt="Brand 2" class="brand-logo"></div>
+        <div class="brand-card"><img src="images/Bearing-Pullers.png" alt="Brand 3" class="brand-logo"></div>
+        <div class="brand-card"><img src="images/HYDROLINE.png" alt="Brand 4" class="brand-logo"></div>
+        <div class="brand-card"><img src="brand5.png" alt="Brand 5" class="brand-logo"></div>
+        <div class="brand-card"><img src="brand6.png" alt="Brand 6" class="brand-logo"></div>
+        <div class="brand-card"><img src="brand7.png" alt="Brand 7" class="brand-logo"></div>
+        <div class="brand-card"><img src="brand8.png" alt="Brand 8" class="brand-logo"></div>
+        <div class="brand-card"><img src="brand9.png" alt="Brand 9" class="brand-logo"></div>
+        <div class="brand-card"><img src="brand10.png" alt="Brand 10" class="brand-logo"></div>
+        <div class="brand-card"><img src="brand11.png" alt="Brand 11" class="brand-logo"></div>
+        <div class="brand-card"><img src="brand12.png" alt="Brand 12" class="brand-logo"></div>
+        <div class="brand-card"><img src="brand13.png" alt="Brand 13" class="brand-logo"></div>
+        <div class="brand-card"><img src="brand14.png" alt="Brand 14" class="brand-logo"></div>
+        <div class="brand-card"><img src="brand15.png" alt="Brand 15" class="brand-logo"></div>
+        <div class="brand-card"><img src="brand16.png" alt="Brand 16" class="brand-logo"></div>
+        <div class="brand-card"><img src="brand17.png" alt="Brand 17" class="brand-logo"></div>
+        <div class="brand-card"><img src="brand18.png" alt="Brand 18" class="brand-logo"></div>
+        <div class="brand-card"><img src="brand19.png" alt="Brand 19" class="brand-logo"></div>
+        <div class="brand-card"><img src="brand20.png" alt="Brand 20" class="brand-logo"></div>
+    </div>
+  
+    <!--NEW ARRIVALS-->
   <section id="arrivals" class="padding">
     <div class="container">
       <div class="row">

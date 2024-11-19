@@ -53,18 +53,13 @@ $brandResult = $conn->query($brandQuery);
                   </li>
                 </ul> -->
               </li>
-              <style>
-                header nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li > a .b{
-                  line-height: 5px;
-                }
-              </style>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Brands</a>
                     <ul class="dropdown-menu">
                         <?php if ($brandResult && $brandResult->num_rows > 0): ?>
                             <?php while ($brand = $brandResult->fetch_assoc()): ?>
                                 <li>
-                                    <a href="brand_page.php?id=<?php echo htmlspecialchars($brand['id']); ?>" >
+                                    <a href="brand_page.php?id=<?php echo htmlspecialchars($brand['id']); ?>" style="padding: 0px 10px; font-size: 15px;">
                                         <?php echo htmlspecialchars($brand['name']); ?>
                                     </a>
                                 </li>

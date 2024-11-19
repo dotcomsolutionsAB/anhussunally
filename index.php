@@ -300,6 +300,7 @@
             max-width: 1200px;
             justify-content: center;
             padding-top: 60px;
+            padding-bottom: 60px;
         }
 
         .brand-card {

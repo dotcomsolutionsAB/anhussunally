@@ -285,24 +285,19 @@
             padding: 0;
         }
 
-        /* .body {
+        .body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #fafafa;
             padding: 40px;
             display: flex;
             justify-content: center;
-        } */
+        }
 
         .brand-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 30px;
             max-width: 1200px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fafafa;
-            padding: 40px;
-            display: flex;
-            justify-content: center;
         }
 
         .brand-card {

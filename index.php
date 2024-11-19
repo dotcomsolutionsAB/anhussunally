@@ -1060,7 +1060,7 @@
       </div>
     </section> -->
   <!--BRANDS-->
-  <section id="brands" class="padding_bottom">
+  <!-- <section id="brands" class="padding_bottom">
     <h3 class="hidden">hidden
     </h3>
     <div class="container">
@@ -1101,7 +1101,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!--NEWSLETER-->
   <!-- <section id="newsletter" class="padding">
       <div class="container">

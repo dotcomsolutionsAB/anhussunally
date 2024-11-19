@@ -92,9 +92,9 @@
     </div> -->
   <!--HEADER-->
   <?php include("inc_files/header.php"); ?>
-  <section class="rev_slider_wrapper">
+  <!-- <section class="rev_slider_wrapper">
     <div id="rev_slider" class="rev_slider" data-version="5.0">
-      <ul>
+      <ul> -->
         <!-- SLIDE  -->
         <!-- <li data-transition="fade"> -->
           <!-- MAIN IMAGE -->

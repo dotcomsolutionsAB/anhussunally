@@ -285,7 +285,7 @@
             padding: 0;
         }
 
-        .body12 {
+        .body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #fafafa;
             padding: 40px;

@@ -373,7 +373,7 @@
           <div class="brand-card"><img src="images/POLYHYDR0N.png" alt="Brand 12" class="brand-logo"></div>
           <div class="brand-card"><img src="images/Positron-1.png" alt="Brand 13" class="brand-logo"></div>
           <div class="brand-card"><img src="images/REXROTH.png" alt="Brand 14" class="brand-logo"></div>
-          <div class="brand-card"><img src="brand15.png" alt="Brand 15" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/Spica.jpg" alt="Brand 15" class="brand-logo"></div>
           <div class="brand-card"><img src="brand16.png" alt="Brand 16" class="brand-logo"></div>
           <div class="brand-card"><img src="brand17.png" alt="Brand 17" class="brand-logo"></div>
           <div class="brand-card"><img src="brand18.png" alt="Brand 18" class="brand-logo"></div>

@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 $brandId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // Fetch brand details
-$brandQuery = "SELECT name, description FROM brand WHERE id = $brandId";
+$brandQuery = "SELECT name, description,logo FROM brand WHERE id = $brandId";
 $brandResult = $conn->query($brandQuery);
 
 if ($brandResult && $brandResult->num_rows > 0) {

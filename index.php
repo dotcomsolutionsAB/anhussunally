@@ -279,11 +279,11 @@
     </section> -->
    <!--Brands-->
     <style>
-        /* * {
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-        } */
+        }
 
         .body12 {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

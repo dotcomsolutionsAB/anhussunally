@@ -107,7 +107,7 @@ if ($result && $result->num_rows > 0) {
             $brandId = $brandRow['id'];
         } else {
             // Insert the new brand into the brand table
-            $brandInsertQuery = "INSERT INTO brand (name, image, created_at, updated_at) VALUES (?, '', NOW(), NOW())";
+            $brandInsertQuery = "INSERT INTO brand (name, logo, created_at, updated_at) VALUES (?, '', NOW(), NOW())";
             $brandStmt = $conn->prepare($brandInsertQuery);
             $brandStmt->bind_param("s", $brand);
 

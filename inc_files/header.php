@@ -41,8 +41,26 @@
                 </ul> -->
               </li>
               <li>
-                <a href="brands.php">Contact us
+                <a href="brands.php">Brands
                 </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="grid.php">Grid Default
+                    </a>
+                  </li>
+                  <li>
+                    <a href="grid_list.php">Grid Lists
+                    </a>
+                  </li>
+                  <li>
+                    <a href="grid_sidebar.php">Grid Sidebar
+                    </a>
+                  </li>
+                  <li>
+                    <a href="list_sidebar.php">Lists Sidebar
+                    </a>
+                  </li>
+                </ul>
               </li>
               <!-- <li>
                 <a href="#.">collection

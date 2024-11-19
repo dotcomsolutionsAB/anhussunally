@@ -41,7 +41,7 @@
                 </ul> -->
               </li>
               <li>
-                <a href="contact_us.php">Contact us
+                <a href="brands.php">Contact us
                 </a>
               </li>
               <!-- <li>

@@ -483,7 +483,7 @@ Established in 1917, the Company’s principal business philosophy is anchored o
 With strong resident knowledge and knowhow of the dynamic hydraulics industry coupled with state-of-the-art infrastructure and resource base, A.N. Hussunally & Co. has actively engaged in nation-building by participating in such landmark Indian projects as the Tata Steel complex in Jamshedpur, Bhusan Power & Steel, Jindal Steel, ISSCO Steel Plant etc.</p>
             </div>
             <div class="image5">
-                <img src="your-image-url.jpg" alt="Description of the image">
+                <img src="images/Pipe_Clamps.jpg" alt="Description of the image">
             </div>
         </div>
     </div>

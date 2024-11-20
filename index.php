@@ -475,8 +475,12 @@
     <div class="container5">
         <div class="section5">
             <div class="text5">
-                <h2>Modern Heading</h2>
-                <p>This is a modern and responsive layout section. You can use this on your website to display content with an image on the side. It's perfect for highlighting important features or information.</p>
+                <h2>About Us</h2>
+                <p>Pioneering the hydraulics market in Eastern India, the 100-year old A.N. Hussunally & Co. has today emerged as among the market leaders in providing customers with holistic hydraulic solutions.
+
+Established in 1917, the Company’s principal business philosophy is anchored on providing customers with world-class products and solutions at cost-effective propositions. Today, the Company comprehensively caters to the needs of a vast spectrum of industries in the pneumatics, oil and gas, power, steel, cement, manufacturing and chemicals industries.
+
+With strong resident knowledge and knowhow of the dynamic hydraulics industry coupled with state-of-the-art infrastructure and resource base, A.N. Hussunally & Co. has actively engaged in nation-building by participating in such landmark Indian projects as the Tata Steel complex in Jamshedpur, Bhusan Power & Steel, Jindal Steel, ISSCO Steel Plant etc.</p>
             </div>
             <div class="image5">
                 <img src="your-image-url.jpg" alt="Description of the image">

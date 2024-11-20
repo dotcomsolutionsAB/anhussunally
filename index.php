@@ -389,46 +389,98 @@
     <?php include("inc_files/new_arrival.php"); ?>
     <!--About-->
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container5 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .section5 {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px;
-            margin: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            gap: 20px;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
         }
 
         .text5 {
             flex: 1;
-            margin-right: 20px;
+        }
+
+        .text h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .text p {
+            font-size: 1rem;
+            margin-bottom: 20px;
         }
 
         .image5 {
             flex: 1;
-            max-width: 100%;
-            height: auto;
+            text-align: center;
         }
 
-        /* Responsive design for smaller screens */
+        .image img {
+            max-width: 100%;
+            border-radius: 12px;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .section5 {
+            .section {
                 flex-direction: column;
                 text-align: center;
+                padding: 20px;
             }
-            .text5 {
-                margin-right: 0;
-                margin-bottom: 20px;
+
+            .text h2 {
+                font-size: 1.5rem;
+            }
+
+            .text p {
+                font-size: 0.9rem;
+            }
+
+            .image {
+                margin-top: 20px;
             }
         }
     </style>
-    <div class="section5">
-        <div class="text5">
-            <h2>Heading Text</h2>
-            <p>This is a paragraph with some sample text. You can add more text here to explain the image or the context of this section.</p>
-        </div>
-        <div class="image5">
-            <img src="your-image-url.jpg" alt="Description of the image" style="width:100%; border-radius: 8px;">
+</head>
+<body>
+    <div class="container5">
+        <div class="section5">
+            <div class="text5">
+                <h2>Modern Heading</h2>
+                <p>This is a modern and responsive layout section. You can use this on your website to display content with an image on the side. It's perfect for highlighting important features or information.</p>
+            </div>
+            <div class="image5">
+                <img src="your-image-url.jpg" alt="Description of the image">
+            </div>
         </div>
     </div>
   <!-- <section id="arrivals" class="padding">

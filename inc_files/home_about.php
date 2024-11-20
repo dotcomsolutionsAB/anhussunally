@@ -8,7 +8,8 @@
 
         .testimonial-text {
             flex: 1;
-            padding: 20px 70px;
+            margin: 20px 70px;
+            width: 50vw;
         }
 
         .testimonial-text h2 {
@@ -57,7 +58,7 @@
         }
 
         .testimonial-image img {
-            width: 80%;
+            width: 100%;
             padding:1px 5px;
             /* border-radius: 10px; */
         }

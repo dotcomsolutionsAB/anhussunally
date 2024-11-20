@@ -3,13 +3,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 50px;
             background-color: #111;
         }
 
         .testimonial-text {
             flex: 1;
-            padding: 20px;
+            padding: 20px 70px;
         }
 
         .testimonial-text h2 {
@@ -59,10 +58,10 @@
 
         .testimonial-image img {
             width: 80%;
-            border-radius: 10px;
+            padding:1px 5px;
+            /* border-radius: 10px; */
         }
     </style>
-    <div class="container5">
         <section class="testimonial-section">
             <div class="testimonial-text">
                 <h2>What Clients Say</h2>
@@ -83,4 +82,3 @@
                 <img src="https://picsum.photos/200/300" alt="Feedback">
             </div>
         </section>
-    </div>

@@ -387,8 +387,6 @@
     </div>
     <!--NEW ARRIVALS-->
     <?php include("inc_files/new_arrival.php"); ?>
-<<<<<<< HEAD
-=======
   <!-- <section id="arrivals" class="padding">
     <div class="container">
       <div class="row">
@@ -773,7 +771,6 @@
       </div>
     </div>
   </section> -->
->>>>>>> d50e31604a6bd3a4fb9164cbf714864799b58534
   <!--Special Design Product-->
   <!-- <section>
       <div class="container">

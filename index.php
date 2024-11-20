@@ -395,7 +395,7 @@
             padding: 0;
         }
 
-        body {
+        .body5 {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             color: #333;

@@ -387,6 +387,50 @@
     </div>
     <!--NEW ARRIVALS-->
     <?php include("inc_files/new_arrival.php"); ?>
+    <!--About-->
+    <style>
+        .section5 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .text5 {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .image5 {
+            flex: 1;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .section5 {
+                flex-direction: column;
+                text-align: center;
+            }
+            .text5 {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+    <div class="section5">
+        <div class="text5">
+            <h2>Heading Text</h2>
+            <p>This is a paragraph with some sample text. You can add more text here to explain the image or the context of this section.</p>
+        </div>
+        <div class="image5">
+            <img src="your-image-url.jpg" alt="Description of the image" style="width:100%; border-radius: 8px;">
+        </div>
+    </div>
   <!-- <section id="arrivals" class="padding">
     <div class="container">
       <div class="row">

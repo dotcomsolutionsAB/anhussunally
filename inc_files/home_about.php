@@ -12,6 +12,9 @@
             margin: 20px 70px;
             width: 50vw;
             height: 95vh;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
         }
 
         .testimonial-text h2 {
@@ -62,7 +65,7 @@
         .testimonial-image img {
             width: 100%;
             height: 95vh;
-            padding:1px 5px;
+            /* padding:1px 5px; */
             /* border-radius: 10px; */
         }
     </style>

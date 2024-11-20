@@ -4,12 +4,14 @@
             justify-content: space-between;
             align-items: center;
             background-color: #111;
+            height: 95vh;
         }
 
         .testimonial-text {
             flex: 1;
             margin: 20px 70px;
             width: 50vw;
+            height: 95vh;
         }
 
         .testimonial-text h2 {
@@ -59,6 +61,7 @@
 
         .testimonial-image img {
             width: 100%;
+            height: 95vh;
             padding:1px 5px;
             /* border-radius: 10px; */
         }

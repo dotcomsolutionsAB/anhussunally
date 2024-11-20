@@ -27,14 +27,7 @@
 
 <body>
   <!--Loader-->
-  <!-- <div class="loader">
-      <div class="spinner-load">
-        <div class="dot1">
-        </div>
-        <div class="dot2">
-        </div>
-      </div>
-    </div> -->
+  <?php include("inc_files/loader.php"); ?>
   <!--TOPBAR-->
   <!-- <div class="topbar">
       <div class="container">
@@ -277,8 +270,9 @@
         </div>
       </div>
     </section> -->
+
     <!--Brands-->
-       <style>
+    <style>
         * {
             box-sizing: border-box;
             margin: 0;
@@ -327,35 +321,35 @@
             object-fit: contain;
         }
         .flex {
-    position: relative; /* Needed to position the overlay correctly */
-    display: flex;
-    justify-content: center;
-    background-image: url("images/About_Us.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #f9f9f9;
-    background-attachment: scroll;
-    height: 100vh; /* Adjust height as needed */
-    color: white; /* Text color to stand out against the dark overlay */
-}
+          position: relative; /* Needed to position the overlay correctly */
+          display: flex;
+          justify-content: center;
+          background-image: url("images/About_Us.png");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-color: #f9f9f9;
+          background-attachment: scroll;
+          height: 100vh; /* Adjust height as needed */
+          color: white; /* Text color to stand out against the dark overlay */
+        }
 
-.flex::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
-    pointer-events: none; /* Ensure the overlay doesn’t interfere with interactions */
-    z-index: 1; /* Make sure the overlay is behind the content */
-}
+        .flex::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+            pointer-events: none; /* Ensure the overlay doesn’t interfere with interactions */
+            z-index: 1; /* Make sure the overlay is behind the content */
+        }
 
-.flex > * {
-    position: relative;
-    z-index: 2; /* Bring the content above the overlay */
-}
+        .flex > * {
+            position: relative;
+            z-index: 2; /* Bring the content above the overlay */
+        }
     </style>
     <div class="flex">
       <div class="brand-grid">
@@ -472,21 +466,7 @@
     </style>
 </head>
 <body>
-    <div class="container5">
-        <div class="section5">
-            <div class="text5">
-                <h2>About Us</h2>
-                <p>Pioneering the hydraulics market in Eastern India, the 100-year old A.N. Hussunally & Co. has today emerged as among the market leaders in providing customers with holistic hydraulic solutions.
-
-Established in 1917, the Company’s principal business philosophy is anchored on providing customers with world-class products and solutions at cost-effective propositions. Today, the Company comprehensively caters to the needs of a vast spectrum of industries in the pneumatics, oil and gas, power, steel, cement, manufacturing and chemicals industries.
-
-With strong resident knowledge and knowhow of the dynamic hydraulics industry coupled with state-of-the-art infrastructure and resource base, A.N. Hussunally & Co. has actively engaged in nation-building by participating in such landmark Indian projects as the Tata Steel complex in Jamshedpur, Bhusan Power & Steel, Jindal Steel, ISSCO Steel Plant etc.</p>
-            </div>
-            <div class="image5">
-                <img src="images/Pipe_Clamps.jpg" alt="Description of the image">
-            </div>
-        </div>
-    </div>
+    <?php include("inc_files/home_about.php"); ?>
   <!-- <section id="arrivals" class="padding">
     <div class="container">
       <div class="row">

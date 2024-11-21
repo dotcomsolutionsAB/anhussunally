@@ -64,7 +64,7 @@
 
         .testimonial-image img {
             width: 100%;
-            height: 95vh;
+            height: 100%;
             /* padding:1px 5px; */
             /* border-radius: 10px; */
         }

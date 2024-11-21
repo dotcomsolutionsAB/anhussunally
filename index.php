@@ -379,8 +379,6 @@
           <div class="brand-card"><img src="images/WALVOIL.png" alt="Brand 20" class="brand-logo"></div>
       </div>
     </div>
-    <!--NEW ARRIVALS-->
-    <?php include("inc_files/new_arrival.php"); ?>
     <!--About-->
     <style>
         * {
@@ -464,9 +462,10 @@
             }
         }
     </style>
-</head>
-<body>
     <?php include("inc_files/home_about.php"); ?>
+
+    <!--NEW ARRIVALS-->
+    <?php include("inc_files/new_arrival.php"); ?>
   <!-- <section id="arrivals" class="padding">
     <div class="container">
       <div class="row">

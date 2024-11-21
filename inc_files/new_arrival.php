@@ -28,7 +28,7 @@ foreach ($brandIds as $brandId):
         </div>
       </div>
       <div class="row">
-        <div class="slider-wrapper" style="padding: 5px; border-radius: 20px; margin-bottom: 5px; box-shadow: -1px 4px 19px -9px rgba(0, 0, 0, 0.5); background-color: white;">
+        <div class="slider-wrapper">
             <!-- <button class="prev-btn" data-target="fourCol-slider-<?php echo $brandId; ?>"><i class="fa fa-chevron-left"></i></button> -->
             <div id="fourCol-slider-<?php echo $brandId; ?>" class="owl-carousel">
                 <?php

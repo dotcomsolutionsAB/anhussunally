@@ -62,7 +62,7 @@ foreach ($brandIds as $brandId):
                                     <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="Product" class="img-responsive">
                                 </a>
                             </div>
-                            <div class="product_desc" style="height: 5vh;">
+                            <div class="product_desc" style="height: 15vh;">
                                 <p><?php echo htmlspecialchars($product['name']); ?></p>
                             </div>
                         </div>

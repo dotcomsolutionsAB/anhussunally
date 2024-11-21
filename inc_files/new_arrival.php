@@ -30,7 +30,7 @@ foreach ($brandIds as $brandId):
       <div class="row">
         <div class="slider-wrapper">
             <!-- <button class="prev-btn" data-target="fourCol-slider-<?php echo $brandId; ?>"><i class="fa fa-chevron-left"></i></button> -->
-            <div id="fourCol-slider-<?php echo $brandId; ?>" class="owl-carousel" style="width: 280px;">
+            <div id="fourCol-slider-<?php echo $brandId; ?>" class="owl-carousel" >
                 <?php
                     if ($productResult && $productResult->num_rows > 0):
                         while ($product = $productResult->fetch_assoc()):
@@ -55,14 +55,14 @@ foreach ($brandIds as $brandId):
                             }
                 ?>
                     <!-- HTML structure for each product -->
-                    <div class="item" style="    margin-right: 10px; margin-left: 10px;">
+                    <div class="item" style="    margin-right: 10px; margin-left: 10px;" style="width: 280px;">
                         <div class="product_wrap">
                             <div class="image">
                                 <a class="fancybox" href="<?php echo htmlspecialchars($imageLink); ?>">
                                     <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="Product" class="img-responsive">
                                 </a>
                             </div>
-                            <div class="product_desc" style="height: 15vh;">
+                            <div class="product_desc" style="height: 5vh;">
                                 <p><?php echo htmlspecialchars($product['name']); ?></p>
                             </div>
                         </div>

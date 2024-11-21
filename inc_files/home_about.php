@@ -4,7 +4,7 @@
             justify-content: space-between;
             align-items: center;
             background-color: #111;
-            height: 95vh;
+            height: 100%;
         }
 
         .testimonial-text {

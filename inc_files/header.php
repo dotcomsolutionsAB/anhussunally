@@ -39,7 +39,7 @@ $brandResult = $conn->query($brandQuery);
     .navbar-default.scrolled li.dropdown a::after {
         background-color: #fff; /* Change underline to white when scrolled */
     }
-    .navbar-default.scrolled .dropdown-menu{
+    .navbar-default.scrolled ul .dropdown-menu{
       background:#000;
     }
     .navbar-default {
@@ -201,7 +201,7 @@ $brandResult = $conn->query($brandQuery);
                 </ul>
               </li> -->
               <li class="dropdown" style="font-weight: bolder;">
-                <a href="#.">About Us
+                <a href="about_us.php">About Us
                 </a>
               </li>
               <li class="dropdown">

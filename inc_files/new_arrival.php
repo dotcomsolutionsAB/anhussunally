@@ -58,8 +58,8 @@ foreach ($brandIds as $brandId):
                     <div class="item" style="padding-right:15px; padding-left:15px; width:280px;" style="">
                         <div class="product_wrap">
                             <div class="image">
-                                <a class="fancybox" href="<?php echo htmlspecialchars($imageLink); ?>">
-                                    <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="Product" class="img-responsive">
+                                <a class="fancybox" href="<?php echo htmlspecialchars($imageLink); ?>" style="display: flex;  justify-content: center;  align-items: center;">
+                                    <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="Product" class="img-responsive"  style="  width: 14vw; padding: 1vw; margin: 1vw;">
                                 </a>
                             </div>
                             <div class="product_desc" style="height: 15vh;">

@@ -1,3 +1,9 @@
+<style>
+    .owl-theme .owl-controls {
+        display: none !important;
+    }
+</style>
+
 <!--NEW ARRIVALS-->
 <section id="arrivals" class="padding">
 <?php

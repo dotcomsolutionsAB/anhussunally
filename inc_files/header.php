@@ -200,8 +200,8 @@ $brandResult = $conn->query($brandQuery);
                   </li>
                 </ul>
               </li> -->
-              <li class="dropdown" style="font-weight: bolder;">
-                <a href="about_us.php">About Us
+              <li class="dropdown" >
+                <a href="about_us.php" style="font-weight: bolder;">About Us
                 </a>
               </li>
               <li class="dropdown">

@@ -27,7 +27,7 @@
 
 <body>
   <!--Loader-->
-  <?php include("inc_files/loader.php"); ?>
+  <!-- <?php include("inc_files/loader.php"); ?> -->
   <!--TOPBAR-->
   <!-- <div class="topbar">
       <div class="container">

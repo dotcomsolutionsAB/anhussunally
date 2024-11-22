@@ -7,28 +7,28 @@
 <!--NEW ARRIVALS-->
 <section id="arrivals" class="padding">
 <?php
-// Define the specific brand IDs
-$brandIds = [1, 2, 4];
+    // Define the specific brand IDs
+    $brandIds = [1, 4];
 
-// Establish database connection
-$conn = mysqli_connect($host, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    // Establish database connection
+    $conn = mysqli_connect($host, $username, $password, $dbname);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-foreach ($brandIds as $brandId):
-    // Fetch brand name
-    $brandQuery = "SELECT name FROM brand WHERE id = $brandId";
-    $brandResult = $conn->query($brandQuery);
-    $brandName = $brandResult && $brandResult->num_rows > 0 ? $brandResult->fetch_assoc()['name'] : "Unknown Brand";
+    foreach ($brandIds as $brandId):
+        // Fetch brand name
+        $brandQuery = "SELECT name FROM brand WHERE id = $brandId";
+        $brandResult = $conn->query($brandQuery);
+        $brandName = $brandResult && $brandResult->num_rows > 0 ? $brandResult->fetch_assoc()['name'] : "Unknown Brand";
 
-    // Fetch 10 random products for the current brand
-    $productQuery = "SELECT * FROM products WHERE brand_id = $brandId ORDER BY RAND() LIMIT 10";
-    $productResult = $conn->query($productQuery);
+        // Fetch 10 random products for the current brand
+        $productQuery = "SELECT * FROM products WHERE brand_id = $brandId ORDER BY RAND() LIMIT 10";
+        $productResult = $conn->query($productQuery);
 ?> 
     <div class="container">
       <div class="row">
-        <div class="col-md-12 text-center" style="display: flex; justify-content: flex-start; padding-top: 8vh;">
+        <div class="col-md-12 text-center" style="display: flex; justify-content: flex-start; padding-top: 4vh;">
           <h2 style="text-align: left;" class="heading_space uppercase"><?php echo htmlspecialchars($brandName); ?> 
           </h2>
         </div>
@@ -61,7 +61,7 @@ foreach ($brandIds as $brandId):
                             }
                 ?>
                     <!-- HTML structure for each product -->
-                    <div class="item" style="padding-right:15px; padding-left:15px; width:280px;" style="">
+                    <div class="item" style="padding:15px; width:280px;" style="">
                         <div class="product_wrap">
                             <div class="image">
                                 <a class="fancybox" href="<?php echo htmlspecialchars($imageLink); ?>" style="display: flex;  justify-content: center;  align-items: center;">

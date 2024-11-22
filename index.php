@@ -465,6 +465,7 @@
     <?php include("inc_files/home_about.php"); ?>
     <?php include("inc_files/counts.php"); ?>
     <?php include("inc_files/new_arrival.php"); ?>
+    <?php include("inc_files/address_sec.php"); ?>
   <!-- <section id="arrivals" class="padding">
     <div class="container">
       <div class="row">

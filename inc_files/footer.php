@@ -146,11 +146,11 @@
         </div>
       </div>
     </footer>
-    <div style="text-align: center;" class="copyright">
+    <div  class="copyright">
       <div class="container">
         <div class="row">
           <div class="col-sm-4">
-            <p>Copyright &copy; 2024 
+            <p style="text-align: center;">Copyright &copy; 2024 
               <a href="#.">A N Hussunally & Co
               </a>. All Rights Reserved.
             </p>

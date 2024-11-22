@@ -156,7 +156,13 @@ $result = $conn->query($query);
                             }
                             echo "</td>";
                             echo "<td>" . htmlspecialchars($row['created_at']) . "</td>";
-                            echo '<td><a href="#" class="action-btn">Action</a></td>';
+                            echo '<td> 
+                                    <form action="update_logo.php" method="POST" enctype="multipart/form-data" style="display: inline;">
+                                        <input type="hidden" name="brand_id" value="' . htmlspecialchars($row['id']) . '">
+                                        <input type="file" name="logo" accept="image/*" required style="margin-bottom: 5px;">
+                                        <button type="submit" class="action-btn">Up Logo</button>
+                                    </form>
+                                 </td>';
                             echo "</tr>";
                         }
                     } else {

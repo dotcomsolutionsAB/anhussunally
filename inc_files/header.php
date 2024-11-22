@@ -35,6 +35,25 @@ $brandResult = $conn->query($brandQuery);
         width: 100%; /* Expands the underline to full width on hover */
     }
 
+    .navbar-default {
+    background-color: transparent; /* Initial transparent background */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-default.scrolled {
+    background-color: black; /* Background after scrolling */
+    color: white; /* Font color after scrolling */
+}
+
+.navbar-default.scrolled .navbar-nav > li > a {
+    color: white !important; /* Change nav link colors */
+}
+
+.navbar-default.scrolled .navbar-brand {
+    color: white !important; /* Change brand color */
+}
+
+
   </style>
       <nav class="navbar navbar-default navbar-sticky bootsnav">
         <div class="container">
@@ -52,7 +71,7 @@ $brandResult = $conn->query($brandQuery);
           <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
               <li class="dropdown active">
-                <a href="https://anh.ongoingwp.xyz/index.php" class="index.php" data-toggle="#">Home
+                <a href="https://anh.ongoingwp.xyz/index.php" class="index.php" data-toggle="#home">Home
                 </a>
               </li>
               <!-- <li class="dropdown">
@@ -79,7 +98,7 @@ $brandResult = $conn->query($brandQuery);
               </li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Brands</a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" style="margin-top: 2vh; ">
                         <?php if ($brandResult && $brandResult->num_rows > 0): ?>
                             <?php while ($brand = $brandResult->fetch_assoc()): ?>
                                 <li>
@@ -229,3 +248,15 @@ $brandResult = $conn->query($brandQuery);
         </div>   
       </nav>
     </header>
+
+    <script>
+      document.addEventListener('scroll', function() {
+          const navbar = document.querySelector('.navbar-default');
+          if (window.scrollY > 50) { // Adjust scroll threshold as needed
+              navbar.classList.add('scrolled');
+          } else {
+              navbar.classList.remove('scrolled');
+          }
+      });
+
+    </script>

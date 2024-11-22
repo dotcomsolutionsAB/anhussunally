@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <title>Contact Us</title>
+  <title>About Us</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/animate.min.css">
@@ -20,64 +20,9 @@
 
   <link rel="shortcut icon" href="images/favicon.png">
 
-
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-
 </head>
 
 <body>
-
-  <!--Loader-->
-  <!-- <div class="loader">
-    <div class="spinner-load">
-      <div class="dot1"></div>
-      <div class="dot2"></div>
-    </div>
-  </div> -->
-
-
-  <!--TOPBAR-->
-  <!-- <div class="topbar">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="header-top-entry">
-            <div class="title">
-              ENGLISH<i class="fa fa-angle-down"></i>
-            </div>
-            <div class="list">
-              <a class="list-entry" href="#">English</a>
-              <a class="list-entry" href="#">Spanish</a>
-            </div>
-          </div>
-          <div class="header-top-entry">
-            <div class="title">
-              USD<i class="fa fa-angle-down"></i>
-            </div>
-            <div class="list">
-              <a class="list-entry" href="#">$ CAD</a>
-              <a class="list-entry" href="#">€ EUR</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-8">
-          <ul class="top_link">
-            <li><a href="#" class="uppercase">My Account</a>
-            </li>
-            <li><a href="#" class="uppercase">wishlish</a>
-            </li>
-            <li><a href="#" class="uppercase">checkout</a>
-            </li>
-            <li><a href="#" class="uppercase">login</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
   <!--HEADER-->
   <?php include("inc_files/header.php");?>

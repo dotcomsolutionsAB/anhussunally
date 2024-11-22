@@ -149,14 +149,26 @@ $result = $conn->query($query);
                             echo "<td>" . htmlspecialchars($row['id']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['name']) . "</td>";
                             echo "<td>";
-                            if (!empty($row['image'])) {
-                                echo '<img class="logo-image" src="' . htmlspecialchars($row['image']) . '" alt="' . htmlspecialchars($row['name']) . '">';
+                            if (!empty($row['logo'])) {
+                                // Assuming the file path is in 'uploads' folder and 'logo' stores the unique ID
+                                $logo_path = "../uploads/assets/logos/" . htmlspecialchars($row['logo']) .".". htmlspecialchars($row['extension']); // Modify the extension if needed
+                                if (file_exists($logo_path)) {
+                                    echo '<img class="logo-image" src="' . $logo_path . '" alt="Logo of ' . htmlspecialchars($row['name']) . '">';
+                                } else {
+                                    echo "No Logo";
+                                }
                             } else {
                                 echo "No Logo";
                             }
                             echo "</td>";
                             echo "<td>" . htmlspecialchars($row['created_at']) . "</td>";
-                            echo '<td><a href="#" class="action-btn">Action</a></td>';
+                            echo '<td> 
+                                    <form action="update_logo.php" method="POST" enctype="multipart/form-data" style="display: inline;">
+                                        <input type="hidden" name="brand_id" value="' . htmlspecialchars($row['id']) . '">
+                                        <input type="file" name="logo" accept="image/*" required style="margin-bottom: 5px;">
+                                        <button type="submit" class="action-btn">Up Logo</button>
+                                    </form>
+                                 </td>';
                             echo "</tr>";
                         }
                     } else {

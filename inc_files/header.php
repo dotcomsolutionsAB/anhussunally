@@ -39,6 +39,9 @@ $brandResult = $conn->query($brandQuery);
     .navbar-default.scrolled li.dropdown a::after {
         background-color: #fff; /* Change underline to white when scrolled */
     }
+    .navbar-default.scrolled .dropdown-menu{
+      background:#000;
+    }
     .navbar-default {
           background-color: transparent; /* Initial transparent background */
           transition: background-color 0.3s ease, color 0.3s ease;
@@ -76,7 +79,7 @@ $brandResult = $conn->query($brandQuery);
           <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
               <li class="dropdown active">
-                <a href="https://anh.ongoingwp.xyz/index.php" class="index.php" data-toggle="#home">Home
+                <a href="https://anh.ongoingwp.xyz/index.php" class="index.php" data-toggle="#home" style="font-weight: bolder;">Home
                 </a>
               </li>
               <!-- <li class="dropdown">
@@ -102,7 +105,7 @@ $brandResult = $conn->query($brandQuery);
                 </ul> -->
               </li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Brands</a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-weight: bolder;">Brands</a>
                     <ul class="dropdown-menu" style="margin-top: 2vh; ">
                         <?php if ($brandResult && $brandResult->num_rows > 0): ?>
                             <?php while ($brand = $brandResult->fetch_assoc()): ?>
@@ -197,12 +200,12 @@ $brandResult = $conn->query($brandQuery);
                   </li>
                 </ul>
               </li> -->
-              <li class="dropdown">
+              <li class="dropdown" style="font-weight: bolder;">
                 <a href="#.">About Us
                 </a>
               </li>
               <li class="dropdown">
-                <a href="contact_us.php">Contact us
+                <a href="contact_us.php" style="font-weight: bolder;">Contact us
                 </a>
               </li>
             </ul>

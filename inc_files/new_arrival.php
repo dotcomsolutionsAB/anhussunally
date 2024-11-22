@@ -55,7 +55,7 @@ foreach ($brandIds as $brandId):
                             }
                 ?>
                     <!-- HTML structure for each product -->
-                    <div class="item" style="    margin-right: 10px; margin-left: 10px;" style="width: 280px;">
+                    <div class="item" style="padding-right:15px; padding-left:15px; width:280px;" style="">
                         <div class="product_wrap">
                             <div class="image">
                                 <a class="fancybox" href="<?php echo htmlspecialchars($imageLink); ?>">

@@ -34,7 +34,7 @@
       <div class="header_content padding">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h1 class="uppercase"> Contact Us</h1>
+            <h1 class="uppercase"> About Us</h1>
             <p>Celebrating 100 years of Trust</p>
           </div>
         </div>

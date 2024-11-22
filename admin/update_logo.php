@@ -34,18 +34,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['logo']) && isset($_P
         mkdir($upload_dir, 0755, true); // Create directory if not exists
     }
     $unique_id = uniqid('logo_'); // Generate a unique ID for the logo
-    $file_extension = pathinfo($logo['name'], PATHINFO_EXTENSION);
+    $file_extension = pathinfo($logo['name'], PATHINFO_EXTENSION); // Extract the file extension
     $file_name = $unique_id . '.' . $file_extension;
     $upload_path = $upload_dir . $file_name;
 
     if (move_uploaded_file($logo['tmp_name'], $upload_path)) {
-        // Save the unique ID in the logo column of the database
+        // Save the unique ID and extension in the database
         $conn = mysqli_connect($host, $username, $password, $dbname);
         if (!$conn) {
             die("Database connection failed: " . mysqli_connect_error());
         }
 
-        $update_query = "UPDATE brand SET logo = '$unique_id' WHERE id = $brand_id";
+        $update_query = "UPDATE brand SET logo = '$unique_id', extension = '$file_extension' WHERE id = $brand_id";
         if (mysqli_query($conn, $update_query)) {
             echo "Logo updated successfully.";
             header("Location: brand.php");

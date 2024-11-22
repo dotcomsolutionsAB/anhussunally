@@ -151,7 +151,7 @@ $result = $conn->query($query);
                             echo "<td>";
                             if (!empty($row['logo'])) {
                                 // Assuming the file path is in 'uploads' folder and 'logo' stores the unique ID
-                                $logo_path = "../uploads/assets/logos" . htmlspecialchars($row['logo']) . ".jpg"; // Modify the extension if needed
+                                $logo_path = "../uploads/assets/logos/" . htmlspecialchars($row['logo']) .".". htmlspecialchars($row['extension']); // Modify the extension if needed
                                 if (file_exists($logo_path)) {
                                     echo '<img class="logo-image" src="' . $logo_path . '" alt="Logo of ' . htmlspecialchars($row['name']) . '">';
                                 } else {

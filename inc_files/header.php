@@ -12,6 +12,30 @@ $brandQuery = "SELECT id, name FROM brand";
 $brandResult = $conn->query($brandQuery);
 ?>
 <header>
+  <style>
+    li.dropdown.active a {
+    position: relative;
+    display: inline-block;
+    color: #000; /* Adjust color as needed */
+    text-decoration: none;
+}
+
+li.dropdown.active a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; /* Adjust thickness of underline */
+    background-color: #000; /* Adjust underline color */
+    transition: width 0.3s ease-in-out;
+}
+
+li.dropdown.active a:hover::after {
+    width: 100%; /* Expands the underline to full width on hover */
+}
+
+  </style>
       <nav class="navbar navbar-default navbar-sticky bootsnav">
         <div class="container">
           <!-- Start Header Navigation -->
@@ -28,7 +52,7 @@ $brandResult = $conn->query($brandQuery);
           <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
               <li class="dropdown active">
-                <a href="https://anh.ongoingwp.xyz/index.php" class="#" data-toggle="#">Home
+                <a href="https://anh.ongoingwp.xyz/index.php" class="index.php" data-toggle="#">Home
                 </a>
               </li>
               <!-- <li class="dropdown">

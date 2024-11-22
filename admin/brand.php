@@ -125,6 +125,7 @@ $result = $conn->query($query);
         <a href="#">Category</a>
         <a href="#">Edit</a>
     </div>
+    </div> <a href="add_brand.php">Add Brand</a></div>
     <div class="main-content">
         <div class="navbar">
             <h2>Brands</h2>

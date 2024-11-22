@@ -4,6 +4,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+// ini_set('display_errors', 0);
 
 // Establish database connection
 $conn = mysqli_connect($host, $username, $password, $dbname);
@@ -15,14 +16,20 @@ if ($conn->connect_error) {
 $brandId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // Fetch brand details
-$brandQuery = "SELECT name, description,logo FROM brand WHERE id = $brandId";
+$brandQuery = "SELECT name, description,logo,extension FROM brand WHERE id = $brandId";
 $brandResult = $conn->query($brandQuery);
 
 if ($brandResult && $brandResult->num_rows > 0) {
     $brand = $brandResult->fetch_assoc();
     $brandName = $brand['name'];
     $brandDescription = $brand['description'];
-    $brandLogo = $brand['logo'];
+    $brandLogo = $brand['logo'].".".$brand['extension'];
+
+    // if ($brand['logo'] !='' && $brand['extension'] != '') {
+    //     $brandLogo = "uploads/assets/logos/" . $brandLogo;
+    // } else {
+    //     $brandLogo = "images/default.png";
+    // }
 } else {
     echo "Brand not found.";
     $conn->close();
@@ -32,8 +39,8 @@ if (empty($brandDescription)) {
     $brandDescription = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum voluptatem quo facilis sapiente molestiae delectus labore excepturi eveniet temporibus repellendus! Odio laborum autem vitae sint! NULL DATA IN DATABASE ";
 }
 
-if (!empty($brandLogo)) {
-    $brandLogo = "api/uploads/assets/" . $brandLogo;
+if (!empty($brandLogo) || $brandLogo != '') {
+    $brandLogo = "uploads/assets/logos/" . $brandLogo;
 } else {
     $brandLogo = "images/default.png";
 }

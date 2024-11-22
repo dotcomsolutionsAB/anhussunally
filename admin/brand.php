@@ -149,8 +149,14 @@ $result = $conn->query($query);
                             echo "<td>" . htmlspecialchars($row['id']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['name']) . "</td>";
                             echo "<td>";
-                            if (!empty($row['image'])) {
-                                echo '<img class="logo-image" src="' . htmlspecialchars($row['image']) . '" alt="' . htmlspecialchars($row['name']) . '">';
+                            if (!empty($row['logo'])) {
+                                // Assuming the file path is in 'uploads' folder and 'logo' stores the unique ID
+                                $logo_path = "../uploads/assets/logos" . htmlspecialchars($row['logo']) . ".jpg"; // Modify the extension if needed
+                                if (file_exists($logo_path)) {
+                                    echo '<img class="logo-image" src="' . $logo_path . '" alt="Logo of ' . htmlspecialchars($row['name']) . '">';
+                                } else {
+                                    echo "No Logo";
+                                }
                             } else {
                                 echo "No Logo";
                             }

@@ -14,26 +14,26 @@ $brandResult = $conn->query($brandQuery);
 <header>
   <style>
     li.dropdown.active a {
-    position: relative;
-    display: inline-block;
-    color: #000; /* Adjust color as needed */
-    text-decoration: none;
-}
+        position: relative;
+        display: inline-block;
+        color: #000; /* Adjust color as needed */
+        text-decoration: none;
+    }
 
-li.dropdown.active a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px; /* Adjust thickness of underline */
-    background-color: #000; /* Adjust underline color */
-    transition: width 0.3s ease-in-out;
-}
+    li.dropdown.active a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px; /* Adjust thickness of underline */
+        background-color: #000; /* Adjust underline color */
+        transition: width 0.3s ease-in-out;
+    }
 
-li.dropdown.active a:hover::after {
-    width: 100%; /* Expands the underline to full width on hover */
-}
+    li.dropdown.active a:hover::after {
+        width: 100%; /* Expands the underline to full width on hover */
+    }
 
   </style>
       <nav class="navbar navbar-default navbar-sticky bootsnav">
@@ -173,11 +173,11 @@ li.dropdown.active a:hover::after {
                   </li>
                 </ul>
               </li> -->
-              <li>
+              <li class="dropdown">
                 <a href="#.">About Us
                 </a>
               </li>
-              <li>
+              <li class="dropdown">
                 <a href="contact_us.php">Contact us
                 </a>
               </li>

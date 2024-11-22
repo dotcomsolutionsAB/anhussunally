@@ -18,6 +18,7 @@ $brandResult = $conn->query($brandQuery);
         display: inline-block;
         color: #000; /* Adjust color as needed */
         text-decoration: none;
+        font-weight: bold;
     }
 
     li.dropdown a::after {
@@ -34,24 +35,28 @@ $brandResult = $conn->query($brandQuery);
     li.dropdown a:hover::after {
         width: 100%; /* Expands the underline to full width on hover */
     }
-
+    /* Underline effect when navbar is scrolled */
+    .navbar-default.scrolled li.dropdown a::after {
+        background-color: #fff; /* Change underline to white when scrolled */
+    }
     .navbar-default {
-    background-color: transparent; /* Initial transparent background */
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+          background-color: transparent; /* Initial transparent background */
+          transition: background-color 0.3s ease, color 0.3s ease;
+      }
 
-.navbar-default.scrolled {
-    background-color: black; /* Background after scrolling */
-    color: white; /* Font color after scrolling */
-}
+      .navbar-default.scrolled {
+          background-color: black !important; /* Background after scrolling */
+          color: white; /* Font color after scrolling */
+      }
 
-.navbar-default.scrolled .navbar-nav > li > a {
-    color: white !important; /* Change nav link colors */
-}
+      .navbar-default.scrolled .navbar-nav > li > a {
+          color: white !important; /* Change nav link colors */
+          font-weight: bold;
+      }
 
-.navbar-default.scrolled .navbar-brand {
-    color: white !important; /* Change brand color */
-}
+      .navbar-default.scrolled .navbar-brand {
+          color: white !important; /* Change brand color */
+      }
 
 
   </style>

@@ -13,14 +13,14 @@ $brandResult = $conn->query($brandQuery);
 ?>
 <header>
   <style>
-    li.dropdown.active a {
+    li.dropdown a {
         position: relative;
         display: inline-block;
         color: #000; /* Adjust color as needed */
         text-decoration: none;
     }
 
-    li.dropdown.active a::after {
+    li.dropdown a::after {
         content: '';
         position: absolute;
         bottom: 0;
@@ -31,7 +31,7 @@ $brandResult = $conn->query($brandQuery);
         transition: width 0.3s ease-in-out;
     }
 
-    li.dropdown.active a:hover::after {
+    li.dropdown a:hover::after {
         width: 100%; /* Expands the underline to full width on hover */
     }
 

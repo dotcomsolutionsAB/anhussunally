@@ -81,7 +81,7 @@
           </div>
           <div class="col-md-3 col-sm-6">
             <div class="footer_panel content_space">
-              <h4 class="heading_border heading_space">INFORMATION
+              <h4 class="heading_border heading_space">Brands
               </h4>
               <ul class="account_foot">
                 <li>

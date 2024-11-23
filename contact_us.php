@@ -82,20 +82,8 @@
   <!--HEADER-->
   <?php include("inc_files/header.php");?>
 
-
-  <!--Page Header-->
-  <section class="page_header padding">
-    <div class="container">
-      <div class="header_content padding">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <h1 class="uppercase"> Contact Us</h1>
-            <p>Celebrating 100 years of Trust</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Breadcumb -->
+  <?php include("inc_files/breadcumb.php"); ?>
 
   <section class="page_menu">
     <div class="container">

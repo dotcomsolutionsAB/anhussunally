@@ -1,4 +1,4 @@
-<footer class="padding_top bottom_half">
+<footer class="padding_top bottom_half" style="margin-top: 20px;">
       <a href="#." class="go-top text-center">
         <i class="fa fa-angle-double-up">
         </i>

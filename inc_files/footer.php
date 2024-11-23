@@ -195,11 +195,12 @@
 
 
     
+
 <style>
     /* Sticky Buttons */
     .sticky-buttons {
         position: fixed; /* Keeps the button fixed to the viewport */
-        
+        bottom: 20px; /* Distance from the bottom of the viewport */
         left: 20px; /* Distance from the left of the viewport */
         z-index: 10000; /* Ensures it stays above all other elements */
         pointer-events: auto; /* Ensures the button is clickable */

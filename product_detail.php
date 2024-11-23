@@ -87,7 +87,7 @@ $relatedProductsResult = $stmt->get_result();
     $imageResult = $stmt->get_result();
 
     while ($image = $imageResult->fetch_assoc()) {
-      $images[] = "https://anh.ongoingwp.xyz/api/uploads/assets/" . $image['file_original_name'];
+      $images[] = "/api/uploads/assets/" . $image['file_original_name'];
     }
     $stmt->close();
   }

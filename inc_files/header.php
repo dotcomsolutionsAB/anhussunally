@@ -72,7 +72,7 @@ $brandResult = $conn->query($brandQuery);
               </i>
             </button>
             <a class="navbar-brand" href="index.php">
-              <img src="images/logo.png" class="logo" alt="">
+              <img src="images/logo.png" class="logo" alt="" id="navbar-logo">
             </a>
           </div>
           <!-- End Header Navigation -->
@@ -258,16 +258,18 @@ $brandResult = $conn->query($brandQuery);
     </header>
 
     <script>
-    document.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar-default');
-        const logo = document.querySelector('#navbar-logo'); // Select the logo image
-
-        if (window.scrollY > 50) { // Adjust scroll threshold as needed
-            navbar.classList.add('scrolled');
-            logo.src = 'images/logo22.png'; // Change to the new logo
-        } else {
-            navbar.classList.remove('scrolled');
-            logo.src = 'images/logo.png'; // Revert to the original logo
-        }
-    });
-</script>
+      document.addEventListener('scroll', function() {
+          //console.log('Scroll position:', window.scrollY);
+          const navbar = document.querySelector('.navbar-default');
+          const logo = document.querySelector('#navbar-logo');
+          if (window.scrollY > 50) {
+              //console.log('Scrolled: Changing to logo22.png');
+              navbar.classList.add('scrolled');
+              logo.src = 'images/logo22.png';
+          } else {
+            // console.log('Not Scrolled: Reverting to logo.png');
+              navbar.classList.remove('scrolled');
+              logo.src = 'images/logo.png';
+          }
+      });
+    </script>

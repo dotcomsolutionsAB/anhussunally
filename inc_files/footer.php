@@ -49,22 +49,22 @@
           </div>
           <div class="col-md-3 col-sm-6">
             <div class="footer_panel content_space">
-              <h4 class="heading_border heading_space">My Account
+              <h4 class="heading_border heading_space">Quick Links
               </h4>
               <ul class="account_foot">
                 <li>
-                  <a href="#.">My Account
+                  <a href="#.">Home
                   </a>
                 </li>
                 <li>
-                  <a href="#.">Login
+                  <a href="#.">About Us
                   </a>
                 </li>
                 <li>
-                  <a href="#.">My Cart
+                  <a href="#.">Contact Us
                   </a>
                 </li>
-                <li>
+                <!-- <li>
                   <a href="#.">Wishlist
                   </a>
                 </li>
@@ -75,13 +75,13 @@
                 <li>
                   <a href="#.">Userinfo
                   </a>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>
           <div class="col-md-3 col-sm-6">
             <div class="footer_panel content_space">
-              <h4 class="heading_border heading_space">INFORMATION
+              <h4 class="heading_border heading_space">Brands
               </h4>
               <ul class="account_foot">
                 <li>
@@ -146,11 +146,11 @@
         </div>
       </div>
     </footer>
-    <div class="copyright">
-      <div class="container">
+    <div  class="copyright">
+      <div style="text-align: center;" class="container">
         <div class="row">
           <div class="col-sm-4">
-            <p>Copyright &copy; 2024 
+            <p >Copyright &copy; 2024 
               <a href="#.">A N Hussunally & Co
               </a>. All Rights Reserved.
             </p>

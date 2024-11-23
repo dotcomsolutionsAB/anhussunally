@@ -8,36 +8,6 @@ $conn = new mysqli($host, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-
-// Check if the SKU is provided in the URL
-if (!isset($_GET['sku'])) {
-  die("No SKU provided.");
-}
-
-$sku = $_GET['sku'];
-
-// Fetch product details from the products table
-$productQuery = "SELECT * FROM products WHERE sku = ?";
-$stmt = $conn->prepare($productQuery);
-$stmt->bind_param("s", $sku);
-$stmt->execute();
-$productResult = $stmt->get_result();
-
-if ($productResult->num_rows === 0) {
-  die("Product not found.");
-}
-
-$product = $productResult->fetch_assoc();
-$stmt->close();
-
-// Fetch related products from the same brand
-$brand = $product['brand_id'];
-$relatedProductsQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brand = ? AND sku != ? LIMIT 4"; // Exclude the current product
-$stmt = $conn->prepare($relatedProductsQuery);
-$stmt->bind_param("ss", $brand, $sku);
-$stmt->execute();
-$relatedProductsResult = $stmt->get_result();
-
 ?>
 
 <!doctype html>
@@ -71,6 +41,37 @@ $relatedProductsResult = $stmt->get_result();
   <?php include("inc_files/header.php"); ?>
   <!-- Breadcumb -->
   <?php include("inc_files/breadcumb.php"); ?>
+<?php
+// Check if the SKU is provided in the URL
+if (!isset($_GET['sku'])) {
+  die("No SKU provided.");
+}
+
+$sku = $_GET['sku'];
+
+// Fetch product details from the products table
+$productQuery = "SELECT * FROM products WHERE sku = ?";
+$stmt = $conn->prepare($productQuery);
+$stmt->bind_param("s", $sku);
+$stmt->execute();
+$productResult = $stmt->get_result();
+
+if ($productResult->num_rows === 0) {
+  die("Product not found.");
+}
+
+$product = $productResult->fetch_assoc();
+$stmt->close();
+
+// Fetch related products from the same brand
+$brand = $product['brand_id'];
+$relatedProductsQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brand_id = ? AND sku != ? LIMIT 4"; // Exclude the current product
+$stmt = $conn->prepare($relatedProductsQuery);
+$stmt->bind_param("ss", $brand, $sku);
+$stmt->execute();
+$relatedProductsResult = $stmt->get_result();
+
+?>
 
   <?php
   // Fetch images from the upload table based on the image IDs in the images column

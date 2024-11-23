@@ -1,4 +1,4 @@
-<!-- <section id="feature_product" class="bottom_half">
+<section id="feature_product" class="bottom_half">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -35,4 +35,4 @@
         <?php endwhile; ?>
       </div>
     </div>
-  </section> -->
+  </section>

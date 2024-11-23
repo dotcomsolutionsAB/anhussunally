@@ -108,7 +108,9 @@ $relatedProductsResult = $stmt->get_result();
                     </div>
                   <?php endforeach; ?>
                 <?php else: ?>
-                  <p>No images available.</p>
+                  <div class="cbp-caption-defaultWrap">
+                      <img src="/images/default.png" alt="">
+                    </div>
                 <?php endif; ?>
               </div>
             </div>
@@ -136,9 +138,16 @@ $relatedProductsResult = $stmt->get_result();
           <div class="detail_pro margintop40">
             <h1 class="bottom30"><?php echo htmlspecialchars($product['name']); ?></h1>
             <p style="color: #7ab6c8; font-weight: bold;">Brand :
-              <a href="#">
-                <span class="title"> <?php echo htmlspecialchars($product['brand_id']); ?></span>
-              </a>
+            <?php
+                $sel = "SELECT name FROM brand WHERE id = " . intval($product['brand_id']);
+                $brandresult = $conn->query($sel);
+                if ($brandresult && $brandresult->num_rows > 0) {
+                    $brand = $brandresult->fetch_assoc();
+                }
+                ?>
+                <a href="#">
+                    <span class="title"><?php echo htmlspecialchars($brand['name']); ?></span>
+                </a>
             </p>
             <div class="product_meta">
               <span class="sku_wrapper">

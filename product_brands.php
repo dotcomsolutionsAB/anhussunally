@@ -729,7 +729,7 @@
 
 
 
-
+  <?php include("inc_files/wpp_sticky.php"); ?>
 <!--Footer-->
 <?php include("inc_files/footer.php"); ?>
 

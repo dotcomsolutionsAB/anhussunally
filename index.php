@@ -1327,6 +1327,7 @@
       </div>
     </section> -->
   <!--Footer-->
+  <?php include("inc_files/wpp_sticky.php"); ?>
   <?php include("inc_files/footer.php"); ?>
   <script src="js/jquery-2.2.3.js">
   </script>

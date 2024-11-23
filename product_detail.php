@@ -109,7 +109,7 @@ $relatedProductsResult = $stmt->get_result();
                   <?php endforeach; ?>
                 <?php else: ?>
                   <div class="cbp-caption-defaultWrap">
-                      <img src="/images/default.png" alt="">
+                      <img src="images/default.png" alt="">
                     </div>
                 <?php endif; ?>
               </div>

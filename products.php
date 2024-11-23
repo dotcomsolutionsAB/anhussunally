@@ -131,5 +131,5 @@ if ($result->num_rows === 0) {
 
 </body>
 </html>
-<?php include("inc_files/wpp_sticky.php"); ?>
+
 <?php $conn->close(); ?>

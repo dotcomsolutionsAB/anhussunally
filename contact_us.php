@@ -144,7 +144,7 @@
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.0104580223724!2d88.34563767484305!3d22.57871217948732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277bb65e7eed7%3A0x98eee9c0ded7dfe2!2sA.N.Hussunally%20%26%20Co.!5e0!3m2!1sen!2sin!4v1731402795801!5m2!1sen!2sin" width="2000" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
 
-  <?php include("inc_files/wpp_sticky.php"); ?>
+
   <!--Footer-->
   <?php include("inc_files/footer.php");?>
 

@@ -85,22 +85,6 @@
   <!-- Breadcumb -->
   <?php include("inc_files/breadcumb.php"); ?>
 
-  <section class="page_menu">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h3 class="hidden">hidden</h3>
-          <ul class="breadcrumb">
-            <li><a href="index.php">Home</a>
-            </li>
-            <li class="active">Contact us</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
   <!--Contact Us-->
   <section id="contact" class="padding_top">
     <div class="container">

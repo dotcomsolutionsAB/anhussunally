@@ -1,150 +1,156 @@
 
 <style>
-        /* Footer Section */
-        .footer-section {
-            background-color: #000;
-            color: white;
-            padding: 60px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
+    /* Footer Section */
+    .footer-section {
+        background-color: #000;
+        color: white;
+        padding: 60px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
 
-        .footer-column {
-            flex: 1;
-            text-align: center;
-            min-width: 200px;
-        }
+    .footer-column {
+        flex: 1;
+        text-align: center;
+        min-width: 200px;
+    }
 
-        .footer-column h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
+    .footer-column h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
 
-        .footer-column p,
-        .footer-column a {
-            font-size: 18px;
-            color: #aaa;
-            text-decoration: none;
-        }
+    .footer-column p,
+    .footer-column a {
+        font-size: 18px;
+        color: #aaa;
+        text-decoration: none;
+    }
 
-        .footer-column a:hover {
-            color: white;
-            text-decoration: underline;
-        }
+    .footer-column a:hover {
+        color: white;
+        text-decoration: underline;
+    }
 
-        .icon-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 15px;
-        }
+    .icon-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 15px;
+    }
 
-        .icon-wrapper i {
-            font-size: 80px;
-            color: #fff;
-        }
+    .icon-wrapper i {
+        font-size: 80px;
+        color: #fff;
+    }
 
-        /* Sticky WhatsApp and Up Button */
-        .sticky-buttons {
-            position: fixed;
-            bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+    /* Sticky WhatsApp and Up Button */
+    .sticky-buttons {
+        position: fixed;
+        bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
 
-        .sticky-buttons .whatsapp-btn {
-            left: 20px;
-        }
+    .sticky-buttons .whatsapp-btn {
+        left: 20px;
+    }
 
-        .sticky-buttons .up-btn {
-            right: 20px;
-        }
+    .sticky-buttons .up-btn {
+        right: 20px;
+    }
 
-        .sticky-buttons a {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-            color: white;
-            font-size: 24px;
-            text-decoration: none;
-        }
+    .sticky-buttons a {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        color: white;
+        font-size: 24px;
+        text-decoration: none;
+    }
 
-        .sticky-buttons .whatsapp-btn a {
-            background-color: #25d366;
-        }
+    .sticky-buttons .whatsapp-btn a {
+        background-color: #25d366;
+    }
 
-        .sticky-buttons .up-btn a {
-            background-color: #333;
-        }
+    .sticky-buttons .up-btn a {
+        background-color: #333;
+    }
 
-        .sticky-buttons a:hover {
-            opacity: 0.8;
-        }
-    </style>
-    <style>
+    .sticky-buttons a:hover {
+        opacity: 0.8;
+    }
+    .icon-wrapper i:hover {
+        color:red;
+    }
+    .footer-column h3:hover{
+        color:red;
+    }
+</style>
+<style>
     .brand-section {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-wrap: wrap;
-                gap: 20px;
-                padding: 50px;
-                background-color: #fff;
-            }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 50px;
+        background-color: #fff;
+    }
 
-            .brand-item {
-                position: relative;
-                perspective: 1000px;
-                width: 200px;
-                height: 200px;
-                transform-style: preserve-3d;
-                transition: transform 0.5s ease;
-            }
+        .brand-item {
+            position: relative;
+            perspective: 1000px;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
 
-            .brand-item img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 10px;
-                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-            }
+        .brand-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
 
-            /* Hover Effect with 3D Animation */
-            .brand-item:hover {
-                transform: rotateY(10deg) rotateX(10deg) scale(1.1);
-            }
+        /* Hover Effect with 3D Animation */
+        .brand-item:hover {
+            transform: rotateY(10deg) rotateX(10deg) scale(1.1);
+        }
 
-            .brand-name {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: rgba(0, 0, 0, 0.6);
-                color: #fff;
-                font-size: 18px;
-                font-weight: bold;
-                opacity: 0;
-                border-radius: 10px;
-                transition: opacity 0.3s ease;
-            }
+        .brand-name {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            opacity: 0;
+            border-radius: 10px;
+            transition: opacity 0.3s ease;
+        }
 
-            .brand-item:hover .brand-name {
-                opacity: 1;
-            }
-    </style> 
+        .brand-item:hover .brand-name {
+            opacity: 1;
+        }
+</style> 
     <!-- <section class="brand-section" id="brand-section">
         
     </section> -->
@@ -210,12 +216,60 @@
         </div>
     </section>
 
-    <!-- Sticky Buttons -->
-    <div class="sticky-buttons">
-        <div class="whatsapp-btn">
-            <a href="https://wa.me/+1234567890" target="_blank" title="WhatsApp">&#128172;</a>
-        </div>
+<style>
+/* Sticky Buttons */
+.sticky-buttons {
+    position: fixed; /* Keeps the button fixed to the viewport */
+    
+    left: 20px; /* Distance from the left of the viewport */
+    z-index: 10000; /* Ensures it stays above all other elements */
+    pointer-events: auto; /* Ensures the button is clickable */
+}
+
+.whatsapp-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whatsapp-btn img {
+    width: 60px; /* Default size */
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    pointer-events: none; /* Prevents interaction issues */
+}
+
+.whatsapp-btn img:hover {
+    opacity: 0.8;
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .whatsapp-btn img {
+        width: 50px; /* Smaller size for mobile */
+        height: 50px;
+    }
+
+    .sticky-buttons {
+       left: 10px;
+    }
+}
+</style>
+
+<!-- Sticky Buttons -->
+<div class="sticky-buttons">
+    <div class="whatsapp-btn">
+        <a href="https://wa.me/+1234567890" target="_blank" title="WhatsApp">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
     </div>
+</div>
+
+
+
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

@@ -258,13 +258,16 @@ $brandResult = $conn->query($brandQuery);
     </header>
 
     <script>
-      document.addEventListener('scroll', function() {
-          const navbar = document.querySelector('.navbar-default');
-          if (window.scrollY > 50) { // Adjust scroll threshold as needed
-              navbar.classList.add('scrolled');
-          } else {
-              navbar.classList.remove('scrolled');
-          }
-      });
+    document.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar-default');
+        const logo = document.querySelector('#navbar-logo'); // Select the logo image
 
-    </script>
+        if (window.scrollY > 50) { // Adjust scroll threshold as needed
+            navbar.classList.add('scrolled');
+            logo.src = 'images/logo22.png'; // Change to the new logo
+        } else {
+            navbar.classList.remove('scrolled');
+            logo.src = 'images/logo.png'; // Revert to the original logo
+        }
+    });
+</script>

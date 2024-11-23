@@ -2,6 +2,12 @@
     .owl-theme .owl-controls {
         display: none !important;
     }
+    .owl-item {
+        /* width: 293px !important; */
+    }
+    .product_wrap .product_desc {
+        padding: 10px 10px 10px 10px;
+    }
 </style>
 
 <!--NEW ARRIVALS-->
@@ -26,7 +32,7 @@
         $productQuery = "SELECT * FROM products WHERE brand_id = $brandId ORDER BY RAND() LIMIT 10";
         $productResult = $conn->query($productQuery);
 ?> 
-    <div class="container">
+    <div class="container" style="">
       <div class="row">
         <div class="col-md-12 text-center" style="display: flex; justify-content: flex-start; padding-top: 4vh;">
           <h2 style="text-align: left;" class="heading_space uppercase"><?php echo htmlspecialchars($brandName); ?> 
@@ -65,10 +71,10 @@
                         <div class="product_wrap">
                             <div class="image">
                                 <a class="fancybox" href="<?php echo htmlspecialchars($imageLink); ?>" style="display: flex;  justify-content: center;  align-items: center;">
-                                    <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="Product" class="img-responsive"  style="  width: 14vw; padding: 1vw; margin: 1vw;">
+                                    <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="Product" class="img-responsive"  style="  width: 14vw; padding: 1vw;">
                                 </a>
                             </div>
-                            <div class="product_desc" style="height: 15vh;">
+                            <div class="product_desc" style="height: 12vh;">
                                 <p><?php echo htmlspecialchars($product['name']); ?></p>
                             </div>
                         </div>
@@ -83,10 +89,10 @@
             <!-- <button class="next-btn" data-target="fourCol-slider-<?php echo $brandId; ?>"><i class="fa fa-chevron-right"></i></button> -->
         </div>
       </div>
-      <?php endforeach; ?>
+    </div>
+    <?php endforeach; ?>
 
     <?php $conn->close(); ?>
-    </div>
   </section>
 
 <!-- Owl Carousel Scripts -->

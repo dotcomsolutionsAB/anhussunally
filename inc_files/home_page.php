@@ -1,4 +1,6 @@
-<?php include("api/db_connection.php"); ?>
+    
+
+    <?php include("api/db_connection.php"); ?>
 
 <?php
 // Establish database connection
@@ -82,29 +84,6 @@ $brandResult = $conn->query($brandQuery);
                 <a href="https://anh.ongoingwp.xyz/index.php" class="index.php" data-toggle="#home" style="font-weight: bolder;">Home
                 </a>
               </li>
-              <!-- <li class="dropdown">
-                <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products
-                </a> -->
-               <!-- 
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a href="grid.php">Grid Default
-                        </a>
-                      </li>
-                      <li>
-                        <a href="grid_list.php">Grid Lists
-                        </a>
-                      </li>
-                      <li>
-                        <a href="grid_sidebar.php">Grid Sidebar
-                        </a>
-                      </li>
-                      <li>
-                        <a href="list_sidebar.php">Lists Sidebar
-                        </a>
-                      </li>
-                    </ul> 
-                    -->
               </li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-weight: bolder;">Brands</a>
@@ -122,86 +101,6 @@ $brandResult = $conn->query($brandQuery);
                         <?php endif; ?>
                     </ul>
                 </li>
-
-              <!-- <li>
-                <a href="#.">collection
-                </a>
-              </li> -->
-              <!-- <li class="dropdown megamenu-fw">
-                <a href="#." class="dropdown-toggle" data-toggle="dropdown">pages
-                </a>
-                <ul class="dropdown-menu megamenu-content" role="menu">
-                  <li>
-                    <div class="row">
-                      <div class="col-menu col-md-3">
-                        <h5 class="title heading_border">Blog
-                        </h5>
-                        <div class="content">
-                          <ul class="menu-col">
-                            <li>
-                              <a href="blog1.php">Blog Two Cols
-                              </a>
-                            </li>
-                            <li>
-                              <a href="blog2.php">Blog Three Cols
-                              </a>
-                            </li>
-                            <li>
-                              <a href="blog_post.php">Blog Posts
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-menu col-md-3">
-                        <h5 class="title heading_border">Products Elements
-                        </h5>
-                        <div class="content">
-                          <ul class="menu-col">
-                            <li>
-                              <a href="checkout.php">Product Chekouts
-                              </a>
-                            </li>
-                            <li>
-                              <a href="product_detail.php">Products Details
-                              </a>
-                            </li>
-                            <li>
-                              <a href="cart.php">Shopping Cart
-                              </a>
-                            </li> 
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-menu col-md-3">
-                        <h5 class="title heading_border">Theme Elements
-                        </h5>
-                        <div class="content">
-                          <ul class="menu-col">
-                            <li>
-                              <a href="#.">Skills
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#.">Team & Testimonials
-                              </a>
-                            </li>
-                            <li>
-                              <a href="404.php">Errors
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>    
-                      <div class="col-menu col-md-3">
-                        <div class="content">
-                          <img src="images/mega-menu.png"  alt="menu" class="img-responsive">
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </li> -->
               <li class="dropdown" >
                 <a href="about_us.php" style="font-weight: bolder;">About Us
                 </a>
@@ -228,6 +127,100 @@ $brandResult = $conn->query($brandQuery);
       </nav>
     </header>
 
+   
+    <style>
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            justify-content: center;
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .brand-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            height: 120px;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .brand-logo {
+            max-width: 100%;
+            max-height: 60px;
+            object-fit: contain;
+        }
+        .flex {
+          position: relative; /* Needed to position the overlay correctly */
+          display: flex;
+          justify-content: center;
+          background-image: url("images/About_Us.png");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-color: #f9f9f9;
+          background-attachment: scroll;
+          height: 100vh; /* Adjust height as needed */
+          color: white; /* Text color to stand out against the dark overlay */
+        }
+
+        .flex::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+            pointer-events: none; /* Ensure the overlay doesn’t interfere with interactions */
+            z-index: 1; /* Make sure the overlay is behind the content */
+        }
+
+        .flex > * {
+            position: relative;
+            z-index: 2; /* Bring the content above the overlay */
+        }
+    </style>
+    <div class="flex">
+      <div class="brand-grid">
+          <div class="brand-card"><img src="images/ALFOMEGA.png" alt="Brand 1" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/Atos.png" alt="Brand 2" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/Bearing-Pullers.png" alt="Brand 3" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/HYDROLINE.png" alt="Brand 4" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/DOWTY.png" alt="Brand 5" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/DEMCON.png" alt="Brand 6" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/DOWTY.png" alt="Brand 7" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/EPE.jpg" alt="Brand 8" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/GEMELS1.png" alt="Brand 9" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/HAWE.png" alt="Brand 10" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/HYLOC.png" alt="Brand 11" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/POLYHYDR0N.png" alt="Brand 12" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/Positron-1.png" alt="Brand 13" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/REXROTH.png" alt="Brand 14" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/Spica.jpg" alt="Brand 15" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/Minitest.png" alt="Brand 16" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/VELJAN.png" alt="Brand 17" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/WIKAI.png" alt="Brand 18" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/Water-Test-Pump.png" alt="Brand 19" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/YUKEN.png" alt="Brand 20" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/VIP.png" alt="Brand 20" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/Hose-Crimping-Machine.png" alt="Brand 20" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/STAUFF.png" alt="Brand 20" class="brand-logo"></div>
+          <div class="brand-card"><img src="images/WALVOIL.png" alt="Brand 20" class="brand-logo"></div>
+      </div>
+    </div>
     <script>
       document.addEventListener('scroll', function() {
           //console.log('Scroll position:', window.scrollY);

@@ -84,7 +84,7 @@
       </div>
     </div> -->
   <!--HEADER-->
-  <?php include("inc_files/header.php"); ?>
+  <?php include("inc_files/home_page.php"); ?>
   <!-- <section class="rev_slider_wrapper">
     <div id="rev_slider" class="rev_slider" data-version="5.0">
       <ul> -->
@@ -272,21 +272,7 @@
     </section> -->
 
     <!--Brands-->
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        .body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fafafa;
-            padding: 40px;
-            display: flex;
-            justify-content: center;
-        }
-
+    <!-- <style>
         .brand-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -378,7 +364,7 @@
           <div class="brand-card"><img src="images/STAUFF.png" alt="Brand 20" class="brand-logo"></div>
           <div class="brand-card"><img src="images/WALVOIL.png" alt="Brand 20" class="brand-logo"></div>
       </div>
-    </div>
+    </div> -->
     <!--About-->
     <style>
         * {

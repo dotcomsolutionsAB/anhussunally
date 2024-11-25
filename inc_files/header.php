@@ -63,7 +63,7 @@ $brandResult = $conn->query($brandQuery);
         bottom: 20px !important;
       }
       .wrap-sticky{
-        height: 92px;
+        height: 76px;
       }
       
 

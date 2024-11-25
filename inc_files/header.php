@@ -39,7 +39,7 @@ $brandResult = $conn->query($brandQuery);
         background-color: #fff; /* Change underline to white when scrolled */
     }
     .navbar-default.scrolled ul .dropdown-menu{
-      background:#000;
+      background:#fff;
     }
     .navbar-default {
           background-color: transparent; /* Initial transparent background */
@@ -47,12 +47,14 @@ $brandResult = $conn->query($brandQuery);
       }
 
       .navbar-default.scrolled {
-          background-color: black !important; /* Background after scrolling */
+          background-color: #fff !important; /* Background after scrolling */
           color: white; /* Font color after scrolling */
+          box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.1);
+          
       }
 
       .navbar-default.scrolled .navbar-nav > li > a {
-          color: white !important; /* Change nav link colors */
+          color: #000 !important; /* Change nav link colors */
           font-weight: bold;
       }
 
@@ -242,7 +244,7 @@ $brandResult = $conn->query($brandQuery);
           if (window.scrollY > 50) {
               //console.log('Scrolled: Changing to logo22.png');
               navbar.classList.add('scrolled');
-              logo.src = 'images/logo22.png';
+              logo.src = 'images/logo.png';
           } else {
             // console.log('Not Scrolled: Reverting to logo.png');
               navbar.classList.remove('scrolled');

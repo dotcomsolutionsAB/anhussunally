@@ -197,41 +197,57 @@
     
 
 <style>
-   <style>
-    .whatsapp-float {
-        position: fixed;
-        width: 60px;
+    /* Sticky Buttons */
+    .sticky-buttons {
+        position: fixed; /* Keeps the button fixed to the viewport */
+        bottom: 20px; /* Distance from the bottom of the viewport */
+        left: 20px; /* Distance from the left of the viewport */
+        z-index: 10000; /* Ensures it stays above all other elements */
+        pointer-events: auto; /* Ensures the button is clickable */
+    }
+
+    .whatsapp-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .whatsapp-btn img {
+        width: 60px; /* Default size */
         height: 60px;
-        bottom: 70px;
-        right: 20px;
-        background-color: #25D366;
-        color: #FFF;
-        border-radius: 50px;
-        text-align: center;
-        font-size: 30px;
-        box-shadow: 2px 2px 3px #999;
-        z-index: 1000;
+        border-radius: 50%;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        pointer-events: none; /* Prevents interaction issues */
     }
 
-    .whatsapp-float i {
-        margin-top: 15px;
+    .whatsapp-btn img:hover {
+        opacity: 0.8;
+        transform: scale(1.1); /* Slightly enlarge on hover */
     }
 
-    .whatsapp-float:hover {
-        background-color: #128C7E;
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .whatsapp-btn img {
+            width: 50px; /* Smaller size for mobile */
+            height: 50px;
+        }
+
+        .sticky-buttons {
+        left: 10px;
+        }
     }
-</style>
 </style>
 
 <!-- Sticky Buttons -->
-<!-- <div class="sticky-buttons">
+<div class="sticky-buttons">
     <div class="whatsapp-btn">
-        <a href="https://wa.me/+1234567890" target="_blank" title="WhatsApp">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-        </a>
-    </div>
-</div> -->
-
-<a href="https://wa.me/971554507096" target="_blank" class="whatsapp-float">
+    <a href="https://wa.me/125356352563" target="_blank" class="whatsapp-float">
     <i class="fab fa-whatsapp"></i>
 </a>
+    </div>
+</div>
+
+<!-- <a href="https://wa.me/971554507096" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+</a> -->

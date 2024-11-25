@@ -85,24 +85,26 @@ $brandResult = $conn->query($brandQuery);
               <!-- <li class="dropdown">
                 <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products
                 </a> -->
-                <!-- <ul class="dropdown-menu">
-                  <li>
-                    <a href="grid.php">Grid Default
-                    </a>
-                  </li>
-                  <li>
-                    <a href="grid_list.php">Grid Lists
-                    </a>
-                  </li>
-                  <li>
-                    <a href="grid_sidebar.php">Grid Sidebar
-                    </a>
-                  </li>
-                  <li>
-                    <a href="list_sidebar.php">Lists Sidebar
-                    </a>
-                  </li>
-                </ul> -->
+               <!-- 
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="grid.php">Grid Default
+                        </a>
+                      </li>
+                      <li>
+                        <a href="grid_list.php">Grid Lists
+                        </a>
+                      </li>
+                      <li>
+                        <a href="grid_sidebar.php">Grid Sidebar
+                        </a>
+                      </li>
+                      <li>
+                        <a href="list_sidebar.php">Lists Sidebar
+                        </a>
+                      </li>
+                    </ul> 
+                    -->
               </li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-weight: bolder;">Brands</a>
@@ -222,42 +224,11 @@ $brandResult = $conn->query($brandQuery);
               </div>
             </div>
           </div>
-          <ul class="cart-list">
-            <li>
-              <a href="#." class="photo">
-                <img src="images/hover-cart.jpg" class="cart-thumb" alt="" />
-              </a>
-              <h6>
-                <a href="#.">Sacrificial Chair Design 
-                </a>
-              </h6>
-              <p>Qty: 2 
-                <span class="price">$170.00
-                </span>
-              </p>
-            </li>
-            <li class="total clearfix">
-              <div class="pull-right">
-                <strong>Shipping
-                </strong>: $5.00
-              </div>
-              <div class="pull-left">
-                <strong>Total
-                </strong>: $173.00
-              </div>
-            </li>
-            <li class="cart-btn">
-              <a href="#." class="active">VIEW CART 
-              </a>
-              <a href="#.">CHECKOUT 
-              </a>
-            </li>
-          </ul>
         </div>   
       </nav>
     </header>
 
-    <script>
+    <!-- <script>
       document.addEventListener('scroll', function() {
           //console.log('Scroll position:', window.scrollY);
           const navbar = document.querySelector('.navbar-default');
@@ -272,4 +243,4 @@ $brandResult = $conn->query($brandQuery);
               logo.src = 'images/logo.png';
           }
       });
-    </script>
+    </script> -->

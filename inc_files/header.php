@@ -59,7 +59,9 @@ $brandResult = $conn->query($brandQuery);
       .navbar-default.scrolled .navbar-brand {
           color: white !important; /* Change brand color */
       }
-
+      li.dropdown a::after {
+        bottom: 20px !important;
+      }
 
   </style>
     <header>

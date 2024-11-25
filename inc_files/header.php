@@ -62,6 +62,10 @@ $brandResult = $conn->query($brandQuery);
       li.dropdown a::after {
         bottom: 20px !important;
       }
+      .wrap-sticky{
+        height: 92px;
+      }
+      
 
   </style>
     <header>

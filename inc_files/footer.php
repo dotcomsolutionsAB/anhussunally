@@ -242,12 +242,10 @@
 <!-- Sticky Buttons -->
 <div class="sticky-buttons">
     <div class="whatsapp-btn">
-    <a href="https://wa.me/125356352563" target="_blank" class="whatsapp-float">
-    <i class="fab fa-whatsapp"></i>
-</a>
+        <a href="https://wa.me/+1234567890" target="_blank" title="WhatsApp">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
     </div>
 </div>
 
-<!-- <a href="https://wa.me/971554507096" target="_blank" class="whatsapp-float">
-    <i class="fab fa-whatsapp"></i>
-</a> -->
+

@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-md-6 col-sm-12">
+          <div class="col-md-4 col-sm-12">
             <div class="footer_panel content_space">
               <a class="navbar-brand" href="index.php">
                 <img src="images/logo22.png" class="logo" alt="" id="navbar-logo">
@@ -16,7 +16,7 @@
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-6">
+          <div class="col-md-4 col-sm-12">
             <div class="footer_panel content_space">
               <h4 class="heading_border heading_space">Contact Us
               </h4>
@@ -42,7 +42,7 @@
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-6">
+          <div class="col-md-4 col-sm-612">
             <div class="footer_panel content_space">
               <h4 class="heading_border heading_space">Quick Links
               </h4>

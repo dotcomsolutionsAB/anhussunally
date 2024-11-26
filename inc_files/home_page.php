@@ -93,15 +93,17 @@ $brandResult = $conn->query($brandQuery);
             left: 0;
             width: 0;
             height: 2px; /* Thickness of the underline */
-            background-color: #fff; /* Underline color */
-            transition: width 0.3s ease-in-out;
+            background-color: #fff; /* Default underline color */
+            transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Transition for width and color */
         }
-        .navbar-nav > li.scrolled > a::after{
-            background-color: #000; /* Underline color */
-        } 
+
         .navbar-nav > li > a:hover::after {
             width: 100%; /* Full underline on hover */
-            
+        }
+
+        /* When navbar is scrolled */
+        .navbar-styled.scrolled .navbar-nav > li > a::after {
+            background-color: #000; /* Black underline when scrolled */
         }
         .navbar-styled.scrolled .navbar-nav > li > a {
             color: #000 !important;
@@ -114,52 +116,52 @@ $brandResult = $conn->query($brandQuery);
 
         /* Flex Section */
         .top-section {
-                display: grid;
-				grid-template-columns: repeat(6, 1fr);
-				gap: 20px;
-				max-width: 1200px;
-				margin: 0 auto;
-				padding: 40px;
-				z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            z-index: 1;
         }
 
         /* Brand Grid Styles */
-.brand-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Ensure 5 items per row */
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* Ensure 5 items per row */
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-.brand-card {
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 140px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        .brand-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 140px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.brand-card img {
-    max-width: 80%;
-    max-height: 70%;
-}
+        .brand-card img {
+            max-width: 80%;
+            max-height: 70%;
+        }
 
 
-.brand-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-}
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
 
-header .navbar-brand{
-    padding-top:15px;
-    padding-bottom:15px;
-}
+        header .navbar-brand{
+            padding-top:15px;
+            padding-bottom:15px;
+        }
 
 
 

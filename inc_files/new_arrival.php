@@ -116,7 +116,7 @@
                                     } ?> 
                                 </p>
                             </div>
-                            <div class="btn" style="display: flex; justify-content: center;">
+                            <div class="btn" style="display: flex; justify-content: center; padding-bottom: 20px;">
                                 <a href="#" class="stylish-linka" style="padding: 8px 15px;">Read More</a>
                             </div>
                         </div>

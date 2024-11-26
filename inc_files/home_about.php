@@ -23,10 +23,19 @@
         font-weight: bold;
         text-transform: uppercase;
         color: #fff;
+        font-family:'Oswald';
+    }
+    .testimonial-text h4{
+        font-family:'Oswald';
+        font-weight:'regular';
+        color:'white';
+        text-transform:'uppercase';
+        font-size:1.1em;
+        margin-bottom:5px;
     }
 
     .testimonial-text p {
-        font-size: 1.1em;
+        font-size: 1.3em;
         line-height: 1.8;
         margin-bottom: 30px;
         color: #ccc;
@@ -71,6 +80,7 @@
 </style>
 <section class="testimonial-section">
     <div class="testimonial-text">
+        <h4>A.N. Hussunally & Co</h4>
         <h2>About Us</h2>
         <p>
             Pioneering the hydraulics market in Eastern India, the 100-year old A.N. Hussunally & Co. has today emerged as among the    market leaders in providing customers with holistic hydraulic solutions.<br><br>

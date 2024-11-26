@@ -39,6 +39,35 @@
           </h2>
         </div>
       </div>
+      <style>
+            .stylish-link {
+                display: inline-block;
+                width: 150px;
+                text-align: center;
+                background-color: #3ab6e9;
+                color: #ffffff;
+                text-decoration: none;
+                padding: 12px 20px;
+                font-size: 13px;
+                font-weight: bold;
+                text-transform: uppercase; /* Uppercase text */
+                letter-spacing: 1px; /* Slightly spaced letters */
+                border: 2px solid transparent; /* Add a border for hover effect */
+                cursor: pointer; /* Pointer cursor on hover */
+                transition: all 0.3s ease; /* Smooth transition for all properties */
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+            }
+
+            .stylish-link:hover {
+                /* background-color: #309ec7; */
+                color: #f0f0f0;
+                /* border: 2px solid #ffffff; */
+                /* transform: translateY(-3px); */
+                /* box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); */
+                /* color: #23527c; */
+                text-decoration: none;
+            }
+        </style>
       <div class="row">
         <div class="slider-wrapper">
             <!-- <button class="prev-btn" data-target="fourCol-slider-<?php echo $brandId; ?>"><i class="fa fa-chevron-left"></i></button> -->
@@ -77,7 +106,9 @@
                             <div class="product_desc" style="height: 12vh;">
                                 <p><?php echo htmlspecialchars($product['name']); ?></p>
                             </div>
-                            
+                            <div class="btn">
+                                <p><a href="#" class="stylish-link">Read More</a></p>
+                            </div>
                         </div>
                     </div>
                     <?php
@@ -87,7 +118,7 @@
                     endif;
                     ?>          
             </div>
-            <button class="next-btn" data-target="fourCol-slider-<?php echo $brandId; ?>"><i class="fa fa-chevron-right"></i></button>
+            <!-- <button class="next-btn" data-target="fourCol-slider-<?php echo $brandId; ?>"><i class="fa fa-chevron-right"></i></button> -->
         </div>
       </div>
     </div>

@@ -24,7 +24,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 30px 60px;
+    padding: 10px 60px;
     background: #ffffff; /* Section background color */
   }
 
@@ -54,6 +54,7 @@
     height: 143px;
     background: #ddd;
     margin: 0 0px;
+    margin-top: 50px;
   }
 
 </style>

@@ -1,5 +1,5 @@
 <footer class="padding_top bottom_half" style="margin-top:0px;">
-      <a href="#." class="go-top text-center">
+      <a href="#." class="go-top text-center" style="display: none;">
         <i class="fa fa-angle-double-up">
         </i>
       </a>

@@ -41,8 +41,9 @@
       </div>
       <style>
             .stylish-link {
-                display: inline-block;
-                width: 150px;
+                display: flex;
+                width: 120px;
+                border-radius: 15px;
                 text-align: center;
                 background-color: #3ab6e9;
                 color: #ffffff;
@@ -103,11 +104,11 @@
                                     <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="Product" class="img-responsive"  style="  width: 14vw; padding: 1vw;">
                                 </a>
                             </div>
-                            <div class="product_desc" style="height: 12vh;">
+                            <div class="product_desc" style="height: 10vh;">
                                 <p><?php echo htmlspecialchars($product['name']); ?></p>
                             </div>
-                            <div class="btn">
-                                <p><a href="#" class="stylish-link">Read More</a></p>
+                            <div class="btn" style="display: flex; justify-content: center;">
+                                <a href="#" class="stylish-link" style="padding: 8px 15px;">Read More</a>
                             </div>
                         </div>
                     </div>

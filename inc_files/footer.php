@@ -196,6 +196,7 @@
 
     
 
+
 <style>
     /* Sticky Buttons */
     .sticky-buttons {
@@ -234,7 +235,7 @@
         }
 
         .sticky-buttons {
-        left: 10px;
+            left: 10px;
         }
     }
 </style>
@@ -243,9 +244,11 @@
 <div class="sticky-buttons">
     <div class="whatsapp-btn">
         <a href="https://wa.me/+1234567890" target="_blank" title="WhatsApp">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            <!-- Updated WhatsApp icon -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.svg" alt="WhatsApp">
         </a>
     </div>
 </div>
+
 
 

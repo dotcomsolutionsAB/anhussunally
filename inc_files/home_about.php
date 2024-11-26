@@ -99,12 +99,12 @@
             }
 
             .stylish-link:hover {
-                background-color: #309ec7; /* Darker shade on hover */
-                color: #f0f0f0; /* Slightly lighter text color on hover */
-                border: 2px solid #ffffff; /* Add a white border */
-                transform: translateY(-3px); /* Lift the button slightly */
-                box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
-                color: #000;
+                /* background-color: #309ec7; */
+                color: #f0f0f0;
+                /* border: 2px solid #ffffff; */
+                /* transform: translateY(-3px); */
+                /* box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); */
+                /* color: #23527c; */
                 text-decoration: none;
             }
         </style>

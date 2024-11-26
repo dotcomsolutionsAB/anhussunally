@@ -5,13 +5,14 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-md-3 col-sm-6">
+          <div class="col-md-6 col-sm-12">
             <div class="footer_panel content_space">
-              <h4 class="heading_border heading_space">Contact Us
-              </h4>
               <a class="navbar-brand" href="index.php">
-                <img src="images/logo.png" class="logo" alt="" id="navbar-logo">
+                <img src="images/logo22.png" class="logo" alt="" id="navbar-logo">
               </a>
+              <p>
+                Pioneering the hydraulics market in Eastern India, the 100-year old A.N. Hussunally & Co. has today emerged as among the    market leaders in providing customers with holistic hydraulic solutions.
+              </p>
             </div>
           </div>
 

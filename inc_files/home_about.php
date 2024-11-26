@@ -81,15 +81,15 @@
         </p>
         <style>
             .stylish-link {
-                display: inline-block; /* Make it behave like a button */
-                width: 200px; /* Set a fixed width */
-                text-align: center; /* Center the text */
-                background-color: #3ab6e9; /* Background color */
-                color: #ffffff; /* Text color */
-                text-decoration: none; /* Remove underline */
-                padding: 12px 20px; /* Padding for button feel */
-                font-size: 16px; /* Font size */
-                font-weight: bold; /* Bold text */
+                display: inline-block;
+                width: 150px;
+                text-align: center;
+                background-color: #3ab6e9;
+                color: #ffffff;
+                text-decoration: none;
+                padding: 12px 20px;
+                font-size: 13px;
+                font-weight: bold;
                 text-transform: uppercase; /* Uppercase text */
                 letter-spacing: 1px; /* Slightly spaced letters */
                 border: 2px solid transparent; /* Add a border for hover effect */

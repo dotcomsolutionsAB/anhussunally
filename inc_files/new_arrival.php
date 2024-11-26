@@ -77,6 +77,7 @@
                             <div class="product_desc" style="height: 12vh;">
                                 <p><?php echo htmlspecialchars($product['name']); ?></p>
                             </div>
+                            
                         </div>
                     </div>
                     <?php
@@ -86,7 +87,7 @@
                     endif;
                     ?>          
             </div>
-            <!-- <button class="next-btn" data-target="fourCol-slider-<?php echo $brandId; ?>"><i class="fa fa-chevron-right"></i></button> -->
+            <button class="next-btn" data-target="fourCol-slider-<?php echo $brandId; ?>"><i class="fa fa-chevron-right"></i></button>
         </div>
       </div>
     </div>

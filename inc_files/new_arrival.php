@@ -40,7 +40,7 @@
         </div>
       </div>
       <style>
-            .stylish-link {
+            .stylish-linka {
                 display: flex;
                 width: 120px;
                 border-radius: 15px;
@@ -59,7 +59,7 @@
                 box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
             }
 
-            .stylish-link:hover {
+            .stylish-linka:hover {
                 /* background-color: #309ec7; */
                 color: #f0f0f0;
                 /* border: 2px solid #ffffff; */
@@ -108,7 +108,7 @@
                                 <p><?php echo htmlspecialchars($product['name']); ?></p>
                             </div>
                             <div class="btn" style="display: flex; justify-content: center;">
-                                <a href="#" class="stylish-link" style="padding: 8px 15px;">Read More</a>
+                                <a href="#" class="stylish-linka" style="padding: 8px 15px;">Read More</a>
                             </div>
                         </div>
                     </div>

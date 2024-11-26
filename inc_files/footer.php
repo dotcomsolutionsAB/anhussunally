@@ -1,10 +1,20 @@
-<footer class="padding_top bottom_half" style="margin-top:0px;">
+    <footer class="padding_top bottom_half" style="margin-top:0px;">
       <a href="#." class="go-top text-center" style="display: none;">
-        <i class="fa fa-angle-double-up">
-        </i>
+        <i class="fa fa-angle-double-up">  </i>
       </a>
       <div class="container">
         <div class="row">
+
+          <div class="col-md-3 col-sm-6">
+            <div class="footer_panel content_space">
+              <h4 class="heading_border heading_space">Contact Us
+              </h4>
+              <a class="navbar-brand" href="index.php">
+                <img src="images/logo.png" class="logo" alt="" id="navbar-logo">
+              </a>
+            </div>
+          </div>
+
           <div class="col-md-3 col-sm-6">
             <div class="footer_panel content_space">
               <h4 class="heading_border heading_space">Contact Us
@@ -27,26 +37,10 @@
                     </i>hussunally@gmail.com
                   </a>
                 </li>
-                <li>
-                  <!-- <span>
-                    <img src="images/paymennt1.png" alt="payment">
-                  </span> 
-                  <span>
-                    <img src="images/payment2.png" alt="payment">
-                  </span> 
-                  <span>
-                    <img src="images/payment3.jpg" alt="payment">
-                  </span> 
-                  <span>
-                    <img src="images/payment4.png" alt="payment">
-                  </span> 
-                  <span>
-                    <img src="images/payment5.png" alt="payment">
-                  </span> -->
-                </li>
               </ul>
             </div>
           </div>
+
           <div class="col-md-3 col-sm-6">
             <div class="footer_panel content_space">
               <h4 class="heading_border heading_space">Quick Links
@@ -64,88 +58,13 @@
                   <a href="#.">Contact Us
                   </a>
                 </li>
-                <!-- <li>
-                  <a href="#.">Wishlist
-                  </a>
-                </li>
-                <li>
-                  <a href="#.">Checkout
-                  </a>
-                </li>
-                <li>
-                  <a href="#.">Userinfo
-                  </a>
-                </li> -->
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="footer_panel content_space">
-              <h4 class="heading_border heading_space">Brands
-              </h4>
-              <ul class="account_foot">
-                <li>
-                  <a href="#.">My Account
-                  </a>
-                </li>
-                <li>
-                  <a href="#.">Login
-                  </a>
-                </li>
-                <li>
-                  <a href="#.">My Cart
-                  </a>
-                </li>
-                <li>
-                  <a href="#.">Wishlist
-                  </a>
-                </li>
-                <li>
-                  <a href="#.">Checkout
-                  </a>
-                </li>
-                <li>
-                  <a href="#.">Userinfo
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="footer_panel content_space">
-              <h4 class="heading_border heading_space">Customer Service
-              </h4>
-              <ul class="account_foot">
-                <li>
-                  <a href="#.">Shipping Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#.">Compensation First
-                  </a>
-                </li>
-                <li>
-                  <a href="#.">My Account
-                  </a>
-                </li>
-                <li>
-                  <a href="#.">Return Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#.">Contact Us
-                  </a>
-                </li>
-                <li>
-                  <a href="#.">Shipping Info
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
     </footer>
+
     <div  class="copyright">
       <div style="text-align: center;" class="container">
         <div class="row">
@@ -193,11 +112,7 @@
       </div>
     </div>
 
-
-    
-
-
-<!-- Add Font Awesome for WhatsApp Icon -->
+ <!-- Add Font Awesome for WhatsApp Icon -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
 <style>
@@ -226,8 +141,6 @@
         transition: all 0.3s ease;
         text-align: center;
     }
-
-    
 
     .whatsapp-btn i {
         font-size: 30px; /* Size of the icon */

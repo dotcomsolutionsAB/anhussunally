@@ -118,7 +118,7 @@
                 text-decoration: none;
             }
         </style>
-        <a href="#" class="stylish-link">Read More</a>
+        <a href="../about-us.php" class="stylish-link">Read More</a>
 
     </div>
     <div class="testimonial-image">

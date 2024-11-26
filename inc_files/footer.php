@@ -197,11 +197,14 @@
     
 
 
+<!-- Add Font Awesome for WhatsApp Icon -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 <style>
     /* Sticky Buttons */
     .sticky-buttons {
         position: fixed; /* Keeps the button fixed to the viewport */
-        bottom: 20px; /* Distance from the bottom of the viewport */
+        top: 20px; /* Distance from the top of the viewport */
         left: 20px; /* Distance from the left of the viewport */
         z-index: 10000; /* Ensures it stays above all other elements */
         pointer-events: auto; /* Ensures the button is clickable */
@@ -211,44 +214,49 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-
-    .whatsapp-btn img {
-        width: 60px; /* Default size */
-        height: 60px;
+        background-color: #25D366; /* WhatsApp green color */
+        color: white;
         border-radius: 50%;
+        width: 60px; /* Size of the button */
+        height: 60px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
-        pointer-events: none; /* Prevents interaction issues */
+        text-align: center;
     }
 
-    .whatsapp-btn img:hover {
+    .whatsapp-btn:hover {
         opacity: 0.8;
         transform: scale(1.1); /* Slightly enlarge on hover */
     }
 
+    .whatsapp-btn i {
+        font-size: 30px; /* Size of the icon */
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
-        .whatsapp-btn img {
+        .whatsapp-btn {
             width: 50px; /* Smaller size for mobile */
             height: 50px;
         }
 
+        .whatsapp-btn i {
+            font-size: 24px;
+        }
+
         .sticky-buttons {
-            left: 10px;
+            left: 10px; /* Adjust for smaller screens */
         }
     }
 </style>
 
 <!-- Sticky Buttons -->
 <div class="sticky-buttons">
-    <div class="whatsapp-btn">
-        <a href="https://wa.me/+1234567890" target="_blank" title="WhatsApp">
-            <!-- Updated WhatsApp icon -->
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.svg" alt="WhatsApp">
-        </a>
-    </div>
+    <a href="https://wa.me/+1234567890" target="_blank" class="whatsapp-btn" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i> <!-- WhatsApp Icon -->
+    </a>
 </div>
+
 
 
 

@@ -3,10 +3,10 @@
         <i class="fa fa-angle-double-up">  </i>
       </a>
       <div class="container">
-        <div class="row">
+        <div class="row" style="gap: 5vw; display: flex;">
 
           <div class="col-md-4 col-sm-12">
-            <div class="footer_panel content_space">
+            <div class="footer_panel content_space" style="display: flex; flex-direction: column; gap: 5vh;">
               <a class="navbar-brand" href="index.php">
                 <img src="images/logo22.png" class="logo" alt="" id="navbar-logo">
               </a>
@@ -33,10 +33,10 @@
                   </i>+91-33-2230 4140
                 </li>
                 <li>
-                  <a href="#.">
+                  
                     <i class="fa fa-envelope-o">
                     </i>hussunally@gmail.com
-                  </a>
+                  
                 </li>
               </ul>
             </div>

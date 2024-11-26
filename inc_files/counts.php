@@ -24,7 +24,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 30px 0;
+    padding: 30px 60px;
     background: #ffffff; /* Section background color */
   }
 
@@ -35,6 +35,7 @@
 
   .stat-number {
     font-size: 140px;
+    font-family: 'Oswald';
     font-weight: 700;
     color: rgba(0, 0, 0, 0.1); /* Light gray number */
     margin: 0;
@@ -45,7 +46,7 @@
     font-weight: 600;
     color: #000;
     text-transform: uppercase;
-    margin: -93px 0 0;
+    margin: -85px 0 0;
   }
 
   .divider {

@@ -18,7 +18,7 @@
     }
 
     .testimonial-text h2 {
-        font-size: 2.5em;
+        font-size: 4.5em;
         margin-bottom: 20px;
         font-weight: bold;
         text-transform: uppercase;
@@ -28,9 +28,9 @@
     .testimonial-text h4{
         font-family:'Oswald';
         font-weight:'regular';
-        color:'white';
+        color:#fff;
         text-transform:'uppercase';
-        font-size:1.1em;
+        font-size:1.7em;
         margin-bottom:5px;
     }
 

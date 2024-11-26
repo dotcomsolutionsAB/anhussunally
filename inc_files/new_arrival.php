@@ -9,6 +9,9 @@
         padding: 5px 5px 5px 5px;
         font-size:16px;
     }
+    .heading_space{
+        font-family:'Oswald';   
+    }
 </style>
 
 <!--NEW ARRIVALS-->
@@ -34,13 +37,14 @@
         $productResult = $conn->query($productQuery);
 ?> 
     <div class="container" style="">
-      <div class="row">
-        <div class="col-md-12 text-center" style="display: flex; justify-content: flex-start; padding-top: 4vh;">
-          <h2 style="text-align: left;" class="heading_space uppercase"><?php echo htmlspecialchars($brandName); ?> 
-          </h2>
+        <div class="row">
+            <div class="col-md-12 text-center" style="display: flex; justify-content: flex-start; ">
+                <h2 style="text-align: left;" class="heading_space uppercase">
+                    <?php echo htmlspecialchars($brandName); ?> 
+                </h2>
+            </div>
         </div>
-      </div>
-      <style>
+        <style>
             .stylish-linka {
                 display: flex;
                 width: 120px;
@@ -70,7 +74,7 @@
                 text-decoration: none;
             }
         </style>
-      <div class="row">
+        <div class="row">
         <div class="slider-wrapper">
             <!-- <button class="prev-btn" data-target="fourCol-slider-<?php echo $brandId; ?>"><i class="fa fa-chevron-left"></i></button> -->
             <div id="fourCol-slider-<?php echo $brandId; ?>" class="owl-carousel" >
@@ -130,7 +134,7 @@
             </div>
             <!-- <button class="next-btn" data-target="fourCol-slider-<?php echo $brandId; ?>"><i class="fa fa-chevron-right"></i></button> -->
         </div>
-      </div>
+        </div>
     </div>
     <?php endforeach; ?>
 

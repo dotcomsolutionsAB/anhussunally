@@ -105,7 +105,15 @@
                                 </a>
                             </div>
                             <div class="product_desc" style="height: 10vh;">
-                                <p><?php echo htmlspecialchars($product['name']); ?></p>
+                                <p>
+                                    <?php $productName = htmlspecialchars($product['name']);
+                                    $words = explode(' ', $productName);
+                                    if (count($words) > 3) {
+                                        echo htmlspecialchars(implode(' ', array_slice($words, 0, 3))) . '...';
+                                    } else {
+                                        echo $productName;
+                                    } ?> 
+                                </p>
                             </div>
                             <div class="btn" style="display: flex; justify-content: center;">
                                 <a href="#" class="stylish-linka" style="padding: 8px 15px;">Read More</a>

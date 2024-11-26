@@ -6,7 +6,8 @@
         /* width: 293px !important; */
     }
     .product_wrap .product_desc {
-        padding: 10px 10px 10px 10px;
+        padding: 5px 5px 5px 5px;
+        font-size:16px;
     }
 </style>
 
@@ -109,7 +110,7 @@
                                     <?php $productName = htmlspecialchars($product['name']);
                                     $words = explode(' ', $productName);
                                     if (count($words) > 3) {
-                                        echo htmlspecialchars(implode(' ', array_slice($words, 0, 3))) . '...';
+                                        echo htmlspecialchars(implode(' ', array_slice($words, 0, 5))) . '...';
                                     } else {
                                         echo $productName;
                                     } ?> 

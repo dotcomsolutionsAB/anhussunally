@@ -33,10 +33,8 @@
                   </i>+91-33-2230 4140
                 </li>
                 <li>
-                  
-                    <i class="fa fa-envelope-o">
+                    <i class="fa fa-envelope">
                     </i>hussunally@gmail.com
-                  
                 </li>
               </ul>
             </div>
@@ -68,9 +66,9 @@
 
     <div  class="copyright">
       <div style="text-align: center;" class="container">
-        <div class="row">
+        <div class="row"style="display: flex; justify-content: center;">
           <div class="col-sm-4">
-            <p >Copyright &copy; 2024 
+            <p style="color: #fff;">Copyright &copy; 2024 
               <a href="#.">A N Hussunally & Co
               </a>. All Rights Reserved.
             </p>

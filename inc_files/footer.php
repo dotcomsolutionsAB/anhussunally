@@ -204,12 +204,15 @@
     /* Sticky Buttons */
     .sticky-buttons {
         position: fixed; /* Keeps the button fixed to the viewport */
-        top: 20px; /* Distance from the top of the viewport */
+        bottom: 20px; /* Distance from the top of the viewport */
         left: 20px; /* Distance from the left of the viewport */
         z-index: 10000; /* Ensures it stays above all other elements */
         pointer-events: auto; /* Ensures the button is clickable */
     }
-
+    .sticky-buttons a:hover {
+        color: #f5f5f5;
+        text-decoration: none;
+    }
     .whatsapp-btn {
         display: flex;
         justify-content: center;
@@ -224,10 +227,7 @@
         text-align: center;
     }
 
-    .whatsapp-btn:hover {
-        opacity: 0.8;
-        transform: scale(1.1); /* Slightly enlarge on hover */
-    }
+    
 
     .whatsapp-btn i {
         font-size: 30px; /* Size of the icon */

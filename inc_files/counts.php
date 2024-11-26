@@ -1,24 +1,60 @@
-<section class="skills-section" style="padding: 20px; background-color: #f8f8f8;">
-    <div class="skills-container" style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; flex-wrap: wrap;">
-        <!-- Skill Item: Projects -->
-        <div class="skill-item" style="flex: 1; text-align: center; margin: 10px;">
-            <div class="skill-counter" style="font-size: 36px; font-weight: bold; color: #333;">98</div>
-            <div class="skill-title" style="font-size: 18px; color: #777;">Projects</div>
-        </div>
-        <!-- Skill Item: People -->
-        <div class="skill-item" style="flex: 1; text-align: center; margin: 10px;">
-            <div class="skill-counter" style="font-size: 36px; font-weight: bold; color: #333;">65</div>
-            <div class="skill-title" style="font-size: 18px; color: #777;">People</div>
-        </div>
-        <!-- Skill Item: Years -->
-        <div class="skill-item" style="flex: 1; text-align: center; margin: 10px;">
-            <div class="skill-counter" style="font-size: 36px; font-weight: bold; color: #333;">15</div>
-            <div class="skill-title" style="font-size: 18px; color: #777;">Years</div>
-        </div>
-        <!-- Skill Item: Offices -->
-        <div class="skill-item" style="flex: 1; text-align: center; margin: 10px;">
-            <div class="skill-counter" style="font-size: 36px; font-weight: bold; color: #333;">15</div>
-            <div class="skill-title" style="font-size: 18px; color: #777;">Offices</div>
-        </div>
-    </div>
-</section>
+<div class="stats-section">
+  <div class="stat-item">
+    <h1 class="stat-number">98</h1>
+    <p class="stat-label">PROJECTS</p>
+  </div>
+  <div class="divider"></div>
+  <div class="stat-item">
+    <h1 class="stat-number">65</h1>
+    <p class="stat-label">PEOPLE</p>
+  </div>
+  <div class="divider"></div>
+  <div class="stat-item">
+    <h1 class="stat-number">15</h1>
+    <p class="stat-label">YEARS</p>
+  </div>
+  <div class="divider"></div>
+  <div class="stat-item">
+    <h1 class="stat-number">15</h1>
+    <p class="stat-label">OFFICES</p>
+  </div>
+</div>
+<style>
+  .stats-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+    background: #ffffff; /* Section background color */
+  }
+
+  .stat-item {
+    text-align: center;
+    margin: 0 20px; /* Spacing between stat items */
+  }
+
+  .stat-number {
+    font-size: 140px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.1); /* Light gray number */
+    margin: 0;
+  }
+
+  .stat-label {
+    font-size: 22px;
+    font-weight: 600;
+    color: #000;
+    text-transform: uppercase;
+    margin: -93px 0 0;
+  }
+
+  .divider {
+    width: 1px;
+    height: 143px;
+    background: #ddd;
+    margin: 0 0px;
+  }
+
+</style>
+
+

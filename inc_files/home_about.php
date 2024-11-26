@@ -79,6 +79,37 @@
 
             With strong resident knowledge and knowhow of the dynamic hydraulics industry coupled with state-of-the-arinfrastructure and resource base, A.N. Hussunally & Co. has actively engaged in nation-building by participating isuch landmark Indian projects as the Tata Steel complex in Jamshedpur, Bhusan Power & Steel, Jindal Steel, ISSCO SteePlant etc.
         </p>
+        <style>
+            .stylish-link {
+                display: inline-block; /* Make it behave like a button */
+                width: 200px; /* Set a fixed width */
+                text-align: center; /* Center the text */
+                background-color: #3ab6e9; /* Background color */
+                color: #ffffff; /* Text color */
+                text-decoration: none; /* Remove underline */
+                padding: 12px 20px; /* Padding for button feel */
+                font-size: 16px; /* Font size */
+                font-weight: bold; /* Bold text */
+                text-transform: uppercase; /* Uppercase text */
+                letter-spacing: 1px; /* Slightly spaced letters */
+                border: 2px solid transparent; /* Add a border for hover effect */
+                cursor: pointer; /* Pointer cursor on hover */
+                transition: all 0.3s ease; /* Smooth transition for all properties */
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+            }
+
+            .stylish-link:hover {
+                background-color: #309ec7; /* Darker shade on hover */
+                color: #f0f0f0; /* Slightly lighter text color on hover */
+                border: 2px solid #ffffff; /* Add a white border */
+                transform: translateY(-3px); /* Lift the button slightly */
+                box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+                color: #000;
+                text-decoration: none;
+            }
+        </style>
+        <a href="#" class="stylish-link">Read More</a>
+
     </div>
     <div class="testimonial-image">
         <img src="images/about-1.jpg" alt="Feedback">

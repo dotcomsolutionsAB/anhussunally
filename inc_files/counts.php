@@ -22,7 +22,7 @@
 <style>
   .stats-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 30px 0;
     background: #ffffff; /* Section background color */

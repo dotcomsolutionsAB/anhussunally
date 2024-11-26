@@ -84,7 +84,7 @@
       </div>
     </div> -->
   <!--HEADER-->
-  <?php include("inc_files/header.php"); ?>
+  <?php include("inc_files/home_page.php"); ?>
   <!-- <section class="rev_slider_wrapper">
     <div id="rev_slider" class="rev_slider" data-version="5.0">
       <ul> -->

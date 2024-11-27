@@ -24,8 +24,7 @@
                   <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($relatedProduct['name']); ?>" class="img-responsive">
                 </a>
               </div>
-              <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="fancybox">
-                <div class="product_desc" style="padding: 2px; margin: 4px; height: 8vh; display: flex; text-align: center;">
+                <div class="product_desc" style="padding: 2px; margin: 4px; height: 8vh; display: flex;justify-content:center; text-align: center;">
                   <p class="title"><?php echo htmlspecialchars($relatedProduct['name']); ?></p>
                   <!-- <span style="color: #049ddf; font-weight: bold; text-align: center;" class="brand"><?php echo htmlspecialchars($relatedProduct['brand_id']); ?></span> -->
                 </div>
@@ -62,7 +61,6 @@
                 <div class="btn" style="display: flex; justify-content: center; padding-bottom: 20px;">
                     <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="stylish-linkab" style="padding: 8px 15px;">Read More</a>
                 </div>
-              </a>
             </div>
           </div>
         <?php endwhile; ?>

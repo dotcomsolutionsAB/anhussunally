@@ -114,7 +114,7 @@ $brandResult = $conn->query($brandQuery);
                     </ul> 
                     -->
               </li>
-                <li class="dropdown">
+                <!-- <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-weight: bolder;">Brands</a>
                     <ul class="dropdown-menu" style="margin-top: 2vh; ">
                         <?php if ($brandResult && $brandResult->num_rows > 0): ?>
@@ -129,7 +129,7 @@ $brandResult = $conn->query($brandQuery);
                             <li><a href="#">No Brands Available</a></li>
                         <?php endif; ?>
                     </ul>
-                </li>
+                </li> -->
 
               <!-- <li>
                 <a href="#.">collection
@@ -212,6 +212,10 @@ $brandResult = $conn->query($brandQuery);
               </li> -->
               <li class="dropdown" >
                 <a href="about_us.php" style="font-weight: bolder;">About Us
+                </a>
+              </li>
+              <li class="dropdown" >
+                <a href="#" style="font-weight: bolder;">Certificates
                 </a>
               </li>
               <li class="dropdown">

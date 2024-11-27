@@ -82,7 +82,7 @@
                     if ($productResult && $productResult->num_rows > 0):
                         while ($product = $productResult->fetch_assoc()):
                             // Initialize the image link
-                            $imageLink = "../images/default.png"; // Default image
+                            $imageLink = "../images/default.jpeg"; // Default image
 
                             // Check if the product has images and fetch the first image
                             if (!empty($product['images'])) {

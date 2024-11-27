@@ -28,7 +28,7 @@ if ($brandResult && $brandResult->num_rows > 0) {
     // if ($brand['logo'] !='' && $brand['extension'] != '') {
     //     $brandLogo = "uploads/assets/logos/" . $brandLogo;
     // } else {
-    //     $brandLogo = "images/default.png";
+    //     $brandLogo = "images/default.jpeg";
     // }
 } else {
     echo "Brand not found.";
@@ -42,7 +42,7 @@ if (empty($brandDescription)) {
 if (!empty($brandLogo) || $brandLogo != '') {
     $brandLogo = "uploads/assets/logos/" . $brandLogo;
 } else {
-    $brandLogo = "images/default.png";
+    $brandLogo = "images/default.jpeg";
 }
 
 // Fetch products for the given brand
@@ -144,13 +144,13 @@ if ($result->num_rows === 0) {
                                             
                                             $imageLink = "api/uploads/assets/" . $image['file_original_name'];
                                         } else {
-                                            $imageLink = "images/default.png";
+                                            $imageLink = "images/default.jpeg";
                                         }
                                     } else {
-                                        $imageLink = "images/default.png";
+                                        $imageLink = "images/default.jpeg";
                                     }
                                 } else {
-                                    $imageLink = "images/default.png";
+                                    $imageLink = "images/default.jpeg";
                                 }
                                 ?>
                                 <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
@@ -160,7 +160,7 @@ if ($result->num_rows === 0) {
                             <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox">
                                 <div class="product_desc" style="padding: 1vw; margin: 1vw; height: 15vh; display: flex; flex-direction: column; justify-content: space-evenly; text-align: center;">
                                     <p><span class="title"><?php echo htmlspecialchars($product['name']); ?></span></p>
-                                    <p style="color: #049ddf; font-weight: bold; text-align: center">Brand: <span class="title"><?php echo htmlspecialchars($brandName); ?></span></p>
+                                    <!-- <p style="color: #049ddf; font-weight: bold; text-align: center">Brand: <span class="title"><?php echo htmlspecialchars($brandName); ?></span></p> -->
                                 </div>
                             </a>
                         </div>

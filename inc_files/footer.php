@@ -41,7 +41,7 @@
           </div>
 
           <div class="col-md-4 col-sm-12">
-            <div class="footer_panel content_space">
+            <div class="footer_panel content_space" style="margin-left: 38px;">
               <h4 class="heading_border heading_space">Quick Links
               </h4>
               <ul class="account_foot">

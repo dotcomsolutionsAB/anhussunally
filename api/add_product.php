@@ -54,7 +54,7 @@ if ($result && $result->num_rows > 0) {
         $sku = str_replace(['–', '—'], '-', $sku); // Normalize the SKU: Replace en dash and em dash with hyphen
 
         $name = $csvData['Product Name'] ?? '';
-        $description = $csvData['Description'] ?? '';
+        $description = $csvData['Description'] ?? '.';
         $short_description = $csvData['Short Description'] ?? '';
         $brand = $csvData['Brand'] ?? '';
         $category = $csvData['Category'] ?? '';

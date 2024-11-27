@@ -32,7 +32,7 @@
                   <i class="fa fa-phone">
                   </i>+91-33-2230 4140
                 </li>
-                <li style="margin-left: 20px">
+                <li style="">
                     <i class="fa fa-envelope">
                     </i>hussunally@gmail.com
                 </li>

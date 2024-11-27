@@ -2371,8 +2371,8 @@ footer.plain_footer{
   margin-bottom: 10px;
 }
 .footer_panel .about_foot li:last-child{
-	margin-left:0;
-	margin-top:30px;
+	/* margin-left:0;
+	margin-top:30px; */
 }
 .footer_panel .about_foot li span{
 	display:inline-block;

@@ -10,7 +10,7 @@
               <a class="navbar-brand" href="index.php">
                 <img src="images/logo22.png" class="logo" alt="" id="navbar-logo">
               </a>
-              <p>
+              <p style="color:#fff;">
                 Pioneering the hydraulics market in Eastern India, the 100-year old A.N. Hussunally & Co. has today emerged as among the    market leaders in providing customers with holistic hydraulic solutions.
               </p>
             </div>

@@ -130,6 +130,7 @@
     <?php include("inc_files/imggg.php"); ?>
     <!-- Breadcumb -->
     <?php include("inc_files/counts.php"); ?>
+    <br><br>
     <!--Footer-->
     <?php include("inc_files/footer.php");?>
 

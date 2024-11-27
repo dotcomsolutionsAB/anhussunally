@@ -8,7 +8,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 15px;
-            max-width: 1200px;
+            max-width: 1400px;
             width: 100%;
             padding: 20px;
             box-sizing: border-box;
@@ -16,7 +16,7 @@
 
         .image-section img {
             width: 100%;
-            height: 200px; /* Adjusted height for a wide, flat layout */
+            height: 300px; /* Adjusted height for a wide, flat layout */
             object-fit: cover; /* Ensures the image is cropped to fit the container */
             border-radius: 0px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

@@ -79,13 +79,21 @@ if (!empty($dynamic_label) && $dynamic_label === $current_breadcrumb['label']) {
                     </h1>
                     <p>
                         <a href="<?php echo $breadcrumb_mapping['index']['link']; ?>">Home</a> /
-                        <?php
-                            if($current_breadcrumb['label']=="Brand"){
-                        ?>
+                        <?php if($current_breadcrumb['label']=="Brand"){ ?>
+
                             <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;"><?php echo $current_breadcrumb['label']; ?></a>
-                        <?php }else{ ?>
+                        
+                            <?php }else if($current_breadcrumb['label']=="Products"){ ?>
+                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;"><?php echo $current_breadcrumb['label']; ?></a>
+                        
+                            <?php }else if($current_breadcrumb['label']=="Categories"){ ?>
+                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;"><?php echo $current_breadcrumb['label']; ?></a>
+                        
+                            <?php }else{ ?>
                             <a href="<?php echo $current_breadcrumb['link']; ?>"><?php echo $current_breadcrumb['label']; ?></a>
-                        <?php } ?>
+                        
+                            <?php } ?>
+                        
                         <?php if (!empty($dynamic_label)): ?>
                             <a href="<?php echo $dynamic_link; ?>"><?php echo $dynamic_label; ?></a>
                         <?php endif; ?>

@@ -40,7 +40,7 @@
             </div>
           </div>
 
-          <div class="col-md-4 col-sm-612">
+          <div class="col-md-4 col-sm-12">
             <div class="footer_panel content_space">
               <h4 class="heading_border heading_space">Quick Links
               </h4>

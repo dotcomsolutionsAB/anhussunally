@@ -117,6 +117,7 @@ if ($result->num_rows === 0) {
             </div>
             <div class="text3">
                 <h2><?php echo htmlspecialchars($brandName); ?></h2>
+                <br>
                 <p><?php echo htmlspecialchars($brandDescription); ?></p>
             </div>
         </div>
@@ -157,11 +158,11 @@ if ($result->num_rows === 0) {
                                 }
                                 ?>
                                 <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
-                                    <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="display: block; width: 14vw; padding: 1vw; margin: 1vw;" class="img-responsive">
+                                    <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="display: block; width: 14vw;" class="img-responsive">
                                 </a>
                             </div>
                             <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox">
-                                <div class="product_desc" style="padding: 1vw; margin: 1vw; height: 15vh; display: flex; flex-direction: column; justify-content: space-evenly; text-align: center;">
+                                <div class="product_desc" style="height: 10vh; display: flex; flex-direction: column; justify-content: flex-start; text-align: center;">
                                     <!-- <p><?php echo htmlspecialchars($product['name']); ?></span></p> -->
                                     <p>
                                         <span class="title">
@@ -210,7 +211,7 @@ if ($result->num_rows === 0) {
                                     }
                                 </style>
                                 <div class="btn" style="display: flex; justify-content: center; padding-bottom: 20px;">
-                                    <a href="#" class="stylish-linkaa" style="padding: 8px 15px;">Read More</a>
+                                    <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="stylish-linkaa" style="padding: 8px 15px;">Read More</a>
                                 </div>
                             </a>
                         </div>

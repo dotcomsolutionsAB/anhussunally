@@ -34,8 +34,10 @@
             }
         }
     </style>
-    <div class="image-section">
-        <img src="../images/imggg1.jpg" alt="Image 1">
-        <img src="../images/imggg2.jpg" alt="Image 2">
-        <img src="../images/imggg3.jpg" alt="Image 3">
+    <div class="img">
+        <div class="image-section">
+            <img src="../images/imggg1.jpg" alt="Image 1">
+            <img src="../images/imggg2.jpg" alt="Image 2">
+            <img src="../images/imggg3.jpg" alt="Image 3">
+        </div>
     </div>

@@ -95,7 +95,7 @@ if ($result->num_rows === 0) {
                                     <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="display: block; width: 14vw;" class="img-responsive">
                                 </a>
                             </div>
-                                <div class="product_desc" style="height: 8vh; display: flex; flex-direction: column; justify-content:space-evenly; text-align: center;">
+                                <div class="product_desc" style="padding: 2px; margin: 4px; height: 8vh; display: flex; text-align: center;">
                                     <p><span style="text-align: center;" class="title"><?php echo htmlspecialchars($product['name']); ?></span></p>
                                     <p style="color: #049ddf; font-weight: bold; text-align: center">Brand: <span class="title"><?php echo htmlspecialchars($product['brand_name']); ?></span></p>
                                 </div>

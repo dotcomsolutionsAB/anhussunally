@@ -162,7 +162,7 @@ if ($result->num_rows === 0) {
                                 </a>
                             </div>
                             
-                                <div class="product_desc" style="padding: 2px; margin: 4px; height: 8vh; display: flex; flex-direction: column; justify-content:space-evenly; text-align: center;">
+                                <div class="product_desc" style="padding: 2px; margin: 4px; height: 8vh; display: flex; text-align: center;">
                                     <!-- <p><?php echo htmlspecialchars($product['name']); ?></span></p> -->
                                     <p>
                                         <span class="title">

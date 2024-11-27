@@ -25,7 +25,7 @@
                 </a>
               </div>
               <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="fancybox">
-                <div class="product_desc" style="padding: 2px; margin: 4px; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly; text-align: center;">
+                <div class="product_desc" style="padding: 2px; margin: 4px; height: 8vh; display: flex; text-align: center;">
                   <p class="title"><?php echo htmlspecialchars($relatedProduct['name']); ?></p>
                   <!-- <span style="color: #049ddf; font-weight: bold; text-align: center;" class="brand"><?php echo htmlspecialchars($relatedProduct['brand_id']); ?></span> -->
                 </div>

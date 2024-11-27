@@ -87,32 +87,9 @@ $brandResult = $conn->query($brandQuery);
           <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
               <li class="dropdown active">
-                <a href="https://anh.ongoingwp.xyz/index.php" class="index.php" data-toggle="#home" style="font-weight: bolder;">Home
+                <a href="index.php" class="index.php" data-toggle="#home" style="font-weight: bolder;">Home
                 </a>
               </li>
-              <!-- <li class="dropdown">
-                <a href="products.php" class="dropdown-toggle" data-toggle="dropdown">Products
-                </a> -->
-               <!-- 
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a href="grid.php">Grid Default
-                        </a>
-                      </li>
-                      <li>
-                        <a href="grid_list.php">Grid Lists
-                        </a>
-                      </li>
-                      <li>
-                        <a href="grid_sidebar.php">Grid Sidebar
-                        </a>
-                      </li>
-                      <li>
-                        <a href="list_sidebar.php">Lists Sidebar
-                        </a>
-                      </li>
-                    </ul> 
-                    -->
               </li>
                 <!-- <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-weight: bolder;">Brands</a>
@@ -131,85 +108,7 @@ $brandResult = $conn->query($brandQuery);
                     </ul>
                 </li> -->
 
-              <!-- <li>
-                <a href="#.">collection
-                </a>
-              </li> -->
-              <!-- <li class="dropdown megamenu-fw">
-                <a href="#." class="dropdown-toggle" data-toggle="dropdown">pages
-                </a>
-                <ul class="dropdown-menu megamenu-content" role="menu">
-                  <li>
-                    <div class="row">
-                      <div class="col-menu col-md-3">
-                        <h5 class="title heading_border">Blog
-                        </h5>
-                        <div class="content">
-                          <ul class="menu-col">
-                            <li>
-                              <a href="blog1.php">Blog Two Cols
-                              </a>
-                            </li>
-                            <li>
-                              <a href="blog2.php">Blog Three Cols
-                              </a>
-                            </li>
-                            <li>
-                              <a href="blog_post.php">Blog Posts
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-menu col-md-3">
-                        <h5 class="title heading_border">Products Elements
-                        </h5>
-                        <div class="content">
-                          <ul class="menu-col">
-                            <li>
-                              <a href="checkout.php">Product Chekouts
-                              </a>
-                            </li>
-                            <li>
-                              <a href="product_detail.php">Products Details
-                              </a>
-                            </li>
-                            <li>
-                              <a href="cart.php">Shopping Cart
-                              </a>
-                            </li> 
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-menu col-md-3">
-                        <h5 class="title heading_border">Theme Elements
-                        </h5>
-                        <div class="content">
-                          <ul class="menu-col">
-                            <li>
-                              <a href="#.">Skills
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#.">Team & Testimonials
-                              </a>
-                            </li>
-                            <li>
-                              <a href="404.php">Errors
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>    
-                      <div class="col-menu col-md-3">
-                        <div class="content">
-                          <img src="images/mega-menu.png"  alt="menu" class="img-responsive">
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </li> -->
+              
               <li class="dropdown" >
                 <a href="about_us.php" style="font-weight: bolder;">About Us
                 </a>

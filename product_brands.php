@@ -75,7 +75,7 @@
 </div> -->
 
 <!--HEADER-->
-<?php include("inc_files/home_page.php"); ?>
+<?php include("inc_files/header.php"); ?>
 
 
 

@@ -33,7 +33,7 @@ if ($current_page === 'brands' && isset($_GET['id']) && !empty($_GET['id'])) {
 }
 
 if ($current_page === 'categories' && isset($_GET['id']) && !empty($_GET['id'])) {
-    $categoryId = intval($_GET['id']); // Sanitize category ID
+    $categoryId = $_GET['id']; // Sanitize category ID
     $categoryQuery = "SELECT name FROM categories WHERE id = $categoryId";
     $categoryResult = $conn->query($categoryQuery);
 
@@ -45,7 +45,7 @@ if ($current_page === 'categories' && isset($_GET['id']) && !empty($_GET['id']))
 }
 
 if ($current_page === 'product_detail' && isset($_GET['sku']) && !empty($_GET['sku'])) {
-    $productSku = intval($_GET['sku']); // Sanitize product SKU
+    $productSku = $_GET['sku']; // Sanitize product SKU
     $productQuery = "SELECT name FROM products WHERE sku = $productSku";
     $productResult = $conn->query($productQuery);
 

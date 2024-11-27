@@ -1,7 +1,7 @@
 <?php include("api/db_connection.php"); ?>
 <?php 
   // Include the configuration file
-  include(__DIR__ . '/inc_files/config.php');
+  // include(__DIR__ . '/inc_files/config.php');
 ?>
 <?php
 // ini_set('display_errors', 1);

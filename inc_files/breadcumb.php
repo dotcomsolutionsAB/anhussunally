@@ -46,8 +46,8 @@ if ($current_page === 'categories' && isset($_GET['id']) && !empty($_GET['id']))
 
 if ($current_page === 'product_detail' && isset($_GET['sku']) && !empty($_GET['sku'])) {
     $productSku = $_GET['sku']; // Sanitize product SKU
-    $refined_sku = urldecode($productSku);
-    $productQuery = "SELECT name FROM products WHERE sku = $refined_sku";
+    // $refined_sku = urldecode($productSku);
+    $productQuery = "SELECT name FROM products WHERE sku = '$productSku'";
     $productResult = $conn->query($productQuery);
 
     if ($productResult && $productResult->num_rows > 0) {

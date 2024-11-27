@@ -162,8 +162,55 @@ if ($result->num_rows === 0) {
                             </div>
                             <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox">
                                 <div class="product_desc" style="padding: 1vw; margin: 1vw; height: 15vh; display: flex; flex-direction: column; justify-content: space-evenly; text-align: center;">
-                                    <p><span class="title"><?php echo htmlspecialchars($product['name']); ?></span></p>
+                                    <!-- <p><?php echo htmlspecialchars($product['name']); ?></span></p> -->
+                                    <p>
+                                        <span class="title">
+                                            <?php 
+                                                $productName = htmlspecialchars($product['name']);
+                                                $words = explode(' ', $productName);
+                                                if (count($words) > 3) {
+                                                    echo htmlspecialchars(implode(' ', array_slice($words, 0, 5))) . '...';
+                                                } else {
+                                                    echo $productName;
+                                                } 
+                                            ?> 
+                                        </span>
+                                    </p>
                                     <!-- <p style="color: #049ddf; font-weight: bold; text-align: center">Brand: <span class="title"><?php echo htmlspecialchars($brandName); ?></span></p> -->
+                                </div>
+                                <!-- Button style -->
+                                <style>
+                                    .stylish-linkaa {
+                                        display: flex;
+                                        width: 120px;
+                                        border-radius: 15px;
+                                        text-align: center;
+                                        background-color: #3ab6e9;
+                                        color: #ffffff;
+                                        text-decoration: none;
+                                        padding: 12px 20px;
+                                        font-size: 13px;
+                                        font-weight: bold;
+                                        text-transform: uppercase; /* Uppercase text */
+                                        letter-spacing: 1px; /* Slightly spaced letters */
+                                        border: 2px solid transparent; /* Add a border for hover effect */
+                                        cursor: pointer; /* Pointer cursor on hover */
+                                        transition: all 0.3s ease; /* Smooth transition for all properties */
+                                        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+                                    }
+
+                                    .stylish-linkaa:hover {
+                                        /* background-color: #309ec7; */
+                                        color: #f0f0f0;
+                                        /* border: 2px solid #ffffff; */
+                                        /* transform: translateY(-3px); */
+                                        /* box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); */
+                                        /* color: #23527c; */
+                                        text-decoration: none;
+                                    }
+                                </style>
+                                <div class="btn" style="display: flex; justify-content: center; padding-bottom: 20px;">
+                                    <a href="#" class="stylish-linkaa" style="padding: 8px 15px;">Read More</a>
                                 </div>
                             </a>
                         </div>

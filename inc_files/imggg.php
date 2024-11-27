@@ -1,4 +1,9 @@
-<style>
+    <style>
+        .img{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
         .image-section {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -13,7 +18,7 @@
             width: 100%;
             height: 200px; /* Adjusted height for a wide, flat layout */
             object-fit: cover; /* Ensures the image is cropped to fit the container */
-            border-radius: 10px;
+            border-radius: 0px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }

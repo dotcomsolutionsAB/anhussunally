@@ -147,12 +147,12 @@ $relatedProductsResult = $stmt->get_result();
                 $brandresult = $conn->query($sel);
                 if ($brandresult && $brandresult->num_rows > 0) {
                     $brand = $brandresult->fetch_assoc();
-                    $brandName=$brand['logo'].".".$brand['extension'];
+                    $brandLogo="uploads/assets/logos".$brand['logo'].".".$brand['extension'];
                 }
                 ?>
                 <div class="image2">
                   <a href="#">
-                    <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($brandName); ?> Image">
+                    <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($product['name']); ?> Image">
                   </a>
                 </div>
             </p>

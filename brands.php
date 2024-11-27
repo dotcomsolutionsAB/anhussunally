@@ -31,7 +31,7 @@ if ($brandResult && $brandResult->num_rows > 0) {
     // if ($brand['logo'] !='' && $brand['extension'] != '') {
     //     $brandLogo = "uploads/assets/logos/" . $brandLogo;
     // } else {
-    //     $brandLogo = "images/default.jpeg";
+    //     $brandLogo = "images/default.png";
     // }
 } else {
     echo "Brand not found.";
@@ -45,7 +45,7 @@ if (empty($brandDescription)) {
 if (!empty($brandLogo) || $brandLogo != '') {
     $brandLogo = "uploads/assets/logos/" . $brandLogo;
 } else {
-    $brandLogo = "images/default.jpeg";
+    $brandLogo = "images/default.png";
 }
 
 // Fetch products for the given brand
@@ -147,13 +147,13 @@ if ($result->num_rows === 0) {
                                             
                                             $imageLink = "api/uploads/assets/" . $image['file_original_name'];
                                         } else {
-                                            $imageLink = "images/default.jpeg";
+                                            $imageLink = "images/default.png";
                                         }
                                     } else {
-                                        $imageLink = "images/default.jpeg";
+                                        $imageLink = "images/default.png";
                                     }
                                 } else {
-                                    $imageLink = "images/default.jpeg";
+                                    $imageLink = "images/default.png";
                                 }
                                 ?>
                                 <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">

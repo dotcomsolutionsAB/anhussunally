@@ -18,7 +18,7 @@
                 $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
                 $imageResult = $conn->query($imageQuery);
                 $image = $imageResult->fetch_assoc();
-                $imageLink = $image ? "../api/uploads/assets/" . $image['file_original_name'] : "../images/default.jpeg";
+                $imageLink = $image ? "../api/uploads/assets/" . $image['file_original_name'] : "../images/default.png";
                 ?>
                 <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
                   <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($relatedProduct['name']); ?>" class="img-responsive">

@@ -82,13 +82,13 @@ if ($result->num_rows === 0) {
                                             $image = $imageResult->fetch_assoc();
                                             $imageLink = "api/uploads/assets/" . $image['file_original_name'];
                                         } else {
-                                            $imageLink = "images/default.jpeg"; // Default image if no matching image found
+                                            $imageLink = "images/default.png"; // Default image if no matching image found
                                         }
                                     } else {
-                                        $imageLink = "images/default.jpeg"; // Default image if $firstImageId is null
+                                        $imageLink = "images/default.png"; // Default image if $firstImageId is null
                                     }
                                 } else {
-                                    $imageLink = "images/default.jpeg"; // Default image if 'images' is empty or ''
+                                    $imageLink = "images/default.png"; // Default image if 'images' is empty or ''
                                 }
                                 ?>
                                 <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">

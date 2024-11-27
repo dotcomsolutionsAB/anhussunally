@@ -27,7 +27,40 @@
               <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="fancybox">
                 <div class="product_desc" style="padding: 2px; margin: 4px; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly; text-align: center;">
                   <p class="title"><?php echo htmlspecialchars($relatedProduct['name']); ?></p>
-                  <span style="color: #049ddf; font-weight: bold; text-align: center;" class="brand"><?php echo htmlspecialchars($relatedProduct['brand_id']); ?></span>
+                  <!-- <span style="color: #049ddf; font-weight: bold; text-align: center;" class="brand"><?php echo htmlspecialchars($relatedProduct['brand_id']); ?></span> -->
+                </div>
+                <style>
+                  .stylish-linkab {
+                      display: flex;
+                      width: 120px;
+                      border-radius: 15px;
+                      text-align: center;
+                      background-color: #3ab6e9;
+                      color: #ffffff;
+                      text-decoration: none;
+                      padding: 12px 20px;
+                      font-size: 13px;
+                      font-weight: bold;
+                      text-transform: uppercase; /* Uppercase text */
+                      letter-spacing: 1px; /* Slightly spaced letters */
+                      border: 2px solid transparent; /* Add a border for hover effect */
+                      cursor: pointer; /* Pointer cursor on hover */
+                      transition: all 0.3s ease; /* Smooth transition for all properties */
+                      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+                  }
+
+                  .stylish-linkab:hover {
+                      /* background-color: #309ec7; */
+                      color: #f0f0f0;
+                      /* border: 2px solid #ffffff; */
+                      /* transform: translateY(-3px); */
+                      /* box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); */
+                      /* color: #23527c; */
+                      text-decoration: none;
+                  }
+                </style>
+                <div class="btn" style="display: flex; justify-content: center; padding-bottom: 20px;">
+                    <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="stylish-linkab" style="padding: 8px 15px;">Read More</a>
                 </div>
               </a>
             </div>

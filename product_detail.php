@@ -311,7 +311,7 @@ $relatedProductsResult = $stmt->get_result();
   </section>
 
 
-  <section class="bottom_half container" style="padding-bottom: 0px; background: #fff; padding: 35px 5px; border-radius: 20px;">
+  <!-- <section class="bottom_half container" style="padding-bottom: 0px; background: #fff; padding: 35px 5px; border-radius: 20px;">
     <div class="container">
       <div class="row">
         <div class="clearfix col-md-12">
@@ -422,7 +422,7 @@ $relatedProductsResult = $stmt->get_result();
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
 
  <?php  include("inc_files/related_products.php"); ?>

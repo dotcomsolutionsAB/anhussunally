@@ -69,7 +69,7 @@ if (!empty($dynamic_label) && $dynamic_label === $current_breadcrumb['label']) {
     <div class="container">
         <div class="header_content padding">
             <div class="row" style="display: flex; justify-content: center;">
-                <div class="col-md-12 text-center" style="width: max-content; display: flex; justify-content: flex-start; align-items: flex-start; flex-direction: column;">
+                <div class="col-md-12 text-center" style="width: max-content; display: flex; justify-content:center; align-items: center; flex-direction: column;">
                     <h1 class="uppercase">
                         <?php if (!empty($dynamic_label)): ?>
                             <a href="#"><?php echo $dynamic_label; ?></a>

@@ -109,7 +109,7 @@
                                     <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="display: block; width: 14vw; padding: 1vw; margin: 1vw;" class="img-responsive">
                                 </a>
                             </div>
-                            <div class="product_desc" style="padding: 2px; margin: 4px; height: 8vh; display: flex; text-align: center;">
+                            <div class="product_desc" style="padding: 2px; margin: 4px; height: 8vh; display: flex;justify-content: center; text-align: center;">
                                 <p>
                                     <?php $productName = htmlspecialchars($product['name']);
                                     $words = explode(' ', $productName);

@@ -92,10 +92,10 @@ if ($result->num_rows === 0) {
                                 }
                                 ?>
                                 <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
-                                    <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="display: block; width: 14vw; padding: 1vw; margin: 1vw;" class="img-responsive">
+                                    <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="display: block; width: 14vw;" class="img-responsive">
                                 </a>
                             </div>
-                                <div class="product_desc" style="padding: 1vw; margin: 1vw; height: 15vh; display: flex; flex-direction: column; justify-content:space-evenly; text-align: center;">
+                                <div class="product_desc" style="height: 8vh; display: flex; flex-direction: column; justify-content:space-evenly; text-align: center;">
                                     <p><span style="text-align: center;" class="title"><?php echo htmlspecialchars($product['name']); ?></span></p>
                                     <p style="color: #049ddf; font-weight: bold; text-align: center">Brand: <span class="title"><?php echo htmlspecialchars($product['brand_name']); ?></span></p>
                                 </div>

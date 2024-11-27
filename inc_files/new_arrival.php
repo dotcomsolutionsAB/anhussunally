@@ -105,11 +105,11 @@
                     <div class="item" style="padding:15px; width:280px;" style="">
                         <div class="product_wrap">
                             <div class="image">
-                                <a class="" href="<?php echo htmlspecialchars($imageLink); ?>" style="display: flex;  justify-content: center;  align-items: center;">
-                                    <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="Product" class="img-responsive"  style="  width: 14vw; padding: 1vw;">
+                                <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
+                                    <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="display: block; width: 14vw; padding: 1vw; margin: 1vw;" class="img-responsive">
                                 </a>
                             </div>
-                            <div class="product_desc" style="height: 10vh;">
+                            <div class="product_desc" style="height: 8vh;">
                                 <p>
                                     <?php $productName = htmlspecialchars($product['name']);
                                     $words = explode(' ', $productName);

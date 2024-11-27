@@ -161,7 +161,10 @@
         }
     }
 </style>
-
+<?php
+  // footer.php
+  include(__DIR__ . './404.php');
+?>
 <!-- Sticky Buttons -->
 <div class="sticky-buttons">
     <a href="https://wa.me/+1234567890" target="_blank" class="whatsapp-btn" title="WhatsApp">

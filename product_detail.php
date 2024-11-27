@@ -1,8 +1,12 @@
 <?php include("api/db_connection.php"); ?>
+<?php 
+  // Include the configuration file
+  include(__DIR__ . '/inc_files/config.php');
+?>
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 // Establish database connection
 $conn = new mysqli($host, $username, $password, $dbname);
 if ($conn->connect_error) {

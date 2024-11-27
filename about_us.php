@@ -1,3 +1,7 @@
+<?php 
+  // Include the configuration file
+  include(__DIR__ . '/inc_files/config.php');
+?>
 <!doctype html>
 <html>
 

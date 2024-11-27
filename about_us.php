@@ -24,11 +24,13 @@
 
 <body>
 
-  <!--HEADER-->
-  <?php include("inc_files/header.php");?>
-  <!-- Breadcumb -->
-  <?php include("inc_files/breadcumb.php"); ?>
-
+    <!--HEADER-->
+    <?php include("inc_files/header.php");?>
+    <!-- Breadcumb -->
+    <?php include("inc_files/breadcumb.php"); ?>
+    <!-- about section -->
+    <?php include("inc_files/home_about.php"); ?>
+    
     <style>
         .testimonial-section {
             display: flex;
@@ -100,7 +102,6 @@
             /* border-radius: 10px; */
         }
     </style>
-    
     <section class="testimonial-section">
         <div class="testimonial-text">
             <h2>About Us</h2>

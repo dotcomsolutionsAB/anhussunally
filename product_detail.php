@@ -21,7 +21,6 @@ if ($conn->connect_error) {
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <title>AN Hussunally & Co</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/animate.min.css">
@@ -76,6 +75,9 @@ $stmt->execute();
 $relatedProductsResult = $stmt->get_result();
 
 ?>
+
+<title><?php echo $product['name']; ?></title>
+
 
   <?php
   // Fetch images from the upload table based on the image IDs in the images column

@@ -83,7 +83,7 @@ if ($result->num_rows === 0) {
     <!-- Loader -->
 
     <!-- HEADER -->
-    <?php include("inc_files/header.php"); ?>
+    <?php include("inc_files/home_page.php"); ?>
     <!-- Breadcumb -->
     <?php include("inc_files/breadcumb.php"); ?>
 

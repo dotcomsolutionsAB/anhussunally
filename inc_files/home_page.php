@@ -206,7 +206,7 @@ $brandResult = $conn->query($brandQuery);
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav navbar-right">
                         <li class=""><a href="index.php">Home</a></li>
-                        <li class=""><a href="brands.php">Brand</a></li>
+                        <!-- <li class=""><a href="brands.php">Brand</a></li> -->
                         <!-- <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Brands</a>
                             <ul class="dropdown-menu">
@@ -225,6 +225,7 @@ $brandResult = $conn->query($brandQuery);
                         </li> -->
 
                         <li><a href="about_us.php">About Us</a></li>
+                        <li><a href="certificates.php">Certificates</a></li>
                         <li><a href="contact_us.php">Contact Us</a></li>
                     </ul>
                 </div>

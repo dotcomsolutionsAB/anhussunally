@@ -234,34 +234,42 @@ $brandResult = $conn->query($brandQuery);
         </nav>
     </header>
 
-    <!-- Top Section -->
-    <div class="top-section">
-        
-        <div class="brand-card"><img src="images/ALFOMEGA.png" alt="Brand 1" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/Atos.png" alt="Brand 2" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/Bearing-Pullers.png" alt="Brand 3" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/HYDROLINE.png" alt="Brand 4" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/DOWTY.png" alt="Brand 5" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/DEMCON.png" alt="Brand 6" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/DOWTY.png" alt="Brand 7" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/EPE.jpg" alt="Brand 8" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/GEMELS1.png" alt="Brand 9" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/HAWE.png" alt="Brand 10" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/HYLOC.png" alt="Brand 11" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/POLYHYDR0N.png" alt="Brand 12" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/Positron-1.png" alt="Brand 13" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/REXROTH.png" alt="Brand 14" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/Spica.jpg" alt="Brand 15" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/Minitest.png" alt="Brand 16" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/VELJAN.png" alt="Brand 17" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/WIKAI.png" alt="Brand 18" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/Water-Test-Pump.png" alt="Brand 19" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/YUKEN.png" alt="Brand 20" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/VIP.png" alt="Brand 20" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/Hose-Crimping-Machine.png" alt="Brand 20" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/STAUFF.png" alt="Brand 20" class="brand-logo"></div>
-          <div class="brand-card"><img src="images/WALVOIL.png" alt="Brand 20" class="brand-logo"></div>
-    </div>
+        <!-- Top Section -->
+        <?php
+        // Get the current page name dynamically
+        $current_page = basename($_SERVER['PHP_SELF'], ".php");
+
+        // Show the section only if the current page is "index"
+        if ($current_page === 'index'): ?>
+
+            <div class="top-section">
+                <div class="brand-card"><img src="images/ALFOMEGA.png" alt="Brand 1" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/Atos.png" alt="Brand 2" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/Bearing-Pullers.png" alt="Brand 3" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/HYDROLINE.png" alt="Brand 4" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/DOWTY.png" alt="Brand 5" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/DEMCON.png" alt="Brand 6" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/DOWTY.png" alt="Brand 7" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/EPE.jpg" alt="Brand 8" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/GEMELS1.png" alt="Brand 9" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/HAWE.png" alt="Brand 10" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/HYLOC.png" alt="Brand 11" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/POLYHYDR0N.png" alt="Brand 12" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/Positron-1.png" alt="Brand 13" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/REXROTH.png" alt="Brand 14" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/Spica.jpg" alt="Brand 15" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/Minitest.png" alt="Brand 16" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/VELJAN.png" alt="Brand 17" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/WIKAI.png" alt="Brand 18" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/Water-Test-Pump.png" alt="Brand 19" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/YUKEN.png" alt="Brand 20" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/VIP.png" alt="Brand 21" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/Hose-Crimping-Machine.png" alt="Brand 22" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/STAUFF.png" alt="Brand 23" class="brand-logo"></div>
+                <div class="brand-card"><img src="images/WALVOIL.png" alt="Brand 24" class="brand-logo"></div>
+            </div>
+        <?php endif; ?>
+
 </div>
 
 <!-- Script to handle navbar scroll -->

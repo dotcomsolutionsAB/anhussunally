@@ -161,7 +161,7 @@ if ($result->num_rows === 0) {
                                     <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="display: block; width: 14vw;" class="img-responsive">
                                 </a>
                             </div>
-                            <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="fancybox">
+                            
                                 <div class="product_desc" style="height: 10vh; display: flex; flex-direction: column; justify-content: flex-start; text-align: center;">
                                     <!-- <p><?php echo htmlspecialchars($product['name']); ?></span></p> -->
                                     <p>
@@ -213,7 +213,7 @@ if ($result->num_rows === 0) {
                                 <div class="btn" style="display: flex; justify-content: center; padding-bottom: 20px;">
                                     <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="stylish-linkaa" style="padding: 8px 15px;">Read More</a>
                                 </div>
-                            </a>
+                            
                         </div>
                     </div>
                 <?php endwhile; ?>

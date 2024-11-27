@@ -105,7 +105,7 @@
                     <div class="item" style="padding:15px; width:280px;" style="">
                         <div class="product_wrap">
                             <div class="image">
-                                <a class="fancybox" href="<?php echo htmlspecialchars($imageLink); ?>" style="display: flex;  justify-content: center;  align-items: center;">
+                                <a class="" href="<?php echo htmlspecialchars($imageLink); ?>" style="display: flex;  justify-content: center;  align-items: center;">
                                     <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="Product" class="img-responsive"  style="  width: 14vw; padding: 1vw;">
                                 </a>
                             </div>
@@ -121,7 +121,7 @@
                                 </p>
                             </div>
                             <div class="btn" style="display: flex; justify-content: center; padding-bottom: 20px;">
-                                <a href="#" class="stylish-linka" style="padding: 8px 15px;">Read More</a>
+                                <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="stylish-linka" style="padding: 8px 15px;">Read More</a>
                             </div>
                         </div>
                     </div>

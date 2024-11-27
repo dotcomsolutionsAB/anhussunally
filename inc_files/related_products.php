@@ -58,9 +58,9 @@
                       text-decoration: none;
                   }
                 </style>
-                <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
+              
                 <div class="btn" style="display: flex; justify-content: center; padding-bottom: 20px;">
-                    <a href="#" class="stylish-linkab" style="padding: 8px 15px;">Read More</a>
+                    <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="stylish-linkab" style="padding: 8px 15px;">Read More</a>
                 </div>
             </div>
           </div>

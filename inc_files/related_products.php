@@ -58,9 +58,11 @@
                       text-decoration: none;
                   }
                 </style>
-                <div class="btn" style="display: flex; justify-content: center; padding-bottom: 20px;">
-                    <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="stylish-linkab" style="padding: 8px 15px;">Read More</a>
-                </div>
+                <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
+                  <div class="btn" style="display: flex; justify-content: center; padding-bottom: 20px;">
+                      <a href="#" class="stylish-linkab" style="padding: 8px 15px;">Read More</a>
+                  </div>
+                </a>
             </div>
           </div>
         <?php endwhile; ?>

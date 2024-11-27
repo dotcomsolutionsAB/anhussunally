@@ -140,21 +140,34 @@ $relatedProductsResult = $stmt->get_result();
         </div>
         <div class="col-sm-6">
           <div class="detail_pro margintop40">
-            <h1 class="bottom30"><?php echo htmlspecialchars($product['name']); ?></h1>
-            <p style="color: #7ab6c8; font-weight: bold;">Brand :
+            <h1 class=""><?php echo htmlspecialchars($product['name']); ?></h1>
             <?php
                 $sel = "SELECT name,logo,extension FROM brand WHERE id = " . intval($product['brand_id']);
                 $brandresult = $conn->query($sel);
-                if ($brandresult && $brandresult->num_rows > 0) {
-                    $brand = $brandresult->fetch_assoc();
-                    $brandLogo="uploads/assets/logos".$brand['logo'].".".$brand['extension'];
-                }
+                  if ($brandresult && $brandresult->num_rows > 0) {
+                    $brand = $brandresult->fetch_assoc();             
+                  }
                 ?>
-                <div class="image2">
+                <?php
+                  if (!empty($brand['logo']) && !empty($brand['extension'])) {
+                    $brandLogo = "uploads/assets/logos/" . $brand['logo'] . "." . $brand['extension'];
+                ?>
+                    <div class="image2">
+                        <a href="#">
+                            <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($product['name']); ?> Image">
+                        </a>
+                    </div>
+                <?php
+                  } else {
+                ?>
+                <p style="color: #7ab6c8; font-weight: bold;">Brand :
                   <a href="#">
-                    <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($product['name']); ?> Image">
+                    <span class="title"><?php echo htmlspecialchars($brand['name']); ?></span>
                   </a>
-                </div>
+                </p>
+                <?php
+                  }
+                ?>
             </p>
             <div class="product_meta">
               <span class="sku_wrapper">

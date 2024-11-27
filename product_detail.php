@@ -143,15 +143,18 @@ $relatedProductsResult = $stmt->get_result();
             <h1 class="bottom30"><?php echo htmlspecialchars($product['name']); ?></h1>
             <p style="color: #7ab6c8; font-weight: bold;">Brand :
             <?php
-                $sel = "SELECT name FROM brand WHERE id = " . intval($product['brand_id']);
+                $sel = "SELECT name,logo,extension FROM brand WHERE id = " . intval($product['brand_id']);
                 $brandresult = $conn->query($sel);
                 if ($brandresult && $brandresult->num_rows > 0) {
                     $brand = $brandresult->fetch_assoc();
+                    $brandName=$brand['logo'].".".$brand['extension'];
                 }
                 ?>
-                <a href="#">
-                    <span class="title"><?php echo htmlspecialchars($brand['name']); ?></span>
-                </a>
+                <div class="image2">
+                  <a href="#">
+                    <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($brandName); ?> Image">
+                  </a>
+                </div>
             </p>
             <div class="product_meta">
               <span class="sku_wrapper">

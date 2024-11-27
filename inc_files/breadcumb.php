@@ -95,7 +95,8 @@ if (!empty($dynamic_label) && $dynamic_label === $current_breadcrumb['label']) {
                             <?php } ?>
                         
                         <?php if (!empty($dynamic_label)): ?>
-                            <a href="<?php echo $dynamic_link; ?>"><?php echo $dynamic_label; ?></a>
+                            <!-- <a href="<?php echo $dynamic_link; ?>"><?php echo $dynamic_label; ?></a> -->
+                            <a href="#"><?php echo $dynamic_label; ?></a>
                         <?php endif; ?>
                     </p>
                 </div>

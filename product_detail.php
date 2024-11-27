@@ -154,7 +154,7 @@ $relatedProductsResult = $stmt->get_result();
                 ?>
                     <div class="image2">
                         <a href="#">
-                            <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($product['name']); ?> Image">
+                            <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($product['name']); ?> Image" style="width:15rem;">
                         </a>
                     </div>
                 <?php
@@ -180,7 +180,6 @@ $relatedProductsResult = $stmt->get_result();
                 <a href="#" rel="tag"><?php echo htmlspecialchars($product['category']); ?></a>, <a href="#" rel="tag">Child Category</a>
               </span>
             </div>
-            <br>
             <!-- <p class="stock in-stock"><strong>Status: </strong>In stock</p> -->
             <br>
             <p class="bottom30"><?php echo nl2br(htmlspecialchars($product['short_description'])); ?></p>

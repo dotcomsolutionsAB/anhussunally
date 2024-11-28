@@ -88,7 +88,7 @@
       </div>
     </div> -->
   <!--HEADER-->
-  <?php include("inc_files/home_page.php"); ?>
+  <?php include("inc_files/header.php"); ?>
   <?php include("inc_files/home_about.php"); ?>
   <?php include("inc_files/counts.php"); ?>
   <?php include("inc_files/new_arrival.php"); ?>

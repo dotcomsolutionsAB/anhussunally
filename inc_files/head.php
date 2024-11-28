@@ -271,7 +271,6 @@ $brandResult = $conn->query($brandQuery);
         background-repeat: no-repeat;
         color: white;
         height: 100vh; /* Full-screen height */
-        overflow-y: auto; /* Enable scrolling for smaller devices */
     }
 
     .flex::before {
@@ -349,9 +348,7 @@ $brandResult = $conn->query($brandQuery);
     }
 </style>
 
-<div class="flex">
-  <div>
-    <h1>Our Trusted Brands</h1>
+< class="flex">
     <div class="brand-grid">
       <div class="brand-card"><img src="images/ALFOMEGA.png" alt="Brand 1" class="brand-logo"></div>
       <div class="brand-card"><img src="images/Atos.png" alt="Brand 2" class="brand-logo"></div>
@@ -378,7 +375,6 @@ $brandResult = $conn->query($brandQuery);
       <div class="brand-card"><img src="images/STAUFF.png" alt="Brand 23" class="brand-logo"></div>
       <div class="brand-card"><img src="images/WALVOIL.png" alt="Brand 24" class="brand-logo"></div>
     </div>
-  </div>
 </div>
     <script>
       document.addEventListener('scroll', function() {

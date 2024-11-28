@@ -301,7 +301,7 @@ $brandResult = $conn->query($brandQuery);
                               
                               // Add click event to each result item
                               resultItem.addEventListener('click', function() {
-                                  window.location.href = `product_details.php?sku=${product.sku}`;
+                                  window.location.href = `product_detail.php?sku=${product.sku}`;
                               });
 
                               resultsContainer.appendChild(resultItem);

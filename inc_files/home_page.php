@@ -46,124 +46,164 @@ $brandResult = $conn->query($brandQuery);
 
 
         /* Navbar styles */
-        .navbar-styled {
-            background: none; /* Transparent to show the shared background */
-            border: none;
-            position: relative;
-            z-index: 10; /* Ensure it’s above the background */
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        
-        header .wrap-sticky nav.navbar.bootsnav {
-            background: #ffffff00;
-        }
-        header nav.navbar.bootsnav ul.nav > li > a {
-            color: #fff;
-            padding-bottom: 2px;
-            padding-left: 0px;
-            font-weight: 600;
-            font-size: 14px;
-            padding-right: 0px
-        }
-        header nav.navbar.bootsnav ul.nav > li > a:hover {
-            color:#fff;
-        }
-        header .wrap-sticky nav.navbar.scrolled {
-            background: #fff;
-        }
-        .navbar-styled.scrolled {
-            background-color: rgba(255, 255, 255, 0.9); /* Solid color when scrolled */
-            color: #000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .navbar-nav > li > a {
-            position: relative;
-            display: inline-block;
-            color: white;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        header nav.navbar.bootsnav ul.nav > li {
-            margin: 0px 10px;
-        }
-        .navbar-nav > li > a::after {
-            content: "";
-            position: absolute;
-            bottom: -5px; /* Adjust distance from the text */
-            left: 0;
-            width: 0;
-            height: 2px; /* Thickness of the underline */
-            background-color: #fff; /* Default underline color */
-            transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Transition for width and color */
-        }
+        .shared-background {
+    position: relative;
+    background-image: url("images/About_Us.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    padding-bottom: 40px;
+}
 
-        .navbar-nav > li > a:hover::after {
-            width: 100%; /* Full underline on hover */
-        }
+.shared-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    z-index: 1;
+}
 
-        /* When navbar is scrolled */
-        .navbar-styled.scrolled .navbar-nav > li > a::after {
-            background-color: #000; /* Black underline when scrolled */
-        }
-        .navbar-styled.scrolled .navbar-nav > li > a {
-            color: #000 !important;
-            font-weight: bold;
-        }
+.shared-background > * {
+    position: relative;
+    z-index: 2;
+}
 
-        .navbar-styled.scrolled .navbar-brand {
-            color: #fff !important;
-        }
+/* Navbar styles */
+.navbar-styled {
+    background: none;
+    border: none;
+    position: relative;
+    z-index: 10;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-        /* Flex Section */
-        .top-section {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px;
-            z-index: 1;
-        }
+.navbar-styled.scrolled {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-        /* Brand Grid Styles */
-        .brand-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr); /* Ensure 5 items per row */
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+.navbar-nav > li > a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 15px;
+}
 
-        .brand-card {
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 140px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+.navbar-nav > li > a:hover {
+    color: #f8f9fa;
+}
 
-        .brand-card img {
-            max-width: 80%;
-            max-height: 70%;
-        }
+.navbar-styled.scrolled .navbar-nav > li > a {
+    color: #000 !important;
+}
 
+.navbar-toggle {
+    border: none;
+}
 
-        .brand-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
+.navbar-toggle .icon-bar {
+    background-color: white;
+}
 
-        header .navbar-brand{
-            padding-top:15px;
-            padding-bottom:15px;
-        }
+/* Brand grid styles */
+.top-section {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Default for desktop */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+}
 
+.brand-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.brand-card img {
+    max-width: 80%;
+    max-height: 70%;
+}
+
+.brand-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Styles */
+
+/* Tablet view (768px and below) */
+@media (max-width: 768px) {
+    .top-section {
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .brand-card {
+        height: 120px;
+    }
+
+    .brand-card img {
+        max-width: 70%;
+    }
+
+    .navbar-nav > li > a {
+        font-size: 14px;
+    }
+}
+
+/* Mobile view (480px and below) */
+@media (max-width: 480px) {
+    .top-section {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .brand-card {
+        height: 100px;
+    }
+
+    .brand-card img {
+        max-width: 60%;
+    }
+
+    .navbar-styled {
+        padding: 10px;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-nav > li {
+        width: 100%;
+    }
+
+    .navbar-nav > li > a {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .navbar-header .navbar-brand img {
+        max-width: 80%;
+    }
+}
 
         /* Dropdown menu styles */
         .navbar-nav .dropdown-menu {

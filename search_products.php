@@ -136,7 +136,7 @@
                                 <img src="${product.image_url}" alt="${product.name}" width="50" height="50">
                                 <p><strong>${product.name}</strong></p>
                                 <p>SKU: ${product.sku}</p>
-                                <p>Price: $${product.price}</p>
+                                
                             `;
                             
                             // Add click event to each result item

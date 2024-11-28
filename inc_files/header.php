@@ -1,4 +1,4 @@
-<?php include("api/db_connection.php"); ?>
+<?php include("../api/db_connection.php"); ?>
 
 <?php
 // Establish database connection

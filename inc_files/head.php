@@ -11,186 +11,65 @@ if ($conn->connect_error) {
 $brandQuery = "SELECT id, name FROM brand";
 $brandResult = $conn->query($brandQuery);
 ?>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        /* Wrapper for shared background */
-        .shared-background {
-            position: relative;
-            background-image: url("images/About_Us.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: white;
-        }
+  <style>
+    li.dropdown a {
+        position: relative;
+        display: inline-block;
+        color: #000; /* Adjust color as needed */
+        text-decoration: none;
+        font-weight: bold;
+    }
 
-        /* Overlay */
-        .shared-background::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
-            z-index: 1; /* Ensure overlay appears below content */
-            pointer-events: none; /* Allow interactions with content */
-        }
+    li.dropdown a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px; /* Adjust thickness of underline */
+        background-color: #000; /* Adjust underline color */
+        transition: width 0.3s ease-in-out;
+    }
 
-        /* Ensure content is above the overlay */
-        .shared-background > * {
-            position: relative;
-            z-index: 2;
-        }
+    li.dropdown a:hover::after {
+        width: 100%; /* Expands the underline to full width on hover */
+    }
+    /* Underline effect when navbar is scrolled */
+    .navbar-default.scrolled li.dropdown a::after {
+        background-color: #fff; /* Change underline to white when scrolled */
+    }
+    .navbar-default.scrolled ul .dropdown-menu{
+      background:#fff;
+    }
+    .navbar-default {
+          background-color: transparent; /* Initial transparent background */
+          transition: background-color 0.3s ease, color 0.3s ease;
+      }
 
-        .container{
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-        /* Navbar styles */
-        .navbar-styled {
-            background: none; /* Transparent to show the shared background */
-            border: none;
-            position: relative;
-            z-index: 10; /* Ensure it’s above the background */
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        
-        header .wrap-sticky nav.navbar.bootsnav {
-            background: #ffffff00;
-        }
-        header nav.navbar.bootsnav ul.nav > li > a {
-            color: #fff;
-            /* padding-bottom: 2px; */
-            padding-left: 0px;
-            font-weight: 600;
-            font-size: 14px;
-            padding-right: 0px
-        }
-        header nav.navbar.bootsnav ul.nav > li > a:hover {
-            color:#fff;
-        }
-        header .wrap-sticky nav.navbar.scrolled {
-            background: #fff;
-        }
-        .navbar-styled.scrolled {
-            background-color: rgba(255, 255, 255, 0.9); /* Solid color when scrolled */
-            color: #000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .navbar-nav > li > a {
-            position: relative;
-            display: inline-block;
-            color: white;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        header nav.navbar.bootsnav ul.nav > li {
-            margin: 0px 10px;
-        }
-        .navbar-nav > li > a::after {
-            content: "";
-            position: absolute;
-            bottom: 20px; /* Adjust distance from the text */
-            left: 0;
-            width: 0;
-            height: 2px; /* Thickness of the underline */
-            background-color: #fff; /* Default underline color */
-            transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Transition for width and color */
-        }
+      .navbar-default.scrolled {
+          background-color: #fff !important; /* Background after scrolling */
+          color: white; /* Font color after scrolling */
+          box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.1);
+          
+      }
 
-        .navbar-nav > li > a:hover::after {
-            width: 100%; /* Full underline on hover */
-        }
+      .navbar-default.scrolled .navbar-nav > li > a {
+          color: #000 !important; /* Change nav link colors */
+          font-weight: bold;
+      }
 
-        /* When navbar is scrolled */
-        .navbar-styled.scrolled .navbar-nav > li > a::after {
-            background-color: #000; /* Black underline when scrolled */
-        }
-        .navbar-styled.scrolled .navbar-nav > li > a {
-            color: #000 !important;
-            font-weight: bold;
-        }
+      .navbar-default.scrolled .navbar-brand {
+          color: white !important; /* Change brand color */
+      }
+      li.dropdown a::after {
+        bottom: 20px !important;
+      }
+      .wrap-sticky{
+        height: 76px;
+      }
+      
 
-        .navbar-styled.scrolled .navbar-brand {
-            color: #fff !important;
-        }
-        li.dropdown a::after {
-            bottom: 20px !important;
-        }
-        /* Flex Section */
-        .top-section {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px;
-            z-index: 1;
-        }
-        
-        /* Brand Grid Styles */
-        .brand-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr); /* Ensure 5 items per row */
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .brand-card {
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 140px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .brand-card img {
-            max-width: 80%;
-            max-height: 70%;
-        }
-
-
-        .brand-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        header .navbar-brand{
-            padding-top:15px;
-            padding-bottom:15px;
-        }
-
-
-
-        /* Dropdown menu styles */
-        .navbar-nav .dropdown-menu {
-            background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background */
-            border: none;
-            margin-top: 1rem; /* Space below the navbar */
-        }
-
-        .navbar-nav .dropdown-menu li a {
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-            padding: 10px 15px;
-            transition: background-color 0.3s ease;
-        }
-
-        .navbar-nav .dropdown-menu li a:hover {
-            background-color: rgba(255, 255, 255, 0.2); /* Lighter hover effect */
-        }
-        
-    </style>
+  </style>
 
 <style>
       /* Container for the input box */
@@ -290,9 +169,6 @@ $brandResult = $conn->query($brandQuery);
 
 </style>
 
-<!-- Wrapper for shared background -->
-<div class="shared-background">
-    <!-- Navbar -->
     <header>
       <nav class="navbar navbar-default navbar-sticky bootsnav">
         <div class="container" style="display:flex; justify-content:space-around; align-items:center;">
@@ -382,50 +258,133 @@ $brandResult = $conn->query($brandQuery);
         </div>   
       </nav>
     </header>
+<style>
+    /* Full Page Section */
+    .flex {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url("images/About_Us.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white;
+        height: 100vh; /* Full-screen height */
+        overflow-y: auto; /* Enable scrolling for smaller devices */
+    }
 
-        <!-- Top Section -->
-        <?php
-        // Get the current page name dynamically
-        $current_page = basename($_SERVER['PHP_SELF'], ".php");
+    .flex::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Black overlay */
+        z-index: 1; /* Ensure overlay is behind content */
+    }
 
-        // Show the section only if the current page is "index"
-        if ($current_page === 'index'): ?>
+    .flex > * {
+        position: relative;
+        z-index: 2; /* Bring content above the overlay */
+    }
 
-            <div class="top-section">
-                <div class="brand-card"><img src="images/ALFOMEGA.png" alt="Brand 1" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/Atos.png" alt="Brand 2" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/Bearing-Pullers.png" alt="Brand 3" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/HYDROLINE.png" alt="Brand 4" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/DOWTY.png" alt="Brand 5" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/DEMCON.png" alt="Brand 6" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/DOWTY.png" alt="Brand 7" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/EPE.jpg" alt="Brand 8" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/GEMELS1.png" alt="Brand 9" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/HAWE.png" alt="Brand 10" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/HYLOC.png" alt="Brand 11" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/POLYHYDR0N.png" alt="Brand 12" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/Positron-1.png" alt="Brand 13" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/REXROTH.png" alt="Brand 14" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/Spica.jpg" alt="Brand 15" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/Minitest.png" alt="Brand 16" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/VELJAN.png" alt="Brand 17" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/WIKAI.png" alt="Brand 18" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/Water-Test-Pump.png" alt="Brand 19" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/YUKEN.png" alt="Brand 20" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/VIP.png" alt="Brand 21" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/Hose-Crimping-Machine.png" alt="Brand 22" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/STAUFF.png" alt="Brand 23" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/WALVOIL.png" alt="Brand 24" class="brand-logo"></div>
-            </div>
-        <?php endif; ?>
+    /* Grid Layout */
+    .brand-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+        gap: 20px; /* Space between cards */
+        max-width: 1200px;
+        padding: 40px;
+        width: 100%;
+    }
 
+    /* Brand Card */
+    .brand-card {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 140px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .brand-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Brand Logo */
+    .brand-logo {
+        max-width: 80%;
+        max-height: 70%;
+        transition: transform 0.3s ease;
+    }
+
+    .brand-card:hover .brand-logo {
+        transform: scale(1.1);
+    }
+
+    /* Responsive Text */
+    .flex h1 {
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .flex h1 {
+        font-size: 28px;
+        }
+
+        .brand-card {
+        height: 120px;
+        }
+    }
+</style>
+
+<div class="flex">
+  <div>
+    <h1>Our Trusted Brands</h1>
+    <div class="brand-grid">
+      <div class="brand-card"><img src="images/ALFOMEGA.png" alt="Brand 1" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/Atos.png" alt="Brand 2" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/Bearing-Pullers.png" alt="Brand 3" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/HYDROLINE.png" alt="Brand 4" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/DOWTY.png" alt="Brand 5" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/DEMCON.png" alt="Brand 6" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/DOWTY.png" alt="Brand 7" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/EPE.jpg" alt="Brand 8" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/GEMELS1.png" alt="Brand 9" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/HAWE.png" alt="Brand 10" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/HYLOC.png" alt="Brand 11" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/POLYHYDR0N.png" alt="Brand 12" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/Positron-1.png" alt="Brand 13" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/REXROTH.png" alt="Brand 14" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/Spica.jpg" alt="Brand 15" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/Minitest.png" alt="Brand 16" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/VELJAN.png" alt="Brand 17" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/WIKAI.png" alt="Brand 18" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/Water-Test-Pump.png" alt="Brand 19" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/YUKEN.png" alt="Brand 20" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/VIP.png" alt="Brand 21" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/Hose-Crimping-Machine.png" alt="Brand 22" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/STAUFF.png" alt="Brand 23" class="brand-logo"></div>
+      <div class="brand-card"><img src="images/WALVOIL.png" alt="Brand 24" class="brand-logo"></div>
+    </div>
+  </div>
 </div>
-
-<!-- Script to handle navbar scroll -->
-<script>
-    document.addEventListener('scroll', function () {
-        const navbar = document.querySelector('.navbar-styled');
-        const logo = document.querySelector('#navbar-logo');
+    <script>
+      document.addEventListener('scroll', function() {
+          //console.log('Scroll position:', window.scrollY);
+          const navbar = document.querySelector('.navbar-default');
+          const logo = document.querySelector('#navbar-logo');
           if (window.scrollY > 50) {
               //console.log('Scrolled: Changing to logo22.png');
               navbar.classList.add('scrolled');
@@ -433,13 +392,12 @@ $brandResult = $conn->query($brandQuery);
           } else {
             // console.log('Not Scrolled: Reverting to logo.png');
               navbar.classList.remove('scrolled');
-              logo.src = 'images/logo22.png';
+              logo.src = 'images/logo.png';
           }
-    });
-</script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script>
+      });
+    </script>
+
+  <script>
       document.getElementById('search').addEventListener('input', function() {
       const searchQuery = this.value;
           // Only trigger search if the query has at least 3 characters
@@ -479,4 +437,4 @@ $brandResult = $conn->query($brandQuery);
                   });
           }
       });
-</script>
+  </script>

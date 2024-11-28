@@ -222,7 +222,7 @@ if ($result && $result->num_rows > 0) {
             }
         } else {
             // Insert new product with the brand ID
-            $insertQuery = "INSERT INTO products (sku, name, description, short_description, brand_id, category, sub_category_1, sub_category_2, sub_category_3, images, image_url, pdf, weight, length, breadth, height, features, shop_lines)
+            $insertQuery = "INSERT INTO products (sku, name, descriptions, short_description, brand_id, category, sub_category_1, sub_category_2, sub_category_3, images, image_url, pdf, weight, length, breadth, height, features, shop_lines)
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($insertQuery);
             $stmt->bind_param("ssssssssssssddddss", $sku, $name, $description, $short_description, $brandId, $category, $subCategory1, $subCategory2, $subCategory3, $images, $image_url, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson);

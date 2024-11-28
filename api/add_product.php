@@ -54,8 +54,8 @@ if ($result && $result->num_rows > 0) {
         $sku = str_replace(['–', '—'], '-', $sku); // Normalize the SKU: Replace en dash and em dash with hyphen
 
         $name = $csvData['Product Name'] ?? '';
-        $description = !empty($csvData['Description']) ? $csvData['Description'] : ''; // Set default empty string if description is empty
-        $short_description = !empty($csvData['Short Description']) ? $csvData['Short Description'] : ''; 
+        $description = $csvData['Description'] ?? '';
+        $short_description = $csvData['Short Description'] ?? '';
         $brand = $csvData['Brand'] ?? '';
         $category = $csvData['Category'] ?? '';
         $subCategory1 = $csvData['Sub Category Lv 1'] ?? '';
@@ -201,9 +201,7 @@ if ($result && $result->num_rows > 0) {
                 $updateValues[] = $shopLinesJson;
             }
 
-            echo "hello ";
             if (!empty($updateFields)) {
-                die($description);
                 // Prepare the update query
                 $updateQuery = "UPDATE products SET " . implode(", ", $updateFields) . " WHERE sku = ?";
                 $updateValues[] = $sku; // Add SKU to the end of the values array
@@ -223,7 +221,6 @@ if ($result && $result->num_rows > 0) {
                 echo "No changes detected for: " . $sku . "<br>";
             }
         } else {
-            die($description);
             // Insert new product with the brand ID
             $insertQuery = "INSERT INTO products (sku, name, descriptions, short_description, brand_id, category, sub_category_1, sub_category_2, sub_category_3, images, image_url, pdf, weight, length, breadth, height, features, shop_lines)
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";

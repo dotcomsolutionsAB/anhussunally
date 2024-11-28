@@ -233,10 +233,6 @@ $brandResult = $conn->query($brandQuery);
                 <a href="about_us.php" style="font-weight: bolder;">About Us
                 </a>
               </li>
-              <li class="dropdown">
-                <a href="brands.php" style="font-weight: bolder;">Brands
-                </a>
-              </li>
               <li class="dropdown" >
                 <a href="#" style="font-weight: bolder;">Certificates
                 </a>

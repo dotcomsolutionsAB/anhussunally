@@ -53,7 +53,7 @@ if ($result->num_rows === 0) {
     <!-- Loader -->
     <!-- <?php include("inc_files/loader.php"); ?> -->
     <!-- HEADER -->
-    <?php include("inc_files/head.php"); ?>
+    <?php include("inc_files/header.php"); ?>
     <!-- Breadcumb -->
     <?php include("inc_files/breadcumb.php"); ?>
 

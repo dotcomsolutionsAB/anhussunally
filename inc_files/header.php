@@ -77,7 +77,7 @@ $brandResult = $conn->query($brandQuery);
           position: relative;
           display: flex;
           align-items: center;
-          background-color: #ffeb3b; /* Yellow background */
+          /* background-color: #ffeb3b; Yellow background */
           padding: 5px;
           border-radius: 25px; /* Rounded corners */
           width: 300px; /* Adjust the width */

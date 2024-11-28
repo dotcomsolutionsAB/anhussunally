@@ -1,6 +1,6 @@
 <?php
 // db_connection.php - include your DB connection here
-include("../api/db_connection.php");
+include("api/db_connection.php");
 
 // Query to fetch all brands and their details
 $query = "SELECT * FROM brand ORDER BY name";

@@ -1,7 +1,12 @@
-<?php include("api/db_connection.php"); ?>
+
 
 <?php
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Database configuration
+$host = 'localhost';
+$dbname = 'anh';
+$username = 'anh';
+$password = '9kCuzrb5tO53$xQtf';
+$conn = new mysqli($host, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {

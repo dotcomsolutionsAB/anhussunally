@@ -71,7 +71,7 @@ $brandResult = $conn->query($brandQuery);
 
   </style>
 
-    <style>
+<style>
       /* Container for the input box */
       .search-input-box {
           position: relative;
@@ -136,35 +136,39 @@ $brandResult = $conn->query($brandQuery);
           fill: #ff9800;
       }           
       #search-results {
-          margin-top: 10px;
-          max-height: 200px;
-          overflow-y: auto;
-      }
+            margin-top: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            width: 30vw;  /* Set the width to 30% of the viewport width */
+        }
 
-      .search-result-item {
-          border-bottom: 1px solid #ddd;
-          padding: 10px;
-          display: flex;
-          align-items: center;
-      }
+        .search-result-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;  /* Show pointer cursor on hover */
+        }
 
-      .search-result-item img {
-          margin-right: 10px;
-      }
+        .search-result-item img {
+            margin-right: 10px;
+        }
 
-      .search-result-item p {
-          margin: 0;
-          padding: 0;
-      }
+        .search-result-item p {
+            margin: 0;
+            padding: 0;
+        }
 
-      .search-result-item strong {
-          font-size: 14px;
-      }
+        .search-result-item strong {
+            font-size: 14px;
+        }
 
-      #search-results p {
-          color: #888;
-      }
-    </style>
+        #search-results p {
+            color: #888;
+        }
+
+</style>
+
     <header>
       <nav class="navbar navbar-default navbar-sticky bootsnav">
         <div class="container" style="display:flex; justify-content:space-around; align-items:center;">
@@ -180,15 +184,23 @@ $brandResult = $conn->query($brandQuery);
           </div>
 
           <!-- Search bar -->
-          <div class="search-input-box">
+          <div class="navbar-header">
+            <div class="search-input-box">
               <input type="text" class="border border-soft-light form-control fs-14 hov-animate-outline" id="search" name="keyword" placeholder="I am shopping for..." autocomplete="off">
               <svg id="Group_723" data-name="Group 723" xmlns="http://www.w3.org/2000/svg" width="20.001" height="20" viewBox="0 0 20.001 20">
                   <path id="Path_3090" data-name="Path 3090" d="M9.847,17.839a7.993,7.993,0,1,1,7.993-7.993A8,8,0,0,1,9.847,17.839Zm0-14.387a6.394,6.394,0,1,0,6.394,6.394A6.4,6.4,0,0,0,9.847,3.453Z" transform="translate(-1.854 -1.854)" fill="#b5b5bf"></path>
                   <path id="Path_3091" data-name="Path 3091" d="M24.4,25.2a.8.8,0,0,1-.565-.234l-6.15-6.15a.8.8,0,0,1,1.13-1.13l6.15,6.15A.8.8,0,0,1,24.4,25.2Z" transform="translate(-5.2 -5.2)" fill="#b5b5bf"></path>
               </svg>
-          </div>
 
-          <div id="search-results"></div>
+              <!-- Clear Icon -->
+              <svg class="clear-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                  <path d="M7 0C3.141 0 0 3.141 0 7s3.141 7 7 7 7-3.141 7-7-3.141-7-7-7zM7 13C3.686 13 1 10.314 1 7S3.686 1 7 1s6 3.686 6 6-3.686 6-6 6z"/>
+                  <path d="M9.293 4.707l-2.586 2.586-2.586-2.586-1.414 1.414 2.586 2.586-2.586 2.586 1.414 1.414 2.586-2.586 2.586 2.586 1.414-1.414-2.586-2.586 2.586-2.586z"/>
+              </svg>
+            </div>
+
+            <div id="search-results"></div>
+          </div>
 
   
           <!-- End Header Navigation -->
@@ -264,60 +276,44 @@ $brandResult = $conn->query($brandQuery);
       });
     </script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script> <!-- Link to external JS file -->
-    <script>
-        document.getElementById('search').addEventListener('input', function() {
-        const clearIcon = document.querySelector('.clear-icon');
-        const searchInput = this.value;
+  <script>
+      document.getElementById('search').addEventListener('input', function() {
+      const searchQuery = this.value;
+          // Only trigger search if the query has at least 3 characters
+          if (searchQuery.length >= 3) {
+              // Perform the AJAX request
+              fetch(`search_api.php?search=${encodeURIComponent(searchQuery)}`)
+                  .then(response => response.json())
+                  .then(data => {
+                      const resultsContainer = document.getElementById('search-results');
+                      resultsContainer.innerHTML = ''; // Clear previous results
 
-        if (searchInput.length > 0) {
-            clearIcon.style.visibility = 'visible';
-        } else {
-            clearIcon.style.visibility = 'hidden';
-        }
-    });
+                      if (data.length > 0) {
+                          data.forEach(product => {
+                              const resultItem = document.createElement('div');
+                              resultItem.classList.add('search-result-item');
+                              resultItem.innerHTML = `
+                                  <img src="${product.image_url}" alt="${product.name}" width="50" height="50">
+                                  <p><strong>${product.name}</strong></p>
+                                  <p>SKU: ${product.sku}</p>
+                                  <p>Price: $${product.price}</p>
+                              `;
+                              
+                              // Add click event to each result item
+                              resultItem.addEventListener('click', function() {
+                                  window.location.href = `product_details.php?sku=${product.sku}`;
+                              });
 
-    // Clear input field when the cross button is clicked
-    document.querySelector('.clear-icon').addEventListener('click', function() {
-        const inputField = document.getElementById('search');
-        inputField.value = ''; // Clear the input
-        inputField.focus(); // Focus on the input field
-        this.style.visibility = 'hidden'; // Hide the cross button
-    });
-
-    document.getElementById('search').addEventListener('input', function() {
-    const searchQuery = this.value;
-
-        // Only trigger search if the query has at least 2 characters
-        if (searchQuery.length >= 2) {
-            // Perform the AJAX request
-            fetch(`../search_api.php?search=${encodeURIComponent(searchQuery)}`)
-                .then(response => response.json())
-                .then(data => {
-                    // Get the search results container
-                    const resultsContainer = document.getElementById('search-results');
-                    resultsContainer.innerHTML = ''; // Clear previous results
-
-                    if (data.length > 0) {
-                        // Loop through the search results and display them
-                        data.forEach(product => {
-                            const resultItem = document.createElement('div');
-                            resultItem.classList.add('search-result-item');
-                            resultItem.innerHTML = `
-                                <img src="${product.image_url}" alt="${product.name}" width="50" height="50">
-                                <p><strong>${product.name}</strong></p>
-                                <p>SKU: ${product.sku}</p>
-                                <p>Price: $${product.price}</p>
-                            `;
-                            resultsContainer.appendChild(resultItem);
-                        });
-                    } else {
-                        resultsContainer.innerHTML = '<p>No results found.</p>';
-                    }
-                })
-                .catch(error => console.error('Error fetching data:', error));
-        }
-    });
-
-    </script>
+                              resultsContainer.appendChild(resultItem);
+                          });
+                      } else {
+                          resultsContainer.innerHTML = '<p>No results found.</p>';
+                      }
+                  })
+                  .catch(error => {
+                      console.error('Error fetching data:', error);
+                      alert('There was an error with the search. Please try again later.');
+                  });
+          }
+      });
+  </script>

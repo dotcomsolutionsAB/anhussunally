@@ -12,7 +12,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
     $search = $conn->real_escape_string($_GET['search']);
     
     // Search query for SKU and name
-    $sql = "SELECT sku, name, price FROM products WHERE sku LIKE '%$search%' OR name LIKE '%$search%'";
+    $sql = "SELECT sku, name, price, image_url FROM products WHERE sku LIKE '%$search%' OR name LIKE '%$search%' LIMIT 5";  // Limiting to 5 results
     
     $result = $conn->query($sql);
     

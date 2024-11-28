@@ -79,7 +79,7 @@
   </div> -->
 
   <!--HEADER-->
-  <?php include("inc_files/head.php");?>
+  <?php include("inc_files/header.php");?>
 
   <!-- Breadcumb -->
   <?php include("inc_files/breadcumb.php"); ?>

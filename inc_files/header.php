@@ -199,10 +199,10 @@ $brandResult = $conn->query($brandQuery);
               </svg>
             </div>
 
-            <div id="search-results"></div>
-          </div>
+            <div id="search-results" style="z-index: 1000; position: absolute; background: #fff; scroll-behavior: smooth;">
+            </div>
 
-  
+          </div>
           <!-- End Header Navigation -->
           <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">

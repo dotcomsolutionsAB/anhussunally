@@ -138,12 +138,12 @@ $brandResult = $conn->query($brandQuery);
       #search-results {
             margin-top: 10px;
             max-height: 200px;
-            overflow-y: auto;
+            /* overflow-y: auto; */
             width: 30vw;  /* Set the width to 30% of the viewport width */
         }
 
         .search-result-item {
-            border-bottom: 1px solid #ddd;
+            /* border-bottom: 1px solid #ddd; */
             padding: 10px;
             display: flex;
             align-items: center;

@@ -15,38 +15,7 @@ $brandResult = $conn->query($brandQuery);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         /* Wrapper for shared background */
-        .shared-background {
-            position: relative;
-            background-image: url("images/About_Us.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: white;
-        }
-
-        /* Overlay */
-        .shared-background::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
-            z-index: 1; /* Ensure overlay appears below content */
-            pointer-events: none; /* Allow interactions with content */
-        }
-
-        /* Ensure content is above the overlay */
-        .shared-background > * {
-            position: relative;
-            z-index: 2;
-        }
-
-
-        /* Navbar styles */
-        .shared-background {
+    .shared-background {
     position: relative;
     background-image: url("images/About_Us.png");
     background-size: cover;
@@ -204,39 +173,21 @@ $brandResult = $conn->query($brandQuery);
         max-width: 80%;
     }
 }
-
-        /* Dropdown menu styles */
-        .navbar-nav .dropdown-menu {
-            background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background */
-            border: none;
-            margin-top: 1rem; /* Space below the navbar */
-        }
-
-        .navbar-nav .dropdown-menu li a {
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-            padding: 10px 15px;
-            transition: background-color 0.3s ease;
-        }
-
-        .navbar-nav .dropdown-menu li a:hover {
-            background-color: rgba(255, 255, 255, 0.2); /* Lighter hover effect */
-        }
-        
     </style>
 
 
-<!-- Wrapper for shared background -->
+<!-- Shared Background Wrapper -->
 <div class="shared-background">
     <!-- Navbar -->
     <header>
         <nav class="navbar navbar-styled navbar-sticky bootsnav">
-            <div class="container">
+            <div class="container-fluid">
                 <!-- Navbar Header -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                        <i class="fa fa-bars"></i>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="index.php">
                         <img src="images/logo22.png" class="logo" alt="Logo" id="navbar-logo">
@@ -245,88 +196,46 @@ $brandResult = $conn->query($brandQuery);
                 <!-- Navbar Links -->
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class=""><a href="index.php">Home</a></li>
-                        <!-- <li class=""><a href="brands.php">Brand</a></li> -->
-                        <!-- <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Brands</a>
-                            <ul class="dropdown-menu">
-                                <?php if ($brandResult && $brandResult->num_rows > 0): ?>
-                                    <?php while ($brand = $brandResult->fetch_assoc()): ?>
-                                        <li>
-                                            <a href="brand_details.php?id=<?php echo htmlspecialchars($brand['id']); ?>">
-                                                <?php echo htmlspecialchars($brand['name']); ?>
-                                            </a>
-                                        </li>
-                                    <?php endwhile; ?>
-                                <?php else: ?>
-                                    <li><a href="#">No Brands Available</a></li>
-                                <?php endif; ?>
-                            </ul>
-                        </li> -->
-
+                        <li><a href="index.php">Home</a></li>
                         <li><a href="about_us.php">About Us</a></li>
                         <li><a href="certificates.php">Certificates</a></li>
                         <li><a href="contact_us.php">Contact Us</a></li>
                     </ul>
                 </div>
-
             </div>
         </nav>
     </header>
 
-        <!-- Top Section -->
-        <?php
-        // Get the current page name dynamically
-        $current_page = basename($_SERVER['PHP_SELF'], ".php");
-
-        // Show the section only if the current page is "index"
-        if ($current_page === 'index'): ?>
-
-            <div class="top-section">
-                <div class="brand-card"><img src="images/ALFOMEGA.png" alt="Brand 1" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/Atos.png" alt="Brand 2" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/Bearing-Pullers.png" alt="Brand 3" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/HYDROLINE.png" alt="Brand 4" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/DOWTY.png" alt="Brand 5" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/DEMCON.png" alt="Brand 6" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/DOWTY.png" alt="Brand 7" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/EPE.jpg" alt="Brand 8" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/GEMELS1.png" alt="Brand 9" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/HAWE.png" alt="Brand 10" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/HYLOC.png" alt="Brand 11" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/POLYHYDR0N.png" alt="Brand 12" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/Positron-1.png" alt="Brand 13" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/REXROTH.png" alt="Brand 14" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/Spica.jpg" alt="Brand 15" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/Minitest.png" alt="Brand 16" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/VELJAN.png" alt="Brand 17" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/WIKAI.png" alt="Brand 18" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/Water-Test-Pump.png" alt="Brand 19" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/YUKEN.png" alt="Brand 20" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/VIP.png" alt="Brand 21" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/Hose-Crimping-Machine.png" alt="Brand 22" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/STAUFF.png" alt="Brand 23" class="brand-logo"></div>
-                <div class="brand-card"><img src="images/WALVOIL.png" alt="Brand 24" class="brand-logo"></div>
-            </div>
-        <?php endif; ?>
-
+    <!-- Top Section -->
+    <?php
+    // Show the section only if the current page is "index"
+    if ($current_page === 'index'): ?>
+        <div class="top-section">
+            <div class="brand-card"><img src="images/ALFOMEGA.png" alt="Brand 1"></div>
+            <div class="brand-card"><img src="images/Atos.png" alt="Brand 2"></div>
+            <div class="brand-card"><img src="images/Bearing-Pullers.png" alt="Brand 3"></div>
+            <div class="brand-card"><img src="images/HYDROLINE.png" alt="Brand 4"></div>
+            <div class="brand-card"><img src="images/DOWTY.png" alt="Brand 5"></div>
+        </div>
+    <?php endif; ?>
 </div>
 
-<!-- Script to handle navbar scroll -->
+<!-- JavaScript -->
 <script>
     document.addEventListener('scroll', function () {
         const navbar = document.querySelector('.navbar-styled');
         const logo = document.querySelector('#navbar-logo');
-          if (window.scrollY > 50) {
-              //console.log('Scrolled: Changing to logo22.png');
-              navbar.classList.add('scrolled');
-              logo.src = 'images/logo.png';
-          } else {
-            // console.log('Not Scrolled: Reverting to logo.png');
-              navbar.classList.remove('scrolled');
-              logo.src = 'images/logo22.png';
-          }
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+            logo.src = 'images/logo.png';
+        } else {
+            navbar.classList.remove('scrolled');
+            logo.src = 'images/logo22.png';
+        }
     });
 </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

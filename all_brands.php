@@ -1,6 +1,15 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // db_connection.php - include your DB connection here
 include("api/db_connection.php");
+
+$conn = mysqli_connect($host, $username, $password, $dbname);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
 // Query to fetch all brands and their details
 $query = "SELECT * FROM brand ORDER BY name";

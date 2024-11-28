@@ -73,7 +73,7 @@ if ($result->num_rows > 0):
         <?php while ($brand = $result->fetch_assoc()): ?>
         <div class="brand-card">
             <?php if (!empty($brand['logo'])): ?>
-                <img src="uploads/logos/<?= $brand['logo']; ?>" alt="<?= htmlspecialchars($brand['name']); ?>" />
+                <img src="uploads/assets/logos/<?= htmlspecialchars($brand['logo'].".".$brand['logo']); ?>" alt="<?= htmlspecialchars($brand['name']); ?>" />
             <?php endif; ?>
             <h3><?= htmlspecialchars($brand['name']); ?></h3>
             <p><strong>Specifications:</strong> <?= !empty($brand['specifications']) ? htmlspecialchars($brand['specifications']) : 'N/A'; ?></p>

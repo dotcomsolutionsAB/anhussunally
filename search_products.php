@@ -4,126 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Search</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
     <style>
-        /* Basic CSS for responsiveness */
+        /* styles.css */
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
         }
 
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .search-bar {
-            width: 100%;
-            max-width: 500px;
-            margin: 20px auto;
+        .search-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
+            width: 10vw;
+            height: 10vh;
+            background: aqua;
+            transition: all 0.5s ease-in-out;
+            position: relative;
         }
 
-        .search-bar input {
-            width: 85%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .search-bar button {
-            width: 12%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #4CAF50;
-            color: white;
+        /* Search icon button (🔍 emoji) */
+        #search-icon {
+            font-size: 30px; /* Adjust size for visibility */
             cursor: pointer;
+            transition: 0.3s;
         }
 
-        .results {
-            margin-top: 20px;
-            display: flex;
-            flex-wrap: wrap;
+        /* The sliding search bar (initially hidden) */
+        #search-bar {
+            position: absolute;
+            top: 0;
+            right: -300px;
+            width: 100%;
+            max-width: 300px;
+            padding: 15px;
+            background-color: yellow;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: right 0.5s;
+            display: none; /* Hide the search bar initially */
+        }
+
+        #search-bar input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        #clear-icon {
+            cursor: pointer;
+            font-size: 18px;
+            display: none;
+            position: absolute;
+            right: 40px;
+            top: 15px;
+        }
+
+        /* Results container */
+        #search-results {
+            margin-top: 10px;
+            max-height: 200px;
+            overflow-y: auto;
         }
 
         .result-item {
-            width: 100%;
-            max-width: 300px;
             padding: 10px;
-            margin: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
         }
 
-        @media (max-width: 768px) {
-            .search-bar input, .search-bar button {
-                width: 100%;
-            }
+        .result-item:last-child {
+            border-bottom: none;
+        }
 
-            .result-item {
-                width: 100%;
+        .result-item img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        /* Media query for responsiveness */
+        @media (max-width: 600px) {
+            #search-bar {
+                max-width: 100%;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="search-bar">
-        <input type="text" id="search-query" placeholder="Search by SKU or Name">
-        <button onclick="searchProducts()">Search</button>
+    <div class="search-container">
+        <!-- Search icon (🔍 emoji) -->
+        <span id="search-icon" onclick="openSearchBar()">🔍</span>
+        
+        <!-- The search bar -->
+        <div id="search-bar">
+            <input type="text" id="search" placeholder="Search by SKU or Name..." onkeyup="searchProducts()">
+            <span id="clear-icon" onclick="clearSearch()">&#10005;</span>
+            <div id="search-results"></div> <!-- Where the search results will be displayed -->
+        </div>
     </div>
 
-    <div id="results" class="results">
-        <!-- Search results will be displayed here -->
-    </div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    function searchProducts() {
-        var query = $('#search-query').val();
-
-        if (query.length >= 3) {
-            $.ajax({
-                url: 'search_api.php',  // API endpoint
-                method: 'GET',
-                data: { search: query },
-                success: function(response) {
-                    $('#results').html('');  // Clear previous results
-                    if (response.length > 0) {
-                        response.forEach(function(product) {
-                            $('#results').append(`
-                                <div class="result-item">
-                                    <h3>${product.name}</h3>
-                                    <p>SKU: ${product.sku}</p>
-                                    <p>Price: ${product.price}</p>
-                                </div>
-                            `);
-                        });
-                    } else {
-                        $('#results').html('<p>No results found</p>');
-                    }
-                },
-                error: function() {
-                    alert('An error occurred while searching.');
-                }
-            });
-        } else {
-            $('#results').html('');
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script> <!-- Link to external JS file -->
+    <script>
+        // Open the search bar and hide the search icon
+        function openSearchBar() {
+            document.getElementById('search-bar').style.right = '0'; // Slide the bar in from the right
+            document.getElementById('search-bar').style.display = 'block'; // Show the search bar
+            document.getElementById('search-icon').style.display = 'none'; // Hide the search icon
+            document.querySelector('.search-container').style.width = '35vw'; // Expand container width
+            document.querySelector('.search-container').style.height = '10vh'; // Keep container height
         }
-    }
 
-    // Optional: Trigger search when user types in the search box
-    $('#search-query').on('input', function() {
-        searchProducts();
-    });
-</script>
+        // Clear the search input
+        function clearSearch() {
+            document.getElementById('search').value = ''; // Clear the search input
+            document.getElementById('clear-icon').style.display = 'none'; // Hide the clear icon
+            document.getElementById('search-results').innerHTML = ''; // Clear search results
+        }
 
+        // Show or hide the clear icon based on input length
+        function searchProducts() {
+            let query = document.getElementById('search').value;
+
+            if (query.length >= 2) { // Show the clear icon after typing 2 characters
+                document.getElementById('clear-icon').style.display = 'block';
+            } else {
+                document.getElementById('clear-icon').style.display = 'none';
+            }
+
+            if (query.length >= 3) { // Start searching after 3 characters
+                $.ajax({
+                    url: 'search_api.php',
+                    type: 'GET',
+                    data: {
+                        search_query: query
+                    },
+                    success: function(response) {
+                        document.getElementById('search-results').innerHTML = response;
+                    }
+                });
+            } else {
+                document.getElementById('search-results').innerHTML = ''; // Clear results if search is too short
+            }
+        }
+    </script>
 </body>
 </html>

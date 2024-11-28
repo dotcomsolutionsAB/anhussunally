@@ -83,6 +83,10 @@ $brandResult = $conn->query($brandQuery);
               <img src="images/logo.png" class="logo" alt="" id="navbar-logo">
             </a>
           </div>
+          <!-- Search bar -->
+          <div class="navbar-header">
+            <?php include("../search_products.php"); ?>
+          </div>
           <!-- End Header Navigation -->
           <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
@@ -124,7 +128,7 @@ $brandResult = $conn->query($brandQuery);
             </ul>
           </div>
           <!-- /.navbar-collapse -->
-          <div class=" search-toggle">
+          <div class="search-toggle">
             <div class="top-search">
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search">

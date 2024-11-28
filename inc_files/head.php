@@ -348,7 +348,7 @@ $brandResult = $conn->query($brandQuery);
     }
 </style>
 
-< class="flex">
+<div class="flex">
     <div class="brand-grid">
       <div class="brand-card"><img src="images/ALFOMEGA.png" alt="Brand 1" class="brand-logo"></div>
       <div class="brand-card"><img src="images/Atos.png" alt="Brand 2" class="brand-logo"></div>
@@ -393,7 +393,7 @@ $brandResult = $conn->query($brandQuery);
       });
     </script>
 
-  <script>
+    <script>
       document.getElementById('search').addEventListener('input', function() {
       const searchQuery = this.value;
           // Only trigger search if the query has at least 3 characters
@@ -433,4 +433,4 @@ $brandResult = $conn->query($brandQuery);
                   });
           }
       });
-  </script>
+    </script>

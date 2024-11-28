@@ -140,8 +140,8 @@ if ($result && $result->num_rows > 0) {
                 $updateFields[] = "name = ?";
                 $updateValues[] = $name;
             }
-            if ($existingProduct['description'] != $description) {
-                $updateFields[] = "description = ?";
+            if ($existingProduct['descriptions'] != $description) {
+                $updateFields[] = "descriptions = ?";
                 $updateValues[] = $description;
             }
             if ($existingProduct['short_description'] != $short_description) {

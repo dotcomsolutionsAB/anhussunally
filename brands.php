@@ -1,10 +1,11 @@
 <?php include("api/db_connection.php"); ?>
-<?php 
+<!-- <?php 
   // Include the configuration file
   include(__DIR__ . '/inc_files/config.php');
-?>
+?> -->
 <?php
-ini_set('display_errors', 1);
+// ini_set('display_errors', 1);
+
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 ini_set('display_errors', 0);

@@ -1,4 +1,4 @@
-<!-- <?php include("../api/db_connection.php"); ?>
+<?php include("api/db_connection.php"); ?>
 
 <?php
 // Establish database connection
@@ -10,7 +10,7 @@ if ($conn->connect_error) {
 // Fetch all brands from the brand table
 $brandQuery = "SELECT id, name FROM brand";
 $brandResult = $conn->query($brandQuery);
-?> -->
+?>
   <style>
     li.dropdown a {
         position: relative;

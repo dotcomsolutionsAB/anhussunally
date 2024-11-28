@@ -128,7 +128,7 @@ $brandResult = $conn->query($brandQuery);
 
       /* Input focus state */
       .search-input-box input:focus {
-          border-color: #ff9800;
+          border-color: #021e40;
       }
 
       /* Focus effect for search icon */
@@ -137,9 +137,9 @@ $brandResult = $conn->query($brandQuery);
       }           
       #search-results {
             margin-top: 10px;
-            max-height: 200px;
+            max-height: 215px;
             /* overflow-y: auto; */
-            width: 30vw;  /* Set the width to 30% of the viewport width */
+            width: 23vw;  /* Set the width to 30% of the viewport width */
         }
 
         .search-result-item {

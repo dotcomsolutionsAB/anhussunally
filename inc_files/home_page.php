@@ -93,7 +93,7 @@ $brandResult = $conn->query($brandQuery);
         .navbar-nav > li > a::after {
             content: "";
             position: absolute;
-            bottom: -5px; /* Adjust distance from the text */
+            bottom: 20px; /* Adjust distance from the text */
             left: 0;
             width: 0;
             height: 2px; /* Thickness of the underline */

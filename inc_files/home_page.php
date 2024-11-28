@@ -44,7 +44,11 @@ $brandResult = $conn->query($brandQuery);
             z-index: 2;
         }
 
-
+        .container{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
         /* Navbar styles */
         .navbar-styled {
             background: none; /* Transparent to show the shared background */
@@ -59,7 +63,7 @@ $brandResult = $conn->query($brandQuery);
         }
         header nav.navbar.bootsnav ul.nav > li > a {
             color: #fff;
-            padding-bottom: 2px;
+            /* padding-bottom: 2px; */
             padding-left: 0px;
             font-weight: 600;
             font-size: 14px;
@@ -113,7 +117,9 @@ $brandResult = $conn->query($brandQuery);
         .navbar-styled.scrolled .navbar-brand {
             color: #fff !important;
         }
-
+        li.dropdown a::after {
+            bottom: 20px !important;
+        }
         /* Flex Section */
         .top-section {
             display: grid;
@@ -124,7 +130,7 @@ $brandResult = $conn->query($brandQuery);
             padding: 40px;
             z-index: 1;
         }
-
+        
         /* Brand Grid Styles */
         .brand-grid {
             display: grid;

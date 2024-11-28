@@ -186,14 +186,14 @@ $brandResult = $conn->query($brandQuery);
           <!-- Search bar -->
           <div class="navbar-header">
             <div class="search-input-box">
-              <input type="text" class="border border-soft-light form-control fs-14 hov-animate-outline" id="search" name="keyword" placeholder="I am shopping for..." autocomplete="off">
+              <input type="text" class="border border-soft-light form-control fs-14 hov-animate-outline" id="search" name="keyword" placeholder="Search Product name or SKU" autocomplete="off">
               <svg id="Group_723" data-name="Group 723" xmlns="http://www.w3.org/2000/svg" width="20.001" height="20" viewBox="0 0 20.001 20">
                   <path id="Path_3090" data-name="Path 3090" d="M9.847,17.839a7.993,7.993,0,1,1,7.993-7.993A8,8,0,0,1,9.847,17.839Zm0-14.387a6.394,6.394,0,1,0,6.394,6.394A6.4,6.4,0,0,0,9.847,3.453Z" transform="translate(-1.854 -1.854)" fill="#b5b5bf"></path>
                   <path id="Path_3091" data-name="Path 3091" d="M24.4,25.2a.8.8,0,0,1-.565-.234l-6.15-6.15a.8.8,0,0,1,1.13-1.13l6.15,6.15A.8.8,0,0,1,24.4,25.2Z" transform="translate(-5.2 -5.2)" fill="#b5b5bf"></path>
               </svg>
 
               <!-- Clear Icon -->
-              <svg class="clear-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+              <svg class="clear-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" style="display:none;">
                   <path d="M7 0C3.141 0 0 3.141 0 7s3.141 7 7 7 7-3.141 7-7-3.141-7-7-7zM7 13C3.686 13 1 10.314 1 7S3.686 1 7 1s6 3.686 6 6-3.686 6-6 6z"/>
                   <path d="M9.293 4.707l-2.586 2.586-2.586-2.586-1.414 1.414 2.586 2.586-2.586 2.586 1.414 1.414 2.586-2.586 2.586 2.586 1.414-1.414-2.586-2.586 2.586-2.586z"/>
               </svg>
@@ -295,7 +295,7 @@ $brandResult = $conn->query($brandQuery);
                               resultItem.innerHTML = `
                                   <img src="${product.image_url}" alt="${product.name}" width="50" height="50">
                                   <p><strong>${product.name}</strong></p>
-                                  <p>SKU: ${product.sku}</p>
+                                  
 
                               `;
                               

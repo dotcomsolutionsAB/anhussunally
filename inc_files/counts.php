@@ -127,6 +127,9 @@
     width: 40%; /* Adjust width for mobile (1 item per row) */
     margin: 10px 0;
   }
+  .stats-section {
+    flex-wrap: wrap;
+  }
 
 }
 

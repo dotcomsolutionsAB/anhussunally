@@ -41,7 +41,7 @@
           </div>
 
           <div class="col-md-4 col-sm-12">
-            <div class="footer_panel content_space" style="margin-left: 38px;">
+            <div class="footer_panel1 content_space" >
               <h4 class="heading_border heading_space">Quick Links
               </h4>
               <ul class="account_foot">
@@ -182,7 +182,7 @@
       /* align-items: center; */
       text-align: justify;
     }
-    .footer_panel{
+    .footer_panel1{
       margin-left: 0px;
     }
     .content_space {
@@ -191,7 +191,7 @@
     .padding_top {
       padding-top: 90px;
     } 
-    
+
     .bottom_half {
       margin-top: 20px;
       padding-bottom: 45px;

@@ -171,16 +171,16 @@ $brandResult = $conn->query($brandQuery);
 
 <!-- Responsive header for mobile  -->
 <style>
+  
   @media (max-width: 480px) {
+    
     nav.navbar.bootsnav .navbar-toggle {
         color: #000;
     }
-
     nav.navbar.bootsnav .navbar-brand {
         padding-top: 35px;
         padding-bottom: 0px;
     }
-
     #search-results {
         margin-top: 5px;
         margin-left: 32px;
@@ -188,31 +188,28 @@ $brandResult = $conn->query($brandQuery);
         /* overflow-y: auto; */
         width: 295px;
         background: #000;
-
     }
-
     .search-input-box{
       padding-left: 24px;
       width: 340px;
     }
-
     .header nav.navbar.bootsnav ul.nav > li > a, nav.navbar.bootsnav ul.dropdown-menu.megamenu-content .content ul.menu-col li a, nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li > a{
       border-color: #363636 !important; 
-            color: #000 !important;
+      color: #000 !important;
     }
-nav.bootsnav .container {
-  display: block;
-  }
-  nav.navbar.bootsnav .navbar-toggle {
-    font-size: 26px;
-  }
-  nav.navbar.bootsnav .navbar-header{
-    width: 100%;
-  }
-
-  }
-  .navbar-header{
-    
+    nav.bootsnav .container {
+    display: block;
+    }
+    nav.navbar.bootsnav .navbar-toggle {
+      font-size: 26px;
+    }
+    nav.navbar.bootsnav .navbar-header{
+      width: 100%;
+    }
+    .navbar-header{
+      margin-top:0px !important;
+	  padding-bottom: 10px !important;
+    }
   }
 </style>
 

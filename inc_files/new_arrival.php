@@ -1,22 +1,18 @@
 <style>
-    .owl-theme .owl-controls {
-        display: none !important;
-    }
-    .owl-item {
-        /* width: 293px !important; */
-    }
-    .product_wrap .product_desc {
-        padding: 5px 5px 5px 5px;
-        font-size:16px;
-    }
-    .heading_space{
-        font-family:'Oswald';   
-    }
+    .product_wrap, .image, .image > img {
+    position: relative;
+    display: flex
+;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 </style>
 
-<!--NEW ARRIVALS-->
+<!-- NEW ARRIVALS Section -->
 <section id="arrivals" class="padding">
-<?php
+    <?php
     // Define the specific brand IDs
     $brandIds = [1, 4];
 
@@ -35,50 +31,20 @@
         // Fetch 10 random products for the current brand
         $productQuery = "SELECT * FROM products WHERE brand_id = $brandId ORDER BY RAND() LIMIT 10";
         $productResult = $conn->query($productQuery);
-?> 
-    <div class="container" style="">
+    ?>
+    <div class="container">
         <div class="row">
-            <div class="col-md-12 text-center" style="display: flex; justify-content: flex-start; ">
-                <h2 style="text-align: left;" class="heading_space uppercase">
+            <div class="col-md-12 text-center" style="display: flex; justify-content: flex-start;">
+                <h2 class="heading_space uppercase">
                     <?php echo htmlspecialchars($brandName); ?> 
                 </h2>
             </div>
         </div>
-        <style>
-            .stylish-linka {
-                display: flex;
-                width: 120px;
-                border-radius: 15px;
-                text-align: center;
-                background-color: #3ab6e9;
-                color: #ffffff;
-                text-decoration: none;
-                padding: 12px 20px;
-                font-size: 13px;
-                font-weight: bold;
-                text-transform: uppercase; /* Uppercase text */
-                letter-spacing: 1px; /* Slightly spaced letters */
-                border: 2px solid transparent; /* Add a border for hover effect */
-                cursor: pointer; /* Pointer cursor on hover */
-                transition: all 0.3s ease; /* Smooth transition for all properties */
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-            }
 
-            .stylish-linka:hover {
-                /* background-color: #309ec7; */
-                color: #f0f0f0;
-                /* border: 2px solid #ffffff; */
-                /* transform: translateY(-3px); */
-                /* box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); */
-                /* color: #23527c; */
-                text-decoration: none;
-            }
-        </style>
         <div class="row">
-        <div class="slider-wrapper">
-            <!-- <button class="prev-btn" data-target="fourCol-slider-<?php echo $brandId; ?>"><i class="fa fa-chevron-left"></i></button> -->
-            <div id="fourCol-slider-<?php echo $brandId; ?>" class="owl-carousel" >
-                <?php
+            <div class="slider-wrapper">
+                <div id="fourCol-slider-<?php echo $brandId; ?>" class="owl-carousel owl-theme">
+                    <?php
                     if ($productResult && $productResult->num_rows > 0):
                         while ($product = $productResult->fetch_assoc()):
                             // Initialize the image link
@@ -100,46 +66,169 @@
                                     }
                                 }
                             }
-                ?>
-                    <!-- HTML structure for each product -->
-                    <div class="item" style="padding:15px; width:280px;" style="">
-                        <div class="product_wrap">
-                            <div class="image">
-                                <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
-                                    <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="display: block; width: 14vw; padding: 1vw; margin: 1vw;" class="img-responsive">
-                                </a>
-                            </div>
-                            <div class="product_desc" style="height: 8vh; display: flex;justify-content: center; text-align: center;">
-                                <p>
-                                    <?php $productName = htmlspecialchars($product['name']);
-                                    $words = explode(' ', $productName);
-                                    if (count($words) > 3) {
-                                        echo htmlspecialchars(implode(' ', array_slice($words, 0, 5))) . '...';
-                                    } else {
-                                        echo $productName;
-                                    } ?> 
-                                </p>
-                            </div>
-                            <div class="btn" style="display: flex; justify-content: center; padding-bottom: 15px;">
-                                <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="stylish-linka" style="padding: 8px 15px;">Read More</a>
+                    ?>
+                        <div class="item" style="padding: 15px;">
+                            <div class="product_wrap">
+                                <div class="image">
+                                    <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
+                                        <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="img-responsive product-image">
+                                    </a>
+                                </div>
+                                <div class="product_desc">
+                                    <p>
+                                        <?php 
+                                        $productName = htmlspecialchars($product['name']);
+                                        $words = explode(' ', $productName);
+                                        if (count($words) > 3) {
+                                            echo htmlspecialchars(implode(' ', array_slice($words, 0, 5))) . '...';
+                                        } else {
+                                            echo $productName;
+                                        } ?> 
+                                    </p>
+                                </div>
+                                <div class="btn">
+                                    <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="stylish-linka">Read More</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     <?php
                         endwhile;
                     else:
                         echo "<p>No products found for this brand.</p>";
                     endif;
                     ?>          
+                </div>
             </div>
-            <!-- <button class="next-btn" data-target="fourCol-slider-<?php echo $brandId; ?>"><i class="fa fa-chevron-right"></i></button> -->
-        </div>
         </div>
     </div>
     <?php endforeach; ?>
 
     <?php $conn->close(); ?>
-  </section>
+</section>
+
+<style>
+    .owl-theme .owl-controls {
+        display: none !important;
+    }
+
+    .product_wrap .product_desc {
+        padding: 5px 5px;
+        font-size: 16px;
+    }
+
+    .heading_space {
+        font-family: 'Oswald';   
+    }
+
+    /* Stylish Button */
+    .stylish-linka {
+        display: flex;
+        width: 120px;
+        border-radius: 15px;
+        text-align: center;
+        background-color: #3ab6e9;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 12px 20px;
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .stylish-linka:hover {
+        color: #f0f0f0;
+        text-decoration: none;
+    }
+
+    /* Product Image */
+    .product-image {
+        display: block;
+        width: 100%;
+        padding: 1vw;
+        margin: 1vw;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+        .owl-carousel .item {
+            width: 45% !important;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .owl-carousel .item {
+            width: 48% !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .owl-carousel .item {
+            width: 100% !important;
+            margin-bottom: 15px;
+        }
+
+        .product-image {
+            width: 100% !important;
+            height: auto;
+        }
+
+        .product_desc p {
+            font-size: 14px;
+        }
+
+        .stylish-linka {
+            font-size: 12px;
+            width: 100%;
+        }
+
+        .heading_space {
+            font-size: 22px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .product_desc p {
+            font-size: 12px;
+        }
+
+        .stylish-linka {
+            font-size: 10px;
+            padding: 10px;
+        }
+    }
+</style>
+
+<!-- Owl Carousel JS Initialization (jQuery) -->
+<script>
+    $(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            autoplay: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 3
+                },
+                1200: {
+                    items: 4
+                }
+            }
+        });
+    });
+</script>
+
 
 <!-- Owl Carousel Scripts -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -218,3 +307,4 @@
         });
     });
 </script>
+

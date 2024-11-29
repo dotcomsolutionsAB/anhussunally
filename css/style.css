@@ -1117,7 +1117,10 @@ header.right-menu .side .widget ul.link li a:focus, header.right-menu .side .wid
 	border-color:#79b6c8;
 	color:#fff;
 }
-.image{ overflow:hidden;}
+.image{ 
+	overflow:hidden;
+	margin: 18px;
+}
 .image img{
 	display:block;
 	width:100%;

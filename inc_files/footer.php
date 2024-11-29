@@ -1,4 +1,4 @@
-    <footer class="bottom_half" style="margin-top:20px;">
+    <footer class="bottom_half" style="padding-top:20px;">
       <a href="#." class="go-top text-center" style="display: none;">
         <i class="fa fa-angle-double-up">  </i>
       </a>
@@ -41,7 +41,7 @@
           </div>
 
           <div class="col-md-4 col-sm-12">
-            <div class="footer_panel1 content_space" >
+            <div class="footer_panel content_space" >
               <h4 class="heading_border heading_space">Quick Links
               </h4>
               <ul class="account_foot">
@@ -182,7 +182,7 @@
       /* align-items: center; */
       text-align: justify;
     }
-    .footer_panel1{
+    .footer_panel{
       margin-left: 0px;
     }
     .content_space {

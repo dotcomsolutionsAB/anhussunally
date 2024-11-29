@@ -177,6 +177,21 @@
         height: 120px;
         }
     }
+    @media (max-width: 480px) {
+      .brand-card {
+          height: 70px;
+          width: 100px;
+      }
+
+      .brand-logo {
+          max-width: 100%;
+      }
+      .brand-grid {
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 10px;
+          padding: 10px;
+      }
+    }
   </style>
 
 <div class="flex">
@@ -207,6 +222,7 @@
       <div class="brand-card"><img src="images/WALVOIL.png" alt="Brand 24" class="brand-logo"></div>
     </div>
 </div>
+
   <?php include("inc_files/home_about.php"); ?>
   <?php include("inc_files/counts.php"); ?>
   <?php include("inc_files/new_arrival.php"); ?>

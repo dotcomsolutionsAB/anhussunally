@@ -169,9 +169,56 @@ $brandResult = $conn->query($brandQuery);
 
 </style>
 
-    <header>
+<!-- Responsive header for mobile  -->
+<style>
+  @media (max-width: 480px) {
+    nav.navbar.bootsnav .navbar-toggle {
+        color: #000;
+    }
+
+    nav.navbar.bootsnav .navbar-brand {
+        padding-top: 35px;
+        padding-bottom: 0px;
+    }
+
+    #search-results {
+        margin-top: 5px;
+        margin-left: 32px;
+        max-height: 215px;
+        /* overflow-y: auto; */
+        width: 295px;
+        background: #000;
+
+    }
+
+    .search-input-box{
+      padding-left: 24px;
+      width: 340px;
+    }
+
+    .header nav.navbar.bootsnav ul.nav > li > a, nav.navbar.bootsnav ul.dropdown-menu.megamenu-content .content ul.menu-col li a, nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li > a{
+      border-color: #363636 !important; 
+            color: #000 !important;
+    }
+nav.bootsnav .container {
+  display: block;
+  }
+  nav.navbar.bootsnav .navbar-toggle {
+    font-size: 26px;
+  }
+  nav.navbar.bootsnav .navbar-header{
+    width: 100%;
+  }
+
+  }
+  .navbar-header{
+    
+  }
+</style>
+
+<header>
       <nav class="navbar navbar-default navbar-sticky bootsnav">
-        <div class="container" style="display:flex; justify-content:space-around; align-items:center;">
+        <div class="container">
           <!-- Start Header Navigation -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
@@ -184,7 +231,7 @@ $brandResult = $conn->query($brandQuery);
           </div>
 
           <!-- Search bar -->
-          <div class="navbar-header">
+          <div class="navbar-header" style="margin-top: 18px;">
             <div class="search-input-box">
               <input type="text" class="border border-soft-light form-control fs-14 hov-animate-outline" id="search" name="keyword" placeholder="Search Product name or SKU" autocomplete="off">
               <svg id="Group_723" data-name="Group 723" xmlns="http://www.w3.org/2000/svg" width="20.001" height="20" viewBox="0 0 20.001 20">
@@ -263,7 +310,7 @@ $brandResult = $conn->query($brandQuery);
       </nav>
     </header>
 
-    <script>
+    <!-- <script>
       document.addEventListener('scroll', function() {
           //console.log('Scroll position:', window.scrollY);
           const navbar = document.querySelector('.navbar-default');
@@ -278,7 +325,7 @@ $brandResult = $conn->query($brandQuery);
               logo.src = 'images/logo.png';
           }
       });
-    </script>
+    </script> -->
 
   <script>
       document.getElementById('search').addEventListener('input', function() {

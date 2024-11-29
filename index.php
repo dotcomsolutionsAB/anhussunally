@@ -130,9 +130,13 @@
           max-width: 100%;
       }
       .brand-grid {
-          grid-template-columns: 1fr 1fr 1fr;
-          gap: 10px;
-          padding: 10px;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 15px;
+        padding: 25px;
+        width: 100%;
+      }
+      .flex {
+          height: 95vh !important;
       }
     }
   </style>

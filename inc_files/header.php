@@ -231,7 +231,7 @@ nav.bootsnav .container {
           </div>
 
           <!-- Search bar -->
-          <div class="navbar-header" style="margin-top: 18px;">
+          <div class="navbar-header search" style="margin-top: 18px;">
             <div class="search-input-box">
               <input type="text" class="border border-soft-light form-control fs-14 hov-animate-outline" id="search" name="keyword" placeholder="Search Product name or SKU" autocomplete="off">
               <svg id="Group_723" data-name="Group 723" xmlns="http://www.w3.org/2000/svg" width="20.001" height="20" viewBox="0 0 20.001 20">

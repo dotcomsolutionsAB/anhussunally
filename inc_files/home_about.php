@@ -186,6 +186,7 @@
     .testimonial-text {
         padding: 10px;
         text-align: justify;
+        margin-bottom: 25px;
     }
 
     .testimonial-text h2 {
@@ -203,12 +204,12 @@
 
     .testimonial-image {
         width: 100vw; /* Full width */
-        height: 50vh; /* 50% of viewport height */
+        height: 65vh; /* 50% of viewport height */
     }
 
     .testimonial-image img {
         width: 100%;
-        height: 100%;
+        height: 45vh;
         object-fit: cover;
         transform: scale(1.1); /* Zoom effect */
     }

@@ -2475,7 +2475,7 @@ footer.plain_footer{
  nav.navbar.bootsnav ul.dropdown-menu.megamenu-content .content ul.menu-col li a, 
  nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li > a{
 	 border-color: #363636 !important;
-	 color:#fff;
+	 color:#000;
   }
   nav.navbar.bootsnav ul.nav li.dropdown ul.dropdown-menu > li > a{
 	 border-color: #363636;

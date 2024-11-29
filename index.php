@@ -30,8 +30,6 @@
 </head>
 
 <body>
-  <!--Loader-->
-  <!-- <?php include("inc_files/loader.php"); ?> -->
   <!--HEADER-->
   <?php include("inc_files/header.php"); ?>
   <style>
@@ -171,9 +169,6 @@
   <?php include("inc_files/home_about.php"); ?>
   <?php include("inc_files/counts.php"); ?>
   <?php include("inc_files/new_arrival.php"); ?>
-    <div id="rev_slider" class="rev_slider" data-version="5.0">
-
-   
     <!--About-->
     <style>
         * {

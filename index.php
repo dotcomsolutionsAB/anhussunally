@@ -32,61 +32,6 @@
 <body>
   <!--Loader-->
   <!-- <?php include("inc_files/loader.php"); ?> -->
-  <!--TOPBAR-->
-  <!-- <div class="topbar">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="header-top-entry">
-              <div class="title">
-                ENGLISH
-                <i class="fa fa-angle-down">
-                </i>
-              </div>
-              <div class="list">
-                <a class="list-entry" href="#.">English
-                </a>
-                <a class="list-entry" href="#.">Spanish
-                </a>
-              </div>
-            </div>
-            <div class="header-top-entry">
-              <div class="title">
-                USD
-                <i class="fa fa-angle-down">
-                </i>
-              </div>
-              <div class="list">
-                <a class="list-entry" href="#.">$ CAD
-                </a>
-                <a class="list-entry" href="#.">€ EUR
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-8">
-            <ul class="top_link">
-              <li>
-                <a href="#." class="uppercase">My Account
-                </a>
-              </li>
-              <li>
-                <a href="#." class="uppercase">wishlish
-                </a>
-              </li>
-              <li>
-                <a href="#." class="uppercase">checkout
-                </a>
-              </li>
-              <li>
-                <a href="#." class="uppercase">login
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div> -->
   <!--HEADER-->
   <?php include("inc_files/header.php"); ?>
   <style>
@@ -435,68 +380,6 @@
         </div>
       </div>
     </section>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <h2 class="heading_space uppercase">from our blog
-            </h2>
-            <p class="bottom_half">Claritas est etiam processus dynamicus, qui sequitur
-            </p>
-          </div>
-          <div class="col-md-6">
-            <div class="media blog_box">
-              <div class="media-left">
-                <a href="blog_post.php">
-                  <img class="media-object" src="images/blog1.jpg" alt="...">
-                </a>
-              </div>
-              <div class="media-body">
-                <h2 class="media-heading uppercase bottom30">27
-                  <sub>/ april
-                  </sub>
-                </h2>
-                <h5 class="uppercase bottom30">
-                  <a href="blog_post.php">Claritas est etiam processus 
-                    <br>dynamicus.
-                  </a>
-                </h5>
-                <p class="bottom30">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum...
-                </p>
-                <a href="blog_post.php" class="readmor uppercase">read more 
-                  <i class="fa fa-angle-double-right">
-                  </i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="media blog_box">
-              <div class="media-left">
-                <a href="blog_post.php">
-                  <img class="media-object" src="images/blog2.jpg" alt="...">
-                </a>
-              </div>
-              <div class="media-body">
-                <h2 class="media-heading uppercase bottom30">27
-                  <sub>/ april
-                  </sub>
-                </h2>
-                <h5 class="uppercase bottom30">
-                  <a href="blog_post.php">Claritas est etiam processus 
-                    <br>dynamicus.
-                  </a>
-                </h5>
-                <p class="bottom30">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum...
-                </p>
-                <a href="blog_post.php" class="readmor uppercase">read more 
-                  <i class="fa fa-angle-double-right">
-                  </i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
   <!--Footer-->
 

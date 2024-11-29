@@ -172,6 +172,31 @@
     </a>
 </div>
 
-
+<style>
+  @media (max-width: 480px) {
+    .row {
+      gap: 5vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      /* align-items: center; */
+      text-align: justify;
+    }
+    .footer_panel{
+      margin-left: 0px;
+    }
+    .content_space {
+      margin-bottom: 0px;
+    }
+    .padding_top {
+      padding-top: 90px;
+    } 
+    
+    .bottom_half {
+      margin-top: 20px;
+      padding-bottom: 45px;
+    }
+  }
+</style>
 
 

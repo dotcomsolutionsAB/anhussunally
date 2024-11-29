@@ -217,7 +217,7 @@ $brandResult = $conn->query($brandQuery);
   }
 </style>
 
-<header>
+    <header>
       <nav class="navbar navbar-default navbar-sticky bootsnav">
         <div class="container">
           <!-- Start Header Navigation -->

@@ -196,6 +196,10 @@
       margin-top: 20px;
       padding-bottom: 45px;
     }
+    .copyright p {
+    /* font-size: 14px; */
+      margin: 0px;
+    }
   }
 </style>
 

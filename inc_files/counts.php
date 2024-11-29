@@ -129,6 +129,7 @@
   }
   .stats-section {
     flex-wrap: wrap;
+    flex-direction: row;
   }
 
 }

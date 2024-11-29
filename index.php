@@ -256,7 +256,7 @@
             }
         }
     </style>
-    </section>
+
 
   <!--Footer-->
 

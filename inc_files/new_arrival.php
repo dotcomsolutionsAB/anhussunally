@@ -1,8 +1,7 @@
 <style>
     .product_wrap, .image, .image > img {
     position: relative;
-    display: flex
-;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -199,6 +198,12 @@
         .stylish-linka {
             font-size: 10px;
             padding: 10px;
+        }
+        .owl-carousel .owl-wrapper-outer {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 65vh;
         }
     }
 </style>

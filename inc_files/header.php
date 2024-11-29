@@ -208,7 +208,7 @@ $brandResult = $conn->query($brandQuery);
     }
     .navbar-header{
       margin-top:0px !important;
-	  padding-bottom: 10px !important;
+	    padding-bottom: 10px !important;
     }
   }
 </style>
@@ -273,19 +273,19 @@ $brandResult = $conn->query($brandQuery);
                 </li> -->
 
               
-              <li class="dropdown" >
+              <li class="dropdown active" >
                 <a href="about_us.php" style="font-weight: bolder;">About Us
                 </a>
               </li>
-              <li class="dropdown">
+              <li class="dropdown active">
                 <a href="all_brands.php" style="font-weight: bolder;">Brands
                 </a>
               </li>
-              <li class="dropdown" >
+              <li class="dropdown active" >
                 <a href="#" style="font-weight: bolder;">Certificates
                 </a>
               </li>
-              <li class="dropdown">
+              <li class="dropdown active">
                 <a href="contact_us.php" style="font-weight: bolder;">Contact us
                 </a>
               </li>

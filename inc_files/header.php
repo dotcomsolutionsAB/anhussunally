@@ -194,7 +194,7 @@ $brandResult = $conn->query($brandQuery);
       width: 340px;
     }
     .header nav.navbar.bootsnav ul.nav > li > a, nav.navbar.bootsnav ul.dropdown-menu.megamenu-content .content ul.menu-col li a, nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li > a{
-      border-color: #363636 !important; 
+      border-color: #eee !important; 
       color: #000 !important;
     }
     nav.bootsnav .container {
@@ -209,6 +209,10 @@ $brandResult = $conn->query($brandQuery);
     .navbar-header{
       margin-top:0px !important;
 	    padding-bottom: 10px !important;
+    }
+
+    li.dropdown a::after {
+    bottom: 6px !important;
     }
   }
 </style>

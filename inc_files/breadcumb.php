@@ -63,93 +63,102 @@ if (!empty($dynamic_label) && $dynamic_label === $current_breadcrumb['label']) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <title>Breadcrumb Example</title> -->
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* General Styling */
-        /* Page Header Section */
-        .page_header {
-            background-color: #f4f4f4;
-            padding: 20px 0;
-            border-bottom: 1px solid #ddd;
-        }
+<style>
+    /* General Styling */
+    /* Page Header Section */
+    .random-header {
+        background-image: url('https://anh.ongoingwp.xyz/images/page-header.jpg');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        padding: 20px 0;
+        border-bottom: 1px solid #ddd;
+    }
 
-        .page_header .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
+    /* Overlay */
+    .random-header::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+        z-index: 1;
+    }
 
-        .page_header .header_content {
-            text-align: center;
-        }
+    .random-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        position: relative;
+        z-index: 2;
+    }
 
-        .page_header h1 {
-            font-size: 28px;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            color: #333;
-        }
+    .random-header-content {
+        text-align: center;
+    }
 
-        .page_header p {
-            font-size: 14px;
-            color: #666;
-        }
+    .random-header h1 {
+        font-size: 28px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        color: #fff;
+    }
 
-        .page_header a {
-            text-decoration: none;
-            color: #007bff;
-            transition: color 0.3s ease;
-        }
+    .random-header p {
+        font-size: 14px;
+        color: #fff;
+    }
 
-        .page_header a:hover {
-            color: #0056b3;
-        }
+    .random-header a {
+        text-decoration: none;
+        color: #007bff;
+        transition: color 0.3s ease;
+    }
 
-        /* Breadcrumb Styling */
-        .page_header p a {
-            margin: 0 5px;
-            font-weight: bold;
-        }
+    .random-header a:hover {
+        color: #0056b3;
+    }
 
-        .page_header p a:last-child {
-            color: #333;
-            pointer-events: none;
-            font-weight: normal;
-        }
-        .uppercase a{
-            color:#fff !important;
-        }
-        .bread a{
-            color:#ccc !important;
-        }
-        .row{
-            display: flex; 
+    /* Breadcrumb Styling */
+    .random-header p a {
+        margin: 0 5px;
+        font-weight: bold;
+    }
+
+    .random-header p a:last-child {
+        color: #fff;
+        pointer-events: none;
+        font-weight: normal;
+    }
+    .random-uppercase a {
+        color: #fff !important;
+    }
+    .random-bread a {
+        color: #ccc !important;
+    }
+    .random-row {
+        display: flex;
+        justify-content: center;
+    }
+    @media (max-width: 480px) {
+        .random-row {
+            gap: 5vw;
+            display: flex;
+            flex-direction: row;
             justify-content: center;
+            align-items: center;
+            text-align: justify;
         }
-        @media (max-width: 480px) {
-            .row {
-                gap: 5vw;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                text-align: justify;
-            }
-        }
-    </style>
-</head>
-<body>
+    }
+</style>
+
 <section class="page_header padding">
     <div class="container">
         <div class="header_content padding">
-            <div class="row" style="">
+            <div class="row" style="display: flex; justify-content: center; align-items: center;">
                 <div class="col-md-12 text-center" style="width: max-content; display: flex; justify-content:center; align-items: center; flex-direction: column;">
                     <h1 class="uppercase">
                         <?php if (!empty($dynamic_label)): ?>
@@ -170,5 +179,4 @@ if (!empty($dynamic_label) && $dynamic_label === $current_breadcrumb['label']) {
         </div>
     </div>
 </section>
-</body>
-</html>
+

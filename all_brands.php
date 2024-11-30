@@ -120,9 +120,6 @@ if ($result->num_rows > 0):
                     <?php endif; ?>
                     <h3><?= htmlspecialchars($brand['name']); ?></h3>
                     <p><strong>Specifications:</strong> <?= !empty($brand['specifications']) ? htmlspecialchars($brand['specifications']) : 'N/A'; ?></p>
-                    <p><strong>Extension:</strong> <?= !empty($brand['extension']) ? htmlspecialchars($brand['extension']) : 'N/A'; ?></p>
-                    <p><strong>Created At:</strong> <?= date('Y-m-d', strtotime($brand['created_at'])); ?></p>
-                    <p><strong>Updated At:</strong> <?= date('Y-m-d', strtotime($brand['updated_at'])); ?></p>
                 </div>
                 <?php endwhile; ?>
             </div>

@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 0);
 // Include the database connection file
 include(__DIR__ . '/../api/db_connection.php');
 

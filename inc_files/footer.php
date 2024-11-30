@@ -1,3 +1,4 @@
+<?php  ini_set('display_errors', 0); ?>    
     <footer class="bottom_half" style="padding-top:20px;">
       <a href="#." class="go-top text-center" style="display: none;">
         <i class="fa fa-angle-double-up">  </i>
@@ -66,7 +67,7 @@
 
     <div  class="copyright">
       <div style="text-align: center;" class="container">
-        <div class="row"style="display: flex; justify-content: center;">
+        <div class="row" >
           <div class="col-sm-4">
             <p style="color: #fff;">Copyright &copy; 2024 
               <a href="#.">A N Hussunally & Co
@@ -163,7 +164,7 @@
 </style>
 <?php
   // footer.php
-  include(__DIR__ . './404.php');
+  // include(__DIR__ . './404.php');
 ?>
 <!-- Sticky Buttons -->
 <div class="sticky-buttons">

@@ -62,7 +62,7 @@ if ($result->num_rows > 0):
 
         .brand-card img {
             max-width: 100%;
-            height: auto;
+            height: 5em;
             margin-bottom: 10px;
             border-radius: 4px;
         }

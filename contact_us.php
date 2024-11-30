@@ -82,7 +82,7 @@
   <?php include("inc_files/header.php");?>
 
   <!-- Breadcumb -->
-  <?php include("inc_files/breadcumb.php"); ?>
+  <!-- <?php include("inc_files/breadcumb.php"); ?> -->
 
   <!--Contact Us-->
   <section id="contact" class="padding_top">

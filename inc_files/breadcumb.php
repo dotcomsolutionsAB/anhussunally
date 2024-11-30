@@ -75,9 +75,22 @@
                             <a href="#"><?php echo $current_breadcrumb['label']; ?></a>
                         <?php endif; ?>
                     </h1>
-                    <p class="custom-bread">
+                    <p>
                         <a href="<?php echo $breadcrumb_mapping['index']['link']; ?>">Home</a> /
-                        <a href="<?php echo $current_breadcrumb['link']; ?>"><?php echo $current_breadcrumb['label']; ?></a>
+                        <?php if($current_breadcrumb['label']=="Brand"){ ?>
+                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;"><?php echo $current_breadcrumb['label']; ?></a>
+                        
+                            <?php }else if($current_breadcrumb['label']=="Products"){ ?>
+                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;"><?php echo $current_breadcrumb['label']; ?></a>
+                        
+                            <?php }else if($current_breadcrumb['label']=="Categories"){ ?>
+                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;"><?php echo $current_breadcrumb['label']; ?></a>
+                        
+                            <?php }else{ ?>
+                            <a href="<?php echo $current_breadcrumb['link']; ?>"><?php echo $current_breadcrumb['label']; ?></a>
+                        
+                            <?php } ?>
+
                         <?php if (!empty($dynamic_label)): ?>
                             <a href="#"><?php echo $dynamic_label; ?></a>
                         <?php endif; ?>
@@ -210,11 +223,11 @@
 		}
 
 		.custom-header a {
-			font-size: 10px;
+			font-size: 15px;
 		}
 
 		.custom-bread a {
-			font-size: 10px;
+			font-size: 14px;
 		}
 
 		.custom-uppercase a {

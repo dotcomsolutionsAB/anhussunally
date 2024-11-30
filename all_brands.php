@@ -100,7 +100,6 @@ if ($result->num_rows > 0):
 </head>
 
 <body>
-
     <!-- Loader -->
     <!-- <?php include("inc_files/loader.php"); ?> -->
     <!-- HEADER -->
@@ -116,6 +115,8 @@ if ($result->num_rows > 0):
                 <div class="brand-card">
                     <?php if (!empty($brand['logo'])): ?>
                         <img src="uploads/assets/logos/<?= htmlspecialchars($brand['logo'].".".$brand['extension']); ?>" alt="<?= htmlspecialchars($brand['name']); ?>" />
+                        <?php else: ?>
+                        <img src="images/default.png" alt="<?= htmlspecialchars($brand['name']); ?>" />
                     <?php endif; ?>
                     <h3><?= htmlspecialchars($brand['name']); ?></h3>
                     <p><strong>Specifications:</strong> <?= !empty($brand['specifications']) ? htmlspecialchars($brand['specifications']) : 'N/A'; ?></p>
@@ -127,7 +128,11 @@ if ($result->num_rows > 0):
             </div>
         </div>
     </section>
-
+<?php
+    else:
+         echo "<p>No brands found in the database.</p>";
+    endif;
+?>
     <!-- Footer -->
     <?php include("inc_files/footer.php"); ?>
 
@@ -156,10 +161,6 @@ if ($result->num_rows > 0):
 </html>
 
 <?php
-    else:
-        echo "<p>No brands found in the database.</p>";
-    endif;
-
     // Close the database connection
     $conn->close();
 ?>

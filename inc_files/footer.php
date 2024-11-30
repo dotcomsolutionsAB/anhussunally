@@ -163,7 +163,7 @@
 </style>
 <?php
   // footer.php
-  include(__DIR__ . '404.php');
+  include(__DIR__ . './404.php');
 ?>
 <!-- Sticky Buttons -->
 <div class="sticky-buttons">

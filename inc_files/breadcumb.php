@@ -99,6 +99,9 @@
 		border-bottom: 1px solid #ddd;
 		width: 100%; /* Ensures full width */
 		height: 300px; /* Set height or adjust as needed */
+        display: flex;
+        justify-content: center;
+        align-items: center;
 	}
 
 	/* Overlay */

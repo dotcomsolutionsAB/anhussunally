@@ -109,13 +109,18 @@ $relatedProductsResult = $stmt->get_result();
               <div class="cbp-caption">
                 <?php if (!empty($images)): ?>
                   <?php foreach ($images as $index => $imageLink): ?>
-                    <div class="cbp-caption-defaultWrap <?php echo $index === 0 ? 'cbp-pagination-active' : ''; ?>">
-                      <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="">
+                    <div class="cbp-caption-defaultWrap <?php echo $index === 0 ? 'cbp-pagination-active' : ''; ?>" style="display: flex; justify-content: center; align-items: center; margin: 15px;">
+                      <?php if($imageLink){?>
+                        <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($imageLink); ?>">
+                      <?php }else{ ?>
+                        <img src="images/default.png" alt="default">
+                      <?php } ?>
+                      
                     </div>
                   <?php endforeach; ?>
                 <?php else: ?>
                   <div class="cbp-caption-defaultWrap">
-                      <img src="images/default.png" alt="">
+                      <img src="images/default.png" alt="default">
                     </div>
                 <?php endif; ?>
               </div>

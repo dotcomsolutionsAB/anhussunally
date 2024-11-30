@@ -1,15 +1,16 @@
-<?php include("api/db_connection.php"); ?>
-<!-- <?php 
+
+<?php 
   // Include the configuration file
-  include(__DIR__ . '/inc_files/config.php');
-?> -->
+//   include(__DIR__ . '/inc_files/config.php');
+?>
 <?php
-// ini_set('display_errors', 1);
+ini_set('display_errors', 1);
 
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-ini_set('display_errors', 0);
+// ini_set('display_errors', 0);
 
+include("api/db_connection.php");
 // Establish database connection
 $conn = mysqli_connect($host, $username, $password, $dbname);
 if ($conn->connect_error) {
@@ -20,13 +21,13 @@ if ($conn->connect_error) {
 $brandId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // Fetch brand details
-$brandQuery = "SELECT name, description,logo,extension FROM brand WHERE id = $brandId";
+$brandQuery = "SELECT name, specifications,logo,extension FROM brand WHERE id = $brandId";
 $brandResult = $conn->query($brandQuery);
 
 if ($brandResult && $brandResult->num_rows > 0) {
     $brand = $brandResult->fetch_assoc();
     $brandName = $brand['name'];
-    $brandDescription = $brand['description'];
+    $brandDescription = $brand['specifications'];
     $brandLogo = $brand['logo'].".".$brand['extension'];
 
     // if ($brand['logo'] !='' && $brand['extension'] != '') {
@@ -123,104 +124,144 @@ if ($result->num_rows === 0) {
             </div>
         </div>
     </div>
+    <style>
+        /* CSS Grid Layout for product grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 products per row by default (mobile) */
+    gap: 20px; /* Spacing between products */
+}
 
+/* Media query for larger screens (laptop or desktop) */
+@media (min-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 products per row on larger screens */
+    }
+}
+
+.product-col {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Styling for the product wrapper (optional) */
+.product_wrap {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.product_wrap:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Image styling */
+.product_wrap .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Responsive text description */
+.product_desc {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.stylish-linkaa {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3ab6e9;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.stylish-linkaa:hover {
+    background-color: #309ec7;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 767px) {
+    .stylish-linkaa {
+        padding: 10px 15px;
+    }
+}
+
+    </style>
     <section id="feature_product" class="bottom_half">
-        <div class="container">
-            <div class="row">
-                <?php while ($product = $result->fetch_assoc()): ?>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border-radius: 20px; margin-bottom: 5px; box-shadow: -1px 4px 19px -9px rgba(0, 0, 0, 0.5); background-color: white;">
-                            <?php if ($product['hours_since_creation'] <= 24): ?>
-                                <div style="width: 0; height: 0; border-bottom: 10px solid transparent; border-top: 50px solid #79b6c8; border-left: 15px solid #79b6c8; border-right: 15px solid #79b6c8; display: inline-block;" class="tag-btn">
-                                    <span class="uppercase text-center">New</span>
-                                </div>
-                            <?php endif; ?>
-                            <div class="image" style="width:100%;">
-                                <?php
-                                if (!empty($product['images'])) {
-                                    $imageIds = explode(',', $product['images']);
-                                    $firstImageId = $imageIds[0] ?? null;
-                                    if ($firstImageId) {
-                                        $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
-                                        $imageResult = $conn->query($imageQuery);
-                                       
-                                        if ($imageResult && $imageResult->num_rows > 0) {
-                                            $image = $imageResult->fetch_assoc();
-                                            
-                                            $imageLink = "api/uploads/assets/" . $image['file_original_name'];
-                                        } else {
-                                            $imageLink = "images/default.png";
-                                        }
+    <div class="container">
+        <div class="row product-grid">
+            <?php while ($product = $result->fetch_assoc()): ?>
+                <div class="product-col">
+                    <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border-radius: 20px; margin-bottom: 5px; box-shadow: -1px 4px 19px -9px rgba(0, 0, 0, 0.5); background-color: white;">
+                        <?php if ($product['hours_since_creation'] <= 24): ?>
+                            <div style="width: 0; height: 0; border-bottom: 10px solid transparent; border-top: 50px solid #79b6c8; border-left: 15px solid #79b6c8; border-right: 15px solid #79b6c8; display: inline-block;" class="tag-btn">
+                                <span class="uppercase text-center">New</span>
+                            </div>
+                        <?php endif; ?>
+                        <div class="image" style="width:100%;">
+                            <?php
+                            if (!empty($product['images'])) {
+                                $imageIds = explode(',', $product['images']);
+                                $firstImageId = $imageIds[0] ?? null;
+                                if ($firstImageId) {
+                                    $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
+                                    $imageResult = $conn->query($imageQuery);
+
+                                    if ($imageResult && $imageResult->num_rows > 0) {
+                                        $image = $imageResult->fetch_assoc();
+                                        $imageLink = "api/uploads/assets/" . $image['file_original_name'];
                                     } else {
                                         $imageLink = "images/default.png";
                                     }
                                 } else {
                                     $imageLink = "images/default.png";
                                 }
-                                ?>
-                                <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
-                                    <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="display: block; width: 14vw;" class="img-responsive">
-                                </a>
-                            </div>
-                            
-                                <div class="product_desc" style="padding: 2px; margin: 4px; height: 8vh; display: flex; justify-content: center;text-align: center;">
-                                    <!-- <p><?php echo htmlspecialchars($product['name']); ?></span></p> -->
-                                    <p>
-                                        <span class="title">
-                                            <?php 
-                                                $productName = htmlspecialchars($product['name']);
-                                                $words = explode(' ', $productName);
-                                                if (count($words) > 3) {
-                                                    echo htmlspecialchars(implode(' ', array_slice($words, 0, 5))) . '...';
-                                                } else {
-                                                    echo $productName;
-                                                } 
-                                            ?> 
-                                        </span>
-                                    </p>
-                                    <!-- <p style="color: #049ddf; font-weight: bold; text-align: center">Brand: <span class="title"><?php echo htmlspecialchars($brandName); ?></span></p> -->
-                                </div>
-                                <!-- Button style -->
-                                <style>
-                                    .stylish-linkaa {
-                                        display: flex;
-                                        width: 120px;
-                                        border-radius: 15px;
-                                        text-align: center;
-                                        background-color: #3ab6e9;
-                                        color: #ffffff;
-                                        text-decoration: none;
-                                        padding: 12px 20px;
-                                        font-size: 13px;
-                                        font-weight: bold;
-                                        text-transform: uppercase; /* Uppercase text */
-                                        letter-spacing: 1px; /* Slightly spaced letters */
-                                        border: 2px solid transparent; /* Add a border for hover effect */
-                                        cursor: pointer; /* Pointer cursor on hover */
-                                        transition: all 0.3s ease; /* Smooth transition for all properties */
-                                        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-                                    }
-
-                                    .stylish-linkaa:hover {
-                                        /* background-color: #309ec7; */
-                                        color: #f0f0f0;
-                                        /* border: 2px solid #ffffff; */
-                                        /* transform: translateY(-3px); */
-                                        /* box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); */
-                                        /* color: #23527c; */
-                                        text-decoration: none;
-                                    }
-                                </style>
-                                <div class="btn" style="display: flex; justify-content: center; padding-bottom: 20px;">
-                                    <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="stylish-linkaa" style="padding: 8px 15px;">Read More</a>
-                                </div>
-                            
+                            } else {
+                                $imageLink = "images/default.png";
+                            }
+                            ?>
+                            <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
+                                <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="display: block; width: 100%;" class="img-responsive">
+                            </a>
                         </div>
+
+                        <div class="product_desc" style="padding: 2px; margin: 4px; height: 8vh; display: flex; justify-content: center;text-align: center;">
+                            <p>
+                                <span class="title">
+                                    <?php 
+                                        $productName = htmlspecialchars($product['name']);
+                                        $words = explode(' ', $productName);
+                                        if (count($words) > 3) {
+                                            echo htmlspecialchars(implode(' ', array_slice($words, 0, 5))) . '...';
+                                        } else {
+                                            echo $productName;
+                                        } 
+                                    ?> 
+                                </span>
+                            </p>
+                        </div>
+
+                        <div class="btn" style="display: flex; justify-content: center; padding-bottom: 20px;">
+                            <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="stylish-linkaa" style="padding: 8px 15px;">Read More</a>
+                        </div>
+
                     </div>
-                <?php endwhile; ?>
-            </div>
+                </div>
+            <?php endwhile; ?>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Footer -->
     <?php include("inc_files/footer.php"); ?>

@@ -160,7 +160,7 @@ $relatedProductsResult = $stmt->get_result();
                     $brandLogo = "uploads/assets/logos/" . $brand['logo'] . "." . $brand['extension'];
                 ?>
                     <div class="image2">
-                        <a href="#">
+                        <a href="brands.php?id=<?php echo intval($product['brand_id']); ?>">
                             <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($product['name']); ?> Image" style="width:15rem;">
                         </a>
                     </div>
@@ -168,7 +168,7 @@ $relatedProductsResult = $stmt->get_result();
                   } else {
                 ?>
                 <p style="color: #7ab6c8; font-weight: bold;">Brand :
-                  <a href="#">
+                  <a href="brands.php?id=<?php echo intval($product['brand_id']); ?>">
                     <span class="title"><?php echo htmlspecialchars($brand['name']); ?></span>
                   </a>
                 </p>

@@ -388,8 +388,8 @@
                                 <?php 
                                 $productName = htmlspecialchars($product['name']);
                                 $words = explode(' ', $productName);
-                                if (count($words) > 3) {
-                                    echo htmlspecialchars(implode(' ', array_slice($words, 0, 4))) . '...';
+                                if (count($words) > 2) {
+                                    echo htmlspecialchars(implode(' ', array_slice($words, 0, 3))) . '...';
                                 } else {
                                     echo $productName;
                                 } ?> 
@@ -414,6 +414,7 @@
 </section>
 
 <style>
+
     .product-grid-random {
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* 2 products per row */
@@ -501,6 +502,9 @@
         /* Adjust for smaller screens if necessary */
         .product-grid-random {
             grid-template-columns: repeat(2, 1fr); /* 2 products per row */
+        }
+        .heading-space-random {
+            font-size: 35px;
         }
     }
 </style>

@@ -489,7 +489,7 @@
         }
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: 480px) {
         .product-item-random {
             padding: 10px;
         }

@@ -201,8 +201,8 @@
     /* font-size: 14px; */
       margin: 0px;
     }
-    .bottom_half{
-      padding-top:20px;
+    footer .bottom_half{
+      padding-top:20px !important;
     }
   }
 </style>

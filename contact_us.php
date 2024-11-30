@@ -89,7 +89,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-          <h3 class="uppercase heading bottom30">Send us a message</h3>
+          <h3 class="uppercase heading bottom30" style="font-size: x-large;">Send us a message</h3>
           <form class="contact-form padding_bottom">
             <div class="row">
               <div class="col-md-6 form-group">
@@ -111,7 +111,7 @@
 
         <div class="col-md-4">
           <div class="contact_detail padding_bottom">
-            <h3 class="uppercase heading bottom30">Get Office Info.</h3>
+            <h3 class="uppercase heading bottom30" style="font-size: x-large;">Get Office Info.</h3>
             <p class="bottom30">Pioneering the hydraulics market in Eastern India, the 100-year old A.N. Hussunally & Co. has today emerged as among the market leaders in providing customers with holistic hydraulic solutions.</p>
             <div class="address bottom30">
               <i class="fa fa-map-marker"></i>
@@ -171,3 +171,12 @@
 </body>
 
 </html>
+
+<style>
+  @media (max-width: 480px) {
+      #contact {
+        margin: 0;
+        padding: 0;
+      }
+  }
+</style>

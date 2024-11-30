@@ -67,7 +67,8 @@
     <div class="custom-container">
         <div class="custom-header-content padding">
             <div class="row" style="display: flex; justify-content: center; align-items: center;">
-                <div class="col-md-12 text-center" style="width: max-content; display: flex; justify-content:center; align-items: center; flex-direction: column;">
+                <div class="col-md-12 text-center" style="width: max-content; display: flex; justify-content:center; align-items: center; flex-direction: column;flex-wrap: wrap;
+    text-align: justify;">
                     <h1 class="custom-uppercase">
                         <?php if (!empty($dynamic_label)): ?>
                             <a href="#"><?php echo $dynamic_label; ?></a>
@@ -75,7 +76,7 @@
                             <a href="#"><?php echo $current_breadcrumb['label']; ?></a>
                         <?php endif; ?>
                     </h1>
-                    <p>
+                    <p style="color:#ccc;">
                         <a href="<?php echo $breadcrumb_mapping['index']['link']; ?>">Home</a> /
                         <?php if($current_breadcrumb['label']=="Brand"){ ?>
                             <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;"><?php echo $current_breadcrumb['label']; ?></a>
@@ -231,7 +232,7 @@
 		}
 
 		.custom-uppercase a {
-			font-size: 10px;
+			font-size: 16px;
 		}
         .custom-page-header {
             height:190px;

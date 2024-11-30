@@ -1,5 +1,5 @@
 <?php  ini_set('display_errors', 0); ?>    
-    <footer class="bottom_half" style="padding-top:20px;">
+    <footer class="bottom_half" style="padding-top:70px;">
       <a href="#." class="go-top text-center" style="display: none;">
         <i class="fa fa-angle-double-up">  </i>
       </a>
@@ -65,9 +65,9 @@
       </div>
     </footer>
 
-    <div  class="copyright">
-      <div style="text-align: center;" class="container">
-        <div class="row" >
+    <div class="copyright">
+      <div style="text-align: center;" class="container" >
+        <div class="row" style="display:flex; align-items: center; justify-content: center;">
           <div class="col-sm-4">
             <p style="color: #fff;">Copyright &copy; 2024 
               <a href="#.">A N Hussunally & Co
@@ -200,6 +200,9 @@
     .copyright p {
     /* font-size: 14px; */
       margin: 0px;
+    }
+    .bottom_half{
+      padding-top:20px;
     }
   }
 </style>

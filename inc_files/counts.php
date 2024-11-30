@@ -116,21 +116,25 @@
 /* Small Mobile Devices (up to 480px) */
 @media (max-width: 480px) {
   .stat-number {
-    font-size: 60px; /* Further reduce number size */
+    font-size: 100px; /* Further reduce number size */
   }
 
   .stat-label {
-    font-size: 14px; /* Further reduce label size */
-    margin-top: -30px; /* Adjust label margin */
+    font-size: 18px;
+    margin-top: -58px; /* Adjust label margin */
   }
   .stat-item {
     width: 40%; /* Adjust width for mobile (1 item per row) */
-    margin: 10px 0;
+    margin: 15px 0px;
   }
   .stats-section {
     flex-wrap: wrap;
     flex-direction: row;
+    margin: 2em 3em;
+    padding-bottom: 2em;
+
   }
+  
 
 }
 

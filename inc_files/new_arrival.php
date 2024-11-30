@@ -1,35 +1,46 @@
 <style>
     .product_wrap, .image, .image > img {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    #new-arrivals-mobile-xyz{
+        display:none;
+    }
+    @media (max-width: 576px) {
+            #arrivals {
+                display:none;
+            }
+            #new-arrivals-mobile-xyz{
+                display:block;
+            }
+        }
 </style>
 
 <!-- NEW ARRIVALS Section -->
 <section id="arrivals" class="padding">
     <?php
-    // Define the specific brand IDs
-    $brandIds = [1, 4];
+        // Define the specific brand IDs
+        $brandIds = [1];
 
-    // Establish database connection
-    $conn = mysqli_connect($host, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+        // Establish database connection
+        $conn = mysqli_connect($host, $username, $password, $dbname);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
-    foreach ($brandIds as $brandId):
-        // Fetch brand name
-        $brandQuery = "SELECT name FROM brand WHERE id = $brandId";
-        $brandResult = $conn->query($brandQuery);
-        $brandName = $brandResult && $brandResult->num_rows > 0 ? $brandResult->fetch_assoc()['name'] : "Unknown Brand";
+        foreach ($brandIds as $brandId):
+            // Fetch brand name
+            $brandQuery = "SELECT name FROM brand WHERE id = $brandId";
+            $brandResult = $conn->query($brandQuery);
+            $brandName = $brandResult && $brandResult->num_rows > 0 ? $brandResult->fetch_assoc()['name'] : "Unknown Brand";
 
-        // Fetch 10 random products for the current brand
-        $productQuery = "SELECT * FROM products WHERE brand_id = $brandId ORDER BY RAND() LIMIT 10";
-        $productResult = $conn->query($productQuery);
+            // Fetch 10 random products for the current brand
+            $productQuery = "SELECT * FROM products WHERE brand_id = $brandId ORDER BY RAND() LIMIT 10";
+            $productResult = $conn->query($productQuery);
     ?>
     <div class="container">
         <div class="row">
@@ -104,7 +115,6 @@
 
     <?php $conn->close(); ?>
 </section>
-
 <style>
     .owl-theme .owl-controls {
         display: none !important;
@@ -207,7 +217,6 @@
         }
     }
 </style>
-
 <!-- Owl Carousel JS Initialization (jQuery) -->
 <script>
     $(document).ready(function(){
@@ -233,7 +242,6 @@
         });
     });
 </script>
-
 
 <!-- Owl Carousel Scripts -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -279,7 +287,6 @@
         display: none !important; /* Disable default Owl Carousel buttons */
     }
 </style>
-
 <!-- Owl Carousel Initialization Script -->
 <script>
     $(document).ready(function () {
@@ -312,4 +319,193 @@
         });
     });
 </script>
+
+
+<!-- NEW ARRIVALS Section for Mobile -->
+<section id="new-arrivals-mobile-xyz" class="padding-abc">
+    <?php
+        // Define the specific brand IDs
+        $brandIds = [1];
+
+        // Establish database connection
+        $conn = mysqli_connect($host, $username, $password, $dbname);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        foreach ($brandIds as $brandId):
+            // Fetch brand name
+            $brandQuery = "SELECT name FROM brand WHERE id = $brandId";
+            $brandResult = $conn->query($brandQuery);
+            $brandName = $brandResult && $brandResult->num_rows > 0 ? $brandResult->fetch_assoc()['name'] : "Unknown Brand";
+
+            // Fetch 4 random products for the current brand
+            $productQuery = "SELECT * FROM products WHERE brand_id = $brandId ORDER BY RAND() LIMIT 4";
+            $productResult = $conn->query($productQuery);
+    ?>
+    <div class="container-random">
+        <div class="row-random">
+            <div class="col-md-12 text-center">
+                <h2 class="heading-space-random uppercase">
+                    <?php echo htmlspecialchars($brandName); ?> 
+                </h2>
+            </div>
+        </div>
+
+        <div class="product-grid-random">
+            <?php
+            if ($productResult && $productResult->num_rows > 0):
+                while ($product = $productResult->fetch_assoc()):
+                    // Initialize the image link
+                    $imageLink = "../images/default.png"; // Default image
+
+                    // Check if the product has images and fetch the first image
+                    if (!empty($product['images'])) {
+                        $imageIds = explode(',', $product['images']);
+                        $firstImageId = $imageIds[0] ?? null;
+
+                        if ($firstImageId) {
+                            // Fetch the file name from the upload table
+                            $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
+                            $imageResult = $conn->query($imageQuery);
+
+                            if ($imageResult && $imageResult->num_rows > 0) {
+                                $image = $imageResult->fetch_assoc();
+                                $imageLink = "../api/uploads/assets/" . $image['file_original_name'];
+                            }
+                        }
+                    }
+            ?>
+                <div class="product-item-random">
+                    <div class="product-wrap-random">
+                        <div class="image-random">
+                            <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
+                                <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="img-responsive product-image-random">
+                            </a>
+                        </div>
+                        <div class="product-desc-random">
+                            <p>
+                                <?php 
+                                $productName = htmlspecialchars($product['name']);
+                                $words = explode(' ', $productName);
+                                if (count($words) > 3) {
+                                    echo htmlspecialchars(implode(' ', array_slice($words, 0, 4))) . '...';
+                                } else {
+                                    echo $productName;
+                                } ?> 
+                            </p>
+                        </div>
+                        <div class="btn-random">
+                            <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="stylish-link-random">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            <?php
+                endwhile;
+            else:
+                echo "<p>No products found for this brand.</p>";
+            endif;
+            ?>          
+        </div>
+    </div>
+    <?php endforeach; ?>
+
+    <?php $conn->close(); ?>
+</section>
+
+<style>
+    .product-grid-random {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 products per row */
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .product-item-random {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-wrap-random .product-desc-random {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    .heading-space-random {
+        font-family: 'Oswald';
+        font-size: 22px;
+    }
+
+    /* Stylish Button */
+    .stylish-link-random {
+        display: block;
+        width: 100%;
+        border-radius: 15px;
+        text-align: center;
+        background-color: #3ab6e9;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 12px 20px;
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .stylish-link-random:hover {
+        color: #f0f0f0;
+        text-decoration: none;
+    }
+
+    /* Product Image */
+    .product-image-random {
+        display: block;
+        width: 100%;
+        padding: 1vw;
+        margin: 1vw;
+        border-radius: 8px;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .heading-space-random {
+            font-size: 18px;
+        }
+
+        .product-desc-random p {
+            font-size: 14px;
+        }
+
+        .stylish-link-random {
+            font-size: 12px;
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .product-item-random {
+            padding: 10px;
+        }
+
+        .stylish-link-random {
+            font-size: 10px;
+            padding: 8px;
+        }
+
+        /* Adjust for smaller screens if necessary */
+        .product-grid-random {
+            grid-template-columns: repeat(2, 1fr); /* 2 products per row */
+        }
+    }
+</style>
+
+
+
+
 

@@ -80,23 +80,23 @@ $relatedProductsResult = $stmt->get_result();
 
 
   <?php
-  // Fetch images from the upload table based on the image IDs in the images column
-  $imageIds = explode(',', $product['images']);
-  $images = [];
+    // Fetch images from the upload table based on the image IDs in the images column
+    $imageIds = explode(',', $product['images']);
+    $images = [];
 
-  if (!empty($imageIds)) {
-    $placeholders = implode(',', array_fill(0, count($imageIds), '?'));
-    $imageQuery = "SELECT file_original_name FROM upload WHERE id IN ($placeholders)";
-    $stmt = $conn->prepare($imageQuery);
-    $stmt->bind_param(str_repeat('i', count($imageIds)), ...array_map('intval', $imageIds));
-    $stmt->execute();
-    $imageResult = $stmt->get_result();
+    if (!empty($imageIds)) {
+      $placeholders = implode(',', array_fill(0, count($imageIds), '?'));
+      $imageQuery = "SELECT file_original_name FROM upload WHERE id IN ($placeholders)";
+      $stmt = $conn->prepare($imageQuery);
+      $stmt->bind_param(str_repeat('i', count($imageIds)), ...array_map('intval', $imageIds));
+      $stmt->execute();
+      $imageResult = $stmt->get_result();
 
-    while ($image = $imageResult->fetch_assoc()) {
-      $images[] = "/api/uploads/assets/" . $image['file_original_name'];
+      while ($image = $imageResult->fetch_assoc()) {
+        $images[] = "/api/uploads/assets/" . $image['file_original_name'];
+      }
+      $stmt->close();
     }
-    $stmt->close();
-  }
   ?>
 
   <section id="cart" class="padding_bottom">

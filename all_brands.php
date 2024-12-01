@@ -38,6 +38,7 @@ if ($result->num_rows > 0):
     <link rel="stylesheet" type="text/css" href="css/loader.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="shortcut icon" href="images/favicon.png">
+
     <style>
         .brand-grid {
             display: grid;
@@ -113,13 +114,15 @@ if ($result->num_rows > 0):
             <div class="brand-grid">
                 <?php while ($brand = $result->fetch_assoc()): ?>
                 <div class="brand-card">
-                    <?php if (!empty($brand['logo'])): ?>
-                        <img src="uploads/assets/logos/<?= htmlspecialchars($brand['logo'].".".$brand['extension']); ?>" alt="<?= htmlspecialchars($brand['name']); ?>" />
-                        <?php else: ?>
-                        <img src="images/default.png" alt="<?= htmlspecialchars($brand['name']); ?>" />
-                    <?php endif; ?>
-                    <h3><?= htmlspecialchars($brand['name']); ?></h3>
-                    <p><strong>Specifications:</strong> <?= !empty($brand['specifications']) ? htmlspecialchars($brand['specifications']) : 'N/A'; ?></p>
+                    <a href="brands.php?id=<?php echo intval($product['brand_id']); ?>">
+                        <?php if (!empty($brand['logo'])): ?>
+                            <img src="uploads/assets/logos/<?= htmlspecialchars($brand['logo'].".".$brand['extension']); ?>" alt="<?= htmlspecialchars($brand['name']); ?>" />
+                            <?php else: ?>
+                            <img src="images/default.png" alt="<?= htmlspecialchars($brand['name']); ?>" />
+                        <?php endif; ?>
+                        <h3><?= htmlspecialchars($brand['name']); ?></h3>
+                        <p><strong>Specifications:</strong> <?= !empty($brand['specifications']) ? htmlspecialchars($brand['specifications']) : 'N/A'; ?></p>
+                    </a>
                 </div>
                 <?php endwhile; ?>
             </div>

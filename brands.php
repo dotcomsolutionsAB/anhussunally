@@ -262,7 +262,7 @@ if (!empty($brandLogo)) {
                         }
                         ?>
                         <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
-                            <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo "image"; ?>" class="img-responsive">
+                            <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="image" class="img-responsive">
                         </a>
                     </div>
                     <div class="product_desc">

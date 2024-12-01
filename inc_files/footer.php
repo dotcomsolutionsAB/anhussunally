@@ -161,6 +161,20 @@
             left: 10px; /* Adjust for smaller screens */
         }
     }
+    @media (max-width: 768px) {
+        .whatsapp-btn {
+            width: 50px; /* Smaller size for mobile */
+            height: 50px;
+        }
+
+        .whatsapp-btn i {
+            font-size: 24px;
+        }
+
+        .sticky-buttons {
+            left: 50%; /* Adjust for smaller screens */
+        }
+    }
 </style>
 <?php
   // footer.php

@@ -68,7 +68,7 @@ $brandResult = $conn->query($brandQuery);
         height: 76px;
       }
       
-
+      
   </style>
 
 <style>
@@ -218,7 +218,7 @@ $brandResult = $conn->query($brandQuery);
 </style>
 
     <header>
-      <nav class="navbar navbar-default navbar-sticky bootsnav">
+      <nav class="navbar navbar-default navbar-sticky bootsnav" style="border-radius:0px 0px 15px 15px;>
         <div class="container">
           <!-- Start Header Navigation -->
           <div class="navbar-header">
@@ -253,7 +253,7 @@ $brandResult = $conn->query($brandQuery);
           </div>
           <!-- End Header Navigation -->
           <div class="collapse navbar-collapse" id="navbar-menu">
-            <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
+            <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut" style="border-radius:0px 0px 15px 15px;">
               <li class="dropdown active">
                 <a href="index.php" class="index.php" data-toggle="#home" style="font-weight: bolder;">Home
                 </a>

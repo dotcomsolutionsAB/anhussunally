@@ -172,7 +172,7 @@
         }
 
         .sticky-buttons {
-            left: 50%; /* Adjust for smaller screens */
+            left: 45%; /* Adjust for smaller screens */
         }
     }
 </style>

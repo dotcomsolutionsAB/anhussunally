@@ -6,7 +6,7 @@
 
     #feature_product .heading {
         font-size: 24px;
-        text-align: center;
+        /* text-align: center; */
         margin-bottom: 30px;
     }
 
@@ -113,13 +113,22 @@
                             $imageResult = $conn->query($imageQuery);
                             $image = $imageResult->fetch_assoc();
                             $imageLink = $image ? "../api/uploads/assets/" . $image['file_original_name'] : "../images/default.png";
+
+                         
+                                $productName = htmlspecialchars($product['name']);
+                                $words = explode(' ', $productName);
+                                if (count($words) > 2) {
+                                    echo htmlspecialchars(implode(' ', array_slice($words, 0, 3))) . '...';
+                                } else {
+                                    echo $productName;
+                                } 
                             ?>
                             <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
-                                <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($relatedProduct['name']); ?>" class="img-responsive" style="max-width: 100%; height: auto;">
+                                <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($productName); ?>" class="img-responsive" style="max-width: 100%; height: auto;">
                             </a>
                         </div>
                         <div class="product_desc" style="padding: 2px; margin: 4px; height: auto; display: flex; justify-content: center; text-align: center;">
-                            <p class="title" style="font-size: 14px;"><?php echo htmlspecialchars($relatedProduct['name']); ?></p>
+                            <p class="title" style="font-size: 14px;"><?php echo htmlspecialchars($productName); ?></p>
                         </div>
                         <div class="btn" style="display: flex; justify-content: center; padding-bottom: 20px;">
                             <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="stylish-linkab" style="padding: 8px 15px;">Read More</a>

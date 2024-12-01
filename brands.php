@@ -122,7 +122,7 @@ if (!empty($brandLogo)) {
 
         #feature_product .heading {
             font-size: 24px;
-            text-align: center;
+            /* text-align: center; */
             margin-bottom: 30px;
         }
 
@@ -252,13 +252,21 @@ if (!empty($brandLogo)) {
                         } else {
                             $imageLink = "images/default.png"; // Fallback if no image IDs
                         }
+
+                        $productName = htmlspecialchars($product['name']);
+                        $words = explode(' ', $productName);
+                        if (count($words) > 2) {
+                            echo htmlspecialchars(implode(' ', array_slice($words, 0, 3))) . '...';
+                        } else {
+                            echo $productName;
+                        }
                         ?>
                         <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
-                            <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo "image"; ?>" class="img-responsive">
+                            <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo $productName; ?>" class="img-responsive">
                         </a>
                     </div>
                     <div class="product_desc">
-                        <p class="title"><?php echo htmlspecialchars($relatedProduct['name']); ?></p>
+                        <p class="title"><?php echo htmlspecialchars($productName); ?></p>
                     </div>
                     <div class="btn">
                         <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="stylish-linkab">Read More</a>

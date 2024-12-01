@@ -231,6 +231,7 @@ if (!empty($brandLogo)) {
                 <div class="product_wrap">
                     <div class="image">
                         <?php
+                        $imageLink = "images/default.png";
                         // Get the first image from the product's images column
                         $imageIds = explode(',', $relatedProduct['images']);
                         $firstImageId = $imageIds[0] ?? null;

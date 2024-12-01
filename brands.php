@@ -122,7 +122,7 @@ if (!empty($brandLogo)) {
 
         #feature_product .heading {
             font-size: 24px;
-            /* text-align: center; */
+            text-align: center;
             margin-bottom: 30px;
         }
 
@@ -253,7 +253,7 @@ if (!empty($brandLogo)) {
                             $imageLink = "images/default.png"; // Fallback if no image IDs
                         }
 
-                        $productName = htmlspecialchars($relatedProduct['name']);
+                        $productName = htmlspecialchars($product['name']);
                         $words = explode(' ', $productName);
                         if (count($words) > 2) {
                             echo htmlspecialchars(implode(' ', array_slice($words, 0, 3))) . '...';
@@ -262,7 +262,7 @@ if (!empty($brandLogo)) {
                         }
                         ?>
                         <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
-                            <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="image" class="img-responsive">
+                            <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo "image"; ?>" class="img-responsive">
                         </a>
                     </div>
                     <div class="product_desc">

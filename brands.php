@@ -253,7 +253,7 @@ if (!empty($brandLogo)) {
                             $imageLink = "images/default.png"; // Fallback if no image IDs
                         }
 
-                        $productName = htmlspecialchars($product['name']);
+                        $productName = htmlspecialchars($relatedProduct['name']);
                         $words = explode(' ', $productName);
                         if (count($words) > 2) {
                             echo htmlspecialchars(implode(' ', array_slice($words, 0, 3))) . '...';

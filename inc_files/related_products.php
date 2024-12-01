@@ -115,7 +115,7 @@
                             $imageLink = $image ? "../api/uploads/assets/" . $image['file_original_name'] : "../images/default.png";
 
                          
-                                $productName = htmlspecialchars($product['name']);
+                                $productName = htmlspecialchars($relatedProduct['name']);
                                 $words = explode(' ', $productName);
                                 if (count($words) > 2) {
                                     echo htmlspecialchars(implode(' ', array_slice($words, 0, 3))) . '...';

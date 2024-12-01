@@ -114,7 +114,7 @@ if ($result->num_rows > 0):
             <div class="brand-grid">
                 <?php while ($brand = $result->fetch_assoc()): ?>
                 <div class="brand-card">
-                    <a href="brands.php?id=<?php echo intval($product['brand_id']); ?>">
+                    <a href="brands.php?id=<?php echo intval($brand['id']); ?>">
                         <?php if (!empty($brand['logo'])): ?>
                             <img src="uploads/assets/logos/<?= htmlspecialchars($brand['logo'].".".$brand['extension']); ?>" alt="<?= htmlspecialchars($brand['name']); ?>" />
                             <?php else: ?>

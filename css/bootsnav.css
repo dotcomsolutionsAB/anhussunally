@@ -489,6 +489,7 @@ nav.navbar.bootsnav.no-background{
 
 .wrap-sticky nav.navbar.bootsnav.sticked{
     position: fixed;
+    border-radius: 0px 0px 15px 15px;
     -webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
 	-o-transition: all 0.2s ease-in-out;

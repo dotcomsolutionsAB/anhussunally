@@ -51,14 +51,14 @@ if (!empty($brandLogo) || $brandLogo != '') {
 }
 
 // Fetch products for the given brand
-$productQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brand_id = $brandId";
-$result = $conn->query($productQuery);
+// $productQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brand_id = $brandId";
+// $result = $conn->query($productQuery);
 
-if ($result->num_rows === 0) {
-    echo "No products found for this brand.";
-    $conn->close();
-    exit;
-}
+// if ($result->num_rows === 0) {
+//     echo "No products found for this brand.";
+//     $conn->close();
+//     exit;
+// }
 ?>
 
 <!doctype html>
@@ -130,114 +130,94 @@ if ($result->num_rows === 0) {
         </div>
     </div>
     <style>
-    /* CSS Grid Layout for product grid */
-    .product-grid {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr); /* 1 product per row by default (mobile) */
-        gap: 20px; /* Spacing between products */
-    }
-
-    /* Media query for tablet screens (small tablets) */
-    @media (min-width: 576px) {
+        /* CSS Grid Layout for product grid */
         .product-grid {
-            grid-template-columns: repeat(2, 1fr); /* 2 products per row on small tablets */
+            display: grid;
+            grid-template-columns: repeat(1, 1fr); /* Default 1 product per row for mobile */
+            gap: 20px; /* Spacing between products */
         }
-    }
 
-    /* Media query for larger screens (laptop or desktop) */
-    @media (min-width: 768px) {
-        .product-grid {
-            grid-template-columns: repeat(4, 1fr); /* 4 products per row on larger screens */
+        /* Media query for larger screens (laptop or desktop) */
+        @media (min-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 products per row on tablets */
+            }
         }
-    }
 
-    .product-col {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-    }
+        /* Media query for even larger screens (desktops) */
+        @media (min-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(4, 1fr); /* 4 products per row on desktops */
+            }
+        }
 
-    /* Styling for the product wrapper */
-    .product_wrap {
-        padding: 10px;
-        border-radius: 10px;
-        background-color: white;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-    }
+        .product-col {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    .product_wrap:hover {
-        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-    }
+        /* Styling for the product wrapper (optional) */
+        .product_wrap {
+            padding: 10px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
 
-    /* Responsive Image styling */
-    .product_wrap .image img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
+        .product_wrap:hover {
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+        }
 
-    /* Styling for the product description */
-    .product_desc {
-        text-align: center;
-        margin-top: 10px;
-        padding: 5px;
-        flex-grow: 1;
-    }
+        /* Responsive Image styling */
+        .product_wrap .image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
 
-    /* Stylish link button */
-    .stylish-linkaa {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #3ab6e9;
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        border-radius: 20px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
+        /* Responsive text description */
+        .product_desc {
+            text-align: center;
+            margin-top: 10px;
+        }
 
-    .stylish-linkaa:hover {
-        background-color: #309ec7;
-        transform: translateY(-3px);
-    }
-
-    /* Adjust button size for smaller screens */
-    @media (max-width: 767px) {
         .stylish-linkaa {
-            padding: 10px 15px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3ab6e9;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
-    }
 
-    /* New product tag */
-    .tag-btn {
-        width: 0;
-        height: 0;
-        border-bottom: 10px solid transparent;
-        border-top: 50px solid #79b6c8;
-        border-left: 15px solid #79b6c8;
-        border-right: 15px solid #79b6c8;
-        display: inline-block;
-        text-align: center;
-        margin-bottom: 10px;
-    }
+        .stylish-linkaa:hover {
+            background-color: #309ec7;
+            transform: translateY(-3px);
+        }
 
-    .tag-btn span {
-        display: block;
-        text-transform: uppercase;
-        font-size: 12px;
-        color: white;
-        line-height: 20px;
-    }
-</style>
+        @media (max-width: 767px) {
+            .stylish-linkaa {
+                padding: 10px 15px;
+            }
+        }
 
+    </style>
+    <?php
+        // Fetch related products from the same brand
+        $brand = $brandId;
+        $relatedProductsQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brand_id = ? AND sku != ? "; // Exclude the current product
+        $stmt = $conn->prepare($relatedProductsQuery);
+        $stmt->bind_param("ss", $brand, $sku);
+        $stmt->execute();
+        $relatedProductsResult = $stmt->get_result();
+    ?>
 <section id="feature_product" class="bottom_half">
     <div class="container">
         <div class="row product-grid">
@@ -245,8 +225,8 @@ if ($result->num_rows === 0) {
                 <div class="product-col">
                     <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border-radius: 20px; margin-bottom: 5px; box-shadow: -1px 4px 19px -9px rgba(0, 0, 0, 0.5); background-color: white;">
                         <?php if ($product['hours_since_creation'] <= 24): ?>
-                            <div class="tag-btn">
-                                <span>New</span>
+                            <div style="width: 0; height: 0; border-bottom: 10px solid transparent; border-top: 50px solid #79b6c8; border-left: 15px solid #79b6c8; border-right: 15px solid #79b6c8; display: inline-block;" class="tag-btn">
+                                <span class="uppercase text-center">New</span>
                             </div>
                         <?php endif; ?>
                         <div class="image" style="width:100%;">
@@ -272,11 +252,11 @@ if ($result->num_rows === 0) {
                                 }
                             ?>
                             <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
-                                <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="img-responsive">
+                                <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="display: block; width: 100%;" class="img-responsive">
                             </a>
                         </div>
 
-                        <div class="product_desc">
+                        <div class="product_desc" style="padding: 2px; margin: 4px; height: 8vh; display: flex; justify-content: center;text-align: center;">
                             <p>
                                 <span class="title">
                                     <?php 
@@ -302,6 +282,7 @@ if ($result->num_rows === 0) {
         </div>
     </div>
 </section>
+<?php  include("inc_files/related_products.php"); ?>
 
 
 

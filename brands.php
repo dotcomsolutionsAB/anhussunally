@@ -110,6 +110,11 @@ if ($result->num_rows === 0) {
         .text3 {
             flex: 2;
         }
+        @media (max-width: 767px) {
+            .container1 {
+                flex-direction:column;
+            }
+        }
     </style>
 
     <div class="container">
@@ -125,87 +130,123 @@ if ($result->num_rows === 0) {
         </div>
     </div>
     <style>
-        /* CSS Grid Layout for product grid */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 products per row by default (mobile) */
-    gap: 20px; /* Spacing between products */
-}
-
-/* Media query for larger screens (laptop or desktop) */
-@media (min-width: 768px) {
+    /* CSS Grid Layout for product grid */
     .product-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 products per row on larger screens */
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); /* 1 product per row by default (mobile) */
+        gap: 20px; /* Spacing between products */
     }
-}
 
-.product-col {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
+    /* Media query for tablet screens (small tablets) */
+    @media (min-width: 576px) {
+        .product-grid {
+            grid-template-columns: repeat(2, 1fr); /* 2 products per row on small tablets */
+        }
+    }
 
-/* Styling for the product wrapper (optional) */
-.product_wrap {
-    padding: 10px;
-    border-radius: 10px;
-    background-color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
+    /* Media query for larger screens (laptop or desktop) */
+    @media (min-width: 768px) {
+        .product-grid {
+            grid-template-columns: repeat(4, 1fr); /* 4 products per row on larger screens */
+        }
+    }
 
-.product_wrap:hover {
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-}
+    .product-col {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
 
-/* Responsive Image styling */
-.product_wrap .image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
+    /* Styling for the product wrapper */
+    .product_wrap {
+        padding: 10px;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
 
-/* Responsive text description */
-.product_desc {
-    text-align: center;
-    margin-top: 10px;
-}
+    .product_wrap:hover {
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    }
 
-.stylish-linkaa {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #3ab6e9;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
+    /* Responsive Image styling */
+    .product_wrap .image img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
 
-.stylish-linkaa:hover {
-    background-color: #309ec7;
-    transform: translateY(-3px);
-}
+    /* Styling for the product description */
+    .product_desc {
+        text-align: center;
+        margin-top: 10px;
+        padding: 5px;
+        flex-grow: 1;
+    }
 
-@media (max-width: 767px) {
+    /* Stylish link button */
     .stylish-linkaa {
-        padding: 10px 15px;
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #3ab6e9;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
     }
-}
 
-    </style>
-    <section id="feature_product" class="bottom_half">
+    .stylish-linkaa:hover {
+        background-color: #309ec7;
+        transform: translateY(-3px);
+    }
+
+    /* Adjust button size for smaller screens */
+    @media (max-width: 767px) {
+        .stylish-linkaa {
+            padding: 10px 15px;
+        }
+    }
+
+    /* New product tag */
+    .tag-btn {
+        width: 0;
+        height: 0;
+        border-bottom: 10px solid transparent;
+        border-top: 50px solid #79b6c8;
+        border-left: 15px solid #79b6c8;
+        border-right: 15px solid #79b6c8;
+        display: inline-block;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .tag-btn span {
+        display: block;
+        text-transform: uppercase;
+        font-size: 12px;
+        color: white;
+        line-height: 20px;
+    }
+</style>
+
+<section id="feature_product" class="bottom_half">
     <div class="container">
         <div class="row product-grid">
             <?php while ($product = $result->fetch_assoc()): ?>
                 <div class="product-col">
                     <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border-radius: 20px; margin-bottom: 5px; box-shadow: -1px 4px 19px -9px rgba(0, 0, 0, 0.5); background-color: white;">
                         <?php if ($product['hours_since_creation'] <= 24): ?>
-                            <div style="width: 0; height: 0; border-bottom: 10px solid transparent; border-top: 50px solid #79b6c8; border-left: 15px solid #79b6c8; border-right: 15px solid #79b6c8; display: inline-block;" class="tag-btn">
-                                <span class="uppercase text-center">New</span>
+                            <div class="tag-btn">
+                                <span>New</span>
                             </div>
                         <?php endif; ?>
                         <div class="image" style="width:100%;">
@@ -231,11 +272,11 @@ if ($result->num_rows === 0) {
                                 }
                             ?>
                             <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
-                                <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="display: block; width: 100%;" class="img-responsive">
+                                <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="img-responsive">
                             </a>
                         </div>
 
-                        <div class="product_desc" style="padding: 2px; margin: 4px; height: 8vh; display: flex; justify-content: center;text-align: center;">
+                        <div class="product_desc">
                             <p>
                                 <span class="title">
                                     <?php 
@@ -261,6 +302,7 @@ if ($result->num_rows === 0) {
         </div>
     </div>
 </section>
+
 
 
     <!-- Footer -->

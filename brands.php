@@ -1,16 +1,16 @@
-
 <?php 
   // Include the configuration file
-//   include(__DIR__ . '/inc_files/config.php');
+  // include(__DIR__ . '/inc_files/config.php');
 ?>
+
 <?php
 ini_set('display_errors', 1);
-
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 // ini_set('display_errors', 0);
 
 include("api/db_connection.php");
+
 // Establish database connection
 $conn = mysqli_connect($host, $username, $password, $dbname);
 if ($conn->connect_error) {
@@ -21,44 +21,30 @@ if ($conn->connect_error) {
 $brandId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // Fetch brand details
-$brandQuery = "SELECT name, specifications,logo,extension FROM brand WHERE id = $brandId";
+$brandQuery = "SELECT name, specifications, logo, extension FROM brand WHERE id = $brandId";
 $brandResult = $conn->query($brandQuery);
 
 if ($brandResult && $brandResult->num_rows > 0) {
     $brand = $brandResult->fetch_assoc();
     $brandName = $brand['name'];
     $brandDescription = $brand['specifications'];
-    $brandLogo = $brand['logo'].".".$brand['extension'];
-
-    // if ($brand['logo'] !='' && $brand['extension'] != '') {
-    //     $brandLogo = "uploads/assets/logos/" . $brandLogo;
-    // } else {
-    //     $brandLogo = "images/default.png";
-    // }
+    $brandLogo = $brand['logo'] . "." . $brand['extension'];
 } else {
     echo "Brand not found.";
     $conn->close();
     exit;
 }
+
 if (empty($brandDescription)) {
-    $brandDescription = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum voluptatem quo facilis sapiente molestiae delectus labore excepturi eveniet temporibus repellendus! Odio laborum autem vitae sint! NULL DATA IN DATABASE ";
+    $brandDescription = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum voluptatem quo facilis sapiente molestiae delectus labore excepturi eveniet temporibus repellendus! Odio laborum autem vitae sint!";
 }
 
-if (!empty($brandLogo) || $brandLogo != '') {
+if (!empty($brandLogo)) {
     $brandLogo = "uploads/assets/logos/" . $brandLogo;
 } else {
     $brandLogo = "images/default.png";
 }
 
-// Fetch products for the given brand
-// $productQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brand_id = $brandId";
-// $result = $conn->query($productQuery);
-
-// if ($result->num_rows === 0) {
-//     echo "No products found for this brand.";
-//     $conn->close();
-//     exit;
-// }
 ?>
 
 <!doctype html>
@@ -85,10 +71,9 @@ if (!empty($brandLogo) || $brandLogo != '') {
 
 <body>
 
-    <!-- Loader -->
-
     <!-- HEADER -->
     <?php include("inc_files/header.php"); ?>
+
     <!-- Breadcumb -->
     <?php include("inc_files/breadcumb.php"); ?>
 
@@ -112,7 +97,7 @@ if (!empty($brandLogo) || $brandLogo != '') {
         }
         @media (max-width: 767px) {
             .container1 {
-                flex-direction:column;
+                flex-direction: column;
             }
         }
     </style>
@@ -123,167 +108,166 @@ if (!empty($brandLogo) || $brandLogo != '') {
                 <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($brandName); ?> Image">
             </div>
             <div class="text3">
-                <h2><?php echo htmlspecialchars($brandName); ?></h2>
+                <!-- <h2><?php echo htmlspecialchars($brandName); ?></h2> -->
                 <br>
                 <p><?php echo htmlspecialchars($brandDescription); ?></p>
             </div>
         </div>
     </div>
     <style>
-        /* CSS Grid Layout for product grid */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr); /* Default 1 product per row for mobile */
-            gap: 20px; /* Spacing between products */
+        /* General Styling for Related Products */
+        #feature_product {
+            padding: 30px 0;
         }
 
-        /* Media query for larger screens (laptop or desktop) */
-        @media (min-width: 768px) {
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 products per row on tablets */
-            }
+        #feature_product .heading {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 30px;
         }
 
-        /* Media query for even larger screens (desktops) */
-        @media (min-width: 1024px) {
-            .product-grid {
-                grid-template-columns: repeat(4, 1fr); /* 4 products per row on desktops */
-            }
-        }
-
-        .product-col {
+        .product_wrap {
+            padding: 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            box-shadow: -1px 4px 19px -9px rgba(0, 0, 0, 0.5);
+            background-color: white;
+            transition: box-shadow 0.3s ease;
             display: flex;
             justify-content: center;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Styling for the product wrapper (optional) */
-        .product_wrap {
-            padding: 10px;
-            border-radius: 10px;
-            background-color: white;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
         .product_wrap:hover {
-            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* Responsive Image styling */
-        .product_wrap .image img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        /* Responsive text description */
         .product_desc {
-            text-align: center;
+            padding: 10px;
             margin-top: 10px;
         }
 
-        .stylish-linkaa {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #3ab6e9;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+        .product_desc .title {
+            font-size: 16px;
+            line-height: 1.5;
         }
 
-        .stylish-linkaa:hover {
-            background-color: #309ec7;
-            transform: translateY(-3px);
+        /* CSS Grid for the product container */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Default 4 columns for desktop */
+            gap: 15px;
+            padding: 15px 0;
         }
+        
+        /* Mobile and Tablet Responsiveness */
 
+        /* For small screens (mobile, tablets) */
         @media (max-width: 767px) {
-            .stylish-linkaa {
-                padding: 10px 15px;
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 products per row */
+            }
+            
+            .product_desc .title {
+                font-size: 14px;
+            }
+            .stylish-linkab {
+                font-size: 12px;
+                padding: 8px 12px;
             }
         }
 
+        /* For large screens (desktops) */
+        @media (min-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(4, 1fr); /* 4 products per row on larger screens */
+            }
+        }
+
+        .stylish-linkab {
+            display: flex;
+            width: 120px;
+            border-radius: 15px;
+            text-align: center;
+            background-color: #3ab6e9;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .stylish-linkab:hover {
+            color: #f0f0f0;
+            text-decoration: none;
+        }
     </style>
-    <?php
-        // Fetch related products from the same brand
-        $brand = $brandId;
-        $relatedProductsQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brand_id = ? AND sku != ? "; // Exclude the current product
-        $stmt = $conn->prepare($relatedProductsQuery);
-        $stmt->bind_param("ss", $brand, $sku);
-        $stmt->execute();
-        $relatedProductsResult = $stmt->get_result();
-    ?>
-<section id="feature_product" class="bottom_half">
+
+<?php
+    // Fetch related products from the same brand
+    $relatedProductsQuery = "SELECT * FROM products WHERE brand_id = ?";
+    $stmt = $conn->prepare($relatedProductsQuery);
+    $stmt->bind_param("i", $brandId);
+    $stmt->execute();
+    $relatedProductsResult = $stmt->get_result();
+?>
+
+<section id="feature_product">
     <div class="container">
-        <div class="row product-grid">
-            <?php while ($product = $result->fetch_assoc()): ?>
-                <div class="product-col">
-                    <div class="product_wrap bottom_half" style="padding-bottom: 0px; padding: 5px; border-radius: 20px; margin-bottom: 5px; box-shadow: -1px 4px 19px -9px rgba(0, 0, 0, 0.5); background-color: white;">
-                        <?php if ($product['hours_since_creation'] <= 24): ?>
-                            <div style="width: 0; height: 0; border-bottom: 10px solid transparent; border-top: 50px solid #79b6c8; border-left: 15px solid #79b6c8; border-right: 15px solid #79b6c8; display: inline-block;" class="tag-btn">
-                                <span class="uppercase text-center">New</span>
-                            </div>
-                        <?php endif; ?>
-                        <div class="image" style="width:100%;">
-                            <?php
-                                if (!empty($product['images'])) {
-                                    $imageIds = explode(',', $product['images']);
-                                    $firstImageId = $imageIds[0] ?? null;
-                                    if ($firstImageId) {
-                                        $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
-                                        $imageResult = $conn->query($imageQuery);
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="heading uppercase bottom30">Related Products</h4>
+            </div>
+        </div>
+        <div class="product-grid">
+            <?php while ($relatedProduct = $relatedProductsResult->fetch_assoc()): ?>
+                <div class="product_wrap">
+                    <div class="image">
+                        <?php
+                        // Get the first image from the product's images column
+                        $imageIds = explode(',', $relatedProduct['images']);
+                        $firstImageId = $imageIds[0] ?? null;
 
-                                        if ($imageResult && $imageResult->num_rows > 0) {
-                                            $image = $imageResult->fetch_assoc();
-                                            $imageLink = "api/uploads/assets/" . $image['file_original_name'];
-                                        } else {
-                                            $imageLink = "images/default.png";
-                                        }
-                                    } else {
-                                        $imageLink = "images/default.png";
-                                    }
-                                } else {
-                                    $imageLink = "images/default.png";
-                                }
-                            ?>
-                            <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>">
-                                <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="display: block; width: 100%;" class="img-responsive">
-                            </a>
-                        </div>
-
-                        <div class="product_desc" style="padding: 2px; margin: 4px; height: 8vh; display: flex; justify-content: center;text-align: center;">
-                            <p>
-                                <span class="title">
-                                    <?php 
-                                        $productName = htmlspecialchars($product['name']);
-                                        $words = explode(' ', $productName);
-                                        if (count($words) > 3) {
-                                            echo htmlspecialchars(implode(' ', array_slice($words, 0, 5))) . '...';
-                                        } else {
-                                            echo $productName;
-                                        } 
-                                    ?> 
-                                </span>
-                            </p>
-                        </div>
-
-                        <div class="btn" style="display: flex; justify-content: center; padding-bottom: 20px;">
-                            <a href="product_detail.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="stylish-linkaa" style="padding: 8px 15px;">Read More</a>
-                        </div>
-
+                        // If there's an image, get its filename from the database, otherwise use the default
+                        if ($firstImageId) {
+                            $imageQuery = "SELECT file_original_name FROM upload WHERE id = ?";
+                            $imageStmt = $conn->prepare($imageQuery);
+                            $imageStmt->bind_param("i", $firstImageId);
+                            $imageStmt->execute();
+                            $imageResult = $imageStmt->get_result();
+                            
+                            if ($imageResult && $imageResult->num_rows > 0) {
+                                $image = $imageResult->fetch_assoc();
+                                $imageLink = "api/uploads/assets/" . $image['file_original_name'];
+                            } else {
+                                $imageLink = "images/default.png"; // Fallback if no image found
+                            }
+                        } else {
+                            $imageLink = "images/default.png"; // Fallback if no image IDs
+                        }
+                        ?>
+                        <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
+                            <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo "image"; ?>" class="img-responsive">
+                        </a>
+                    </div>
+                    <div class="product_desc">
+                        <p class="title"><?php echo htmlspecialchars($relatedProduct['name']); ?></p>
+                    </div>
+                    <div class="btn">
+                        <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="stylish-linkab">Read More</a>
                     </div>
                 </div>
             <?php endwhile; ?>
         </div>
     </div>
 </section>
-<?php  include("inc_files/related_products.php"); ?>
-
 
 
     <!-- Footer -->
@@ -311,7 +295,8 @@ if (!empty($brandLogo) || $brandLogo != '') {
     <script src="js/functions.js"></script>
 
 </body>
-
 </html>
 
-<?php $conn->close(); ?>
+<?php
+$conn->close();
+?>

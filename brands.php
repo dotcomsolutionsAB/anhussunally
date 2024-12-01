@@ -252,21 +252,13 @@ if (!empty($brandLogo)) {
                         } else {
                             $imageLink = "images/default.png"; // Fallback if no image IDs
                         }
-
-                        $productNames = htmlspecialchars($relatedProduct['name']);
-                        $words = explode(' ', $productNames);
-                        if (count($words) > 2) {
-                            echo htmlspecialchars(implode(' ', array_slice($words, 0, 3))) . '...';
-                        } else {
-                            echo $productNames;
-                        }
                         ?>
                         <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
-                            <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="image" class="img-responsive">
+                            <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo "image"; ?>" class="img-responsive">
                         </a>
                     </div>
                     <div class="product_desc">
-                        <p class="title"><?php echo htmlspecialchars($productNames); ?></p>
+                        <p class="title"><?php echo htmlspecialchars($relatedProduct['name']); ?></p>
                     </div>
                     <div class="btn">
                         <a href="product_detail.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="stylish-linkab">Read More</a>

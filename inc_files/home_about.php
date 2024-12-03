@@ -5,13 +5,14 @@
         align-items: center;
         background-color: #111;
         height: 100%;
+        flex-wrap: wrap; /* Allow the content to wrap on small screens */
     }
 
     .testimonial-text {
         flex: 1;
         margin: 20px 70px;
         width: 50vw;
-        height: 95vh;
+        height: 105vh;
         justify-content: center;
         display: flex;
         flex-direction: column;
@@ -76,6 +77,123 @@
         height: 100%;
         /* padding:1px 5px; */
         /* border-radius: 10px; */
+    }
+	/* Stylish Link */
+    .stylish-link {
+        display: inline-block;
+        width: 150px;
+        text-align: center;
+        background-color: #3ab6e9;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 12px 20px;
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase; /* Uppercase text */
+        letter-spacing: 1px; /* Slightly spaced letters */
+        border: 2px solid transparent; /* Add a border for hover effect */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: all 0.3s ease; /* Smooth transition for all properties */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    }
+    .stylish-link:hover {
+        color: #f0f0f0;
+        text-decoration: none;
+    }
+    /* Media Queries for Mobile Devices */
+    /* Tablet Devices (up to 1024px) */
+    @media (max-width: 1024px) {
+        .testimonial-section {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            text-align: justify;
+        }
+        .testimonial-text {
+            width: 80vw;
+            margin: 20px 0;
+            height: auto; /* Remove fixed height */
+        }
+        .testimonial-image img {
+            max-width: 90%; /* Resize image for tablets */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .testimonial-text h2 {
+            font-size: 3.5em; /* Adjust text size for tablet */
+        }
+        .testimonial-text h4 {
+            font-size: 1.5em; /* Adjust text size for tablet */
+        }
+        .testimonial-text p {
+            font-size: 1.2em; /* Adjust paragraph font size */
+        }
+        .stylish-link {
+            width: 140px;
+            font-size: 12px; /* Adjust button size for smaller screens */
+        }
+    }
+    /* Mobile Devices (up to 768px) */
+    @media (max-width: 768px) {
+        .testimonial-section {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .testimonial-text {
+            width: 90vw;
+            margin: 10px 0;
+        }
+        .testimonial-text h2 {
+            font-size: 2.8em; /* Adjust text size for mobile */
+        }
+        .testimonial-text h4 {
+            font-size: 1.3em; /* Adjust text size for mobile */
+        }
+        .testimonial-text p {
+            font-size: 1.1em; /* Adjust paragraph font size for mobile */
+            line-height: 1.6;
+        }
+        .testimonial-image img {
+            width: 100%;
+            height: auto; /* Resize image for mobile */
+        }
+        .stylish-link {
+            width: 130px;
+            font-size: 11px; /* Adjust button size for mobile */
+        }
+    }
+    /* Small Mobile Devices (up to 480px) */
+    @media (max-width: 480px) {
+        .testimonial-text {
+            padding: 10px;
+            text-align: justify;
+            margin-bottom: 25px;
+        }
+        .testimonial-text h2 {
+            font-size: 2.5em;
+        }
+        .testimonial-text h4 {
+            font-size: 1.2em;
+        }
+        .testimonial-text p {
+            font-size: 1em;
+            line-height: 1.5;
+        }
+        .testimonial-image {
+            width: 100vw; /* Full width */
+            height: 65vh; /* 50% of viewport height */
+        }
+        .testimonial-image img {
+            width: 100%;
+            height: 45vh;
+            object-fit: cover;
+            transform: scale(1.1); /* Zoom effect */
+        }
+        .stylish-link {
+            width: 120px;
+            font-size: 10px;
+        }
     }
 </style>
 <section class="testimonial-section">

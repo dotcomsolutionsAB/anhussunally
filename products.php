@@ -1,6 +1,13 @@
 <?php
-include("connection/db_connect.php");
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
+include("connection/db_connect.php");
+$host = 'localhost';
+$dbname = 'anh';
+$username = 'anh';
+$password = '9kCuzrb5tO53$xQtf';
 // Establish database connection
 $conn = mysqli_connect($host, $username, $password, $dbname);
 if ($conn->connect_error) {

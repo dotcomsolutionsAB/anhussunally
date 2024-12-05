@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>AN Hussunally & Co</title>
+    <title>AN Hussunally & Company</title>
     <meta name="description" content="Renova - Construction Building & Renovation Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

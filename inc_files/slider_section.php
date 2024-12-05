@@ -1,7 +1,7 @@
     <section class="slider__area">
         <div class="swiper slider-active">
             <div class="swiper-wrapper">
-                <div class="swiper-slide slider__bg" data-background="https://anh.ongoingwp.xyz/images/About_Us.png" style="display: flex; justify-content: center;
+                <div class="swiper-slide slider__bg" data-background="../images/About_Us.png" style="display: flex; justify-content: center;
                             align-items: center;">
                 <style>
                     /* Full Page Section */

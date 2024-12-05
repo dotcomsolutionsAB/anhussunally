@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="pingback" href="https://www.anhussunally.com/xmlrpc.php">
+
+	<title>A.N.Hussunally &amp; Co. &#8211; Alfomega | Atos | Dowty | Danfoss | Polyhydron | Hydroline | Hyloc | Walvoil</title>
+<meta name='robots' content='max-image-preview:large' />
+<link rel="alternate" type="application/rss+xml" title="A.N.Hussunally &amp; Co. &raquo; Feed" href="https://www.anhussunally.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="A.N.Hussunally &amp; Co. &raquo; Comments Feed" href="https://www.anhussunally.com/comments/feed/" />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.anhussunally.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.7"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<link rel='stylesheet' id='linearicons-css' href='https://www.anhussunally.com/wp-content/plugins/martfury-addons/assets/css/linearicons.min.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wptwa-public-css' href='https://www.anhussunally.com/wp-content/plugins/wpt-whatsapp/assets/css/public.css?ver=2.2.5' type='text/css' media='all' />
+<link rel='stylesheet' id='wptwa-generated-css' href='https://www.anhussunally.com/wp-content/plugins/wpt-whatsapp/assets/css/auto-generated-wptwa.css?ver=1709321609' type='text/css' media='all' />
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-family--inter: "Inter", sans-serif;--wp--preset--font-family--cardo: Cardo;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='contact-form-7-css' href='https://www.anhussunally.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=6.0' type='text/css' media='all' />
+<link rel='stylesheet' id='rs-plugin-settings-css' href='https://www.anhussunally.com/wp-content/plugins/revslider/public/assets/css/rs6.css?ver=6.4.6' type='text/css' media='all' />
+<style id='rs-plugin-settings-inline-css' type='text/css'>
+#rs-demo-id {}
+</style>
+<link rel='stylesheet' id='woocommerce-general-css' href='https://www.anhussunally.com/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=9.4.1' type='text/css' media='all' />
+<style id='woocommerce-inline-inline-css' type='text/css'>
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<link rel='stylesheet' id='hfe-style-css' href='https://www.anhussunally.com/wp-content/plugins/header-footer-elementor/assets/css/header-footer-elementor.css?ver=1.6.4' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-icons-css' href='https://www.anhussunally.com/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.31.0' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://www.anhussunally.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.24.7' type='text/css' media='all' />
+<link rel='stylesheet' id='swiper-css' href='https://www.anhussunally.com/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5' type='text/css' media='all' />
+<link rel='stylesheet' id='e-swiper-css' href='https://www.anhussunally.com/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=3.24.7' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-post-1-css' href='https://www.anhussunally.com/wp-content/uploads/elementor/css/post-1.css?ver=1629896367' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-global-css' href='https://www.anhussunally.com/wp-content/uploads/elementor/css/global.css?ver=1629896367' type='text/css' media='all' />
+<link rel='stylesheet' id='e-animation-shrink-css' href='https://www.anhussunally.com/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-shrink.min.css?ver=3.24.7' type='text/css' media='all' />
+<link rel='stylesheet' id='widget-image-css' href='https://www.anhussunally.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=3.24.7' type='text/css' media='all' />
+<link rel='stylesheet' id='widget-divider-css' href='https://www.anhussunally.com/wp-content/plugins/elementor/assets/css/widget-divider.min.css?ver=3.24.7' type='text/css' media='all' />
+<link rel='stylesheet' id='widget-heading-css' href='https://www.anhussunally.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.24.7' type='text/css' media='all' />
+<link rel='stylesheet' id='widget-text-editor-css' href='https://www.anhussunally.com/wp-content/plugins/elementor/assets/css/widget-text-editor.min.css?ver=3.24.7' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-post-2537-css' href='https://www.anhussunally.com/wp-content/uploads/elementor/css/post-2537.css?ver=1730926187' type='text/css' media='all' />
+<link rel='stylesheet' id='martfury-fonts-css' href='https://fonts.googleapis.com/css?family=Work+Sans%3A300%2C400%2C500%2C600%2C700%7CLibre+Baskerville%3A400%2C700&#038;subset=latin%2Clatin-ext&#038;ver=20170801' type='text/css' media='all' />
+<link rel='stylesheet' id='ionicons-css' href='https://www.anhussunally.com/wp-content/themes/martfury/css/ionicons.min.css?ver=2.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='eleganticons-css' href='https://www.anhussunally.com/wp-content/themes/martfury/css/eleganticons.min.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='https://www.anhussunally.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css?ver=4.7.0' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css' href='https://www.anhussunally.com/wp-content/themes/martfury/css/bootstrap.min.css?ver=3.3.7' type='text/css' media='all' />
+<link rel='stylesheet' id='martfury-css' href='https://www.anhussunally.com/wp-content/themes/martfury/style.css?ver=20201224' type='text/css' media='all' />
+<style id='martfury-inline-css' type='text/css'>
+	/* Color Scheme */
+
+	/* Color */
+
+	body {
+		--mf-primary-color: #dd3333;
+		--mf-background-primary-color: #dd3333;
+		--mf-border-primary-color: #dd3333;
+	}
+
+	.widget_shopping_cart_content .woocommerce-mini-cart__buttons .checkout,
+	 .header-layout-4 .topbar:not(.header-bar),
+	 .header-layout-3 .topbar:not(.header-bar){
+		background-color: #dd3333;
+	}
+	
+	body{font-family: "Poppins";}.site-header .primary-nav > ul > li > a, .site-header .products-cats-menu .menu > li > a{font-size: 18px;font-weight: 600;}.site-header .menu li li a{font-size: 16px;font-weight: 400;}.site-footer{font-size: 15px;font-weight: 400;}#site-header, #site-header .header-main, .sticky-header #site-header.minimized .mobile-menu {background-color:#ffffff}.sticky-header .site-header.minimized .header-main{border-bottom: none}#site-header .aws-container .aws-search-form{background-color: transparent}#site-header .aws-container .aws-search-form .aws-search-field{background-color: #fff}#site-header:not(.minimized) .product-extra-search .hot-words li a:hover,#site-header .header-bar a:hover,#site-header .primary-nav > ul > li > a:hover, #site-header .header-bar a:hover{color:#dd3333}#site-header .mf-background-primary, #site-header .mini-item-counter{--mf-background-primary-color:#021e40}#site-header .mf-background-primary,  #site-header .mini-item-counter{--mf-background-primary-text-color:#ffffff}#topbar{background-color:#ffffff}.site-header .topbar{background-color:transparent}#topbar .widget:after {background-color:#000000}#topbar, #topbar a, #topbar #lang_sel > ul > li > a, #topbar .mf-currency-widget .current, #topbar .mf-currency-widget .current:after, #topbar  .lang_sel > ul > li > a:after, #topbar  #lang_sel > ul > li > a:after {color:#000000}#topbar a:hover, #topbar .mf-currency-widget .current:hover, #topbar #lang_sel > ul > li > a:hover{color:#dd3333}#site-header .main-menu{background-color:#021e40}#site-header .header-bar a, #site-header .recently-viewed .recently-title,#site-header:not(.minimized) .main-menu .products-cats-menu .cats-menu-title .text, #site-header:not(.minimized) .main-menu .products-cats-menu .cats-menu-title, #site-header .main-menu .primary-nav > ul > li > a, #site-header .main-menu .header-bar,#site-header .header-bar #lang_sel  > ul > li > a, #site-header .header-bar .lang_sel > ul > li > a, #site-header .header-bar #lang_sel > ul > li > a:after, #site-header .header-bar .lang_sel > ul > li > a:after, #site-header .header-bar .mf-currency-widget .current:after,#site-header .header-bar ul.menu > li.menu-item-has-children > a:after{color:#ffffff}#site-header .header-bar .mf-currency-widget ul li a, #site-header .header-bar #lang_sel ul ul li a {color: #666}#site-header .header-bar a:hover,#site-header .primary-nav > ul > li:hover > a, #site-header .header-bar #lang_sel  > ul > li > a:hover, #site-header .header-bar .lang_sel > ul > li > a:hover, #site-header .header-bar #lang_sel > ul > li > a:hover:after, #site-header .header-bar .lang_sel > ul > li > a:hover:after, #site-header .header-bar .mf-currency-widget .current:hover,#site-header .header-bar .mf-currency-widget .current:hover:after{color:#dd3333}.site-footer .footer-layout {background-color:#021e40}.site-footer h1, .site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5, .site-footer h6, .site-footer .widget .widget-title {color:#ffffff}.site-footer, .site-footer .footer-widgets .widget ul li a, .site-footer .footer-copyright,.site-footer .footer-links .widget_nav_menu ul li a, .site-footer .footer-payments .text {color:#ffffff}
+</style>
+<link rel='stylesheet' id='photoswipe-css' href='https://www.anhussunally.com/wp-content/plugins/woocommerce/assets/css/photoswipe/photoswipe.min.css?ver=9.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='photoswipe-default-skin-css' href='https://www.anhussunally.com/wp-content/plugins/woocommerce/assets/css/photoswipe/default-skin/default-skin.min.css?ver=9.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='martfury-child-style-css' href='https://www.anhussunally.com/wp-content/themes/martfury-child/style.css?ver=6.7' type='text/css' media='all' />
+<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Montserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPoppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CAllura%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=6.7' type='text/css' media='all' />
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><script type="text/template" id="tmpl-variation-template">
+	<div class="woocommerce-variation-description">{{{ data.variation.variation_description }}}</div>
+	<div class="woocommerce-variation-price">{{{ data.variation.price_html }}}</div>
+	<div class="woocommerce-variation-availability">{{{ data.variation.availability_html }}}</div>
+</script>
+<script type="text/template" id="tmpl-unavailable-variation-template">
+	<p role="alert">Sorry, this product is unavailable. Please choose a different combination.</p>
+</script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.4.4" id="tp-tools-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.4.6" id="revmin-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.9.4.1" id="jquery-blockui-js" data-wp-strategy="defer"></script>
+<script type="text/javascript" id="wc-add-to-cart-js-extra">
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"https:\/\/www.anhussunally.com\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=9.4.1" id="wc-add-to-cart-js" data-wp-strategy="defer"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.9.4.1" id="js-cookie-js" defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" id="woocommerce-js-extra">
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=9.4.1" id="woocommerce-js" defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cart.js?ver=7.9" id="vc_woocommerce-add-to-cart-js-js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/themes/martfury/js/plugins/html5shiv.min.js?ver=3.7.2" id="html5shiv-js"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/themes/martfury/js/plugins/respond.min.js?ver=1.4.2" id="respond-js"></script>
+<![endif]-->
+<script type="text/javascript" src="https://www.anhussunally.com/wp-includes/js/underscore.min.js?ver=1.13.7" id="underscore-js"></script>
+<script type="text/javascript" id="wp-util-js-extra">
+/* <![CDATA[ */
+var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-includes/js/wp-util.min.js?ver=6.7" id="wp-util-js"></script>
+<script type="text/javascript" id="wc-add-to-cart-variation-js-extra">
+/* <![CDATA[ */
+var wc_add_to_cart_variation_params = {"wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_no_matching_variations_text":"Sorry, no products matched your selection. Please choose a different combination.","i18n_make_a_selection_text":"Please select some product options before adding this product to your cart.","i18n_unavailable_text":"Sorry, this product is unavailable. Please choose a different combination."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.min.js?ver=9.4.1" id="wc-add-to-cart-variation-js" defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/themes/martfury/js/plugins/waypoints.min.js?ver=2.0.2" id="waypoints-js"></script>
+<script></script><link rel="https://api.w.org/" href="https://www.anhussunally.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.anhussunally.com/wp-json/wp/v2/pages/2537" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.anhussunally.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.7" />
+<meta name="generator" content="WooCommerce 9.4.1" />
+<link rel="canonical" href="https://www.anhussunally.com/" />
+<link rel='shortlink' href='https://www.anhussunally.com/' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.anhussunally.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.anhussunally.com%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.anhussunally.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.anhussunally.com%2F&#038;format=xml" />
+<style>
+	.entry-title{
+		display:none!important;
+	}
+	.catalog-ajax-filter #page{
+		opacity: 1;
+	}
+	
+	.mf-preloader .martfury-preloader.fade-in {
+		display: none!important;
+	}
+	
+	.martfury-preloader {
+		transition: opacity 0.7s!important;
+		opacity: 0.7!important;
+		position: fixed!important;
+		top: 0!important;
+		left: 0!important;
+		display: none!important;
+		right: 0!important;
+		bottom: 0!important;
+		z-index: 99999!important;
+		background-color: #fff!important;
+	}
+	
+	.sticky-product-info-wapper .sc-product-cart .button{
+		display: none!important;
+	}
+	
+	
+	.woocommerce ul.products li.product strong {
+		display: inline;
+	}
+	
+	.catalog-full-width.sidebar-content .content-area, .catalog-full-width.content-sidebar .content-area{
+		width: 75%;
+	}
+	.catalog-full-width.sidebar-content .catalog-sidebar, .catalog-full-width.sidebar-content .primary-sidebar, .catalog-full-width.content-sidebar .catalog-sidebar, .catalog-full-width.content-sidebar .primary-sidebar{
+		width: 25%;
+	}
+	
+	.site-header .martfury-container .header-extras, .site-header .martfury-container .mr-header-menu{
+		width: 100%;
+	}
+	
+	.site-header .col-header-menu{
+		width: 100%;
+	}
+	
+	.site-header .primary-nav{
+		width: 100%;
+	}
+	
+	.ubermenu-skin-minimal .ubermenu-submenu .ubermenu-target > .ubermenu-target-description{
+		display: none;
+	}
+	
+	
+	
+	.site-content {
+    	padding-top: 10px !important;
+    	padding-bottom: 100px !important;
+	}
+	
+	.site-footer .footer-widgets {
+    	padding-bottom: 20px !important;
+	}
+	
+	.footer-layout-1 .footer-bottom {
+    	padding-top: 15px;
+    	padding-bottom: 15px;
+	}
+	
+	.wptwa-wc-buttons-container{
+		margin-top: 10px;
+	}
+	
+	.site-header .martfury-container .header-logo, .site-header .martfury-container .mr-extra-department{
+		width: 600px;
+	}
+	
+	.tax-product_brand #mf_product_categories-2{
+		display: none;
+	}
+	
+	#mf_product_brands-2 .count{
+		display: none;
+	}
+	@media only screen and (max-width: 600px) {
+		#site-header{
+			background-color: #ffffff!important;
+			border-bottom: 2px solid #021e40;
+		}
+		#site-header .header-main{
+			background-color: #ffffff!important;
+		}
+		.d-logo{
+			margin: 0 auto;
+		}
+		
+		.search-field{
+			border-color: #021e40!important;
+		}
+		
+		.catalog-full-width.sidebar-content .content-area, .catalog-full-width.content-sidebar .content-area{
+			width: 100%;
+		}
+	}
+	</style>
+	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<meta name="generator" content="Elementor 3.24.7; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress."/>
+<meta name="generator" content="Powered by Slider Revolution 6.4.6 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+<style class='wp-fonts-local' type='text/css'>
+@font-face{font-family:Inter;font-style:normal;font-weight:300 900;font-display:fallback;src:url('https://www.anhussunally.com/wp-content/plugins/woocommerce/assets/fonts/Inter-VariableFont_slnt,wght.woff2') format('woff2');font-stretch:normal;}
+@font-face{font-family:Cardo;font-style:normal;font-weight:400;font-display:fallback;src:url('https://www.anhussunally.com/wp-content/plugins/woocommerce/assets/fonts/cardo_normal_400.woff2') format('woff2');}
+</style>
+<link rel="icon" href="https://www.anhussunally.com/wp-content/uploads/2021/10/cropped-Favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.anhussunally.com/wp-content/uploads/2021/10/cropped-Favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.anhussunally.com/wp-content/uploads/2021/10/cropped-Favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.anhussunally.com/wp-content/uploads/2021/10/cropped-Favicon-270x270.png" />
+<script type="text/javascript">function setREVStartSize(e){
+			//window.requestAnimationFrame(function() {				 
+				window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;	
+				window.RSIH = window.RSIH===undefined ? window.innerHeight : window.RSIH;	
+				try {								
+					var pw = document.getElementById(e.c).parentNode.offsetWidth,
+						newh;
+					pw = pw===0 || isNaN(pw) ? window.RSIW : pw;
+					e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
+					e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
+					e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
+					e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
+					e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
+					e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
+					e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);		
+					if(e.layout==="fullscreen" || e.l==="fullscreen") 						
+						newh = Math.max(e.mh,window.RSIH);					
+					else{					
+						e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+						for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];					
+						e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
+						e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+						for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
+											
+						var nl = new Array(e.rl.length),
+							ix = 0,						
+							sl;					
+						e.tabw = e.tabhide>=pw ? 0 : e.tabw;
+						e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
+						e.tabh = e.tabhide>=pw ? 0 : e.tabh;
+						e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;					
+						for (var i in e.rl) nl[i] = e.rl[i]<window.RSIW ? 0 : e.rl[i];
+						sl = nl[0];									
+						for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}															
+						var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);					
+						newh =  (e.gh[ix] * m) + (e.tabh + e.thumbh);
+					}				
+					if(window.rs_init_css===undefined) window.rs_init_css = document.head.appendChild(document.createElement("style"));					
+					document.getElementById(e.c).height = newh+"px";
+					window.rs_init_css.innerHTML += "#"+e.c+"_wrapper { height: "+newh+"px }";				
+				} catch(e){
+					console.log("Failure at Presize of Slider:" + e)
+				}					   
+			//});
+		  };</script>
+		<style type="text/css" id="wp-custom-css">
+			.header-layout-3 .site-header .header-bar {    background-color: transparent;}		</style>
+		<noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>
+</head>
+
+<body class="home page-template-default page page-id-2537 wp-embed-responsive theme-martfury woocommerce-no-js ehf-template-martfury ehf-stylesheet-martfury-child header-layout-3 full-content mf-preloader sticky-header header-no-department elementor-columns-no-space wpb-js-composer js-comp-ver-7.9 vc_responsive elementor-default elementor-kit-1 elementor-page elementor-page-2537 product_loop-no-hover">
+        <div id="martfury-preloader" class="martfury-preloader">
+        </div>
+		
+<div id="page" class="hfeed site">
+			        <header id="site-header" class="site-header header-department-bot header-dark">
+			<div class="header-main-wapper">
+    <div class="header-main">
+        <div class="martfury-container">
+            <div class="row header-row">
+                <div class="header-logo col-md-3 col-sm-3">
+                    <div class="d-logo">
+						    <div class="logo">
+        <a href="https://www.anhussunally.com/">
+            <img class="site-logo" alt="A.N.Hussunally &amp; Co."
+                 src="https://anhussunally.com/wp-content/uploads/2021/09/logo-1.png"/>
+			        </a>
+    </div>
+<p class="site-title"><a href="https://www.anhussunally.com/" rel="home">A.N.Hussunally &amp; Co.</a></p>    <h2 class="site-description">Alfomega | Atos | Dowty | Danfoss | Polyhydron | Hydroline | Hyloc | Walvoil</h2>
+
+                    </div>
+					                        <div class="d-department hidden-xs hidden-sm">
+							                        </div>
+					                </div>
+                <div class="header-extras col-md-9 col-sm-9">
+					<div class="product-extra-search">
+                <form class="products-search" method="get" action="https://www.anhussunally.com/">
+                <div class="psearch-content">
+                    <div class="product-cat"><div class="product-cat-label ">All</div> <select  name='product_cat' id='header-search-product-cat' class='product-cat-dd'>
+	<option value='0' selected='selected'>All</option>
+	<option class="level-0" value="accessories">Accessories</option>
+	<option class="level-0" value="breathers">Breathers</option>
+	<option class="level-0" value="check-valves-2">Check Valves</option>
+	<option class="level-0" value="clamps">Clamps</option>
+	<option class="level-1" value="pipe-clamps">&nbsp;&nbsp;&nbsp;Pipe Clamps</option>
+	<option class="level-1" value="twin-clamps">&nbsp;&nbsp;&nbsp;Twin Clamps</option>
+	<option class="level-0" value="diagonistics">Diagonistics</option>
+	<option class="level-0" value="directional-control-2">Directional Control</option>
+	<option class="level-0" value="directional-control-valves-2">Directional Control Valves</option>
+	<option class="level-0" value="filters">Filters</option>
+	<option class="level-0" value="filters-with-breather">Filters With Breather</option>
+	<option class="level-0" value="flanges">Flanges</option>
+	<option class="level-1" value="blind-flanges-iso-6162">&nbsp;&nbsp;&nbsp;Blind Flanges (ISO 6162)</option>
+	<option class="level-1" value="buttweld-solid-flanges-iso-6162">&nbsp;&nbsp;&nbsp;Buttweld Solid Flanges (ISO 6162)</option>
+	<option class="level-1" value="buttweld-solid-flanges-iso-6164">&nbsp;&nbsp;&nbsp;Buttweld Solid Flanges (ISO 6164)</option>
+	<option class="level-1" value="buttweld-swivel-flanges-iso-6162">&nbsp;&nbsp;&nbsp;Buttweld Swivel Flanges (ISO 6162)</option>
+	<option class="level-1" value="buttweld-swivel-flanges-iso-6164">&nbsp;&nbsp;&nbsp;Buttweld Swivel Flanges (ISO 6164)</option>
+	<option class="level-1" value="socket-weld-flanges-iso-6162">&nbsp;&nbsp;&nbsp;Socket-weld Flanges (ISO 6162)</option>
+	<option class="level-0" value="flow-control-2">Flow Control</option>
+	<option class="level-0" value="forged-fittings">Forged Fittings</option>
+	<option class="level-0" value="hydraulic-valves">Hydraulic Valves</option>
+	<option class="level-1" value="check-valves">&nbsp;&nbsp;&nbsp;Check Valves</option>
+	<option class="level-1" value="directional-control-valves">&nbsp;&nbsp;&nbsp;Directional Control Valves</option>
+	<option class="level-1" value="flow-control-hydraulic-valves">&nbsp;&nbsp;&nbsp;Flow Control</option>
+	<option class="level-1" value="pilot-operated-check-valves">&nbsp;&nbsp;&nbsp;Pilot Operated Check Valves</option>
+	<option class="level-1" value="pressure-control-valves">&nbsp;&nbsp;&nbsp;Pressure Control Valves</option>
+	<option class="level-1" value="seat-valves">&nbsp;&nbsp;&nbsp;Seat Valves</option>
+	<option class="level-0" value="level-gauges">Level Gauges</option>
+	<option class="level-0" value="logic-cartridge">Logic Cartridge</option>
+	<option class="level-0" value="manifolds">Manifolds</option>
+	<option class="level-0" value="miscelleneous">Miscelleneous</option>
+	<option class="level-0" value="mobile-valves">Mobile Valves</option>
+	<option class="level-0" value="new-products">New Products</option>
+	<option class="level-0" value="packaged-solutions">PACKAGED SOLUTIONS</option>
+	<option class="level-0" value="power-saving-products">Power Saving Products</option>
+	<option class="level-0" value="prefill-exhaust-valves">PREFILL &amp; EXHAUST VALVES</option>
+	<option class="level-0" value="pressure-control">Pressure Control</option>
+	<option class="level-0" value="pressure-measurement">Pressure Measurement</option>
+	<option class="level-1" value="electronic-pressure-measurement">&nbsp;&nbsp;&nbsp;Electronic Pressure Measurement</option>
+	<option class="level-1" value="mechatronic-pressure-measurement">&nbsp;&nbsp;&nbsp;Mechatronic Pressure Measurement</option>
+	<option class="level-0" value="products">Products</option>
+	<option class="level-0" value="proportional-valves">Proportional Valves</option>
+	<option class="level-1" value="proportional-valve-amplifiers">&nbsp;&nbsp;&nbsp;Proportional Valve Amplifiers</option>
+	<option class="level-1" value="proportional-valve-e-series">&nbsp;&nbsp;&nbsp;Proportional Valve E Series</option>
+	<option class="level-1" value="proportional-valve-eh-series">&nbsp;&nbsp;&nbsp;Proportional Valve EH Series</option>
+	<option class="level-0" value="pumps">Pumps</option>
+	<option class="level-1" value="gear-pumps">&nbsp;&nbsp;&nbsp;Gear Pumps</option>
+	<option class="level-1" value="piston-pumps">&nbsp;&nbsp;&nbsp;Piston Pumps</option>
+	<option class="level-1" value="vane-pumps">&nbsp;&nbsp;&nbsp;Vane Pumps</option>
+	<option class="level-0" value="pumps-bell-housings">Pumps &amp; Bell Housings</option>
+	<option class="level-0" value="shell-tube-type-heat-exchangers">Shell &amp; Tube Type Heat Exchangers</option>
+	<option class="level-0" value="strainers">Strainers</option>
+	<option class="level-0" value="temperature-measurement">Temperature Measurement</option>
+	<option class="level-1" value="electrical-temperature-measurement">&nbsp;&nbsp;&nbsp;Electrical Temperature Measurement</option>
+	<option class="level-1" value="mechatronic-temperature-measurement">&nbsp;&nbsp;&nbsp;Mechatronic Temperature Measurement</option>
+	<option class="level-0" value="tube-couplings">Tube Couplings</option>
+	<option class="level-1" value="adaptors-tube-couplings">&nbsp;&nbsp;&nbsp;Adaptors</option>
+	<option class="level-1" value="adjustable-fittings-metric-tube-couplings">&nbsp;&nbsp;&nbsp;Adjustable Fittings Metric</option>
+	<option class="level-1" value="banjo-coupling-tube-couplings">&nbsp;&nbsp;&nbsp;Banjo Coupling</option>
+	<option class="level-1" value="blanking-end-tube-couplings">&nbsp;&nbsp;&nbsp;Blanking End</option>
+	<option class="level-1" value="bulkhead-tube-couplings">&nbsp;&nbsp;&nbsp;Bulkhead</option>
+	<option class="level-1" value="check-valves-tube-couplings">&nbsp;&nbsp;&nbsp;Check Valves</option>
+	<option class="level-1" value="female-connector-bsp-tube-couplings">&nbsp;&nbsp;&nbsp;Female Connector BSP</option>
+	<option class="level-1" value="gauge-adaptors-tube-couplings">&nbsp;&nbsp;&nbsp;Gauge Adaptors</option>
+	<option class="level-1" value="live-swivel-tube-couplings">&nbsp;&nbsp;&nbsp;Live Swivel</option>
+	<option class="level-1" value="plug-bsp-tube-couplings">&nbsp;&nbsp;&nbsp;Plug BSP</option>
+	<option class="level-1" value="plug-metric-tube-couplings">&nbsp;&nbsp;&nbsp;Plug Metric</option>
+	<option class="level-1" value="plug-nptf-tube-couplings">&nbsp;&nbsp;&nbsp;Plug NPTF</option>
+	<option class="level-1" value="plug-saeunf-tube-couplings">&nbsp;&nbsp;&nbsp;Plug SAEUNF</option>
+	<option class="level-1" value="reducer-expander-tube-couplings">&nbsp;&nbsp;&nbsp;Reducer Expander</option>
+	<option class="level-1" value="sae-flanged-connections-tube-couplings">&nbsp;&nbsp;&nbsp;SAE Flanged Connections</option>
+	<option class="level-1" value="seals-tube-couplings">&nbsp;&nbsp;&nbsp;Seals</option>
+	<option class="level-1" value="swivel-connector-tube-couplings">&nbsp;&nbsp;&nbsp;Swivel Connector</option>
+	<option class="level-1" value="swivel-connector-soft-seal-tube-couplings">&nbsp;&nbsp;&nbsp;Swivel Connector Soft Seal</option>
+	<option class="level-1" value="swivel-coupling-tube-couplings">&nbsp;&nbsp;&nbsp;Swivel Coupling</option>
+	<option class="level-1" value="swivel-coupling-soft-seal-tube-couplings">&nbsp;&nbsp;&nbsp;Swivel Coupling Soft Seal</option>
+	<option class="level-1" value="tools-tube-couplings">&nbsp;&nbsp;&nbsp;Tools</option>
+	<option class="level-1" value="tube-coupling-parts-tube-couplings">&nbsp;&nbsp;&nbsp;Tube Coupling Parts</option>
+	<option class="level-1" value="tube-to-male-stud-bsp-tube-couplings">&nbsp;&nbsp;&nbsp;Tube to Male Stud BSP</option>
+	<option class="level-1" value="tube-to-male-stud-bspt-tube-couplings">&nbsp;&nbsp;&nbsp;Tube to Male Stud BSPT</option>
+	<option class="level-1" value="tube-to-male-stud-oring-metric-tube-couplings">&nbsp;&nbsp;&nbsp;Tube to Male Stud Oring Metric</option>
+	<option class="level-1" value="tube-to-male-stud-oring-saeunf-tube-couplings">&nbsp;&nbsp;&nbsp;Tube to Male Stud Oring SAEUNF</option>
+	<option class="level-1" value="tube-to-tube-coupling-tube-couplings">&nbsp;&nbsp;&nbsp;Tube to Tube Coupling</option>
+	<option class="level-1" value="weld-coupling-tube-couplings">&nbsp;&nbsp;&nbsp;Weld Coupling</option>
+	<option class="level-1" value="weld-nipple-tube-couplings">&nbsp;&nbsp;&nbsp;Weld Nipple</option>
+	<option class="level-0" value="valves">Valves</option>
+	<option class="level-1" value="directional-control">&nbsp;&nbsp;&nbsp;Directional Control</option>
+	<option class="level-1" value="flow-control">&nbsp;&nbsp;&nbsp;Flow Control</option>
+	<option class="level-1" value="logic-valves">&nbsp;&nbsp;&nbsp;Logic Valves</option>
+	<option class="level-1" value="mobile-controls">&nbsp;&nbsp;&nbsp;Mobile Controls</option>
+	<option class="level-1" value="modular-controls">&nbsp;&nbsp;&nbsp;Modular Controls</option>
+	<option class="level-1" value="pressure-controls">&nbsp;&nbsp;&nbsp;Pressure Controls</option>
+	<option class="level-0" value="vane-units">Vane Units</option>
+	<option class="level-1" value="vane-motors">&nbsp;&nbsp;&nbsp;Vane Motors</option>
+	<option class="level-1" value="vane-pumps-vane-units">&nbsp;&nbsp;&nbsp;Vane Pumps</option>
+	<option class="level-2" value="double-vane-pumps">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Double Vane Pumps</option>
+	<option class="level-2" value="drive-train-vane-pumps">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Drive Train Vane Pumps</option>
+	<option class="level-2" value="silent-vane-pumps-fixed-displacement-vst7-series">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Silent Vane Pumps Fixed Displacement &#8211; VST7 Series</option>
+	<option class="level-2" value="single-vane-pumps">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Single Vane Pumps</option>
+	<option class="level-2" value="triple-vane-units">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Triple Vane Units</option>
+	<option class="level-1" value="variable-volume-vane-pumps">&nbsp;&nbsp;&nbsp;Variable Volume Vane Pumps</option>
+</select>
+</div>
+                    <div class="search-wrapper">
+                        <input type="text" name="s"  class="search-field" autocomplete="off" placeholder="I&#039;m looking for...">
+                        <input type="hidden" name="post_type" value="product">
+                        <div class="search-results woocommerce"></div>
+                    </div>
+                    <button type="submit" class="search-submit mf-background-primary">Search</button>
+                </div>
+            </form> 
+            </div>                    <ul class="extras-menu">
+						                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-menu hidden-xs hidden-sm">
+    <div class="martfury-container">
+        <div class="row header-row">
+			            <div class="col-md-12 col-sm-12 col-nav-menu mr-header-menu">
+				                    <div class="col-header-menu">
+						        <div class="primary-nav nav">
+			<ul id="menu-primary-menu" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2537 current_page_item menu-item-4500 active"><a href="https://www.anhussunally.com/">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4817"><a href="https://www.anhussunally.com/about-us/">About Us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5964 dropdown hasmenu"><a href="https://www.anhussunally.com/products/" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+<ul class="dropdown-submenu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6501 dropdown hasmenu"><a href="https://anhussunally.com/alfomega-pipe-clamps/" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Alfomega Pipe Clamps</a>
+	<ul class="dropdown-submenu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8881"><a href="https://anhussunally.com/product/pipe-clamps/">Pipe Clamps</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8882"><a href="https://anhussunally.com/product/twin-clamps/">Twin Clamps</a></li>
+
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6940"><a href="https://www.anhussunally.com/product-brand/atos/">Atos</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6945"><a href="https://www.anhussunally.com/product-brand/bearing-pullers/">Bearing Pullers</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-7025"><a href="https://www.anhussunally.com/product-brand/danfoss/">Danfoss</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-7026"><a href="https://www.anhussunally.com/product-brand/demcon/">Demcon</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-7027"><a href="https://www.anhussunally.com/product-brand/dowty/">Dowty</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6552"><a href="https://www.anhussunally.com/product-brand/epe/">EPE</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6714"><a href="https://www.anhussunally.com/product-brand/gemels/">Gemels</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6690 dropdown hasmenu"><a href="https://anhussunally.com/hawe-category/" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hawe</a>
+	<ul class="dropdown-submenu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8525"><a href="https://anhussunally.com/product-category/pumps/?product_brand=hawe">Pumps</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8526"><a href="https://anhussunally.com/product-category/valves/?product_brand=hawe">Valves</a></li>
+
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6715"><a href="https://www.anhussunally.com/product-brand/hose-crimping-machine/">Hose Crimping Machine</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8578 dropdown hasmenu"><a href="https://anhussunally.com/hydroline-category/" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hydroline</a>
+	<ul class="dropdown-submenu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8853"><a href="https://anhussunally.com/product-category/accessories/?product_brand=hydroline">Accessories</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8883"><a href="https://anhussunally.com/product-category/breathers/?product_brand=hydroline/">Breathers</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8884"><a href="https://anhussunally.com/product-category/filters/?product_brand=hydroline">Filters</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8885"><a href="https://anhussunally.com/product-category/filters-with-breather/?product_brand=hydroline">Filters with Breathers</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8886"><a href="https://anhussunally.com/product-category/level-gauges/?product_brand=hydroline">Level Gauges</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8887"><a href="https://anhussunally.com/product-category/strainers/?product_brand=hydroline">Strainers</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8494"><a href="https://anhussunally.com/product-category/valves/?product_brand=hydroline">Valves</a></li>
+
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6428 dropdown hasmenu"><a href="https://anhussunally.com/hyloc/" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hyloc</a>
+	<ul class="dropdown-submenu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8499"><a href="https://anhussunally.com/product-category/clamps/?product_brand=hyloc">Clamps</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8890"><a href="https://anhussunally.com/product-category/diagonistics/?product_brand=hyloc/">Diagnostics</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8891"><a href="https://anhussunally.com/product-category/flanges/?product_brand=hyloc/">Flanges</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8892"><a href="https://anhussunally.com/product-category/forged-fittings/?product_brand=hyloc/">Forged Fittings</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8893"><a href="https://anhussunally.com/product-category/tube-couplings/?product_brand=hyloc/">Tube Couplings</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8503"><a href="https://anhussunally.com/product-category/valves/?product_brand=hyloc">Valves</a></li>
+
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6946"><a href="https://www.anhussunally.com/product-brand/minitest-hose-couplings/">Minitest Hose &amp; Couplings</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8596 dropdown hasmenu"><a href="https://anhussunally.com/polyhydron-category/" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Polyhydron</a>
+	<ul class="dropdown-submenu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8504"><a href="https://anhussunally.com/product-category/accessories/?product_brand=polyhydron">Accessories</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8897"><a href="https://anhussunally.com/product-category/check-valves-2/?product_brand=polyhydron">Check Valves</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8898"><a href="https://anhussunally.com/product-category/directional-control-2/?product_brand=polyhydron">Directional Control</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8899"><a href="https://anhussunally.com/product-category/flow-control-2/?product_brand=polyhydron">Flow Control</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8900"><a href="https://anhussunally.com/product-category/logic-cartridge/?product_brand=polyhydron">Logic Cartridge</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8901"><a href="https://anhussunally.com/product-category/manifolds/?product_brand=polyhydron">Manifolds</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8902"><a href="https://anhussunally.com/product-category/mobile-valves/?product_brand=polyhydron">Mobile Valves</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8903"><a href="https://anhussunally.com/product-category/pressure-control/?product_brand=polyhydron">Pressure Control</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8904"><a href="https://anhussunally.com/product-category/pumps-bell-housings/?product_brand=polyhydron">Pumps</a></li>
+
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6954 dropdown hasmenu"><a href="https://anhussunally.com/shell-tube-type-heat-exchangers/" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Positron</a>
+	<ul class="dropdown-submenu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8905"><a href="https://anhussunally.com/product-category/shell-tube-type-heat-exchangers/?product_brand=positron">Shell &#038; Tube Type Heat Exchangers</a></li>
+
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6674"><a href="https://www.anhussunally.com/product-brand/rexroth-bosch/">Rexroth Bosch</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6673"><a href="https://www.anhussunally.com/product-brand/stauff/">Stauff</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-11772"><a href="https://www.anhussunally.com/product-brand/spica/">Spica</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8613 dropdown hasmenu"><a href="https://anhussunally.com/veljan-category/" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Veljan</a>
+	<ul class="dropdown-submenu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8909"><a href="https://anhussunally.com/hydraulic-valves/">Hydraulic Valves</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8910"><a href="https://anhussunally.com/vane-units/">Vane Units</a></li>
+
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6462"><a href="https://www.anhussunally.com/product-brand/walvoil/">Walvoil</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6671"><a href="https://www.anhussunally.com/product-brand/water-test-pump/">Water Test Pump</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6590 dropdown hasmenu"><a href="https://anhussunally.com/wika-sub-category/" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Wika</a>
+	<ul class="dropdown-submenu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8914"><a href="https://anhussunally.com/pressure-mangement/">Pressure Management</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8915"><a href="https://anhussunally.com/temperature-measurement/">Temperature Measurement</a></li>
+
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6968 dropdown hasmenu"><a href="https://anhussunally.com/yuken-category/" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Yuken</a>
+	<ul class="dropdown-submenu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8916"><a href="https://anhussunally.com/product-category/new-products/?product_brand=yuken">New Products</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8917"><a href="https://anhussunally.com/product-category/power-saving-products/?product_brand=yuken">Power Saving Products</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8918"><a href="https://anhussunally.com/product-category/products/?product_brand=yuken">Products</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8523"><a href="https://anhussunally.com/product-category/pumps/?product_brand=yuken">Pumps</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8524"><a href="https://anhussunally.com/product-category/valves/?product_brand=yuken">Valves</a></li>
+
+	</ul>
+</li>
+
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8481"><a href="https://anhussunally.com/product-tag/sale/">On Sale</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4816"><a href="https://www.anhussunally.com/contact-2/">Contact</a></li>
+</ul>        </div>
+		                    </div>
+								        <div class="header-bar topbar">
+			        </div>
+		            </div>
+        </div>
+    </div>
+</div>
+<div class="mobile-menu hidden-lg hidden-md">
+    <div class="container">
+        <div class="mobile-menu-row">
+            <a class="mf-toggle-menu" id="mf-toggle-menu" href="#">
+                <i class="icon-menu"></i>
+            </a>
+			<div class="product-extra-search">
+                <form class="products-search" method="get" action="https://www.anhussunally.com/">
+                <div class="psearch-content">
+                    <div class="product-cat"><div class="product-cat-label no-cats">All</div> </div>
+                    <div class="search-wrapper">
+                        <input type="text" name="s"  class="search-field" autocomplete="off" placeholder="I&#039;m looking for...">
+                        <input type="hidden" name="post_type" value="product">
+                        <div class="search-results woocommerce"></div>
+                    </div>
+                    <button type="submit" class="search-submit mf-background-primary">Search</button>
+                </div>
+            </form> 
+            </div>        </div>
+    </div>
+</div>
+        </header>
+		
+<div class="page-header page-header-page">
+    <div class="page-breadcrumbs">
+        <div class="container">
+			        <ul class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+			        </ul>
+		        </div>
+    </div>
+	<h1 class="entry-title">Home Full Width</h1></div>
+    <div id="content" class="site-content">
+		<div class="container"><div class="row">	<div id="primary" class="content-area col-md-12">
+		<main id="main" class="site-main">
+
+			
+				
+<article id="post-2537" class="post-2537 page type-page status-publish hentry">
+
+	<div class="entry-content">
+		<div class="wpb-content-wrapper">		<div data-elementor-type="wp-post" data-elementor-id="2537" class="elementor elementor-2537">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-453b62a elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="453b62a" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-0c334f2" data-id="0c334f2" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-3efaec0 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="3efaec0" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-abf5ad4" data-id="abf5ad4" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-59adc7c elementor-widget elementor-widget-image" data-id="59adc7c" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/alfomega-pipe-clamps/">
+							<img decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/05/ALFOMEGA.png" class="elementor-animation-shrink attachment-large size-large wp-image-4875" alt="" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-249d291" data-id="249d291" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-92564c1 elementor-widget elementor-widget-image" data-id="92564c1" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/product-brand/atos/">
+							<img decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/05/Atos.png" class="elementor-animation-shrink attachment-large size-large wp-image-4877" alt="" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-4ccff98" data-id="4ccff98" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-0482205 elementor-widget elementor-widget-image" data-id="0482205" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/product-brand/dowty/">
+							<img decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/05/DOWTY.png" class="elementor-animation-shrink attachment-large size-large wp-image-4880" alt="" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-10f1670" data-id="10f1670" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-fcd9f8c elementor-widget elementor-widget-image" data-id="fcd9f8c" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/product-brand/danfoss/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/05/DASFOSS.png" class="elementor-animation-shrink attachment-large size-large wp-image-4878" alt="" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-9693a60" data-id="9693a60" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-b94e63e elementor-widget elementor-widget-image" data-id="b94e63e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/polyhydron-category/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/05/POLYHYDR0N.png" class="elementor-animation-shrink attachment-large size-large wp-image-4867" alt="" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-2ae4888 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="2ae4888" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-eeacfb1" data-id="eeacfb1" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-0bd1be5 elementor-widget elementor-widget-image" data-id="0bd1be5" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/hydroline-category/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/05/HYDROLINE.png" class="elementor-animation-shrink attachment-large size-large wp-image-4883" alt="" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-5b10b93" data-id="5b10b93" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-ad7c490 elementor-widget elementor-widget-image" data-id="ad7c490" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/hyloc/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/05/HYLOC.png" class="elementor-animation-shrink attachment-large size-large wp-image-4884" alt="" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-2faaaf3" data-id="2faaaf3" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-566e947 elementor-widget elementor-widget-image" data-id="566e947" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/product-brand/walvoil/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/05/WALVOIL.png" class="elementor-animation-shrink attachment-large size-large wp-image-4871" alt="" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-94cfb1c" data-id="94cfb1c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-af41fd1 elementor-widget elementor-widget-image" data-id="af41fd1" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/hawe-category/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/05/HAWE.png" class="elementor-animation-shrink attachment-large size-large wp-image-4882" alt="" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-5c56268" data-id="5c56268" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4fe1ab5 elementor-widget elementor-widget-image" data-id="4fe1ab5" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/product-brand/stauff/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/05/STAUFF.png" class="elementor-animation-shrink attachment-large size-large wp-image-4869" alt="" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-e389850 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="e389850" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-c2b4424" data-id="c2b4424" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-8c153cd elementor-widget elementor-widget-image" data-id="8c153cd" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/product-brand/rexroth-bosch/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/05/REXROTH.png" class="elementor-animation-shrink attachment-large size-large wp-image-4868" alt="" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-fe64132" data-id="fe64132" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-0fffaf5 elementor-widget elementor-widget-image" data-id="0fffaf5" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/yuken-category/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/06/YUKEN.png" class="elementor-animation-shrink attachment-large size-large wp-image-5959" alt="" srcset="https://www.anhussunally.com/wp-content/uploads/2021/06/YUKEN.png 210w, https://www.anhussunally.com/wp-content/uploads/2021/06/YUKEN-150x71.png 150w" sizes="(max-width: 210px) 100vw, 210px" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-f4a351b" data-id="f4a351b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2233e6e elementor-widget elementor-widget-image" data-id="2233e6e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/wika-sub-category/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/05/WIKAI.png" class="elementor-animation-shrink attachment-large size-large wp-image-4873" alt="" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-22a85bb" data-id="22a85bb" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-3e72786 elementor-widget elementor-widget-image" data-id="3e72786" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/veljan-category/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/05/VELJAN.png" class="elementor-animation-shrink attachment-large size-large wp-image-4870" alt="" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-4dd59c3" data-id="4dd59c3" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-1220dc9 elementor-widget elementor-widget-image" data-id="1220dc9" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/product-brand/gemels/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/05/GEMELS1.png" class="elementor-animation-shrink attachment-large size-large wp-image-4881" alt="" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-74eaed8 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="74eaed8" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-bc0e4bc" data-id="bc0e4bc" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-ef09820 elementor-widget elementor-widget-image" data-id="ef09820" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/product-brand/demcon/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/05/DEMCON.png" class="elementor-animation-shrink attachment-large size-large wp-image-4879" alt="" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-53b45de" data-id="53b45de" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-7f44665 elementor-widget elementor-widget-image" data-id="7f44665" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/product-brand/epe/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/05/EPE.jpg" class="elementor-animation-shrink attachment-large size-large wp-image-5950" alt="" srcset="https://www.anhussunally.com/wp-content/uploads/2021/05/EPE.jpg 210w, https://www.anhussunally.com/wp-content/uploads/2021/05/EPE-150x71.jpg 150w" sizes="(max-width: 210px) 100vw, 210px" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-b0de4eb" data-id="b0de4eb" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4fe6108 elementor-widget elementor-widget-image" data-id="4fe6108" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/shell-tube-type-heat-exchangers/">
+							<img decoding="async" src="https://anhussunally.com/wp-content/uploads/2021/09/Positron-1.png" title="" alt="" class="elementor-animation-shrink" loading="lazy" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-a83df2a" data-id="a83df2a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-d31b110 elementor-widget elementor-widget-image" data-id="d31b110" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/product/vip-products/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/09/VIP.png" class="elementor-animation-shrink attachment-large size-large wp-image-8920" alt="" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-80486f7" data-id="80486f7" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-971c6bd elementor-widget elementor-widget-image" data-id="971c6bd" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/product-brand/water-test-pump/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/09/Water-Test-Pump.png" class="elementor-animation-shrink attachment-large size-large wp-image-8482" alt="" srcset="https://www.anhussunally.com/wp-content/uploads/2021/09/Water-Test-Pump.png 210w, https://www.anhussunally.com/wp-content/uploads/2021/09/Water-Test-Pump-150x71.png 150w" sizes="(max-width: 210px) 100vw, 210px" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-6c47f7e elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="6c47f7e" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-8eb36e7" data-id="8eb36e7" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-1faf83a elementor-widget elementor-widget-image" data-id="1faf83a" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/product-brand/minitest-hose-couplings/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/09/Minitest.png" class="elementor-animation-shrink attachment-large size-large wp-image-8479" alt="" srcset="https://www.anhussunally.com/wp-content/uploads/2021/09/Minitest.png 210w, https://www.anhussunally.com/wp-content/uploads/2021/09/Minitest-150x71.png 150w" sizes="(max-width: 210px) 100vw, 210px" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-46ec090" data-id="46ec090" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-c157da2 elementor-widget elementor-widget-image" data-id="c157da2" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/product-brand/bearing-pullers/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/09/Bearing-Pullers.png" class="elementor-animation-shrink attachment-large size-large wp-image-8480" alt="" srcset="https://www.anhussunally.com/wp-content/uploads/2021/09/Bearing-Pullers.png 210w, https://www.anhussunally.com/wp-content/uploads/2021/09/Bearing-Pullers-150x71.png 150w" sizes="(max-width: 210px) 100vw, 210px" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-53d9b85" data-id="53d9b85" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2f4e83e elementor-widget elementor-widget-image" data-id="2f4e83e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://anhussunally.com/product-brand/hose-crimping-machine/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2021/09/Hose-Crimping-Machine.png" class="elementor-animation-shrink attachment-large size-large wp-image-8478" alt="" srcset="https://www.anhussunally.com/wp-content/uploads/2021/09/Hose-Crimping-Machine.png 210w, https://www.anhussunally.com/wp-content/uploads/2021/09/Hose-Crimping-Machine-150x71.png 150w" sizes="(max-width: 210px) 100vw, 210px" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-28d4905" data-id="28d4905" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-3825225 elementor-widget elementor-widget-image" data-id="3825225" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://www.anhussunally.com/product-brand/spica/">
+							<img loading="lazy" decoding="async" width="210" height="100" src="https://www.anhussunally.com/wp-content/uploads/2023/10/ALFOMEGA-copy-1.jpg" class="elementor-animation-shrink attachment-large size-large wp-image-11018" alt="" />								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-inner-column elementor-element elementor-element-2b4278d" data-id="2b4278d" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-8beda7a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="8beda7a" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-124530c" data-id="124530c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-ac68763 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="ac68763" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-3a1f045 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="3a1f045" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6e9ecb9" data-id="6e9ecb9" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-e4342dd elementor-widget elementor-widget-heading" data-id="e4342dd" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Celebrating 100 years of Trust</h2>		</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-9f0c182 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9f0c182" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-4ffa4b5" data-id="4ffa4b5" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-c76b7fe elementor-widget elementor-widget-heading" data-id="c76b7fe" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">About Us</h2>		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-55cf98c elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="55cf98c" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-d370e39" data-id="d370e39" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-64796e8 elementor-widget elementor-widget-text-editor" data-id="64796e8" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="wpb_wrapper"><div class="wpb_text_column wpb_content_element"><div class="wpb_wrapper"><p>Pioneering the hydraulics market in Eastern India, the 100-year old <strong>A.N. Hussunally &amp; Co</strong>. has today emerged as among the market leaders in providing customers with holistic hydraulic solutions.</p><p>Established in <strong>1917</strong>, the Company’s principal business philosophy is anchored on providing customers with world-class products and solutions at cost-effective propositions. Today, the Company comprehensively caters to the needs of a vast spectrum of industries in the pneumatics, oil and gas, power, steel, cement, manufacturing and chemicals industries.</p><p>With strong resident knowledge and knowhow of the dynamic hydraulics industry coupled with state-of-the-art infrastructure and resource base,<strong> A.N. Hussunally &amp; Co</strong>. has actively engaged in nation-building by participating in such landmark Indian projects as the Tata Steel complex in Jamshedpur, Bhusan Power &amp; Steel, Jindal Steel, ISSCO Steel Plant etc.</p></div></div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="wpb_wrapper"> </div></div></div>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-e7fa40c" data-id="e7fa40c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-b8bce8d elementor-widget elementor-widget-image" data-id="b8bce8d" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img loading="lazy" decoding="async" width="840" height="630" src="https://www.anhussunally.com/wp-content/uploads/2021/09/About-Us-Image.png" class="attachment-large size-large wp-image-8677" alt="" srcset="https://www.anhussunally.com/wp-content/uploads/2021/09/About-Us-Image.png 1024w, https://www.anhussunally.com/wp-content/uploads/2021/09/About-Us-Image-300x225.png 300w, https://www.anhussunally.com/wp-content/uploads/2021/09/About-Us-Image-768x576.png 768w, https://www.anhussunally.com/wp-content/uploads/2021/09/About-Us-Image-150x113.png 150w, https://www.anhussunally.com/wp-content/uploads/2021/09/About-Us-Image-370x278.png 370w, https://www.anhussunally.com/wp-content/uploads/2021/09/About-Us-Image-600x450.png 600w" sizes="(max-width: 840px) 100vw, 840px" />													</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-323b2e9 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="323b2e9" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-721df01" data-id="721df01" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-db7049c elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="db7049c" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-0898aa6" data-id="0898aa6" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-92c7c08" data-id="92c7c08" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-cb4b526 elementor-widget elementor-widget-heading" data-id="cb4b526" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Our Legacy</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-aa28566 elementor-widget elementor-widget-text-editor" data-id="aa28566" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><strong>A.N. Hussunally &amp; Co</strong>. was established on 13 July 1917 by Mr. Hasanali Vadnagarwala, an enterprising trader from Sidhpur (a small town in Gujarat), who began his career running a flour mill in Ajmer. Witnessing firsthand the Imperial powers making inroads into trade and commerce in India and encouraged by his younger brother Abdullah who had already established himself in Madras, young Hasanali moved to Calcutta in search of greener pastures.</p><p>At that time, the East India Company, Whiteway Laidlow and Balmer Lawrie were the only suppliers to the British who had by then established their ambitions of ruling India. Sensing an opportunity to tap into a nascent yet fast-growing segment where he knew that the market would ultimately gravitate towards establishments with indigenous roots, Hussunally was quick to set-up business at 28, Strand Road in Calcutta.</p><p>In doing so, <strong>A.N. Hussunally &amp; Co</strong>. emerged as probably the first Indian enterprise supplying hardware goods to the East India Company, comprising such products as engineering tools, pipes, pipe fittings, measuring tools, valves and pressure gauges, among others.</p>						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-a21651f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a21651f" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6171b83" data-id="6171b83" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element- elementor-widget elementor-widget-html" data-id="" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<div style="overflow:hidden;height:1px;"><a href="https://citobetcasino.net/">citobet</a></div>		</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-797fc7a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="797fc7a" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7839465" data-id="7839465" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element- elementor-widget elementor-widget-html" data-id="" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<div style="overflow:hidden;height:1px;"><a href="https://bitcasino-io.org/">ビット カジノ アプリ</a></div>		</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-81425dc elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="81425dc" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-fb3ca46" data-id="fb3ca46" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element- elementor-widget elementor-widget-html" data-id="" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<div style="overflow:hidden;height:1px;"><a href="https://bc-gamecasino.com/">bc game</a></div>		</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-dc78f8a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="dc78f8a" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b7c7f21" data-id="b7c7f21" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element- elementor-widget elementor-widget-html" data-id="" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<div style="overflow:hidden;height:1px;"><a href="https://pornfaze.com/models/sindu-bhabhi/">sindu bhabhi porn</a></div>		</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-904858a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="904858a" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-3140e73" data-id="3140e73" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element- elementor-widget elementor-widget-html" data-id="" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<div style="overflow:hidden;height:1px;"><a href="https://pornito.xxx/">pornito</a></div>		</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		</div>			</div>
+	<!-- .entry-content -->
+
+</article><!-- #post-## -->
+
+				
+			
+		</main><!-- #main -->
+	</div><!-- #primary -->
+    
+</div></div></div><!-- #content -->
+    <footer id="colophon" class="site-footer">
+		<nav class="footer-layout footer-layout-1 footer-custom">
+		<div class="martfury-container">
+		<div class="footer-content">
+			        <div class="footer-widgets columns-3" id="footer-widgets">
+			                    <div class="footer-sidebar footer-1">
+						<div id="custom_html-9" class="widget_text widget widget_custom_html"><h4 class="widget-title">A.N. Hussunally &#038; Co</h4><div class="textwidget custom-html-widget">A.N.Hussunally & Co. is a progressive leading engineering company committed to providing the clients with a comprehensive range of products which spans usage in multifarious industries spanning Gas Processing, Hydraulics & Pneumatics, Mobile Hydraculics, Power Supply, Oil & Gas, Chemicals.</div></div><div id="social-links-widget-1" class="widget social-links-widget social-links"><div class="social-links-list"></div></div>                    </div>
+				                    <div class="footer-sidebar footer-2">
+						<div id="nav_menu-3" class="widget widget_nav_menu"><h4 class="widget-title">Company</h4><div class="menu-company-container"><ul id="menu-company" class="menu"><li id="menu-item-4844" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2537 current_page_item menu-item-4844"><a href="https://www.anhussunally.com/" aria-current="page">Home</a></li>
+<li id="menu-item-4846" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4846"><a href="https://www.anhussunally.com/about-us/">About Us</a></li>
+<li id="menu-item-4845" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4845"><a href="https://www.anhussunally.com/contact-2/">Contact</a></li>
+</ul></div></div>                    </div>
+				                    <div class="footer-sidebar footer-3">
+						<div id="text-3" class="widget widget_text"><h4 class="widget-title">Contact Us</h4>			<div class="textwidget"><div class="boc_contact_icon">+91-33-2230 4140</div>
+<div class="boc_contact_icon">hussunally@gmail.com</div>
+<div class="boc_contact_icon">Hussunally Buildings<br />
+Post Box No. 68628,</div>
+<div class="boc_contact_icon">Strand Road, Kolkata</div>
+<div class="boc_contact_icon">West Bengal-700 001.</div>
+</div>
+		</div>                    </div>
+				        </div>
+				</div>
+		<div class="footer-bottom">
+			<div class="row footer-row">
+				<div class="col-footer-copyright col-lg-6 col-md-12 col-sm-12 col-xs-12">
+					<div class="footer-copyright">© A.N. Hussunally &amp; Co |  Proudly Powered by Dot Com Solutions</div>				</div>
+				<div class="col-footer-payments col-lg-6 col-md-12 col-sm-12 col-xs-12">
+									</div>
+			</div>
+		</div>
+	</div>
+</nav>    </footer><!-- #colophon -->
+	</div><!-- #page -->
+
+
+			<span class="wptwa-flag"></span>
+			<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+				<symbol id="wptwa-logo">
+					<path id="WhatsApp" d="M90,43.841c0,24.213-19.779,43.841-44.182,43.841c-7.747,0-15.025-1.98-21.357-5.455L0,90l7.975-23.522   c-4.023-6.606-6.34-14.354-6.34-22.637C1.635,19.628,21.416,0,45.818,0C70.223,0,90,19.628,90,43.841z M45.818,6.982   c-20.484,0-37.146,16.535-37.146,36.859c0,8.065,2.629,15.534,7.076,21.61L11.107,79.14l14.275-4.537   c5.865,3.851,12.891,6.097,20.437,6.097c20.481,0,37.146-16.533,37.146-36.857S66.301,6.982,45.818,6.982z M68.129,53.938   c-0.273-0.447-0.994-0.717-2.076-1.254c-1.084-0.537-6.41-3.138-7.4-3.495c-0.993-0.358-1.717-0.538-2.438,0.537   c-0.721,1.076-2.797,3.495-3.43,4.212c-0.632,0.719-1.263,0.809-2.347,0.271c-1.082-0.537-4.571-1.673-8.708-5.333   c-3.219-2.848-5.393-6.364-6.025-7.441c-0.631-1.075-0.066-1.656,0.475-2.191c0.488-0.482,1.084-1.255,1.625-1.882   c0.543-0.628,0.723-1.075,1.082-1.793c0.363-0.717,0.182-1.344-0.09-1.883c-0.27-0.537-2.438-5.825-3.34-7.977   c-0.902-2.15-1.803-1.792-2.436-1.792c-0.631,0-1.354-0.09-2.076-0.09c-0.722,0-1.896,0.269-2.889,1.344   c-0.992,1.076-3.789,3.676-3.789,8.963c0,5.288,3.879,10.397,4.422,11.113c0.541,0.716,7.49,11.92,18.5,16.223   C58.2,65.771,58.2,64.336,60.186,64.156c1.984-0.179,6.406-2.599,7.312-5.107C68.398,56.537,68.398,54.386,68.129,53.938z"/>
+				</symbol>
+			</svg>
+			<span id="wptwa-show-widget" data-current-language="" data-ids="8802" data-page-title="Home Full Width" data-page-url="https://www.anhussunally.com/"></span>    <div id="pswp" class="pswp" tabindex="-1" aria-hidden="true">
+
+        <div class="pswp__bg"></div>
+
+        <div class="pswp__scroll-wrap">
+
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <div class="pswp__ui pswp__ui--hidden">
+
+                <div class="pswp__top-bar">
+
+
+                    <div class="pswp__counter"></div>
+
+                    <button class="pswp__button pswp__button--close"
+                            title="Close (Esc)"></button>
+
+                    <button class="pswp__button pswp__button--share"
+                            title="Share"></button>
+
+                    <button class="pswp__button pswp__button--fs"
+                            title="Toggle fullscreen"></button>
+
+                    <button class="pswp__button pswp__button--zoom"
+                            title="Zoom in/out"></button>
+
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+
+                <button class="pswp__button pswp__button--arrow--left"
+                        title="Previous (arrow left)">
+                </button>
+
+                <button class="pswp__button pswp__button--arrow--right"
+                        title="Next (arrow right)">
+                </button>
+
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+	
+        <div id="mf-quick-view-modal" class="mf-quick-view-modal martfury-modal woocommerce" tabindex="-1">
+            <div class="mf-modal-overlay"></div>
+            <div class="modal-content">
+                <a href="#" class="close-modal">
+                    <i class="icon-cross"></i>
+                </a>
+                <div class="product-modal-content loading"></div>
+            </div>
+            <div class="mf-loading"></div>
+        </div>
+
+		            <a id="scroll-top" class="backtotop" href="#page-top">
+                <i class="arrow_carrot_up_alt"></i>
+            </a>
+				        <div class="primary-mobile-nav mf-els-item" id="primary-mobile-nav">
+            <div class="mobile-nav-content">
+                <div class="mobile-nav-overlay"></div>
+                <div class="mobile-nav-header">
+					                    <h2>Main Menu</h2>
+                    <a class="close-mobile-nav"><i class="icon-cross"></i></a>
+                </div>
+
+				<ul id="menu-primary-menu-1" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2537 current_page_item menu-item-4500 active"><a href="https://www.anhussunally.com/">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4817"><a href="https://www.anhussunally.com/about-us/">About Us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5964"><a href="https://www.anhussunally.com/products/">Products</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6501"><a href="https://anhussunally.com/alfomega-pipe-clamps/">Alfomega Pipe Clamps</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8881"><a href="https://anhussunally.com/product/pipe-clamps/">Pipe Clamps</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8882"><a href="https://anhussunally.com/product/twin-clamps/">Twin Clamps</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6940"><a href="https://www.anhussunally.com/product-brand/atos/">Atos</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6945"><a href="https://www.anhussunally.com/product-brand/bearing-pullers/">Bearing Pullers</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-7025"><a href="https://www.anhussunally.com/product-brand/danfoss/">Danfoss</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-7026"><a href="https://www.anhussunally.com/product-brand/demcon/">Demcon</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-7027"><a href="https://www.anhussunally.com/product-brand/dowty/">Dowty</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6552"><a href="https://www.anhussunally.com/product-brand/epe/">EPE</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6714"><a href="https://www.anhussunally.com/product-brand/gemels/">Gemels</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6690"><a href="https://anhussunally.com/hawe-category/">Hawe</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8525"><a href="https://anhussunally.com/product-category/pumps/?product_brand=hawe">Pumps</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8526"><a href="https://anhussunally.com/product-category/valves/?product_brand=hawe">Valves</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6715"><a href="https://www.anhussunally.com/product-brand/hose-crimping-machine/">Hose Crimping Machine</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8578"><a href="https://anhussunally.com/hydroline-category/">Hydroline</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8853"><a href="https://anhussunally.com/product-category/accessories/?product_brand=hydroline">Accessories</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8883"><a href="https://anhussunally.com/product-category/breathers/?product_brand=hydroline/">Breathers</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8884"><a href="https://anhussunally.com/product-category/filters/?product_brand=hydroline">Filters</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8885"><a href="https://anhussunally.com/product-category/filters-with-breather/?product_brand=hydroline">Filters with Breathers</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8886"><a href="https://anhussunally.com/product-category/level-gauges/?product_brand=hydroline">Level Gauges</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8887"><a href="https://anhussunally.com/product-category/strainers/?product_brand=hydroline">Strainers</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8494"><a href="https://anhussunally.com/product-category/valves/?product_brand=hydroline">Valves</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6428"><a href="https://anhussunally.com/hyloc/">Hyloc</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8499"><a href="https://anhussunally.com/product-category/clamps/?product_brand=hyloc">Clamps</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8890"><a href="https://anhussunally.com/product-category/diagonistics/?product_brand=hyloc/">Diagnostics</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8891"><a href="https://anhussunally.com/product-category/flanges/?product_brand=hyloc/">Flanges</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8892"><a href="https://anhussunally.com/product-category/forged-fittings/?product_brand=hyloc/">Forged Fittings</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8893"><a href="https://anhussunally.com/product-category/tube-couplings/?product_brand=hyloc/">Tube Couplings</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8503"><a href="https://anhussunally.com/product-category/valves/?product_brand=hyloc">Valves</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6946"><a href="https://www.anhussunally.com/product-brand/minitest-hose-couplings/">Minitest Hose &amp; Couplings</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8596"><a href="https://anhussunally.com/polyhydron-category/">Polyhydron</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8504"><a href="https://anhussunally.com/product-category/accessories/?product_brand=polyhydron">Accessories</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8897"><a href="https://anhussunally.com/product-category/check-valves-2/?product_brand=polyhydron">Check Valves</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8898"><a href="https://anhussunally.com/product-category/directional-control-2/?product_brand=polyhydron">Directional Control</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8899"><a href="https://anhussunally.com/product-category/flow-control-2/?product_brand=polyhydron">Flow Control</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8900"><a href="https://anhussunally.com/product-category/logic-cartridge/?product_brand=polyhydron">Logic Cartridge</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8901"><a href="https://anhussunally.com/product-category/manifolds/?product_brand=polyhydron">Manifolds</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8902"><a href="https://anhussunally.com/product-category/mobile-valves/?product_brand=polyhydron">Mobile Valves</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8903"><a href="https://anhussunally.com/product-category/pressure-control/?product_brand=polyhydron">Pressure Control</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8904"><a href="https://anhussunally.com/product-category/pumps-bell-housings/?product_brand=polyhydron">Pumps</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6954"><a href="https://anhussunally.com/shell-tube-type-heat-exchangers/">Positron</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8905"><a href="https://anhussunally.com/product-category/shell-tube-type-heat-exchangers/?product_brand=positron">Shell &#038; Tube Type Heat Exchangers</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6674"><a href="https://www.anhussunally.com/product-brand/rexroth-bosch/">Rexroth Bosch</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6673"><a href="https://www.anhussunally.com/product-brand/stauff/">Stauff</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-11772"><a href="https://www.anhussunally.com/product-brand/spica/">Spica</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8613"><a href="https://anhussunally.com/veljan-category/">Veljan</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8909"><a href="https://anhussunally.com/hydraulic-valves/">Hydraulic Valves</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8910"><a href="https://anhussunally.com/vane-units/">Vane Units</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6462"><a href="https://www.anhussunally.com/product-brand/walvoil/">Walvoil</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-product_brand menu-item-6671"><a href="https://www.anhussunally.com/product-brand/water-test-pump/">Water Test Pump</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6590"><a href="https://anhussunally.com/wika-sub-category/">Wika</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8914"><a href="https://anhussunally.com/pressure-mangement/">Pressure Management</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8915"><a href="https://anhussunally.com/temperature-measurement/">Temperature Measurement</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6968"><a href="https://anhussunally.com/yuken-category/">Yuken</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8916"><a href="https://anhussunally.com/product-category/new-products/?product_brand=yuken">New Products</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8917"><a href="https://anhussunally.com/product-category/power-saving-products/?product_brand=yuken">Power Saving Products</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8918"><a href="https://anhussunally.com/product-category/products/?product_brand=yuken">Products</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8523"><a href="https://anhussunally.com/product-category/pumps/?product_brand=yuken">Pumps</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8524"><a href="https://anhussunally.com/product-category/valves/?product_brand=yuken">Valves</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8481"><a href="https://anhussunally.com/product-tag/sale/">On Sale</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4816"><a href="https://www.anhussunally.com/contact-2/">Contact</a></li>
+</ul>
+            </div>
+        </div>
+		        <div id="mf-off-canvas-layer" class="martfury-off-canvas-layer"></div>
+					<script type='text/javascript'>
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+				<script type='text/javascript'>
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<link rel='stylesheet' id='wc-blocks-style-css' href='https://www.anhussunally.com/wp-content/plugins/woocommerce/assets/client/blocks/wc-blocks.css?ver=wc-9.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='hfe-widgets-style-css' href='https://www.anhussunally.com/wp-content/plugins/header-footer-elementor/inc/widgets-css/frontend.css?ver=1.6.4' type='text/css' media='all' />
+<script type="text/javascript" id="wptwa-public-js-extra">
+/* <![CDATA[ */
+var ajax_object = {"ajax_url":"https:\/\/www.anhussunally.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/wpt-whatsapp/assets/js/public.js?ver=2.2.5" id="wptwa-public-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.0" id="swv-js"></script>
+<script type="text/javascript" id="contact-form-7-js-before">
+/* <![CDATA[ */
+var wpcf7 = {
+    "api": {
+        "root": "https:\/\/www.anhussunally.com\/wp-json\/",
+        "namespace": "contact-form-7\/v1"
+    }
+};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.0" id="contact-form-7-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/woocommerce/assets/js/photoswipe/photoswipe.min.js?ver=4.1.1-wc.9.4.1" id="photoswipe-js" data-wp-strategy="defer"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/themes/martfury/js/plugins/photoswipe-ui.min.js?ver=4.1.1" id="photoswipe-ui-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-includes/js/jquery/ui/tooltip.min.js?ver=1.13.3" id="jquery-ui-tooltip-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/themes/martfury/js/plugins/jquery.lazyload.min.js?ver=1.9.7" id="lazyload-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/themes/martfury/js/plugins/jquery.fitvids.js?ver=1.1.0" id="fitvids-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/themes/martfury/js/plugins/isInViewport.min.js?ver=1.0.0" id="isinviewport-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/themes/martfury/js/plugins/jquery.coundown.js?ver=1.0.0" id="mf-countdown-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/themes/martfury/js/plugins/jquery.counterup.min.js?ver=1.0.0" id="counterup-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/themes/martfury/js/plugins/jquery.slimscroll.js?ver=1.3.8" id="slimscroll-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/themes/martfury/js/plugins/jquery.tabs.js?ver=1.0.0" id="martfury-tabs-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/themes/martfury/js/plugins/nprogress.js?ver=1.0.0" id="nprogress-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/themes/martfury/js/plugins/slick.min.js?ver=1.6.0" id="slick-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/themes/martfury/js/plugins/notify.min.js?ver=1.0.0" id="notify-js"></script>
+<script type="text/javascript" id="martfury-js-extra">
+/* <![CDATA[ */
+var martfuryData = {"direction":"false","ajax_url":"https:\/\/www.anhussunally.com\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","nonce":"b106844571","days":"days","hours":"hours","minutes":"minutes","seconds":"seconds","add_to_cart_ajax":"1","search_content_type":"product","nl_days":"1","nl_seconds":"0","ajax_search":"1","quantity_ajax":"0","product_gallery":"1","added_to_cart_notice":{"added_to_cart_text":"has been added to your cart.","added_to_cart_texts":"have been added to your cart.","cart_view_text":"View Cart","cart_view_link":"https:\/\/www.anhussunally.com\/cart\/","cart_notice_auto_hide":3000}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/themes/martfury/js/scripts.js?ver=20201224" id="martfury-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js?ver=9.4.1" id="sourcebuster-js-js"></script>
+<script type="text/javascript" id="wc-order-attribution-js-extra">
+/* <![CDATA[ */
+var wc_order_attribution = {"params":{"lifetime":1.0000000000000000818030539140313095458623138256371021270751953125e-5,"session":30,"base64":false,"ajaxurl":"https:\/\/www.anhussunally.com\/wp-admin\/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","utm_source_platform":"current.plt","utm_creative_format":"current.fmt","utm_marketing_tactic":"current.tct","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js?ver=9.4.1" id="wc-order-attribution-js"></script>
+<script type="text/javascript" id="martfury-shortcodes-js-extra">
+/* <![CDATA[ */
+var martfuryShortCode = {"days":"days","hours":"hours","minutes":"minutes","seconds":"seconds","direction":"false","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/martfury-addons//assets/js/frontend.js?ver=20170530" id="martfury-shortcodes-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.24.7" id="elementor-webpack-runtime-js"></script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.24.7" id="elementor-frontend-modules-js"></script>
+<script type="text/javascript" id="elementor-frontend-js-before">
+/* <![CDATA[ */
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselWrapperAriaLabel":"Carousel | Horizontal scrolling: Arrow Left & Right","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.24.7","is_static":false,"experimentalFeatures":{"additional_custom_breakpoints":true,"container_grid":true,"e_swiper_latest":true,"e_nested_atomic_repeaters":true,"e_onboarding":true,"home_screen":true,"ai-layout":true,"landing-pages":true,"link-in-bio":true,"floating-buttons":true},"urls":{"assets":"https:\/\/www.anhussunally.com\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/www.anhussunally.com\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/www.anhussunally.com\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"7835fabcd1"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":2537,"title":"A.N.Hussunally%20%26%20Co.%20%E2%80%93%20Alfomega%20%7C%20Atos%20%7C%20Dowty%20%7C%20Danfoss%20%7C%20Polyhydron%20%7C%20Hydroline%20%7C%20Hyloc%20%7C%20Walvoil","excerpt":"","featuredImage":false}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.anhussunally.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.24.7" id="elementor-frontend-js"></script>
+<script></script>
+
+</body>
+</html>

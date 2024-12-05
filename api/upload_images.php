@@ -4,10 +4,11 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Database configuration
-$host = 'localhost';
-$dbname = 'anh';
-$username = 'anh';
-$password = '9kCuzrb5tO53$xQtf';
+// $host = 'localhost';
+// $dbname = 'anh';
+// $username = 'anh';
+// $password = '9kCuzrb5tO53$xQtf';
+include("../connection/db_connection.php");
 
 // Establish database connection
 $conn = new mysqli($host, $username, $password, $dbname);

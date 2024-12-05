@@ -3,7 +3,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include("db_connection.php");
+include("../connection/db_connect.php");
+include("add_category.php"); // Include the add_category function
 
 // Establish database connection
 $conn = mysqli_connect($host, $username, $password, $dbname);
@@ -58,9 +59,6 @@ if ($result && $result->num_rows > 0) {
         $short_description = $csvData['Short Description'] ?? '';
         $brand = $csvData['Brand'] ?? '';
         $category = $csvData['Category'] ?? '';
-        $subCategory1 = $csvData['Sub Category Lv 1'] ?? '';
-        $subCategory2 = $csvData['Sub Category Lv 2'] ?? '';
-        $subCategory3 = $csvData['Sub Category Lv 3'] ?? '';
         $image_url = $csvData['Images'] ?? ''; // Use image_url from CSV
         $pdf = $csvData['PDF'] ?? '';
         $weight = !empty($csvData['Weight (Kgs)']) ? $csvData['Weight (Kgs)'] : 0;
@@ -123,119 +121,112 @@ if ($result && $result->num_rows > 0) {
         }
         $brandStmt->close();
 
-        // Check if the SKU already exists in the products table
-        $checkQuery = "SELECT * FROM products WHERE sku = ?";
-        $checkStmt = $conn->prepare($checkQuery);
-        $checkStmt->bind_param("s", $sku);
-        $checkStmt->execute();
-        $existingProduct = $checkStmt->get_result()->fetch_assoc();
-        $checkStmt->close();
+        // Call the addCategory function to handle category insertion
+        $categoryId = addCategory($category); // Get the category_id from add_category.php
 
-        if ($existingProduct) {
-            // Check for any updates needed
-            $updateFields = [];
-            $updateValues = [];
+        if ($categoryId) {
+            // Check if the SKU already exists in the products table
+            $checkQuery = "SELECT * FROM products WHERE sku = ?";
+            $checkStmt = $conn->prepare($checkQuery);
+            $checkStmt->bind_param("s", $sku);
+            $checkStmt->execute();
+            $existingProduct = $checkStmt->get_result()->fetch_assoc();
+            $checkStmt->close();
 
-            if ($existingProduct['name'] != $name) {
-                $updateFields[] = "name = ?";
-                $updateValues[] = $name;
-            }
-            if ($existingProduct['descriptions'] != $description) {
-                $updateFields[] = "descriptions = ?";
-                $updateValues[] = $description;
-            }
-            if ($existingProduct['short_description'] != $short_description) {
-                $updateFields[] = "short_description = ?";
-                $updateValues[] = $short_description;
-            }
-            if ($existingProduct['brand_id'] != $brandId) {
-                $updateFields[] = "brand_id = ?";
-                $updateValues[] = $brandId;
-            }
-            if ($existingProduct['category'] != $category) {
-                $updateFields[] = "category = ?";
-                $updateValues[] = $category;
-            }
-            if ($existingProduct['sub_category_1'] != $subCategory1) {
-                $updateFields[] = "sub_category_1 = ?";
-                $updateValues[] = $subCategory1;
-            }
-            if ($existingProduct['sub_category_2'] != $subCategory2) {
-                $updateFields[] = "sub_category_2 = ?";
-                $updateValues[] = $subCategory2;
-            }
-            if ($existingProduct['sub_category_3'] != $subCategory3) {
-                $updateFields[] = "sub_category_3 = ?";
-                $updateValues[] = $subCategory3;
-            }
-            if ($existingProduct['image_url'] != $image_url) {
-                $updateFields[] = "image_url = ?";
-                $updateValues[] = $image_url;
-            }
-            if ($existingProduct['pdf'] != $pdf) {
-                $updateFields[] = "pdf = ?";
-                $updateValues[] = $pdf;
-            }
-            if ($existingProduct['weight'] != $weight) {
-                $updateFields[] = "weight = ?";
-                $updateValues[] = $weight;
-            }
-            if ($existingProduct['length'] != $length) {
-                $updateFields[] = "length = ?";
-                $updateValues[] = $length;
-            }
-            if ($existingProduct['breadth'] != $breadth) {
-                $updateFields[] = "breadth = ?";
-                $updateValues[] = $breadth;
-            }
-            if ($existingProduct['height'] != $height) {
-                $updateFields[] = "height = ?";
-                $updateValues[] = $height;
-            }
-            if ($existingProduct['features'] != $featuresJson) {
-                $updateFields[] = "features = ?";
-                $updateValues[] = $featuresJson;
-            }
-            if ($existingProduct['shop_lines'] != $shopLinesJson) {
-                $updateFields[] = "shop_lines = ?";
-                $updateValues[] = $shopLinesJson;
-            }
+            if ($existingProduct) {
+                // Check for any updates needed
+                $updateFields = [];
+                $updateValues = [];
 
-            if (!empty($updateFields)) {
-                // Prepare the update query
-                $updateQuery = "UPDATE products SET " . implode(", ", $updateFields) . " WHERE sku = ?";
-                $updateValues[] = $sku; // Add SKU to the end of the values array
-                $stmt = $conn->prepare($updateQuery);
-                $stmt->bind_param(str_repeat("s", count($updateValues) - 1) . "s", ...$updateValues);
+                if ($existingProduct['name'] != $name) {
+                    $updateFields[] = "name = ?";
+                    $updateValues[] = $name;
+                }
+                if ($existingProduct['descriptions'] != $description) {
+                    $updateFields[] = "descriptions = ?";
+                    $updateValues[] = $description;
+                }
+                if ($existingProduct['short_description'] != $short_description) {
+                    $updateFields[] = "short_description = ?";
+                    $updateValues[] = $short_description;
+                }
+                if ($existingProduct['brand_id'] != $brandId) {
+                    $updateFields[] = "brand_id = ?";
+                    $updateValues[] = $brandId;
+                }
+                if ($existingProduct['category_id'] != $categoryId) {
+                    $updateFields[] = "category_id = ?";
+                    $updateValues[] = $categoryId;
+                }
+                if ($existingProduct['image_url'] != $image_url) {
+                    $updateFields[] = "image_url = ?";
+                    $updateValues[] = $image_url;
+                }
+                if ($existingProduct['pdf'] != $pdf) {
+                    $updateFields[] = "pdf = ?";
+                    $updateValues[] = $pdf;
+                }
+                if ($existingProduct['weight'] != $weight) {
+                    $updateFields[] = "weight = ?";
+                    $updateValues[] = $weight;
+                }
+                if ($existingProduct['length'] != $length) {
+                    $updateFields[] = "length = ?";
+                    $updateValues[] = $length;
+                }
+                if ($existingProduct['breadth'] != $breadth) {
+                    $updateFields[] = "breadth = ?";
+                    $updateValues[] = $breadth;
+                }
+                if ($existingProduct['height'] != $height) {
+                    $updateFields[] = "height = ?";
+                    $updateValues[] = $height;
+                }
+                if ($existingProduct['features'] != $featuresJson) {
+                    $updateFields[] = "features = ?";
+                    $updateValues[] = $featuresJson;
+                }
+                if ($existingProduct['shop_lines'] != $shopLinesJson) {
+                    $updateFields[] = "shop_lines = ?";
+                    $updateValues[] = $shopLinesJson;
+                }
+
+                if (!empty($updateFields)) {
+                    // Prepare the update query
+                    $updateQuery = "UPDATE products SET " . implode(", ", $updateFields) . " WHERE sku = ?";
+                    $updateValues[] = $sku; // Add SKU to the end of the values array
+                    $stmt = $conn->prepare($updateQuery);
+                    $stmt->bind_param(str_repeat("s", count($updateValues) - 1) . "s", ...$updateValues);
+
+                    if ($stmt->execute()) {
+                        $updatedSKUs[] = $sku;
+                        echo "Product updated: " . $sku . "<br>";
+                    } else {
+                        $failedSKUs[] = $sku;
+                        echo "Failed to update product: " . $sku . "<br>";
+                        echo "Error: " . $stmt->error . "<br>";
+                    }
+                    $stmt->close();
+                } else {
+                    echo "No changes detected for: " . $sku . "<br>";
+                }
+            } else {
+                // Insert new product with the brand ID
+                $insertQuery = "INSERT INTO products (sku, name, descriptions, short_description, brand_id, category_id, images, image_url, pdf, weight, length, breadth, height, features, shop_lines)
+                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $conn->prepare($insertQuery);
+                $stmt->bind_param("ssssssssssssddddss", $sku, $name, $description, $short_description, $brandId, $categoryId, $images, $image_url, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson);
 
                 if ($stmt->execute()) {
-                    $updatedSKUs[] = $sku;
-                    echo "Product updated: " . $sku . "<br>";
+                    $importedSKUs[] = $sku;
+                    echo "New product added: " . $sku . "<br>";
                 } else {
                     $failedSKUs[] = $sku;
-                    echo "Failed to update product: " . $sku . "<br>";
+                    echo "Failed to add product: " . $sku . "<br>";
                     echo "Error: " . $stmt->error . "<br>";
                 }
                 $stmt->close();
-            } else {
-                echo "No changes detected for: " . $sku . "<br>";
             }
-        } else {
-            // Insert new product with the brand ID
-            $insertQuery = "INSERT INTO products (sku, name, descriptions, short_description, brand_id, category, sub_category_1, sub_category_2, sub_category_3, images, image_url, pdf, weight, length, breadth, height, features, shop_lines)
-                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            $stmt = $conn->prepare($insertQuery);
-            $stmt->bind_param("ssssssssssssddddss", $sku, $name, $description, $short_description, $brandId, $category, $subCategory1, $subCategory2, $subCategory3, $images, $image_url, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson);
-
-            if ($stmt->execute()) {
-                $importedSKUs[] = $sku;
-                echo "New product added: " . $sku . "<br>";
-            } else {
-                $failedSKUs[] = $sku;
-                echo "Failed to add product: " . $sku . "<br>";
-                echo "Error: " . $stmt->error . "<br>";
-            }
-            $stmt->close();
         }
     }
 

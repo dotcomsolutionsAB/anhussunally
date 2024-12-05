@@ -3,7 +3,7 @@
 // Database configuration
 $host = 'localhost';
 $dbname = 'anh';
-$username = 'root';
-$password = '';
+$username = 'anh';
+$password = '9kCuzrb5tO53$xQtf';
 
 ?>

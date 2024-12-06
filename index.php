@@ -69,7 +69,7 @@
        <!-- counter-area-end -->
 
         <!-- services-area -->
-        <?php include("inc_files/services_area.php"); ?>
+        <!-- <?php include("inc_files/services_area.php"); ?> -->
         <!-- services-area-end -->
 
         <!-- cta-area -->

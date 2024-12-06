@@ -81,7 +81,7 @@
        <!-- about-area-end -->
 
        <!-- about-area -->
-       <?php include("inc_files/about/about_about_area2.php") ?>
+       <!-- <?php include("inc_files/about/about_about_area2.php") ?> -->
        <!-- about-area-end -->
 
         <!-- cta-area -->
@@ -89,19 +89,19 @@
         <!-- cta-area-end -->
 
         <!-- team-area -->
-        <?php include("inc_files/about/about_p_team_area.php"); ?>
+        <!-- <?php include("inc_files/about/about_p_team_area.php"); ?> -->
         <!-- team-area-end -->
 
         <!-- video-area -->
-        <?php include("inc_files/about/video_area.php"); ?>
+        <!-- <?php include("inc_files/about/video_area.php"); ?> -->
         <!-- video-area-end -->
 
         <!-- blog-post-area -->
-        <?php include("inc_files/blog_post_area.php"); ?>
+        <!-- <?php include("inc_files/blog_post_area.php"); ?> -->
         <!-- blog-post-area-end -->
 
         <!-- brand-area -->
-        <div class="brand__area section-pb-120">
+        <!-- <div class="brand__area section-pb-120">
             <div class="container">
                 <div class="swiper brand-active">
                     <div class="swiper-wrapper">
@@ -143,7 +143,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- brand-area-end -->
 
 

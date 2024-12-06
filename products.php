@@ -229,7 +229,7 @@ if (isset($_GET['category_id'])) {
                                                                             }
                                                                             
                                                                             ?>
-                                                                            <img src='<?php echo htmlspecialchars($imageLink); ?>' alt='<?php echo $product['name']; ?>' style="width:200px; height:200px;">
+                                                                            <img src='<?php echo htmlspecialchars($imageLink); ?>' alt='<?php echo $product['name']; ?>' style="width:100%; height:200px;">
                                                                             <a href='product-details.php?sku=<?php echo $product['sku']; ?>' class='btn view-details-btn'>View Details</a>
                                                                         </div>
                                                                         <div class='shop__content'>

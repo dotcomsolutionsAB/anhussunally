@@ -26,7 +26,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-4 col-md-3 col-sm-4">
+                <div class="col-xl-3 col-lg-4 col-md-3 col-sm-4">
                     <div class="footer__widget">
                         <h4 class="footer__widget-title">Useful Links</h4>
                         <div class="footer__widget-link">
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-4 col-md-3 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-3 col-sm-6">
                     <div class="footer__widget">
                         <h4 class="footer__widget-title">Our Brands</h4>
                         <div class="footer__widget-link">
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
                     <div class="footer__widget">
                         <h4 class="footer__widget-title">Quick Info</h4>
                         <div class="footer__widget-link">

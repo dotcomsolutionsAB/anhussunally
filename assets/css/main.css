@@ -197,7 +197,7 @@ h6 {
 
 p {
   font-family: var(--tg-body-font-family);
-  font-size: 17px;
+  font-size: 17px !important;
   line-height: var(--tg-body-line-height);
   font-weight: var(--tg-fw-regular);
   color: var(--tg-body-color);

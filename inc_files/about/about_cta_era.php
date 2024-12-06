@@ -10,8 +10,8 @@
             </div>
             <div class="col-lg-5">
                 <div class="cta__btn">
-                    <a href="contact.html" class="btn btn-two">View Our Services <img src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
-                    <a href="http://www.youtube.com/watch?v=1iIZeIy7TqM" class="btn transparent-btn popup-video">Watch Our Story <i class="renova-play"></i></a>
+                    <a href="contact.html" class="btn btn-two">Contact Us <img src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
+                    <!-- <a href="http://www.youtube.com/watch?v=1iIZeIy7TqM" class="btn transparent-btn popup-video">Watch Our Story <i class="renova-play"></i></a> -->
                 </div>
             </div>
         </div>

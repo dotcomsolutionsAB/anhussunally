@@ -211,12 +211,12 @@
                 <div class="contact-list mb-30">
                     <h4>Phone Number</h4>
                     <p>+91-33-2230 4140</p>
-                    <p>+(090) 0000 0000 000</p>
+                    <!-- <p>+(090) 0000 0000 000</p> -->
                 </div>
                 <div class="contact-list mb-30">
                     <h4>Email Address</h4>
                     <p>hussunally@gmail.com</p>
-                    <p>example.mail@hum.com</p>
+                    <!-- <p>example.mail@hum.com</p> -->
                 </div>
             </div>
             <div class="offCanvas__social-icon mt-30">

@@ -4,8 +4,7 @@
         <div class="row align-items-center">
             <div class="col-lg-7">
                 <div class="cta__content-two">
-                    <h2 class="title">Looking for qualified professionals to do renovations to your existing home
-                    in Los Angeles?</h2>
+                    <h2 class="title">Contact Us to Get A Quote !</h2>
                 </div>
             </div>
             <div class="col-lg-5">

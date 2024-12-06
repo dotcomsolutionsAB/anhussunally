@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-xl-6 col-lg-7">
                 <div class="section__title mb-70">
-                    <h2 class="title">We are Expert in those industry</h2>
-                    <h1 class="number">04</h1>
+                    <h2 class="title">Holistic Hydraulic Solutions for a Century of Excellence</h2>
+                    <h1 class="number"></h1>
                 </div>
             </div>
         </div>
@@ -23,52 +23,52 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    What is the typical timeline for a construction project?
+                                        What industries does A.N. Hussunally & Co. serve?
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ultrices neque sed, aliquam vivamus taciti est nullam auctor semper eget iaculis, lacus nascetur lectus penatibus aenean duis etiam aptent inceptos. Maecenas congue nisl blandit netus vehicula commodo sollicitudin, facilisi luctus eleifend ultrices sodales faucibus at.</p>
-                                    <span>$10 Billion</span>
+                                    <p>A.N. Hussunally & Co. caters to a vast spectrum of industries, including pneumatics, oil and gas, power, steel, cement, manufacturing, and chemicals. The company provides customized solutions tailored to the unique requirements of each industry.</p>
+                                    <span></span>
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    How can I ensure the safety of a construction site?
+                                What is A.N. Hussunally & Co.’s legacy in the hydraulics industry?
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ultrices neque sed, aliquam vivamus taciti est nullam auctor semper eget iaculis, lacus nascetur lectus penatibus aenean duis etiam aptent inceptos. Maecenas congue nisl blandit netus vehicula commodo sollicitudin, facilisi luctus eleifend ultrices sodales faucibus at.</p>
-                                    <span>$10 Billion</span>
+                                    <p>Founded in 1917, A.N. Hussunally & Co. has over 100 years of expertise and leadership in the hydraulics market, becoming a trusted partner in Eastern India. The company has contributed to landmark projects like the Tata Steel complex in Jamshedpur and Jindal Steel.</p>
+                                    <span></span>
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    How can I choose the right materials for my project?
+                                What is the company’s philosophy?
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ultrices neque sed, aliquam vivamus taciti est nullam auctor semper eget iaculis, lacus nascetur lectus penatibus aenean duis etiam aptent inceptos. Maecenas congue nisl blandit netus vehicula commodo sollicitudin, facilisi luctus eleifend ultrices sodales faucibus at.</p>
-                                    <span>$10 Billion</span>
+                                    <p>A.N. Hussunally & Co. is driven by the commitment to deliver world-class products and solutions at cost-effective propositions. This philosophy has enabled the company to maintain strong client relationships and lead innovation in the hydraulics sector.</p>
+                                    <span></span>
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    How can I find a reputable contractor for my project?
+                                How has A.N. Hussunally & Co. contributed to India’s development?
                                 </button>
                             </h2>
                             <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ultrices neque sed, aliquam vivamus taciti est nullam auctor semper eget iaculis, lacus nascetur lectus penatibus aenean duis etiam aptent inceptos. Maecenas congue nisl blandit netus vehicula commodo sollicitudin, facilisi luctus eleifend ultrices sodales faucibus at.</p>
-                                    <span>$10 Billion</span>
+                                    <p>A.N. Hussunally & Co. has played a vital role in nation-building by participating in landmark Indian projects such as the Tata Steel complex in Jamshedpur, Bhushan Power & Steel, Jindal Steel, and ISSCO Steel Plant. The company’s expertise and state-of-the-art solutions have significantly contributed to the growth of India’s industrial infrastructure.</p>
+                                    <span></span>
                                 </div>
                             </div>
                         </div>

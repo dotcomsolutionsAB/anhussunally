@@ -32,7 +32,7 @@
                     </div>
                     <div class="features__content">
                         <h3 class="title">Our Goal</h3>
-                        <p>A.N. Hussunally & Co. aims to remain at the forefront of the hydraulics market by leveraging its century-old legacy of expertise and innovation.</p>
+                        <p>A.N. Hussunally & Co. aims to remain at the forefront of the hydraulics market by leveraging its century-old legacy of expertise.</p>
                         <a href="about.html" class="btn">Learn More <img src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
                     </div>
                 </div>

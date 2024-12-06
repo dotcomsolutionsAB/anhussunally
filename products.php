@@ -107,13 +107,13 @@ if (isset($_GET['category_id'])) {
 </head>
 <body>
     <!--Preloader-->
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div id="loader" class="loader">
             <div class="loader-container">
                 <div class="loader-icon"><img src="assets/img/logo/preloader.svg" alt="Preloader"></div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--Preloader-end -->
 
     <!-- Scroll-top -->
@@ -206,11 +206,12 @@ if (isset($_GET['category_id'])) {
                                                                 <div class='col-xl-3 col-sm-6'>
                                                                     <div class='shop__item'>
                                                                         <div class='shop__thumb'>
-                                                                        <?php
+                                                                            <?php
+                                                                            
                                                                             if (!empty($product['images']) && $product['images'] != '') {
-                                                                                $imageIds = explode(',', $product['images']);
+                                                                                $imageIds = explode(',', ltrim($product['images'], ',')); // Remove leading comma if present
                                                                                 $firstImageId = $imageIds[0] ?? null;
-
+                                                                            
                                                                                 if ($firstImageId) {
                                                                                     $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
                                                                                     $imageResult = $conn->query($imageQuery);
@@ -226,8 +227,9 @@ if (isset($_GET['category_id'])) {
                                                                             } else {
                                                                                 $imageLink = "images/default.png"; 
                                                                             }
-                                                                        ?>
-                                                                            <img src='<?php echo htmlspecialchars($imageLink); ?>' alt='<?php echo $product['name']; ?>'>
+                                                                            
+                                                                            ?>
+                                                                            <img src='<?php echo htmlspecialchars($imageLink); ?>' alt='<?php echo $product['name']; ?>' style="width:200px;">
                                                                             <a href='product-details.php?sku=<?php echo $product['sku']; ?>' class='btn view-details-btn'>View Details</a>
                                                                         </div>
                                                                         <div class='shop__content'>

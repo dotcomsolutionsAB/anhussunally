@@ -216,7 +216,7 @@ if (isset($_GET['category_id'])) {
                                                                                     $imageResult = $conn->query($imageQuery);
                                                                                     if ($imageResult && $imageResult->num_rows > 0) {
                                                                                         $image = $imageResult->fetch_assoc();
-                                                                                        $imageLink = "api/uploads/assets/" . $image['file_original_name'];
+                                                                                        $imageLink = "uploads/assets/" . $image['file_original_name'];
                                                                                     } else {
                                                                                         $imageLink = "images/default.png"; 
                                                                                     }

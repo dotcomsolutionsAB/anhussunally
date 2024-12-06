@@ -42,7 +42,7 @@
                                     </a>
                                 </div>
                                 <div class="logo">
-                                    <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+                                    <a href="index.php"><img src="images/logo.png" alt="Logo"></a>
                                 </div>
                                 <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
                                     <ul class="navigation">

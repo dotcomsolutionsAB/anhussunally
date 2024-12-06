@@ -123,7 +123,7 @@
             </div>
         </div>
         <div class="footer__bottom">
-            <div class="row align-items-center">
+            <div style="display: flex; justify-content: center;" class="row align-items-center">
                 <div class="col-md-7">
                     <div class="copyright-text">
                         <p>© 2024 AN Hussunally & Co. Proudly Powered By Dot Com Solutions.</p>

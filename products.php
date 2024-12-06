@@ -229,7 +229,7 @@ if (isset($_GET['category_id'])) {
                                                                             }
                                                                             
                                                                             ?>
-                                                                            <img src='<?php echo htmlspecialchars($imageLink); ?>' alt='<?php echo $product['name']; ?>' style="width:200px;">
+                                                                            <img src='<?php echo htmlspecialchars($imageLink); ?>' alt='<?php echo $product['name']; ?>' style="width:200px; height:200px;">
                                                                             <a href='product-details.php?sku=<?php echo $product['sku']; ?>' class='btn view-details-btn'>View Details</a>
                                                                         </div>
                                                                         <div class='shop__content'>
@@ -287,7 +287,7 @@ if (isset($_GET['category_id'])) {
         </section>
 
         <!-- cta-area -->
-        <!-- <section class="cta__area fix">
+        <section class="cta__area fix">
             <div class="cta__bg" data-background="assets/img/bg/cta_bg.jpg"></div>
             <div class="container">
                 <div class="row align-items-end">
@@ -312,7 +312,7 @@ if (isset($_GET['category_id'])) {
             <div class="cta__shape">
                 <img src="assets/img/images/cta_shape.png" alt="shape" data-aos="fade-down-left" data-aos-delay="400">
             </div>
-        </section> -->
+        </section>
         <!-- cta-area-end -->
     </main>
 

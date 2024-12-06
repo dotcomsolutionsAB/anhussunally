@@ -14,7 +14,7 @@
                         <span class="sub-title">AN Hussunally & Co</span>
                         <h2 class="title">About Us</h2>
                     </div>
-                    <p style="font-size: 16px;">Pioneering the hydraulics market in Eastern India, the 100-year old A.N. Hussunally & Co. has today emerged as among the market leaders in providing customers with holistic hydraulic solutions.<br><br>
+                    <p style="font-size: 16px!important;">Pioneering the hydraulics market in Eastern India, the 100-year old A.N. Hussunally & Co. has today emerged as among the market leaders in providing customers with holistic hydraulic solutions.<br><br>
 
                         Established in 1917, the Company’s principal business philosophy is anchored on providing customers with world-class products and solutions at cost-effective propositions. Today, the Company comprehensively caters to the needs of a vass spectrum of industries in the pneumatics, oil and gas, power, steel, cement, manufacturing and chemicals industries.<br><br>
 

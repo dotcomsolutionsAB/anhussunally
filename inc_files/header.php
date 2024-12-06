@@ -219,12 +219,12 @@
                     <!-- <p>example.mail@hum.com</p> -->
                 </div>
             </div>
-            <div class="offCanvas__social-icon mt-30">
+            <!-- <div class="offCanvas__social-icon mt-30">
                 <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
                 <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
                 <a href="javascript:void(0)"><i class="fab fa-google-plus-g"></i></a>
                 <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
-            </div>
+            </div> -->
         </div>
         <div class="offCanvas__overly"></div>
         <!-- offCanvas-menu-end -->

@@ -5,7 +5,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="counter__item">
                         <div class="counter__icon">
-                            <i class="renova-happy"></i>
+                            <i class="renova-project"></i>
                         </div>
                         <div class="counter__content">
                             <h3 class="count"><span class="odometer" data-count="98"></span>+</h3>

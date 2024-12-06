@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Renova - Construction Building & Renovation Template</title>
+    <title>Contact Us</title>
     <meta name="description" content="Renova - Construction Building & Renovation Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -31,13 +31,13 @@
 <body>
 
     <!--Preloader-->
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div id="loader" class="loader">
             <div class="loader-container">
                 <div class="loader-icon"><img src="assets/img/logo/preloader.svg" alt="Preloader"></div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--Preloader-end -->
 
     <!-- Scroll-top -->
@@ -83,16 +83,17 @@
                     <div class="col-lg-4">
                         <div class="contact__info-wrap">
                             <div class="contact__info-item">
-                                <div class="contact__info-thumb">
+                                <!-- <div class="contact__info-thumb">
                                     <img src="assets/img/images/contact_img01.jpg" alt="img">
-                                </div>
+                                </div> -->
                                 <div class="contact__info-content">
                                     <div class="icon">
                                         <i class="renova-map"></i>
                                     </div>
                                     <div class="content">
-                                        <span>Service Station</span>
-                                        <h2 class="title">258D Mark Avenue Berlin.</h2>
+                                        <span>Location</span>
+                                        <h2 class="title">Hussunally Buildings
+                                        Post Box No. 68628, Strand Road, Kolkata West Bengal-700 001</h2>
                                     </div>
                                 </div>
                             </div>

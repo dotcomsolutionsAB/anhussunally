@@ -49,7 +49,7 @@
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-3 col-sm-6">
                     <div class="footer__widget">
-                        <h4 class="footer__widget-title">Our Brands</h4>
+                        <h4 class="footer__widget-title">Our Brand</h4>
                         <div class="footer__widget-link">
                             <ul class="list-wrap">
                                 <li>

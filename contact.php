@@ -113,7 +113,7 @@
                             </div>
                             <div class="contact__info-item">
                                 <div class="contact__info-thumb">
-                                    <img src="assets/img/images/contact_img03.jpg" alt="img">
+                                    <!-- <img src="assets/img/images/contact_img03.jpg" alt="img"> -->
                                 </div>
                                 <div class="contact__info-content">
                                     <div class="icon">

@@ -206,11 +206,12 @@ if (isset($_GET['category_id'])) {
                                                                 <div class='col-xl-3 col-sm-6'>
                                                                     <div class='shop__item'>
                                                                         <div class='shop__thumb'>
-                                                                        <?php
+                                                                            <?php
+                                                                            
                                                                             if (!empty($product['images']) && $product['images'] != '') {
-                                                                                $imageIds = explode(',', $product['images']);
+                                                                                $imageIds = explode(',', ltrim($product['images'], ',')); // Remove leading comma if present
                                                                                 $firstImageId = $imageIds[0] ?? null;
-
+                                                                            
                                                                                 if ($firstImageId) {
                                                                                     $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
                                                                                     $imageResult = $conn->query($imageQuery);
@@ -226,8 +227,9 @@ if (isset($_GET['category_id'])) {
                                                                             } else {
                                                                                 $imageLink = "images/default.png"; 
                                                                             }
-                                                                        ?>
-                                                                            <img src='<?php echo htmlspecialchars($imageLink); ?>' alt='<?php echo $product['name']; ?>'>
+                                                                            
+                                                                            ?>
+                                                                            <img src='<?php echo htmlspecialchars($imageLink); ?>' alt='<?php echo $product['name']; ?>' style="width:100%; height:200px;">
                                                                             <a href='product-details.php?sku=<?php echo $product['sku']; ?>' class='btn view-details-btn'>View Details</a>
                                                                         </div>
                                                                         <div class='shop__content'>
@@ -285,7 +287,7 @@ if (isset($_GET['category_id'])) {
         </section>
 
         <!-- cta-area -->
-        <!-- <section class="cta__area fix">
+        <section class="cta__area fix">
             <div class="cta__bg" data-background="assets/img/bg/cta_bg.jpg"></div>
             <div class="container">
                 <div class="row align-items-end">
@@ -310,7 +312,7 @@ if (isset($_GET['category_id'])) {
             <div class="cta__shape">
                 <img src="assets/img/images/cta_shape.png" alt="shape" data-aos="fade-down-left" data-aos-delay="400">
             </div>
-        </section> -->
+        </section>
         <!-- cta-area-end -->
     </main>
 

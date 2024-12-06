@@ -1,5 +1,5 @@
 <header>
-        <div class="tg-header__top">
+        <!-- <div class="tg-header__top">
             <div class="container custom-container">
                 <div class="row align-items-center">
                     <div class="col-lg-4">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div id="header-fixed-height"></div>
         <div id="sticky-header" class="tg-header__area">
             <div class="container custom-container">

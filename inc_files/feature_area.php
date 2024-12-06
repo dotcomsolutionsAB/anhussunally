@@ -7,8 +7,8 @@
                         <i class="renova-rocket"></i>
                     </div>
                     <div class="features__content">
-                        <h3 class="title">Look’s Our Mission</h3>
-                        <p>Nullam tortor rhoncus nisl tristique velit taciti platea eu rutrum ridiculus, elementum.</p>
+                        <h3 class="title">Our Mission</h3>
+                        <p>A.N. Hussunally & Co. is dedicated to delivering holistic hydraulic solutions that empower industries across Eastern India and beyond. </p>
                         <a href="about.html" class="btn">Learn More <img src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
                     </div>
                 </div>
@@ -19,8 +19,8 @@
                         <i class="renova-flag"></i>
                     </div>
                     <div class="features__content">
-                        <h3 class="title">Team Core Values</h3>
-                        <p>Nullam tortor rhoncus nisl tristique velit taciti platea eu rutrum ridiculus, elementum.</p>
+                        <h3 class="title">Our Values</h3>
+                        <p>At the heart of A.N. Hussunally & Co.’s operations lies a commitment to excellence, innovation, and customer satisfaction.</p>
                         <a href="about.html" class="btn">Learn More <img src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
                     </div>
                 </div>
@@ -31,8 +31,8 @@
                         <i class="renova-book"></i>
                     </div>
                     <div class="features__content">
-                        <h3 class="title">About Our Story</h3>
-                        <p>Nullam tortor rhoncus nisl tristique velit taciti platea eu rutrum ridiculus, elementum.</p>
+                        <h3 class="title">Our Goal</h3>
+                        <p>A.N. Hussunally & Co. aims to remain at the forefront of the hydraulics market by leveraging its century-old legacy of expertise and innovation.</p>
                         <a href="about.html" class="btn">Learn More <img src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
                     </div>
                 </div>

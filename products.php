@@ -40,20 +40,7 @@ if ($brandResult->num_rows > 0) {
 // Fetch products for selected brand and category
 $products = [];
 
-// Fetch products by brand
-// if (isset($_GET['brand_id'])) {
-//     $brand_id = $_GET['brand_id'];
-//     $productQuery = "SELECT products.*, categories.name AS category_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
-//                      FROM products
-//                      LEFT JOIN categories ON products.category_id = categories.id
-//                      WHERE products.brand_id = $brand_id";
-//     $brandProductResult = $conn->query($productQuery);
-//     if ($brandProductResult->num_rows > 0) {
-//         while($row = $brandProductResult->fetch_assoc()) {
-//             $products[] = $row;
-//         }
-//     }
-// }
+
 if (isset($_GET['brand_id'])) {
     $brand_id = $_GET['brand_id'];
 
@@ -95,7 +82,7 @@ if (isset($_GET['category_id'])) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Renova - Construction Building & Renovation Template</title>
+    <title>AN Hussunally & Co</title>
     <meta name="description" content="Renova - Construction Building & Renovation Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -219,7 +206,28 @@ if (isset($_GET['category_id'])) {
                                                                 <div class='col-xl-3 col-sm-6'>
                                                                     <div class='shop__item'>
                                                                         <div class='shop__thumb'>
-                                                                            <img src='images/default.png' alt='<?php echo $product['name']; ?>'>
+                                                                        <?php
+                                                                            if (!empty($product['images']) && $product['images'] != '') {
+                                                                                $imageIds = explode(',', $product['images']);
+                                                                                $firstImageId = $imageIds[0] ?? null;
+
+                                                                                if ($firstImageId) {
+                                                                                    $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
+                                                                                    $imageResult = $conn->query($imageQuery);
+                                                                                    if ($imageResult && $imageResult->num_rows > 0) {
+                                                                                        $image = $imageResult->fetch_assoc();
+                                                                                        $imageLink = "api/uploads/assets/" . $image['file_original_name'];
+                                                                                    } else {
+                                                                                        $imageLink = "images/default.png"; 
+                                                                                    }
+                                                                                } else {
+                                                                                    $imageLink = "images/default.png"; 
+                                                                                }
+                                                                            } else {
+                                                                                $imageLink = "images/default.png"; 
+                                                                            }
+                                                                        ?>
+                                                                            <img src='<?php echo htmlspecialchars($imageLink); ?>' alt='<?php echo $product['name']; ?>'>
                                                                             <a href='product-details.php?sku=<?php echo $product['sku']; ?>' class='btn view-details-btn'>View Details</a>
                                                                         </div>
                                                                         <div class='shop__content'>

@@ -2,11 +2,11 @@
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-6 col-md-10">
-                <!-- <div class="about__img-wrap-two">
+                <div class="about__img-wrap-two">
                     <img src="	https://anh.ongoingwp.xyz/images/about-1.jpg" alt="img" class="wow img-custom-anim-right animated" data-wow-duration="1.5s" data-wow-delay="0.2s">
-                    <img src="https://anh.ongoingwp.xyz/images/imggg2.jpg" alt="img" class="wow img-custom-anim-left animated" data-wow-duration="1.5s" data-wow-delay="0.4s">
-                    <img src="	https://anh.ongoingwp.xyz/images/imggg3.jpg" alt="img" class="wow img-custom-anim-top animated" data-wow-duration="1.5s" data-wow-delay="0.6s">
-                </div> -->
+                    <!-- <img src="https://anh.ongoingwp.xyz/images/imggg2.jpg" alt="img" class="wow img-custom-anim-left animated" data-wow-duration="1.5s" data-wow-delay="0.4s">
+                    <img src="	https://anh.ongoingwp.xyz/images/imggg3.jpg" alt="img" class="wow img-custom-anim-top animated" data-wow-duration="1.5s" data-wow-delay="0.6s"> -->
+                </div>
             </div>
             <div class="col-lg-6">
                 <div class="about__content-two">

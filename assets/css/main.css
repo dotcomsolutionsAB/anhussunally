@@ -12521,6 +12521,7 @@ textarea {
 }
 .footer__bottom .copyright-text p {
   margin-bottom: 0;
+  text-align: center;
 }
 .footer__bottom-menu .list-wrap {
   display: -webkit-box;

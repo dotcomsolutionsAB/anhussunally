@@ -98,16 +98,16 @@
                                 </div>
                             </div>
                             <div class="contact__info-item">
-                                <div class="contact__info-thumb">
+                                <!-- <div class="contact__info-thumb">
                                     <img src="assets/img/images/contact_img02.jpg" alt="img">
-                                </div>
+                                </div> -->
                                 <div class="contact__info-content">
                                     <div class="icon">
                                         <i class="renova-envelope-open"></i>
                                     </div>
                                     <div class="content">
-                                        <span>MAke A Quote</span>
-                                        <h2 class="title"><a href="mailto:info@renova.com">info@renova.com</a></h2>
+                                        <span>E-mail</span>
+                                        <h2 class="title"><a href="mailto:info@renova.com">hussunally@gmail.com</a></h2>
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +121,7 @@
                                     </div>
                                     <div class="content">
                                         <span>Call Us 24/7</span>
-                                        <h2 class="title"><a href="tel:0123456789">+2569 (25) 215868</a></h2>
+                                        <h2 class="title"><a href="tel:0123456789">+91-33-2230-4140</a></h2>
                                     </div>
                                 </div>
                             </div>

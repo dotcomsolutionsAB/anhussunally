@@ -14,11 +14,11 @@
                         <span class="sub-title">AN Hussunally & Co</span>
                         <h2 class="title">About Us</h2>
                     </div>
-                    <p>Pioneering the hydraulics market in Eastern India, the 100-year old A.N. Hussunally & Co. has today emerged as among the market leaders in providing customers with holistic hydraulic solutions.<br><br>
+                    <h4>Pioneering the hydraulics market in Eastern India, the 100-year old A.N. Hussunally & Co. has today emerged as among the market leaders in providing customers with holistic hydraulic solutions.<br><br>
 
                         Established in 1917, the Company’s principal business philosophy is anchored on providing customers with world-class products and solutions at cost-effective propositions. Today, the Company comprehensively caters to the needs of a vass spectrum of industries in the pneumatics, oil and gas, power, steel, cement, manufacturing and chemicals industries.<br><br>
 
-                        With strong resident knowledge and knowhow of the dynamic hydraulics industry coupled with state-of-the-art infrastructure and resource base, A.N. Hussunally & Co. has actively engaged in nation-building by participating in such landmark Indian projects as the Tata Steel complex in Jamshedpur, Bhusan Power & Steel, Jindal Steel, ISSCO Steel Plant etc.</p>
+                        With strong resident knowledge and knowhow of the dynamic hydraulics industry coupled with state-of-the-art infrastructure and resource base, A.N. Hussunally & Co. has actively engaged in nation-building by participating in such landmark Indian projects as the Tata Steel complex in Jamshedpur, Bhusan Power & Steel, Jindal Steel, ISSCO Steel Plant etc.</h4>
                     <!-- <div class="experience__wrap">
                         <div class="experience__box">
                             <h3 class="title">25+</h3>

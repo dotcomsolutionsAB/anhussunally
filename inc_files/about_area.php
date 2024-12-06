@@ -3,7 +3,7 @@
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-6 col-md-9">
                 <div class="about__img-wrap wow img-custom-anim-left animated"  data-wow-duration="1.5s" data-wow-delay="0.1s">
-                    <img src="../images/about_1.jpg" alt="img">
+                    <img src="../images/about_2.jpg" alt="img">
                     <div class="about__img-content">
                         <h4 class="title">Let’s work together</h4>
                         <a href="contact.html" class="btn">Contact Us <img src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>

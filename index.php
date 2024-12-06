@@ -77,11 +77,11 @@
         <!-- cta-area-end -->
 
         <!-- team-area -->
-        <?php  include("inc_files/team_area.php"); ?>
+        <!-- <?php  include("inc_files/team_area.php"); ?> -->
         <!-- team-area-end -->
 
         <!-- project-area -->
-        <?php include("inc_files/project_area.php") ?>
+        <!-- <?php include("inc_files/project_area.php") ?> -->
         <!-- project-area-end -->
 
         <!-- faq-area -->
@@ -89,15 +89,15 @@
         <!-- faq-area-end -->
 
         <!-- work-area -->
-        <?php include("inc_files/work_area.php"); ?>
+        <!-- <?php include("inc_files/work_area.php"); ?> -->
         <!-- work-area-end -->
 
         <!-- blog-post-area -->
-        <?php include("inc_files/blog_post_area.php"); ?>
+        <!-- <?php include("inc_files/blog_post_area.php"); ?> -->
         <!-- blog-post-area-end -->
 
         <!-- brand-area -->
-        <?php include("inc_files/brand_area.php"); ?>
+        <!-- <?php include("inc_files/brand_area.php"); ?> -->
         <!-- brand-area-end -->
 
 

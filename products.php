@@ -117,9 +117,9 @@ if (isset($_GET['category_id'])) {
     <!--Preloader-end -->
 
     <!-- Scroll-top -->
-    <!-- <button class="scroll__top scroll-to-target" data-target="html">
+    <button class="scroll__top scroll-to-target" data-target="html">
         <i class="renova-up-arrow"></i>
-    </button> -->
+    </button>
     <!-- Scroll-top-end-->
 
     <!-- header-area -->

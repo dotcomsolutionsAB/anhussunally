@@ -10,70 +10,19 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch product count for each category
-$query = "SELECT c.id, c.name, COUNT(p.id) AS product_count
-          FROM categories c
-          LEFT JOIN products p ON p.category_id = c.id
-          GROUP BY c.id";
-$categoryResult = $conn->query($query);
+// Fetch parent categories for the selected brand
 $categories = [];
-if ($categoryResult->num_rows > 0) {
-    while ($row = $categoryResult->fetch_assoc()) {
-        $categories[] = $row;
-    }
-}
-
-// Fetch all brands
-$brandQuery = "SELECT * FROM brand";
-$brandResult = $conn->query($brandQuery);
-$brands = [];
-if ($brandResult->num_rows > 0) {
-    while ($row = $brandResult->fetch_assoc()) {
-        $brands[] = $row;
-    }
-}
-
-// Fetch products for selected brand and category
-$products = [];
-
-
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $brand_id = intval($_GET['id']); // Ensure it's an integer
 
-    // Fetch products for the given brand and optional category
-    if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
-        $category_id = intval($_GET['category_id']); // Ensure it's an integer
-        $productQuery = "SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
-                         FROM products
-                         LEFT JOIN brand ON products.brand_id = brand.id
-                         WHERE products.brand_id = $brand_id AND products.category_id = $category_id";
-    } else {
-        // If no category is selected, fetch all products for the brand
-        $productQuery = "SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
-                         FROM products
-                         LEFT JOIN brand ON products.brand_id = brand.id
-                         WHERE products.brand_id = $brand_id";
-    }
-
-    $productResult = $conn->query($productQuery);
-
-    // Check if products exist
-    $products = [];
-    if ($productResult && $productResult->num_rows > 0) {
-        while ($row = $productResult->fetch_assoc()) {
-            $products[] = $row;
-        }
-    } else {
-        echo "<div class='alert alert-info'>No products found for the selected brand and category.</div>";
-    }
-
-    // Fetch categories for the selected brand
-    $categoryQuery = "SELECT DISTINCT c.id, c.name
-                      FROM categories c
-                      INNER JOIN products p ON p.category_id = c.id
-                      WHERE p.brand_id = $brand_id";
+    $categoryQuery = "
+        SELECT DISTINCT c.id, c.name
+        FROM categories c
+        INNER JOIN categories child ON child.parent_id = c.id
+        INNER JOIN products p ON p.category_id = child.id
+        WHERE c.parent_id = 0 AND p.brand_id = $brand_id";
     $categoryResult = $conn->query($categoryQuery);
-    $categories = [];
+
     if ($categoryResult->num_rows > 0) {
         while ($row = $categoryResult->fetch_assoc()) {
             $categories[] = $row;
@@ -83,20 +32,46 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     echo "<div class='alert alert-warning'>No brand ID provided. Please select a brand to view products.</div>";
 }
 
+// Fetch products by child categories under the selected parent category
+$products = [];
+$childCategoryNames = [];
+if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
+    $category_id = intval($_GET['category_id']); // Ensure it's an integer
 
+    // Fetch child categories of the selected parent category
+    $childCategoriesQuery = "SELECT id FROM categories WHERE parent_id = $category_id";
+    $childCategoriesResult = $conn->query($childCategoriesQuery);
+    $childCategoryIds = [];
+    if ($childCategoriesResult->num_rows > 0) {
+        while ($row = $childCategoriesResult->fetch_assoc()) {
+            $childCategoryIds[] = $row['id'];
+        }
+    }
 
+    if (!empty($childCategoryIds)) {
+        $childCategoryIdsStr = implode(',', $childCategoryIds);
 
-// Fetch products by category
-if (isset($_GET['category_id'])) {
-    $category_id = intval($_GET['category_id']);
-    $categoryProductQuery = "SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
-                             FROM products
-                             LEFT JOIN brand ON products.brand_id = brand.id
-                             WHERE products.category_id = $category_id";
-    $categoryProductResult = $conn->query($categoryProductQuery);
-    if ($categoryProductResult->num_rows > 0) {
-        while ($row = $categoryProductResult->fetch_assoc()) {
-            $products[] = $row;
+        // Fetch products for these child categories and the selected brand
+        $productQuery = "
+            SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
+            FROM products
+            LEFT JOIN brand ON products.brand_id = brand.id
+            WHERE products.category_id IN ($childCategoryIdsStr) AND products.brand_id = $brand_id";
+        $productResult = $conn->query($productQuery);
+
+        if ($productResult && $productResult->num_rows > 0) {
+            while ($row = $productResult->fetch_assoc()) {
+                $products[] = $row;
+            }
+        }
+
+        // Fetch child category names
+        $childCategoryQuery = "SELECT id, name FROM categories WHERE id IN ($childCategoryIdsStr)";
+        $childCategoryResult = $conn->query($childCategoryQuery);
+        if ($childCategoryResult->num_rows > 0) {
+            while ($row = $childCategoryResult->fetch_assoc()) {
+                $childCategoryNames[$row['id']] = $row['name'];
+            }
         }
     }
 }
@@ -136,10 +111,6 @@ if (isset($_GET['category_id'])) {
     <!-- header-area-end -->
 
     <main class="main-area fix">
-        <!-- breadcrumb area -->
-        <?php include("inc_files/breadcrumb.php"); ?>
-        <!-- breadcrumb area end -->
-
         <section class="shop__area section-py-120">
             <div class="container">
                 <div class="row gutter-24">
@@ -148,18 +119,18 @@ if (isset($_GET['category_id'])) {
                             <div class="row gutter-24 align-items-center">
                                 <div class="col-md-5">
                                     <div class="shop__showing-result">
-                                        <p>Showing 1 - <?php echo count($products); ?> of <?php echo count($products); ?> Results</p>
+                                        <p>Showing <?php echo count($products); ?> Results</p>
                                     </div>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="shop__ordering">
                                         <select name="category_id" class="orderby" onchange="window.location.href=this.value;">
                                             <option value="">Select Category</option>
-                                            <?php
-                                            foreach ($categories as $category) {
-                                                echo "<option value='?category_id={$category['id']}'>{$category['name']}</option>";
-                                            }
-                                            ?>
+                                            <?php foreach ($categories as $category) { ?>
+                                                <option value="?category_id=<?php echo $category['id']; ?>&id=<?php echo $brand_id; ?>">
+                                                    <?php echo htmlspecialchars($category['name']); ?>
+                                                </option>
+                                            <?php } ?>
                                         </select>
                                     </div>
                                 </div>
@@ -167,52 +138,57 @@ if (isset($_GET['category_id'])) {
                         </div>
 
                         <div class="row gutter-24">
-    <?php if (!empty($products)) { ?>
-        <?php foreach ($products as $product) { ?>
-            <div class="col-xl-3 col-sm-6">
-                <div class="shop__item">
-                    <div class="shop__thumb">
-                        <?php
-                        // Fetch the first product image
-                        $imageLink = "images/default.png"; // Default image
-                        if (!empty($product['images']) && $product['images'] != '') {
-                            $imageIds = explode(',', ltrim($product['images'], ',')); // Remove leading comma if present
-                            $firstImageId = $imageIds[0] ?? null;
+                            <?php
+                            if (!empty($products)) {
+                                foreach ($childCategoryNames as $childCategoryId => $childCategoryName) {
+                                    echo "<h3>" . htmlspecialchars($childCategoryName) . "</h3>";
+                                    echo '<div class="row gutter-24">';
+                                    foreach ($products as $product) {
+                                        if ($product['category_id'] == $childCategoryId) { ?>
+                                            <div class="col-xl-3 col-sm-6">
+                                                <div class="shop__item">
+                                                    <div class="shop__thumb">
+                                                        <?php
+                                                            // Fetch the first product image
+                                                            $imageLink = "images/default.png"; // Default image
+                                                            if (!empty($product['images']) && $product['images'] != '') {
+                                                                $imageIds = explode(',', ltrim($product['images'], ',')); // Remove leading comma if present
+                                                                $firstImageId = $imageIds[0] ?? null;
 
-                            if ($firstImageId) {
-                                $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
-                                $imageResult = $conn->query($imageQuery);
-                                if ($imageResult && $imageResult->num_rows > 0) {
-                                    $image = $imageResult->fetch_assoc();
-                                    $imageLink = "uploads/assets/" . $image['file_original_name'];
+                                                                if ($firstImageId) {
+                                                                    $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
+                                                                    $imageResult = $conn->query($imageQuery);
+                                                                    if ($imageResult && $imageResult->num_rows > 0) {
+                                                                        $image = $imageResult->fetch_assoc();
+                                                                        $imageLink = "uploads/assets/" . $image['file_original_name'];
+                                                                    }
+                                                                }
+                                                            }
+                                                        ?>
+                                                        <img src='<?php echo $imageLink; ?>' alt='<?php echo htmlspecialchars($product['name']); ?>'>
+                                                        <a href='product-details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>' class='btn view-details-btn'>View Details</a>
+                                                    </div>
+                                                    <div class='shop__content'>
+                                                        <h4 class='title'>
+                                                            <a href='product-details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>'>
+                                                                <?php echo htmlspecialchars($product['name']); ?>
+                                                            </a>
+                                                        </h4>
+                                                        <p class='category-name'>Brand: <?php echo htmlspecialchars($product['brand_name']); ?></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                    }
+                                    echo '</div>';
                                 }
+                            } else {
+                                echo "<div class='alert alert-info'>No products found for the selected category and brand.</div>";
                             }
-                        }
-                        ?>
-                        <img src='<?php echo htmlspecialchars($imageLink); ?>' alt='<?php echo htmlspecialchars($product['name']); ?>' style="width:100%; height:200px;">
-                        <a href='product-details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>' class='btn view-details-btn'>View Details</a>
-                    </div>
-                    <div class='shop__content'>
-                        <h4 class='title'>
-                            <a href='product-details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>'>
-                                <?php echo strlen($product['name']) > 24 ? htmlspecialchars(substr($product['name'], 0, 24)) . '...' : htmlspecialchars($product['name']); ?>
-                            </a>
-                        </h4>
-                        <p class='category-name'>Brand: <?php echo htmlspecialchars($product['brand_name']); ?></p>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
-    <?php } else { ?>
-        <div class="col-12">
-            <div class="alert alert-info">No products found for the selected brand and category.</div>
-        </div>
-    <?php } ?>
-</div>
-
+                            ?>
+                        </div>
                     </div>
 
-                    <!-- Side Section -->
                     <div class="col-xl-3 col-lg-4">
                         <aside class="shop__sidebar">
                             <div class="blog__widget">
@@ -233,7 +209,6 @@ if (isset($_GET['category_id'])) {
                             </div>
                         </aside>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -272,7 +247,7 @@ if (isset($_GET['category_id'])) {
 
     <!-- Add jQuery to simplify AJAX calls (if not included already) -->
     
-        <!-- JS here -->
+    <!-- JS here -->
     <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/isotope.pkgd.min.js"></script>

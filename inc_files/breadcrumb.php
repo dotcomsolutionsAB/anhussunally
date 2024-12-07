@@ -12,7 +12,7 @@
         'brands' => ['label' => 'Brand', 'link' => 'brands.php'],
         'products' => ['label' => 'Products', 'link' => 'products.php'],
         'categories' => ['label' => 'Categories', 'link' => 'categories.php'],
-        'product_details' => ['label' => 'Products', 'link' => 'product_details.php'],
+        'product_details' => ['label' => 'Products Details', 'link' => 'product_details.php'],
         'about_us' => ['label' => 'About Us', 'link' => 'about_us.php'],
     ];
 
@@ -84,11 +84,15 @@
                             <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;"><?php echo $current_breadcrumb['label']; ?></a>
                         
                             <?php }else if($current_breadcrumb['label']=="Products"){ ?>
-                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;"><?php echo $current_breadcrumb['label']; ?></a>
+                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:block;"><?php echo $current_breadcrumb['label']; ?></a>
                         
                             <?php }else if($current_breadcrumb['label']=="Categories"){ ?>
                             <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;"><?php echo $current_breadcrumb['label']; ?></a>
                         
+                            <?php }else if($current_breadcrumb['label']=="Products Details"){ ?>
+                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;"><?php echo $current_breadcrumb['label']; ?></a>
+                        
+
                             <?php }else{ ?>
                             <a href="<?php echo $current_breadcrumb['link']; ?>"><?php echo $current_breadcrumb['label']; ?></a>
                         

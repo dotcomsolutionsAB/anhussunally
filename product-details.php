@@ -133,9 +133,11 @@
                             <?php if (!empty($images)): ?>
                                 <?php foreach ($images as $index => $imageLink): ?>
                                     <?php if($imageLink){?>
-                                        <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($imageLink); ?>">
+                                        <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($imageLink); ?>" style="display: flex;  justify-content: center;
+    align-items: center;">
                                     <?php }else{ ?>
-                                        <img src="images/default.png" alt="default">
+                                        <img src="images/default.png" alt="default" style="display: flex;  justify-content: center;
+    align-items: center;">
                                     <?php } ?>
                                 <?php endforeach; ?>
                             <?php else: ?>
@@ -167,11 +169,11 @@
                                 } else {
                                 ?>
                                 <h4 class="price">Brand : 
-                                    <del>
+                                    
                                         <a href="brands.php?id=<?php echo intval($product['brand_id']); ?>">
                                             <span class="title"><?php echo htmlspecialchars($brand['name']); ?></span>
                                         </a>
-                                    </del>
+                                    
                                 </h4>
                                 <?php } ?>
                                     <!-- <i class="fas fa-star"></i>

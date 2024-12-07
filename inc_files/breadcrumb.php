@@ -82,26 +82,26 @@
                         </span>
                         
                         <?php if($current_breadcrumb['label']=="Brand"){ ?>
-                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;">/<?php echo $current_breadcrumb['label']; ?></a>
+                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:block;">/ <?php echo $current_breadcrumb['label']; ?></a>
                         
                             <?php }else if($current_breadcrumb['label']=="Products"){ ?>
-                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:block;">/<?php echo $current_breadcrumb['label']; ?></a>
+                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:block;">/ <?php echo $current_breadcrumb['label']; ?></a>
                         
                             <?php }else if($current_breadcrumb['label']=="Categories"){ ?>
-                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;">/<?php echo $current_breadcrumb['label']; ?></a>
+                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;">/ <?php echo $current_breadcrumb['label']; ?></a>
                         
                             <?php }else if($current_breadcrumb['label']=="Product-details"){ ?>
-                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;">/<?php echo $current_breadcrumb['label']; ?></a>
+                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;">/ <?php echo $current_breadcrumb['label']; ?></a>
                         
 
                             <?php }else{ ?>
-                            <a href="<?php echo $current_breadcrumb['link']; ?>"><?php echo $current_breadcrumb['label']; ?></a>
+                            <a href="<?php echo $current_breadcrumb['link']; ?>">/ <?php echo $current_breadcrumb['label']; ?></a>
                         
                         <?php } ?>
 
                         <span property="itemListElement" typeof="ListItem">
                             <?php if (!empty($dynamic_label)): ?>
-                                <a href="#">/<?php echo $dynamic_label; ?></a>
+                                <a href="#">/ <?php echo $dynamic_label; ?></a>
                             <?php endif; ?>
                         </span>
                     </nav>

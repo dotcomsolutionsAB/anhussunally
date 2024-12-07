@@ -93,7 +93,7 @@ if ($sheetResult && $sheetResult->num_rows > 0) {
                 $extension = pathinfo($imageName, PATHINFO_EXTENSION);
                 $type = mime_content_type($imagePath);
                 $userId = 1; // You can change this to the appropriate user ID
-                $imageLink = "/uploads/assets/" . $imageName;
+                $imageLink = "../images/assets/products/" . $imageName;
 
                 // Insert image details into the upload table
                 $insertImageQuery = "INSERT INTO upload (file_original_name, image_link, user_id, file_size, extension, type, created_at)

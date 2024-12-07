@@ -4,11 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include("connection/db_connect.php");
-// $host = 'localhost';
-// $dbname = 'anh';
-// $username = 'anh';
-// $password = '9kCuzrb5tO53$xQtf';
-// Establish database connection
+
 $conn = mysqli_connect($host, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -22,7 +18,7 @@ $query = "SELECT c.id, c.name, COUNT(p.id) AS product_count
 $categoryResult = $conn->query($query);
 $categories = [];
 if ($categoryResult->num_rows > 0) {
-    while($row = $categoryResult->fetch_assoc()) {
+    while ($row = $categoryResult->fetch_assoc()) {
         $categories[] = $row;
     }
 }
@@ -32,7 +28,7 @@ $brandQuery = "SELECT * FROM brand";
 $brandResult = $conn->query($brandQuery);
 $brands = [];
 if ($brandResult->num_rows > 0) {
-    while($row = $brandResult->fetch_assoc()) {
+    while ($row = $brandResult->fetch_assoc()) {
         $brands[] = $row;
     }
 }
@@ -41,10 +37,37 @@ if ($brandResult->num_rows > 0) {
 $products = [];
 
 
-if (isset($_GET['brand_id'])) {
-    $brand_id = $_GET['brand_id'];
+if (isset($_GET['id']) && !empty($_GET['id'])) {
+    $brand_id = intval($_GET['id']); // Ensure it's an integer
 
-    // Fetch categories that have products under the selected brand
+    // Fetch products for the given brand and optional category
+    if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
+        $category_id = intval($_GET['category_id']); // Ensure it's an integer
+        $productQuery = "SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
+                         FROM products
+                         LEFT JOIN brand ON products.brand_id = brand.id
+                         WHERE products.brand_id = $brand_id AND products.category_id = $category_id";
+    } else {
+        // If no category is selected, fetch all products for the brand
+        $productQuery = "SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
+                         FROM products
+                         LEFT JOIN brand ON products.brand_id = brand.id
+                         WHERE products.brand_id = $brand_id";
+    }
+
+    $productResult = $conn->query($productQuery);
+
+    // Check if products exist
+    $products = [];
+    if ($productResult && $productResult->num_rows > 0) {
+        while ($row = $productResult->fetch_assoc()) {
+            $products[] = $row;
+        }
+    } else {
+        echo "<div class='alert alert-info'>No products found for the selected brand and category.</div>";
+    }
+
+    // Fetch categories for the selected brand
     $categoryQuery = "SELECT DISTINCT c.id, c.name
                       FROM categories c
                       INNER JOIN products p ON p.category_id = c.id
@@ -56,25 +79,27 @@ if (isset($_GET['brand_id'])) {
             $categories[] = $row;
         }
     }
+} else {
+    echo "<div class='alert alert-warning'>No brand ID provided. Please select a brand to view products.</div>";
 }
+
+
 
 
 // Fetch products by category
 if (isset($_GET['category_id'])) {
-    $category_id = $_GET['category_id'];
+    $category_id = intval($_GET['category_id']);
     $categoryProductQuery = "SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
                              FROM products
                              LEFT JOIN brand ON products.brand_id = brand.id
                              WHERE products.category_id = $category_id";
     $categoryProductResult = $conn->query($categoryProductQuery);
     if ($categoryProductResult->num_rows > 0) {
-        while($row = $categoryProductResult->fetch_assoc()) {
+        while ($row = $categoryProductResult->fetch_assoc()) {
             $products[] = $row;
         }
     }
 }
-
-
 ?>
 
 <!doctype html>
@@ -106,31 +131,14 @@ if (isset($_GET['category_id'])) {
     <link rel="shortcut icon" href="images/favicon.png">
 </head>
 <body>
-    <!--Preloader-->
-    <!-- <div id="preloader">
-        <div id="loader" class="loader">
-            <div class="loader-container">
-                <div class="loader-icon"><img src="assets/img/logo/preloader.svg" alt="Preloader"></div>
-            </div>
-        </div>
-    </div> -->
-    <!--Preloader-end -->
-
-    <!-- Scroll-top -->
-    <button class="scroll__top scroll-to-target" data-target="html">
-        <i class="renova-up-arrow"></i>
-    </button>
-    <!-- Scroll-top-end-->
-
     <!-- header-area -->
     <?php include("inc_files/header.php"); ?>
     <!-- header-area-end -->
 
     <main class="main-area fix">
-
         <!-- breadcrumb area -->
-            <?php include("inc_files/breadcrumb.php"); ?>
-        <!-- breadcrumb area end-->
+        <?php include("inc_files/breadcrumb.php"); ?>
+        <!-- breadcrumb area end -->
 
         <section class="shop__area section-py-120">
             <div class="container">
@@ -140,7 +148,7 @@ if (isset($_GET['category_id'])) {
                             <div class="row gutter-24 align-items-center">
                                 <div class="col-md-5">
                                     <div class="shop__showing-result">
-                                        <p>Showing 1 - 12 of 30 Results</p>
+                                        <p>Showing 1 - <?php echo count($products); ?> of <?php echo count($products); ?> Results</p>
                                     </div>
                                 </div>
                                 <div class="col-md-7">
@@ -158,109 +166,66 @@ if (isset($_GET['category_id'])) {
                             </div>
                         </div>
 
-                        
-                            <div class="row gutter-24">
-                                <?php
-                                    if (isset($_GET['brand_id'])) {
-                                        $brand_id = $_GET['brand_id'];
+                        <div class="row gutter-24">
+    <?php if (!empty($products)) { ?>
+        <?php foreach ($products as $product) { ?>
+            <div class="col-xl-3 col-sm-6">
+                <div class="shop__item">
+                    <div class="shop__thumb">
+                        <?php
+                        // Fetch the first product image
+                        $imageLink = "images/default.png"; // Default image
+                        if (!empty($product['images']) && $product['images'] != '') {
+                            $imageIds = explode(',', ltrim($product['images'], ',')); // Remove leading comma if present
+                            $firstImageId = $imageIds[0] ?? null;
 
-                                        // Loop through each category and show products for that brand
-                                        foreach ($categories as $category) {
-                                            // Fetch products for the current category and brand
-                                            $categoryProductQuery = "SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
-                                                                FROM products
-                                                                LEFT JOIN brand ON products.brand_id = brand.id
-                                                                WHERE products.category_id = {$category['id']} AND products.brand_id = $brand_id";
-                                            $categoryProductResult = $conn->query($categoryProductQuery);
+                            if ($firstImageId) {
+                                $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
+                                $imageResult = $conn->query($imageQuery);
+                                if ($imageResult && $imageResult->num_rows > 0) {
+                                    $image = $imageResult->fetch_assoc();
+                                    $imageLink = "uploads/assets/" . $image['file_original_name'];
+                                }
+                            }
+                        }
+                        ?>
+                        <img src='<?php echo htmlspecialchars($imageLink); ?>' alt='<?php echo htmlspecialchars($product['name']); ?>' style="width:100%; height:200px;">
+                        <a href='product-details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>' class='btn view-details-btn'>View Details</a>
+                    </div>
+                    <div class='shop__content'>
+                        <h4 class='title'>
+                            <a href='product-details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>'>
+                                <?php echo strlen($product['name']) > 24 ? htmlspecialchars(substr($product['name'], 0, 24)) . '...' : htmlspecialchars($product['name']); ?>
+                            </a>
+                        </h4>
+                        <p class='category-name'>Brand: <?php echo htmlspecialchars($product['brand_name']); ?></p>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+    <?php } else { ?>
+        <div class="col-12">
+            <div class="alert alert-info">No products found for the selected brand and category.</div>
+        </div>
+    <?php } ?>
+</div>
 
-                                            // Check if products are found and display them
-                                            if ($categoryProductResult->num_rows > 0) { ?>
-                                                <div class='col-12'>
-                                                    <div class="shop__top-wrap">
-                                                        <div class="row gutter-24 align-items-center">
-                                                            <div class="col-md-12">
-                                                                <div class="shop__showing-result">
-                                                                    <h4><?php echo $category['name']; ?></h4>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- <h4></h4> -->
-                                                    <div class='row gutter-24'>
-                                            
-                                                        <?php while ($product = $categoryProductResult->fetch_assoc()) { ?>
-                                                                <div class='col-xl-3 col-sm-6'>
-                                                                    <div class='shop__item'>
-                                                                        <div class='shop__thumb'>
-                                                                            <?php
-                                                                            
-                                                                            if (!empty($product['images']) && $product['images'] != '') {
-                                                                                $imageIds = explode(',', ltrim($product['images'], ',')); // Remove leading comma if present
-                                                                                $firstImageId = $imageIds[0] ?? null;
-                                                                            
-                                                                                if ($firstImageId) {
-                                                                                    $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
-                                                                                    $imageResult = $conn->query($imageQuery);
-                                                                                    if ($imageResult && $imageResult->num_rows > 0) {
-                                                                                        $image = $imageResult->fetch_assoc();
-                                                                                        $imageLink = "uploads/assets/" . $image['file_original_name'];
-                                                                                    } else {
-                                                                                        $imageLink = "images/default.png"; 
-                                                                                    }
-                                                                                } else {
-                                                                                    $imageLink = "images/default.png"; 
-                                                                                }
-                                                                            } else {
-                                                                                $imageLink = "images/default.png"; 
-                                                                            }
-                                                                            
-                                                                            ?>
-                                                                            <img src='<?php echo htmlspecialchars($imageLink); ?>' alt='<?php echo $product['name']; ?>' style="width:100%; height:200px;">
-                                                                            <a href='product-details.php?sku=<?php echo $product['sku']; ?>' class='btn view-details-btn'>View Details</a>
-                                                                        </div>
-                                                                        <div class='shop__content'>
-                                                                            <h4 class='title'>
-                                                                                <a href='product-details.php?sku=<?php echo $product['sku']; ?>' class='product-title'>
-                                                                                    <?php echo strlen($product['name']) > 24 ? htmlspecialchars(substr($product['name'], 0, 24)) . '...' : htmlspecialchars($product['name']); ?>
-                                                                                </a>
-                                                                            </h4>
-                                                                            <p class='category-name'>Brand: <?php echo $product['brand_name']; ?></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                        <?php } ?>
-                                                    </div>
-                                                </div>
-                                            <?php } 
-                                        }
-                                    }
-                                ?>
-                            </div>
                     </div>
 
                     <!-- Side Section -->
                     <div class="col-xl-3 col-lg-4">
                         <aside class="shop__sidebar">
                             <div class="blog__widget">
-                                <div class="blog__search">
-                                    <form action="#" class="blog__search-form">
-                                        <input type="text" placeholder="Enter Keyword">
-                                        <button type="submit"><i class="renova-search-2"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="blog__widget">
-                                <h4 class="blog__widget-title">Brands</h4>
+                                <h4 class="blog__widget-title">Categories</h4>
                                 <div class="blog__cat-list shop__cat-list">
                                     <ul class="list-wrap">
-                                        <?php 
-                                        $brandQuery = "SELECT * FROM brand";
-                                        $brandResult = $conn->query($brandQuery);
-
-                                        if ($brandResult->num_rows > 0) {
-                                            while ($brand = $brandResult->fetch_assoc()) {
-                                                echo '<li><a href="?brand_id=' . $brand['id'] . '">' . htmlspecialchars($brand['name']) . '</a></li>';
+                                        <?php
+                                        if (!empty($categories)) {
+                                            foreach ($categories as $category) {
+                                                echo '<li><a href="?category_id=' . $category['id'] . '&id=' . $brand_id . '">' . htmlspecialchars($category['name']) . '</a></li>';
                                             }
+                                        } else {
+                                            echo '<li>No categories found for this brand.</li>';
                                         }
                                         ?>
                                     </ul>
@@ -268,6 +233,7 @@ if (isset($_GET['category_id'])) {
                             </div>
                         </aside>
                     </div>
+
                 </div>
             </div>
         </section>

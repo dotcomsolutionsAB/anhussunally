@@ -1,3 +1,9 @@
+<?php
+    ini_set('display_errors', 0);
+    // Include the database connection file
+    include(__DIR__ . '../connection/db_connect.php');
+
+?>
 <header>
         <!-- <div class="tg-header__top">
             <div class="container custom-container">
@@ -81,20 +87,9 @@
                                             <?php else: ?>
                                                 <li><a href="#">No Brands Available</a></li>
                                             <?php endif; ?>
-
-                                                <li><a href="services.html">Our Services</a></li>
-                                                <li><a href="services-details.html">Services Details</a></li>
-                                                <li><a href="history.html">Company History</a></li>
-                                                <li><a href="company.html">Company Values</a></li>
-                                                <li><a href="office.html">Our Offices</a></li>
-                                                <li><a href="clients.html">Our clients</a></li>
-                                                <li><a href="faq.html">Faq Page</a></li>
-                                                <li><a href="team.html">Team Page</a></li>
-                                                <li><a href="team-details.html">Team Details</a></li>
-                                                <li><a href="appointment.html">Appointment Page</a></li>
-                                                <li><a href="contact.html">Contact Us</a></li>
                                             </ul>
                                         </li>
+
                                         <li class="menu-item-has-children"><a href="about.php">About Us</a>
                                         <li class="menu-item-has-children"><a href="brands.php">Brands</a>
                                         <!-- <li class="menu-item-has-children"><a href="faq.php">Faq</a> -->

@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 // $dbname = 'anh';
 // $username = 'anh';
 // $password = '9kCuzrb5tO53$xQtf';
-include("../connection/db_connection.php");
+include("../connection/db_connect.php");
 
 // Establish database connection
 $conn = new mysqli($host, $username, $password, $dbname);

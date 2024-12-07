@@ -213,9 +213,9 @@ if ($result && $result->num_rows > 0) {
             } else {
                 // Insert new product with the brand ID
                 $insertQuery = "INSERT INTO products (sku, name, descriptions, short_description, brand_id, category_id, images, image_url, pdf, weight, length, breadth, height, features, shop_lines)
-                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $conn->prepare($insertQuery);
-                $stmt->bind_param("ssssssssssssddddss", $sku, $name, $description, $short_description, $brandId, $categoryId, $images, $image_url, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson);
+                $stmt->bind_param("sssssssssddddss", $sku, $name, $description, $short_description, $brandId, $categoryId, $images, $image_url, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson);
 
                 if ($stmt->execute()) {
                     $importedSKUs[] = $sku;

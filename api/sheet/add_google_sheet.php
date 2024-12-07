@@ -1,6 +1,6 @@
 <?php
 // Include database connection
-include("../db_connection.php");
+include("../../connection/db_connect.php");
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);

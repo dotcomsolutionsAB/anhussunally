@@ -1,6 +1,6 @@
 <?php
 // Include database connection
-include("../db_connection.php");
+include("../../connection/db_connect.php");
 
 // Get the ID and Status from the request
 $id = $_GET['id'];

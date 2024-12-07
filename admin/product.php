@@ -6,7 +6,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit;
 }
 
-include("../api/db_connection.php");
+include("../connection/db_connect.php");
 
 // Establish database connection
 $conn = mysqli_connect($host, $username, $password, $dbname);

@@ -12,7 +12,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit;
 }
 
-include("../api/db_connection.php");
+include("../connection/db_connect.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['logo']) && isset($_POST['brand_id'])) {
     $brand_id = intval($_POST['brand_id']);

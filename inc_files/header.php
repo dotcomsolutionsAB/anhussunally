@@ -55,9 +55,33 @@
                                                 <li><a href="index-5.html">05. Renovation</a></li>
                                             </ul> -->
                                         </li>
-                                        <!-- <li class="menu-item-has-children"><a href="#">Pages</a>
+                                        <?php
+                                            // Establish database connection
+                                            $conn = mysqli_connect($host, $username, $password, $dbname);
+                                            if ($conn->connect_error) {
+                                                die("Connection failed: " . $conn->connect_error);
+                                            }
+
+                                            // Fetch all brands from the brand table
+                                            $brandQuery = "SELECT id, name FROM brand";
+                                            $brandResult = $conn->query($brandQuery);
+                                        ?>
+                                        <li class="menu-item-has-children"><a href="brands.php">Brands</a>
                                             <ul class="sub-menu">
-                                                <li><a href="about.html">About Us</a></li>
+                                            <?php 
+                                                if ($brandResult && $brandResult->num_rows > 0):
+                                                    while ($brand = $brandResult->fetch_assoc()): 
+                                            ?>
+                                                <li>
+                                                    <a href="brands.php?id=<?php echo htmlspecialchars($brand['id']); ?>">
+                                                        <?php echo htmlspecialchars($brand['name']); ?>
+                                                    </a>
+                                                </li>
+                                            <?php endwhile; ?>
+                                            <?php else: ?>
+                                                <li><a href="#">No Brands Available</a></li>
+                                            <?php endif; ?>
+
                                                 <li><a href="services.html">Our Services</a></li>
                                                 <li><a href="services-details.html">Services Details</a></li>
                                                 <li><a href="history.html">Company History</a></li>
@@ -70,7 +94,7 @@
                                                 <li><a href="appointment.html">Appointment Page</a></li>
                                                 <li><a href="contact.html">Contact Us</a></li>
                                             </ul>
-                                        </li> -->
+                                        </li>
                                         <li class="menu-item-has-children"><a href="about.php">About Us</a>
                                         <li class="menu-item-has-children"><a href="brands.php">Brands</a>
                                         <!-- <li class="menu-item-has-children"><a href="faq.php">Faq</a> -->

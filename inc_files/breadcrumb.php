@@ -12,7 +12,7 @@
         'brands' => ['label' => 'Brand', 'link' => 'brands.php'],
         'products' => ['label' => 'Products', 'link' => 'products.php'],
         'categories' => ['label' => 'Categories', 'link' => 'categories.php'],
-        'product_details' => ['label' => 'Products Details', 'link' => 'product_details.php'],
+        'product_details' => ['label' => 'Product-details', 'link' => 'product_details.php'],
         'about_us' => ['label' => 'About Us', 'link' => 'about_us.php'],
     ];
 
@@ -80,28 +80,28 @@
                         <span property="itemListElement" typeof="ListItem">
                             <a href="<?php echo $breadcrumb_mapping['index']['link']; ?>">Home</a>
                         </span>
-                        <span class="breadcrumb-separator">/</span>
+                        
                         <?php if($current_breadcrumb['label']=="Brand"){ ?>
-                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;"><?php echo $current_breadcrumb['label']; ?></a>
+                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;">/<?php echo $current_breadcrumb['label']; ?></a>
                         
                             <?php }else if($current_breadcrumb['label']=="Products"){ ?>
-                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:block;"><?php echo $current_breadcrumb['label']; ?></a>
+                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:block;">/<?php echo $current_breadcrumb['label']; ?></a>
                         
                             <?php }else if($current_breadcrumb['label']=="Categories"){ ?>
-                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;"><?php echo $current_breadcrumb['label']; ?></a>
+                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;">/<?php echo $current_breadcrumb['label']; ?></a>
                         
-                            <?php }else if($current_breadcrumb['label']=="Products-Details"){ ?>
-                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;"><?php echo $current_breadcrumb['label']; ?></a>
+                            <?php }else if($current_breadcrumb['label']=="Product-details"){ ?>
+                            <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;">/<?php echo $current_breadcrumb['label']; ?></a>
                         
 
                             <?php }else{ ?>
                             <a href="<?php echo $current_breadcrumb['link']; ?>"><?php echo $current_breadcrumb['label']; ?></a>
                         
                         <?php } ?>
-                        <span class="breadcrumb-separator">/</span>
+
                         <span property="itemListElement" typeof="ListItem">
                             <?php if (!empty($dynamic_label)): ?>
-                                <a href="#"><?php echo $dynamic_label; ?></a>
+                                <a href="#">/<?php echo $dynamic_label; ?></a>
                             <?php endif; ?>
                         </span>
                     </nav>

@@ -126,6 +126,7 @@ $result = $conn->query($query);
         <a href="brand.php">Brands</a>
         <a href="#">Category</a>
         <a href="#">Edit</a>
+        <a href="upload_files.php">Uploads</a>
     </div>
     <div class="main-content">
         <div class="navbar">

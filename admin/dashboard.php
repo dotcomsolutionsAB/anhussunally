@@ -88,6 +88,7 @@ $loggedInId = $_SESSION['id'];
         <a href="brand.php">Brands</a>
         <a href="category.php">Category</a>
         <a href="">Edit</a>
+        <a href="upload_files.php">Uploads</a>
     </div>
 
     <!-- Main content area -->

@@ -127,25 +127,10 @@ if (isset($_GET['category_id'])) {
     <!-- header-area-end -->
 
     <main class="main-area fix">
-        <div class="breadcrumb__area breadcrumb__bg" data-background="images/page-header.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="breadcrumb__content">
-                            <h2 class="title">Our Store</h2>
-                            <nav class="breadcrumb">
-                                <span property="itemListElement" typeof="ListItem">
-                                    <a href="index.html">Home</a>
-                                </span>
-                                <span class="breadcrumb-separator">/</span>
-                                <span property="itemListElement" typeof="ListItem">Our Store</span>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        
+        <!-- breadcrumb area -->
+            <?php include("inc_files/breadcrumb.php"); ?>
+        <!-- breadcrumb area end-->
         <section class="shop__area section-py-120">
             <div class="container">
                 <div class="row gutter-24">

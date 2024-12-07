@@ -56,7 +56,8 @@
     <main class="main-area fix">
 
         <!-- breadcrumb-area -->
-        <div class="breadcrumb__area breadcrumb__bg" data-background="images/page-header.jpg">
+         <?php include("inc_files/breadcrumb.php"); ?>
+        <!-- <div class="breadcrumb__area breadcrumb__bg" data-background="images/page-header.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -73,7 +74,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- breadcrumb-area-end -->
 
        <!-- about-area -->

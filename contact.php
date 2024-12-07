@@ -56,24 +56,7 @@
     <main class="main-area fix">
 
         <!-- breadcrumb-area -->
-        <div class="breadcrumb__area breadcrumb__bg" data-background="images/page-header.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="breadcrumb__content">
-                            <h2 class="title">Contact Us</h2>
-                            <nav class="breadcrumb">
-                                <span property="itemListElement" typeof="ListItem">
-                                    <a href="index.html">Home</a>
-                                </span>
-                                <span class="breadcrumb-separator">/</span>
-                                <span property="itemListElement" typeof="ListItem">Contact Us</span>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php include("inc_files/breadcrumb.php"); ?>
         <!-- breadcrumb-area-end -->
 
         <!-- contact-area -->

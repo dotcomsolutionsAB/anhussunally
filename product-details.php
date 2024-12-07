@@ -99,7 +99,7 @@
     <main class="main-area fix">
 
         <!-- breadcrumb-area -->
-        <?php include("inc_files/breadcrumb.php"); ?>
+        <!-- <?php include("inc_files/breadcrumb.php"); ?> -->
         <!-- breadcrumb-area-end -->
 
         

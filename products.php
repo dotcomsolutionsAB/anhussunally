@@ -4,10 +4,10 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include("connection/db_connect.php");
-$host = 'localhost';
-$dbname = 'anh';
-$username = 'anh';
-$password = '9kCuzrb5tO53$xQtf';
+// $host = 'localhost';
+// $dbname = 'anh';
+// $username = 'anh';
+// $password = '9kCuzrb5tO53$xQtf';
 // Establish database connection
 $conn = mysqli_connect($host, $username, $password, $dbname);
 if ($conn->connect_error) {
@@ -127,10 +127,11 @@ if (isset($_GET['category_id'])) {
     <!-- header-area-end -->
 
     <main class="main-area fix">
-        
+
         <!-- breadcrumb area -->
             <?php include("inc_files/breadcrumb.php"); ?>
         <!-- breadcrumb area end-->
+
         <section class="shop__area section-py-120">
             <div class="container">
                 <div class="row gutter-24">

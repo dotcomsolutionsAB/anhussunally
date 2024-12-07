@@ -12,7 +12,7 @@
         'brands' => ['label' => 'Brand', 'link' => 'brands.php'],
         'products' => ['label' => 'Products', 'link' => 'products.php'],
         'categories' => ['label' => 'Categories', 'link' => 'categories.php'],
-        'product_detail' => ['label' => 'Products', 'link' => 'product_detail.php'],
+        'product_details' => ['label' => 'Products', 'link' => 'product_details.php'],
         'about_us' => ['label' => 'About Us', 'link' => 'about_us.php'],
     ];
 
@@ -52,7 +52,7 @@
         if ($productResult && $productResult->num_rows > 0) {
             $product = $productResult->fetch_assoc();
             $dynamic_label = htmlspecialchars($product['name']);
-            $dynamic_link = 'product_detail.php?sku=' . urlencode($productSku);
+            $dynamic_link = 'product_details.php?sku=' . urlencode($productSku);
         }
     }
 

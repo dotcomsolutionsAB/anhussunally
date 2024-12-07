@@ -125,7 +125,7 @@
                         <div class="brand-card"><img src="assets/images/HYDROLINE.png" alt="Brand 4" class="brand-logo"></div>
                         <div class="brand-card"><img src="assets/images/DOWTY.png" alt="Brand 5" class="brand-logo"></div>
                         <div class="brand-card"><img src="assets/images/DEMCON.png" alt="Brand 6" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/DOWTY.png" alt="Brand 7" class="brand-logo"></div>
+                        <div class="brand-card"><img src="assets/images/DASFOSS.png" alt="Brand 7" class="brand-logo"></div>
                         <div class="brand-card"><img src="assets/images/EPE.jpg" alt="Brand 8" class="brand-logo"></div>
                         <div class="brand-card"><img src="assets/images/GEMELS1.png" alt="Brand 9" class="brand-logo"></div>
                         <div class="brand-card"><img src="assets/images/HAWE.png" alt="Brand 10" class="brand-logo"></div>

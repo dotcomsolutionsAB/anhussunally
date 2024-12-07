@@ -10,11 +10,12 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        background-image: url("images/About_Us.png");
+                        background:#fff;
+                        /* background-image: url("images/About_Us.png"); */
                         background-size: cover;
                         background-position: center;
                         background-repeat: no-repeat;
-                        color: white;
+                        /* color: white; */
                         height: 100%; /* Full-screen height */
                         width: 100%;
                     }
@@ -26,7 +27,8 @@
                         left: 0;
                         width: 100%;
                         height: 100%;
-                        background-color: rgba(0, 0, 0, 0.5); /* Black overlay */
+                        
+                        /* background-color: rgba(0, 0, 0, 0.5); Black overlay */
                         z-index: 1; /* Ensure overlay is behind content */
                     }
 
@@ -39,7 +41,7 @@
                     .brand-grid {
                         display: grid;
                         grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); /* Responsive grid */
-                        gap: 0px; /* Space between cards */
+                        gap: 20px; /* Space between cards */
                         max-width: 1300px;
                         padding: 40px;
                         width: 100%;
@@ -70,6 +72,7 @@
                         max-width: 80%;
                         max-height: 70%;
                         transition: transform 0.3s ease;
+                        border: 4px solid #01406b;
                     }
 
                     .brand-card:hover .brand-logo {

@@ -1,7 +1,7 @@
 <?php
-    // ini_set('display_errors', 1);
-    // ini_set('display_startup_errors', 1);
-    // error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
     include("connection/db_connect.php");
     // Establish database connection
     $conn = mysqli_connect($host, $username, $password, $dbname);
@@ -99,7 +99,7 @@
     <main class="main-area fix">
 
         <!-- breadcrumb-area -->
-        <!-- <?php include("inc_files/breadcrumb.php"); ?> -->
+        <?php include("inc_files/breadcrumb.php"); ?>
         <!-- breadcrumb-area-end -->
 
         
@@ -240,42 +240,42 @@
                                 <a href="shop-details.html" class="btn btn-two">Add To Cart</a>
                             </div>
                             <style>
-              .gmail-button {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                background-color: #DB4437;
-                color: #fff;
-                font-size: 18px;
-                font-weight: 600;
-                text-decoration: none;
-                padding: 12px 25px;
-                border-radius: 50px;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-                transition: all 0.3s ease;
-              }
+                                .gmail-button {
+                                    display: inline-flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    background-color: #DB4437;
+                                    color: #fff;
+                                    font-size: 18px;
+                                    font-weight: 600;
+                                    text-decoration: none;
+                                    padding: 12px 25px;
+                                    border-radius: 50px;
+                                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                                    transition: all 0.3s ease;
+                                }
 
-              .gmail-button img {
-                margin-right: 10px;
-                width: 24px;
-                height: 24px;
-              }
+                                .gmail-button img {
+                                    margin-right: 10px;
+                                    width: 24px;
+                                    height: 24px;
+                                }
 
-              .gmail-button:hover {
-                background-color: #C03527;
-                transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-              }
-            </style>
-            <div class="cc" style="display:flex; flex-direction:row; justify-content: start; gap: 3vw; align-items: center;">
-              <a href="images/pdf.png" download="">
-                <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="max-width:160px">
-              </a>
-              <a href="mailto:your-email@gmail.com" style="background: #262424; padding: 5px 10px; border-radius: 8px; margin: 5px;">
-                <img src="images/gmail.png" alt="mail" style="width: 30px;">
-                <span style="color:white; font-weight:bold;">Send Email</span>
-              </a>
-            </div>
+                                .gmail-button:hover {
+                                    background-color: #C03527;
+                                    transform: translateY(-2px);
+                                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+                                }
+                            </style>
+                            <div class="cc" style="display:flex; flex-direction:row; justify-content: start; gap: 3vw; align-items: center;">
+                                <a href="images/pdf.png" download="">
+                                    <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="max-width:160px">
+                                </a>
+                                <a href="mailto:your-email@gmail.com" style="background: #262424; padding: 5px 10px; border-radius: 8px; margin: 5px;">
+                                    <img src="images/gmail.png" alt="mail" style="width: 30px;">
+                                    <span style="color:white; font-weight:bold;">Send Email</span>
+                                </a>
+                            </div>
                             <div class="shop__details-bottom">
                                 <ul class="list-wrap">
                                     <li class="sd-sku">

@@ -9,7 +9,7 @@
     // Define a mapping for friendly breadcrumb labels, links, and optional dynamic titles
     $breadcrumb_mapping = [
         'index' => ['label' => 'Home', 'link' => 'index.php'],
-        'brands' => ['label' => 'Brand', 'link' => 'brands.php'],
+        'brand-products.php' => ['label' => 'Brand-products', 'link' => 'brand-products.php'],
         'products' => ['label' => 'Products', 'link' => 'products.php'],
         'categories' => ['label' => 'Categories', 'link' => 'categories.php'],
         'product_details' => ['label' => 'Product-details', 'link' => 'product_details.php'],
@@ -96,7 +96,7 @@
                             <?php }else if($current_breadcrumb['label']=="Product-details"){ ?>
                             <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;">/ <?php echo $current_breadcrumb['label']; ?></a>
                             
-                            <?php }else if($current_breadcrumb['label']=="Brand-details"){ ?>
+                            <?php }else if($current_breadcrumb['label']=="Brand-products"){ ?>
                             <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;">/ <?php echo $current_breadcrumb['label']; ?></a>
 
                             <?php }else{ ?>

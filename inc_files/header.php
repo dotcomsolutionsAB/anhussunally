@@ -1,7 +1,7 @@
 <?php
-    ini_set('display_errors', 0);
+    ini_set('display_errors', 1);
     // Include the database connection file
-    include(__DIR__ . '../connection/db_connect.php');
+    include('connection/db_connect.php');
 
 ?>
 <header>
@@ -72,14 +72,14 @@
                                             $brandQuery = "SELECT id, name FROM brand";
                                             $brandResult = $conn->query($brandQuery);
                                         ?>
-                                        <li class="menu-item-has-children"><a href="brands.php">Brands</a>
+                                        <li class="menu-item-has-children"><a href="#">Brands</a>
                                             <ul class="sub-menu">
                                             <?php 
                                                 if ($brandResult && $brandResult->num_rows > 0):
                                                     while ($brand = $brandResult->fetch_assoc()): 
                                             ?>
                                                 <li>
-                                                    <a href="brands.php?id=<?php echo htmlspecialchars($brand['id']); ?>">
+                                                    <a href="brand-products.php?id=<?php echo htmlspecialchars($brand['id']); ?>">
                                                         <?php echo htmlspecialchars($brand['name']); ?>
                                                     </a>
                                                 </li>
@@ -91,7 +91,7 @@
                                         </li>
 
                                         <li class="menu-item-has-children"><a href="about.php">About Us</a>
-                                        <li class="menu-item-has-children"><a href="brands.php">Brands</a>
+                                        <!-- <li class="menu-item-has-children"><a href="brands.php">Brands</a> -->
                                         <!-- <li class="menu-item-has-children"><a href="faq.php">Faq</a> -->
                                         <li class="menu-item-has-children"><a href="products.php">Products</a>
                                         <!-- <li class="menu-item-has-children"><a href="product-details.php">Product Details</a> -->

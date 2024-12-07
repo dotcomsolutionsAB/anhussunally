@@ -80,6 +80,7 @@
                         <span property="itemListElement" typeof="ListItem">
                             <a href="<?php echo $breadcrumb_mapping['index']['link']; ?>">Home</a>
                         </span>
+                        <span class="breadcrumb-separator">/</span>
                         <?php if($current_breadcrumb['label']=="Brand"){ ?>
                             <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;"><?php echo $current_breadcrumb['label']; ?></a>
                         
@@ -89,7 +90,7 @@
                             <?php }else if($current_breadcrumb['label']=="Categories"){ ?>
                             <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;"><?php echo $current_breadcrumb['label']; ?></a>
                         
-                            <?php }else if($current_breadcrumb['label']=="Products Details"){ ?>
+                            <?php }else if($current_breadcrumb['label']=="Products-Details"){ ?>
                             <a href="<?php echo $current_breadcrumb['link']; ?>" style="display:none;"><?php echo $current_breadcrumb['label']; ?></a>
                         
 

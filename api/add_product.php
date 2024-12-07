@@ -58,7 +58,31 @@ if ($result && $result->num_rows > 0) {
         $description = $csvData['Description'] ?? '';
         $short_description = $csvData['Short Description'] ?? '';
         $brand = $csvData['Brand'] ?? '';
-        $category = $csvData['Category'] ?? '';
+        
+        // Call addCategory to handle category and subcategories dynamically
+        $categoryId = null;
+        if (!empty($csvData['Category'])) {
+            $categoryId = addCategory($csvData['Category']); // Top-level category
+
+            if (!empty($csvData['Sub Category Lv 1'])) {
+                $categoryId = addCategory($csvData['Sub Category Lv 1'], $categoryId); // Sub Category Level 1
+
+                if (!empty($csvData['Sub Category Lv 2'])) {
+                    $categoryId = addCategory($csvData['Sub Category Lv 2'], $categoryId); // Sub Category Level 2
+
+                    if (!empty($csvData['Sub Category Lv 3'])) {
+                        $categoryId = addCategory($csvData['Sub Category Lv 3'], $categoryId); // Sub Category Level 3
+                    }
+                }
+            }
+        }
+
+        if (!$categoryId) {
+            echo "Failed to process category hierarchy for SKU: $sku<br>";
+            $failedSKUs[] = $sku;
+            continue; // Skip this product if category hierarchy fails
+        }
+
         $image_url = $csvData['Images'] ?? ''; // Use image_url from CSV
         $pdf = $csvData['PDF'] ?? '';
         $weight = !empty($csvData['Weight (Kgs)']) ? $csvData['Weight (Kgs)'] : 0;

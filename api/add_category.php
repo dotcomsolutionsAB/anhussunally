@@ -1,28 +1,28 @@
 <?php
-function addCategory($categoryName) {
+function addCategory($categoryName, $parentId = 0) {
     global $conn;
     $categoryId = null;
 
-    // Check if category exists in categories table
-    $categoryQuery = "SELECT id FROM categories WHERE name = ? AND parent_id = 0 AND level = 0";
+    // Check if the category exists under the given parent
+    $categoryQuery = "SELECT id FROM categories WHERE name = ? AND parent_id = ?";
     $categoryStmt = $conn->prepare($categoryQuery);
-    $categoryStmt->bind_param("s", $categoryName);
+    $categoryStmt->bind_param("si", $categoryName, $parentId);
     $categoryStmt->execute();
     $categoryResult = $categoryStmt->get_result();
 
     if ($categoryResult->num_rows > 0) {
-        // Category exists, return the id
+        // Category exists, return its ID
         $categoryRow = $categoryResult->fetch_assoc();
         $categoryId = $categoryRow['id'];
     } else {
-        // Insert new category (level 0)
-        $categoryInsertQuery = "INSERT INTO categories (name, parent_id, level) VALUES (?, 0, 0)";
+        // Insert the new category
+        $categoryInsertQuery = "INSERT INTO categories (name, parent_id) VALUES (?, ?)";
         $categoryStmt = $conn->prepare($categoryInsertQuery);
-        $categoryStmt->bind_param("s", $categoryName);
+        $categoryStmt->bind_param("si", $categoryName, $parentId);
         if ($categoryStmt->execute()) {
             $categoryId = $conn->insert_id;
         } else {
-            echo "Failed to add category: " . $categoryName . "<br>";
+            echo "Failed to add category: $categoryName<br>";
         }
     }
 

@@ -70,8 +70,8 @@
 
                     /* Brand Logo */
                     .brand-logo {
-                        max-width: 80%;
-                        max-height: 70%;
+                        max-width: 90%;
+                        max-height: 90%;
                         transition: transform 0.3s ease;
                         /* border: 4px solid #01406b; */
                     }

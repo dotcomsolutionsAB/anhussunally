@@ -73,7 +73,7 @@
                         max-width: 80%;
                         max-height: 70%;
                         transition: transform 0.3s ease;
-                        border: 4px solid #01406b;
+                        /* border: 4px solid #01406b; */
                     }
 
                     .brand-card:hover .brand-logo {

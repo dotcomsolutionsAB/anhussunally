@@ -11,11 +11,11 @@
                         justify-content: center;
                         align-items: center;
                         background:#fff;
-                        /* background-image: url("images/About_Us.png"); */
+                        background-image: url("images/About_Us.png");
                         background-size: cover;
                         background-position: center;
                         background-repeat: no-repeat;
-                        /* color: white; */
+                        color: white;
                         height: 100%; /* Full-screen height */
                         width: 100%;
                     }
@@ -40,7 +40,7 @@
                     /* Grid Layout */
                     .brand-grid {
                         display: grid;
-                        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); /* Responsive grid */
+                        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive grid */
                         gap: 20px; /* Space between cards */
                         max-width: 1300px;
                         padding: 40px;
@@ -51,7 +51,7 @@
                     .brand-card {
                         background: #ffffff;
                         /* border-radius: 12px; */
-                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                        /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
                         display: flex;
                         align-items: center;
                         justify-content: center;
@@ -60,6 +60,7 @@
                         cursor: pointer;
                         overflow: hidden;
                         position: relative;
+                        border: 4px solid #01406b;
                     }
 
                     .brand-card:hover {

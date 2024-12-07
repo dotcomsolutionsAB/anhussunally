@@ -15,6 +15,7 @@
                             background-size: cover;
                             background-position: center;
                             background-repeat: no-repeat;
+                            background-color: rgba(0, 0, 0, 0.3); 
                             color: white;
                             height: 100%; /* Full-screen height */
                             width: 100%;
@@ -27,7 +28,7 @@
                             left: 0;
                             width: 100%;
                             height: 100%;
-                            background-color: rgba(0, 0, 0, 0.3); /* Light black overlay */
+                            /* background-color: rgba(0, 0, 0, 0.3); Light black overlay */
                             /* background-color: rgba(0, 0, 0, 0.5);  */
                             z-index: 1; /* Ensure overlay is behind content */
                         }

@@ -194,7 +194,7 @@
                             <div class="search__form">
                                 <form action="#">
                                     <div class="search__input">
-                                        <input class="search-input-field" type="text" placeholder="Type keywords here">
+                                        <input class="search-input-field" type="text" id="searchInput" placeholder="Type keywords here">
                                         <span class="search-focus-border"></span>
                                         <button>
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -211,8 +211,9 @@
                 </div>
             </div>
         </div>
-        <div class="search-popup-overlay"></div>
+        <div class="search-popup-overlay" id="searchResults"></div>
         <!-- header-search-end -->
+
 
         <!-- offCanvas-menu -->
         <div class="offCanvas__info">
@@ -252,25 +253,42 @@
     </header>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
     <script>
-        $(document).ready(function() {
-            $('#search-input').on('input', function() {
-                let query = $(this).val();
-                if (query.length >= 3) {
-                    // Trigger search only after typing 3 letters
-                    $.ajax({
-                        url: 'search.php', // PHP file that will handle the search
-                        method: 'GET',
-                        data: { search: query },
-                        success: function(data) {
-                            // Display search results in the #search-results div
-                            $('#search-results').html(data);
-                        }
-                    });
-                } else {
-                    // Clear results if query length is less than 3
-                    $('#search-results').empty();
-                }
-            });
+        document.getElementById('searchInput').addEventListener('input', function() {
+            var query = this.value.trim();
+            if (query.length >= 3) {
+                // Perform the AJAX request only if the query has 3 or more characters
+                fetchSearchResults(query);
+            } else {
+                // Clear search results if query is less than 3 characters
+                document.getElementById('searchResults').innerHTML = '';
+            }
         });
+
+        function fetchSearchResults(query) {
+            fetch('search.php?q=' + query)
+                .then(response => response.json())
+                .then(data => {
+                    let resultsHtml = '';
+                    if (data.length > 0) {
+                        data.forEach(item => {
+                            resultsHtml += `
+                                <div class="search-result-item">
+                                    <img src="${item.image}" alt="${item.name}">
+                                    <p><strong>${item.name}</strong></p>
+                                    <p>Brand: ${item.brand_id}</p>
+                                    <a href="product_details.php?sku=${item.sku}">View Details</a>
+                                </div>
+                            `;
+                        });
+                    } else {
+                        resultsHtml = '<p>No results found</p>';
+                    }
+                    document.getElementById('searchResults').innerHTML = resultsHtml;
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error);
+                });
+        }
     </script>

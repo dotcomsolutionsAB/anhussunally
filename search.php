@@ -1,33 +1,44 @@
 <?php
-// db_connect.php: Include your database connection
-include("connection/db_connect.php");
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-if (isset($_GET['search']) && !empty($_GET['search'])) {
-    $searchQuery = mysqli_real_escape_string($conn, $_GET['search']); // Prevent SQL injection
+try {
+    // Database connection
+    $host = 'localhost';
+    $dbname = 'anh';
+    $username = 'anh';
+    $password = '9kCuzrb5tO53$xQtf';
 
-    // Query to search for products by SKU or name
-    $sql = "
-        SELECT * FROM products 
-        WHERE sku LIKE '%$searchQuery%' 
-        OR name LIKE '%$searchQuery%' 
-        LIMIT 5"; // Limit to 5 results for better performance
+    // Create PDO instance
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $result = $conn->query($sql);
+    // Check if query parameter 'q' exists and has at least 3 characters
+    if (isset($_GET['q']) && strlen($_GET['q']) >= 3) {
+        $searchQuery = htmlspecialchars($_GET['q']); // Sanitize user input
 
-    if ($result && $result->num_rows > 0) {
-        // Display the products
-        while ($row = $result->fetch_assoc()) {
-            echo "<div class='search-result-item'>";
-            echo "<a href='product-details.php?sku=" . htmlspecialchars($row['sku']) . "'>";
-            echo "<p><strong>" . htmlspecialchars($row['name']) . "</strong></p>";
-            echo "<p>SKU: " . htmlspecialchars($row['sku']) . "</p>";
-            echo "</a>";
-            echo "</div>";
-        }
+        // Prepare and execute the SQL query
+        $stmt = $pdo->prepare("
+            SELECT sku, name, brand_id
+            FROM products
+            WHERE name LIKE :searchQuery OR sku LIKE :searchQuery
+            LIMIT 5
+        ");
+        $stmt->execute(['searchQuery' => "%$searchQuery%"]);
+
+        // Fetch results
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Return results as JSON
+        echo json_encode($results);
     } else {
-        echo "<p>No results found.</p>";
+        // Return an empty array if query is less than 3 characters
+        echo json_encode([]);
     }
-} else {
-    echo "<p>Enter at least 3 characters to search.</p>";
+} catch (PDOException $e) {
+    // Handle database connection errors
+    http_response_code(500); // Internal Server Error
+    echo json_encode(['error' => 'Database connection failed: ' . $e->getMessage()]);
 }
 ?>

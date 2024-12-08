@@ -108,7 +108,8 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
 </head>
 <body>
     <?php include("inc_files/header.php"); ?>
-
+    <?php include("inc_files/breadcrumb.php"); ?>
+    
     <main class="main-area fix">
         <section class="shop__area section-py-120">
             <div class="container">

@@ -288,7 +288,7 @@
                                         <img src="uploads/assets/${item.image}" style="width: 70px; height: auto; border-radius: 5px;">
                                     </div>
                                 </div>
-                                <a href="product_details.php?sku=${item.sku}" style="text-decoration: none; color: blue;">View Details</a>
+                                <a href="product-details.php?sku=${item.sku}" style="text-decoration: none; color: blue;">View Details</a>
                                 <hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
                             `;
                         });
@@ -335,7 +335,7 @@
                                         <img src="uploads/assets/${item.image}" alt="${item.product_name}" style="width: 60px; height: auto; border-radius: 5px;">
                                     </div>
                                 </div>
-                                <a href="product_details.php?sku=${item.sku}" style="text-decoration: none; color: #007bff; font-size: 14px;">View Details</a>
+                                <a href="product-details.php?sku=${item.sku}" style="text-decoration: none; color: #007bff; font-size: 14px;">View Details</a>
                             </div>
                         `;
                     });

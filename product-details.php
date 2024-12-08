@@ -105,7 +105,7 @@
         $relatedProductsResult = $stmt->get_result();
 
     ?>
-    <title><?php echo $product['name']; ?></title>
+    
         <!-- shop-details-area -->
         <section class="shop__details-area section-py-120">
             <div class="container">
@@ -300,6 +300,7 @@
                         </div>
                     </div>
                 </div>
+                <title><?php echo $product['name']; ?></title>
                 <div class="row">
                     <div class="col-12">
                         <div class="product-desc-wrap">

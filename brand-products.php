@@ -223,7 +223,7 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
                                     <?php }
                                 }
                             } else {
-                                echo "<div class='alert alert-info'>No products found for the selected category and brand.</div>";
+                                echo "<div class='alert alert-info'>Kindly Select the Category</div>";
                             }
                             ?>
                         </div>

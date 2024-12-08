@@ -148,17 +148,18 @@
             <nav class="tgmobile__menu-box">
                 <div class="close-btn"><i class="tg-flaticon-close-1"></i></div>
                 <div class="nav-logo">
-                    <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+                    <a href="index.php"><img src="images/logo.png" alt="Logo"></a>
                 </div>
                 <div class="tgmobile__search">
-                    <form action="#">
-                        <input type="text" placeholder="Search here...">
-                        <button><i class="fas fa-search"></i></button>
+                    <form action="#" method="GET" id="search-form">
+                        <input type="text" placeholder="Search here..." id="search-input" autocomplete="off">
+                        <button type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
-                <div class="tgmobile__menu-outer">
-                    <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                <div class="tgmobile__menu-outer" id="search-results">
+                    <!-- Search results will appear here -->
                 </div>
+
                 <div class="social-links">
                     <ul class="list-wrap">
                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -249,3 +250,27 @@
         <!-- offCanvas-menu-end -->
 
     </header>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#search-input').on('input', function() {
+                let query = $(this).val();
+                if (query.length >= 3) {
+                    // Trigger search only after typing 3 letters
+                    $.ajax({
+                        url: 'search.php', // PHP file that will handle the search
+                        method: 'GET',
+                        data: { search: query },
+                        success: function(data) {
+                            // Display search results in the #search-results div
+                            $('#search-results').html(data);
+                        }
+                    });
+                } else {
+                    // Clear results if query length is less than 3
+                    $('#search-results').empty();
+                }
+            });
+        });
+    </script>

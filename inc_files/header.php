@@ -93,7 +93,7 @@
                                         <li class="menu-item-has-children"><a href="about.php">About Us</a>
                                         <!-- <li class="menu-item-has-children"><a href="brands.php">Brands</a> -->
                                         <!-- <li class="menu-item-has-children"><a href="faq.php">Faq</a> -->
-                                        <li class="menu-item-has-children"><a href="products.php">Products</a>
+                                        <!-- <li class="menu-item-has-children"><a href="products.php">Products</a> -->
                                         <!-- <li class="menu-item-has-children"><a href="product-details.php">Product Details</a> -->
                                         <li class="menu-item-has-children"><a href="contact.php">Contact Us</a>
 

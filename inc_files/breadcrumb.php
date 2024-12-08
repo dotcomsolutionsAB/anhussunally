@@ -23,7 +23,7 @@
     $dynamic_link = '';
 
     // Fetch dynamic labels for specific pages
-    if ($current_page === 'brands' && isset($_GET['id']) && !empty($_GET['id'])) {
+    if ($current_page === 'brand-products' && isset($_GET['id']) && !empty($_GET['id'])) {
         $brandId = intval($_GET['id']);
         $brandQuery = "SELECT name FROM brand WHERE id = $brandId";
         $brandResult = $conn->query($brandQuery);

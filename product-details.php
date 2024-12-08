@@ -17,7 +17,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
+    <title><?php echo $product['name']; ?></title>
     <meta name="description" content="Renova - Construction Building & Renovation Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -300,7 +300,7 @@
                         </div>
                     </div>
                 </div>
-                <title><?php echo $product['name']; ?></title>
+                
                 <div class="row">
                     <div class="col-12">
                         <div class="product-desc-wrap">

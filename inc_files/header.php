@@ -11,9 +11,9 @@
                     <div class="col-lg-4">
                         <div class="tg-header__top-menu">
                             <ul class="list-wrap">
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="contact.html">Careers</a></li>
-                                <li><a href="contact.html">Insights</a></li>
+                                <li><a href="contact.php">Contact</a></li>
+                                <li><a href="contact.php">Careers</a></li>
+                                <li><a href="contact.php">Insights</a></li>
                             </ul>
                         </div>
                     </div>
@@ -206,12 +206,13 @@
                                     </div>
                                 </form>
                             </div>
+                            <div id="searchResults"></div> <!-- For displaying results -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="search-popup-overlay" id="searchResults"></div>
+        <div class="search-popup-overlay"></div>
         <!-- header-search-end -->
 
 
@@ -265,30 +266,39 @@
                 document.getElementById('searchResults').innerHTML = '';
             }
         });
-
-        function fetchSearchResults(query) {
-            fetch('search.php?q=' + query)
-                .then(response => response.json())
-                .then(data => {
-                    let resultsHtml = '';
-                    if (data.length > 0) {
-                        data.forEach(item => {
-                            resultsHtml += `
-                                <div class="search-result-item">
-                                    <img src="${item.image}" alt="${item.name}">
-                                    <p><strong>${item.name}</strong></p>
-                                    <p>Brand: ${item.brand_id}</p>
-                                    <a href="product_details.php?sku=${item.sku}">View Details</a>
-                                </div>
-                            `;
-                        });
-                    } else {
-                        resultsHtml = '<p>No results found</p>';
-                    }
-                    document.getElementById('searchResults').innerHTML = resultsHtml;
-                })
-                .catch(error => {
-                    console.error('Error fetching search results:', error);
-                });
-        }
     </script>
+<script>
+    function fetchSearchResults(query) {
+        fetch('search.php?q=' + query)
+            .then(response => response.json())
+            .then(data => {
+                let resultsHtml = '';
+                if (data.length > 0) {
+                    data.forEach(item => {
+                        resultsHtml += `
+                            <div class="search-result-item" style="display:flex; justify-content:space-between;">
+                                <div>
+                                    <strong>${item.product_name}</strong>
+									<div style="display:flex; justify-content:space-between;">
+										<p>Category: ${item.category_name}</p>
+										<p>Brand: ${item.brand_name}</p>
+                                	</div>
+                                </div>
+                                <div>
+									<img src="uploads/assets/${item.image}" style="width: 70px; height: auto;">
+								</div>
+                            </div>
+							<a href="product_details.php?sku=${item.sku}">View Details</a>
+                            <hr style="padding:0; margin=0;>
+                        `;
+                    });
+                } else {
+                    resultsHtml = '<p>No results found</p>';
+                }
+                document.getElementById('searchResults').innerHTML = resultsHtml;
+            })
+            .catch(error => {
+                console.error('Error fetching search results:', error);
+            });
+    }
+</script>

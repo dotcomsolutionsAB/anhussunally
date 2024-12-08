@@ -20,9 +20,17 @@ try {
 
         // Prepare and execute the SQL query
         $stmt = $pdo->prepare("
-            SELECT sku, name, brand_id
-            FROM products
-            WHERE name LIKE :searchQuery OR sku LIKE :searchQuery
+            SELECT 
+                p.sku,
+                p.name AS product_name,
+                c.name AS category_name,
+                b.name AS brand_name,
+                u.file_original_name AS image
+            FROM products p
+            LEFT JOIN categories c ON p.category_id = c.id
+            LEFT JOIN brand b ON p.brand_id = b.id
+            LEFT JOIN upload u ON u.id = CAST(SUBSTRING_INDEX(p.images, ',', 1) AS UNSIGNED)
+            WHERE p.name LIKE :searchQuery OR p.sku LIKE :searchQuery
             LIMIT 5
         ");
         $stmt->execute(['searchQuery' => "%$searchQuery%"]);

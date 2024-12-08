@@ -105,6 +105,7 @@
         $relatedProductsResult = $stmt->get_result();
 
     ?>
+    <title><?php echo $product['name']; ?></title>
         <!-- shop-details-area -->
         <section class="shop__details-area section-py-120">
             <div class="container">

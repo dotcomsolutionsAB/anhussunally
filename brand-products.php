@@ -145,7 +145,7 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
                                         echo '<div class="row gutter-24">';
                                         foreach ($products as $product) {
                                             if ($product['category_id'] == $childCategoryId) { ?>
-                                                <div class="col-xl-3 col-sm-6">
+                                                <div class="col-6 col-md-3">
                                                     <!-- col-6 col-md-3 use this for mobile 2 grid and desktop 4 grid -->
                                                     <div class="shop__item">
                                                         <div class="shop__thumb">

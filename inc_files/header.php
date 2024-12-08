@@ -151,14 +151,14 @@
                     <a href="index.php"><img src="images/logo.png" alt="Logo"></a>
                 </div>
                 <div class="tgmobile__search">
-                    <form action="#" method="GET" id="search-form">
-                        <input type="text" placeholder="Search here..." id="search-input" autocomplete="off">
-                        <button type="submit"><i class="fas fa-search"></i></button>
-                    </form>
-                </div>
-                <div class="tgmobile__menu-outer" id="search-results">
-                    <!-- Search results will appear here -->
-                </div>
+            <form action="#" method="GET" id="mobile-search-form">
+                <input type="text" placeholder="Search products..." id="mobileSearchInput" autocomplete="off">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <div class="tgmobile__menu-outer" id="mobile-search-results">
+            <!-- Search results for mobile will appear here -->
+        </div>
 
                 <div class="social-links">
                     <ul class="list-wrap">
@@ -267,8 +267,56 @@
             }
         });
     </script>
+    <script>
+        function fetchSearchResults(query) {
+            fetch('search.php?q=' + query)
+                .then(response => response.json())
+                .then(data => {
+                    let resultsHtml = '';
+                    if (data.length > 0) {
+                        data.forEach(item => {
+                            resultsHtml += `
+                                <div class="search-result-item" style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div>
+                                        <strong>${item.product_name}</strong>
+                                        <div style="display: flex; gap: 10px; margin-top: 5px;">
+                                            <p>Category: ${item.category_name}</p>
+                                            <p>Brand: ${item.brand_name}</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img src="uploads/assets/${item.image}" style="width: 70px; height: auto; border-radius: 5px;">
+                                    </div>
+                                </div>
+                                <a href="product_details.php?sku=${item.sku}" style="text-decoration: none; color: blue;">View Details</a>
+                                <hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+                            `;
+                        });
+                    } else {
+                        resultsHtml = '<p>No results found</p>';
+                    }
+                    document.getElementById('searchResults').innerHTML = resultsHtml;
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error);
+                });
+        }
+    </script>
+
+
 <script>
-    function fetchSearchResults(query) {
+    // Listen for input changes in the mobile search bar
+    document.getElementById('mobileSearchInput').addEventListener('input', function () {
+        const query = this.value.trim();
+        if (query.length >= 3) {
+            fetchMobileSearchResults(query);
+        } else {
+            document.getElementById('mobile-search-results').innerHTML = '';
+        }
+    });
+
+    // Fetch search results for mobile
+    function fetchMobileSearchResults(query) {
         fetch('search.php?q=' + query)
             .then(response => response.json())
             .then(data => {
@@ -276,26 +324,25 @@
                 if (data.length > 0) {
                     data.forEach(item => {
                         resultsHtml += `
-                            <div class="search-result-item" style="display: flex; justify-content: space-between; align-items: center;">
-                                <div>
-                                    <strong>${item.product_name}</strong>
-                                    <div style="display: flex; gap: 10px; margin-top: 5px;">
-                                        <p>Category: ${item.category_name}</p>
-                                        <p>Brand: ${item.brand_name}</p>
+                            <div class="search-result-item" style="display: flex; flex-direction: column; gap: 10px; padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; border-radius: 5px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div>
+                                        <strong>${item.product_name}</strong>
+                                        <p style="font-size: 14px; color: #666;">Category: ${item.category_name}</p>
+                                        <p style="font-size: 14px; color: #666;">Brand: ${item.brand_name}</p>
+                                    </div>
+                                    <div>
+                                        <img src="uploads/assets/${item.image}" alt="${item.product_name}" style="width: 60px; height: auto; border-radius: 5px;">
                                     </div>
                                 </div>
-                                <div>
-                                    <img src="uploads/assets/${item.image}" style="width: 70px; height: auto; border-radius: 5px;">
-                                </div>
+                                <a href="product_details.php?sku=${item.sku}" style="text-decoration: none; color: #007bff; font-size: 14px;">View Details</a>
                             </div>
-                            <a href="product_details.php?sku=${item.sku}" style="text-decoration: none; color: blue;">View Details</a>
-                            <hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
                         `;
                     });
                 } else {
-                    resultsHtml = '<p>No results found</p>';
+                    resultsHtml = '<p style="color: #999; text-align: center;">No results found</p>';
                 }
-                document.getElementById('searchResults').innerHTML = resultsHtml;
+                document.getElementById('mobile-search-results').innerHTML = resultsHtml;
             })
             .catch(error => {
                 console.error('Error fetching search results:', error);

@@ -186,7 +186,8 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
                                 } else {
                                     echo "<h3>Same as Selected Category</h3>";
                                     foreach ($products as $product) { ?>
-                                        <div class="col-xl-3 col-sm-6">
+                                        <div class="col-6 col-md-3">
+                                        <!-- <div class="col-xl-3 col-sm-6"> original code  -->
                                             <!-- col-6 col-md-3 use this for mobile 2 grid and desktop 4 grid -->
                                             <div class="shop__item">
                                                 <div class="shop__thumb">

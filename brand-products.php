@@ -15,12 +15,14 @@ $categories = [];
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $brand_id = intval($_GET['id']); // Ensure it's an integer
 
+    // Modify query to include parent categories even if they have no child categories
     $categoryQuery = "
         SELECT DISTINCT c.id, c.name
         FROM categories c
-        INNER JOIN categories child ON child.parent_id = c.id
-        INNER JOIN products p ON p.category_id = child.id
+        LEFT JOIN categories child ON child.parent_id = c.id
+        LEFT JOIN products p ON p.category_id = child.id OR p.category_id = c.id
         WHERE c.parent_id = 0 AND p.brand_id = $brand_id";
+    
     $categoryResult = $conn->query($categoryQuery);
 
     if ($categoryResult->num_rows > 0) {
@@ -35,28 +37,60 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 // Fetch products by child categories under the selected parent category
 $products = [];
 $childCategoryNames = [];
+
+// Check if category_id is set and valid
 if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
-    $category_id = intval($_GET['category_id']); // Ensure it's an integer
+    $category_id = intval($_GET['category_id']); // Ensure category_id is an integer
 
     // Fetch child categories of the selected parent category
     $childCategoriesQuery = "SELECT id FROM categories WHERE parent_id = $category_id";
     $childCategoriesResult = $conn->query($childCategoriesQuery);
     $childCategoryIds = [];
+
     if ($childCategoriesResult->num_rows > 0) {
+        // If there are child categories, store their IDs
         while ($row = $childCategoriesResult->fetch_assoc()) {
             $childCategoryIds[] = $row['id'];
         }
+
+        // Fetch products for these child categories
+        if (!empty($childCategoryIds)) {
+            $childCategoryIdsStr = implode(',', $childCategoryIds);
+
+            // Fetch products for the child categories
+            $productQuery = "
+                SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
+                FROM products
+                LEFT JOIN brand ON products.brand_id = brand.id
+                WHERE products.category_id IN ($childCategoryIdsStr)";
+            
+            $productResult = $conn->query($productQuery);
+
+            if ($productResult && $productResult->num_rows > 0) {
+                while ($row = $productResult->fetch_assoc()) {
+                    $products[] = $row;
+                }
+            }
+
+            // Fetch child category names for display
+            $childCategoryQuery = "SELECT id, name FROM categories WHERE id IN ($childCategoryIdsStr)";
+            $childCategoryResult = $conn->query($childCategoryQuery);
+            if ($childCategoryResult->num_rows > 0) {
+                while ($row = $childCategoryResult->fetch_assoc()) {
+                    $childCategoryNames[$row['id']] = $row['name'];
+                }
+            }
+        }
     }
 
-    if (!empty($childCategoryIds)) {
-        $childCategoryIdsStr = implode(',', $childCategoryIds);
-
-        // Fetch products for these child categories and the selected brand
+    // If there are no child categories, fetch products directly from the parent category
+    if (empty($childCategoryIds)) {
         $productQuery = "
             SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
             FROM products
             LEFT JOIN brand ON products.brand_id = brand.id
-            WHERE products.category_id IN ($childCategoryIdsStr) AND products.brand_id = $brand_id";
+            WHERE products.category_id = $category_id";
+
         $productResult = $conn->query($productQuery);
 
         if ($productResult && $productResult->num_rows > 0) {
@@ -64,17 +98,10 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
                 $products[] = $row;
             }
         }
-
-        // Fetch child category names
-        $childCategoryQuery = "SELECT id, name FROM categories WHERE id IN ($childCategoryIdsStr)";
-        $childCategoryResult = $conn->query($childCategoryQuery);
-        if ($childCategoryResult->num_rows > 0) {
-            while ($row = $childCategoryResult->fetch_assoc()) {
-                $childCategoryNames[$row['id']] = $row['name'];
-            }
-        }
     }
 }
+
+
 ?>
 
 <!doctype html>
@@ -140,48 +167,41 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
                         <div class="row gutter-24">
                             <?php
                             if (!empty($products)) {
-                                foreach ($childCategoryNames as $childCategoryId => $childCategoryName) {
-                                    echo "<h3>" . htmlspecialchars($childCategoryName) . "</h3>";
-                                    echo '<div class="row gutter-24">';
-                                    foreach ($products as $product) {
-                                        if ($product['category_id'] == $childCategoryId) { ?>
-                                            <div class="col-xl-3 col-sm-6">
-                                                <div class="shop__item">
-                                                    <div class="shop__thumb">
-                                                        <?php
-                                                            // Fetch the first product image
-                                                            $imageLink = "images/default.png"; // Default image
-                                                            if (!empty($product['images']) && $product['images'] != '') {
-                                                                $imageIds = explode(',', ltrim($product['images'], ',')); // Remove leading comma if present
-                                                                $firstImageId = $imageIds[0] ?? null;
+                                foreach ($products as $product) { ?>
+                                    <div class="col-xl-3 col-sm-6">
+                                        <div class="shop__item">
+                                            <div class="shop__thumb">
+                                                <?php
+                                                // Fetch the first product image
+                                                $imageLink = "images/default.png"; // Default image
+                                                if (!empty($product['images']) && $product['images'] != '') {
+                                                    $imageIds = explode(',', ltrim($product['images'], ',')); // Remove leading comma if present
+                                                    $firstImageId = $imageIds[0] ?? null;
 
-                                                                if ($firstImageId) {
-                                                                    $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
-                                                                    $imageResult = $conn->query($imageQuery);
-                                                                    if ($imageResult && $imageResult->num_rows > 0) {
-                                                                        $image = $imageResult->fetch_assoc();
-                                                                        $imageLink = "uploads/assets/" . $image['file_original_name'];
-                                                                    }
-                                                                }
-                                                            }
-                                                        ?>
-                                                        <img src='<?php echo $imageLink; ?>' alt='<?php echo htmlspecialchars($product['name']); ?>'>
-                                                        <a href='product-details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>' class='btn view-details-btn'>View Details</a>
-                                                    </div>
-                                                    <div class='shop__content'>
-                                                        <h4 class='title'>
-                                                            <a href='product-details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>'>
-                                                                <?php echo htmlspecialchars($product['name']); ?>
-                                                            </a>
-                                                        </h4>
-                                                        <p class='category-name'>Brand: <?php echo htmlspecialchars($product['brand_name']); ?></p>
-                                                    </div>
-                                                </div>
+                                                    if ($firstImageId) {
+                                                        $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
+                                                        $imageResult = $conn->query($imageQuery);
+                                                        if ($imageResult && $imageResult->num_rows > 0) {
+                                                            $image = $imageResult->fetch_assoc();
+                                                            $imageLink = "uploads/assets/" . $image['file_original_name'];
+                                                        }
+                                                    }
+                                                }
+                                                ?>
+                                                <img src='<?php echo $imageLink; ?>' alt='<?php echo htmlspecialchars($product['name']); ?>'>
+                                                <a href='product-details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>' class='btn view-details-btn'>View Details</a>
                                             </div>
-                                        <?php }
-                                    }
-                                    echo '</div>';
-                                }
+                                            <div class='shop__content'>
+                                                <h4 class='title'>
+                                                    <a href='product-details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>'>
+                                                        <?php echo htmlspecialchars($product['name']); ?>
+                                                    </a>
+                                                </h4>
+                                                <p class='category-name'>Brand: <?php echo htmlspecialchars($product['brand_name']); ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php }
                             } else {
                                 echo "<div class='alert alert-info'>No products found for the selected category and brand.</div>";
                             }

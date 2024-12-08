@@ -276,20 +276,20 @@
                 if (data.length > 0) {
                     data.forEach(item => {
                         resultsHtml += `
-                            <div class="search-result-item" style="display:flex; justify-content:space-between;">
+                            <div class="search-result-item" style="display: flex; justify-content: space-between; align-items: center;">
                                 <div>
                                     <strong>${item.product_name}</strong>
-									<div style="display:flex; justify-content:space-between;">
-										<p>Category: ${item.category_name}</p>
-										<p>Brand: ${item.brand_name}</p>
-                                	</div>
+                                    <div style="display: flex; gap: 10px; margin-top: 5px;">
+                                        <p>Category: ${item.category_name}</p>
+                                        <p>Brand: ${item.brand_name}</p>
+                                    </div>
                                 </div>
                                 <div>
-									<img src="uploads/assets/${item.image}" style="width: 70px; height: auto;">
-								</div>
+                                    <img src="uploads/assets/${item.image}" style="width: 70px; height: auto; border-radius: 5px;">
+                                </div>
                             </div>
-							<a href="product_details.php?sku=${item.sku}">View Details</a>
-                            <hr style="padding:0; margin=0;>
+                            <a href="product_details.php?sku=${item.sku}" style="text-decoration: none; color: blue;">View Details</a>
+                            <hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
                         `;
                     });
                 } else {

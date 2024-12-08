@@ -1,69 +1,96 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 
-include("connection/db_connect.php");
+    include("connection/db_connect.php");
 
-$conn = mysqli_connect($host, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Fetch parent categories for the selected brand
-$categories = [];
-if (isset($_GET['id']) && !empty($_GET['id'])) {
-    $brand_id = intval($_GET['id']); // Ensure it's an integer
-
-    // Modify query to include parent categories even if they have no child categories
-    $categoryQuery = "
-        SELECT DISTINCT c.id, c.name
-        FROM categories c
-        LEFT JOIN categories child ON child.parent_id = c.id
-        LEFT JOIN products p ON p.category_id = child.id OR p.category_id = c.id
-        WHERE c.parent_id = 0 AND p.brand_id = $brand_id";
-    
-    $categoryResult = $conn->query($categoryQuery);
-
-    if ($categoryResult->num_rows > 0) {
-        while ($row = $categoryResult->fetch_assoc()) {
-            $categories[] = $row;
-        }
+    $conn = mysqli_connect($host, $username, $password, $dbname);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
-} else {
-    echo "<div class='alert alert-warning'>No brand ID provided. Please select a brand to view products.</div>";
-}
 
-// Fetch products by child categories under the selected parent category
-$products = [];
-$childCategoryNames = [];
+    // Fetch parent categories for the selected brand
+    $categories = [];
+    if (isset($_GET['id']) && !empty($_GET['id'])) {
+        $brand_id = intval($_GET['id']); // Ensure it's an integer
 
-// Check if category_id is set and valid
-if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
-    $category_id = intval($_GET['category_id']); // Ensure category_id is an integer
+        // Modify query to include parent categories even if they have no child categories
+        $categoryQuery = "
+            SELECT DISTINCT c.id, c.name
+            FROM categories c
+            LEFT JOIN categories child ON child.parent_id = c.id
+            LEFT JOIN products p ON p.category_id = child.id OR p.category_id = c.id
+            WHERE c.parent_id = 0 AND p.brand_id = $brand_id";
+        
+        $categoryResult = $conn->query($categoryQuery);
 
-    // Fetch child categories of the selected parent category
-    $childCategoriesQuery = "SELECT id FROM categories WHERE parent_id = $category_id";
-    $childCategoriesResult = $conn->query($childCategoriesQuery);
-    $childCategoryIds = [];
+        if ($categoryResult->num_rows > 0) {
+            while ($row = $categoryResult->fetch_assoc()) {
+                $categories[] = $row;
+            }
+        }
+    } else {
+        echo "<div class='alert alert-warning'>No brand ID provided. Please select a brand to view products.</div>";
+    }                                                   
 
-    if ($childCategoriesResult->num_rows > 0) {
-        // If there are child categories, store their IDs
-        while ($row = $childCategoriesResult->fetch_assoc()) {
-            $childCategoryIds[] = $row['id'];
+    // Fetch products by child categories under the selected parent category
+    $products = [];
+    $childCategoryNames = [];
+
+    // Check if category_id is set and valid
+    if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
+        $category_id = intval($_GET['category_id']); // Ensure category_id is an integer
+
+        // Fetch child categories of the selected parent category
+        $childCategoriesQuery = "SELECT id FROM categories WHERE parent_id = $category_id";
+        $childCategoriesResult = $conn->query($childCategoriesQuery);
+        $childCategoryIds = [];
+
+        if ($childCategoriesResult->num_rows > 0) {
+            // If there are child categories, store their IDs
+            while ($row = $childCategoriesResult->fetch_assoc()) {
+                $childCategoryIds[] = $row['id'];
+            }
+
+            // Fetch products for these child categories
+            if (!empty($childCategoryIds)) {
+                $childCategoryIdsStr = implode(',', $childCategoryIds);
+
+                // Fetch products for the child categories
+                $productQuery = "
+                    SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
+                    FROM products
+                    LEFT JOIN brand ON products.brand_id = brand.id
+                    WHERE products.category_id IN ($childCategoryIdsStr)";
+                
+                $productResult = $conn->query($productQuery);
+
+                if ($productResult && $productResult->num_rows > 0) {
+                    while ($row = $productResult->fetch_assoc()) {
+                        $products[] = $row;
+                    }
+                }
+
+                // Fetch child category names for display
+                $childCategoryQuery = "SELECT id, name FROM categories WHERE id IN ($childCategoryIdsStr)";
+                $childCategoryResult = $conn->query($childCategoryQuery);
+                if ($childCategoryResult->num_rows > 0) {
+                    while ($row = $childCategoryResult->fetch_assoc()) {
+                        $childCategoryNames[$row['id']] = $row['name'];
+                    }
+                }
+            }
         }
 
-        // Fetch products for these child categories
-        if (!empty($childCategoryIds)) {
-            $childCategoryIdsStr = implode(',', $childCategoryIds);
-
-            // Fetch products for the child categories
+        // If there are no child categories, fetch products directly from the parent category
+        if (empty($childCategoryIds)) {
             $productQuery = "
                 SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
                 FROM products
                 LEFT JOIN brand ON products.brand_id = brand.id
-                WHERE products.category_id IN ($childCategoryIdsStr)";
-            
+                WHERE products.category_id = $category_id";
+
             $productResult = $conn->query($productQuery);
 
             if ($productResult && $productResult->num_rows > 0) {
@@ -71,35 +98,8 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
                     $products[] = $row;
                 }
             }
-
-            // Fetch child category names for display
-            $childCategoryQuery = "SELECT id, name FROM categories WHERE id IN ($childCategoryIdsStr)";
-            $childCategoryResult = $conn->query($childCategoryQuery);
-            if ($childCategoryResult->num_rows > 0) {
-                while ($row = $childCategoryResult->fetch_assoc()) {
-                    $childCategoryNames[$row['id']] = $row['name'];
-                }
-            }
         }
     }
-
-    // If there are no child categories, fetch products directly from the parent category
-    if (empty($childCategoryIds)) {
-        $productQuery = "
-            SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
-            FROM products
-            LEFT JOIN brand ON products.brand_id = brand.id
-            WHERE products.category_id = $category_id";
-
-        $productResult = $conn->query($productQuery);
-
-        if ($productResult && $productResult->num_rows > 0) {
-            while ($row = $productResult->fetch_assoc()) {
-                $products[] = $row;
-            }
-        }
-    }
-}
 
 
 ?>
@@ -235,16 +235,16 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
 
         <!-- cta-area -->
         <section class="cta__area fix">
-            <div class="cta__bg" data-background="assets/img/bg/cta_bg.jpg"></div>
+            <div class="cta__bg" data-background="assets/img/new/imggg3.jpg"></div>
             <div class="container">
                 <div class="row align-items-end">
                     <div class="col-lg-8">
                         <div class="cta__content">
                             <h2 class="title">Ready to work with <br> our team?</h2>
                             <div class="cta__btn">
-                                <a href="contact.html" class="btn btn-two">Let’s build together <img
+                                <a href="contact.php" class="btn btn-two">Let’s build together <img
                                         src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
-                                <a href="contact.html" class="btn transparent-btn">Contact With Us <img
+                                <a href="contact.php" class="btn transparent-btn">Contact With Us <img
                                         src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
                             </div>
                         </div>

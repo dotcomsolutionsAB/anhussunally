@@ -14,10 +14,15 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Fetch all products with their brand names from the products and brand tables
-$query = "SELECT products.*, brand.name AS brand_name 
-          FROM products 
-          LEFT JOIN brand ON products.brand_id = brand.id";
+// Fetch all products with their associated brand, category names, and images
+$query = "
+    SELECT 
+        products.*, 
+        brand.name AS brand_name, 
+        categories.name AS category_name 
+    FROM products 
+    LEFT JOIN brand ON products.brand_id = brand.id 
+    LEFT JOIN categories ON products.category_id = categories.id";
 $result = $conn->query($query);
 ?>
 
@@ -84,11 +89,10 @@ $result = $conn->query($query);
         }
         .table-container {
             overflow-y: auto;
-            max-height: 500px; /* Adjust the height as needed */
             margin-top: 20px;
         }
         table {
-            width: 100%;
+            width: 100vw; /* Ensure table width is 100% of the viewport width */
             border-collapse: collapse;
         }
         th, td {
@@ -117,6 +121,12 @@ $result = $conn->query($query);
         .action-btn:hover {
             background-color: #0056b3;
         }
+        .delete-btn {
+            background-color: #FF0000;
+        }
+        .delete-btn:hover {
+            background-color: #CC0000;
+        }
     </style>
 </head>
 <body>
@@ -143,50 +153,52 @@ $result = $conn->query($query);
                         <th>Description</th>
                         <th>Brand Name</th>
                         <th>Category</th>
-                        <th>Image</th>
+                        <th>Images</th>
                         <th>Weight (Kgs)</th>
                         <th>Dimensions (L x B x H cm)</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php
-                    // Fetch the first product image
-                    $imageLink = "images/default.png"; // Default image
-                    if (!empty($product['images']) && $product['images'] != '') {
-                        $imageIds = explode(',', ltrim($product['images'], ',')); // Remove leading comma if present
-                        $firstImageId = $imageIds[0] ?? null;
-
-                        if ($firstImageId) {
-                            $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
-                            $imageResult = $conn->query($imageQuery);
-                            if ($imageResult && $imageResult->num_rows > 0) {
-                                $image = $imageResult->fetch_assoc();
-                                $imageLink = "uploads/assets/" . $image['file_original_name'];
-                            }
-                        }
-                    }
-                ?>
                     <?php
                     if ($result && $result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
+                            // Fetch image URLs
+                            $images = [];
+                            if (!empty($row['images'])) {
+                                $imageIds = array_filter(explode(',', $row['images']));
+                                foreach ($imageIds as $imageId) {
+                                    $imageQuery = "SELECT file_original_name FROM upload WHERE id = $imageId";
+                                    $imageResult = $conn->query($imageQuery);
+                                    if ($imageResult && $imageResult->num_rows > 0) {
+                                        $imageRow = $imageResult->fetch_assoc();
+                                        $images[] = "uploads/assets/" . htmlspecialchars($imageRow['file_original_name']);
+                                    }
+                                }
+                            }
+
                             echo "<tr>";
                             echo "<td>" . htmlspecialchars($row['id']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['sku']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['name']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['description']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['brand_name']) . "</td>"; // Display brand name
-                            echo "<td>" . htmlspecialchars($row['category']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['brand_name']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['category_name']) . "</td>";
                             echo "<td>";
-                            if (!empty($imageLink)) {
-                                echo '<img class="image-preview" src="' . htmlspecialchars($imageLink) . '" alt="' . htmlspecialchars($row['name']) . '">';
+                            if (!empty($images)) {
+                                foreach ($images as $image) {
+                                    echo '<img class="image-preview" src="' . htmlspecialchars($image) . '" alt="' . htmlspecialchars($row['name']) . '">';
+                                }
                             } else {
                                 echo "No Image";
                             }
                             echo "</td>";
                             echo "<td>" . htmlspecialchars($row['weight']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['length']) . " x " . htmlspecialchars($row['breadth']) . " x " . htmlspecialchars($row['height']) . "</td>";
-                            echo '<td><a href="#" class="action-btn">Action</a></td>';
+                            echo '<td>
+                                    <a href="update_product.php?id=' . htmlspecialchars($row['id']) . '" class="action-btn">Update</a>
+                                    <a href="delete_product.php?id=' . htmlspecialchars($row['id']) . '" class="action-btn delete-btn" onclick="return confirm(\'Are you sure you want to delete this product?\')">Delete</a>
+                                  </td>';
                             echo "</tr>";
                         }
                     } else {

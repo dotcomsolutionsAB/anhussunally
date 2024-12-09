@@ -82,28 +82,29 @@ $loggedInId = $_SESSION['id'];
 </head>
 <body>
     <!-- Sidebar -->
-    <div class="sidebar">
-        <a href="dashboard.php">Home</a>
-        <a href="product.php">Products</a>
-        <a href="brand.php">Brands</a>
-        <a href="category.php">Category</a>
-        <a href="">Edit</a>
-        <a href="upload_files.php">Uploads</a>
-    </div>
+    <?php include("admin_inc/sidebar.php"); ?>
 
     <!-- Main content area -->
     <div class="main-content">
         <!-- Navbar -->
-        <div class="navbar">
-            <h2>Dashboard</h2>
-            <a href="logout.php" class="logout-btn">Logout</a>
-        </div>
+        <?php include("admin_inc/header.php"); ?>
 
-        <!-- Content area -->
-        <div class="content">
-            <p>Welcome, <strong><?php echo htmlspecialchars($loggedInId); ?></strong>!</p>
-            <p>Select an option from the sidebar to manage your items.</p>
-        </div>
+        <?php
+            // Get the current script name
+            $currentPage = basename($_SERVER['PHP_SELF']);
+
+            // Check if the current page is 'dashboard.php'
+            if ($currentPage === 'dashboard.php') {
+        ?>
+                <!-- Content area -->
+                <div class="content">
+                    <p>Welcome, <strong><?php echo htmlspecialchars($loggedInId); ?></strong>!</p>
+                    <p>Select an option from the sidebar to manage your items.</p>
+                </div>
+        <?php
+        }
+        ?>
+
     </div>
 </body>
 </html>

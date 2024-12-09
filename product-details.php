@@ -11,13 +11,13 @@
 
 ?>
 
+
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><?php echo $product['name']; ?></title>
     <meta name="description" content="Renova - Construction Building & Renovation Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,9 +72,7 @@
         <?php include("inc_files/breadcrumb.php"); ?>
         <!-- breadcrumb-area-end -->
 
-        
-
-    <?php
+        <?php
         // Check if the SKU is provided in the URL
         if (!isset($_GET['sku'])) {
             die("No SKU provided.");
@@ -94,7 +92,7 @@
         }
 
         $product = $productResult->fetch_assoc();
-        $stmt->close();
+        
 
         // Fetch related products from the same brand
         $brand = $product['brand_id'];
@@ -104,7 +102,10 @@
         $stmt->execute();
         $relatedProductsResult = $stmt->get_result();
 
-    ?>
+?>
+
+    
+<title><?php echo htmlspecialchars($product['name']); ?></title>
     
         <!-- shop-details-area -->
         <section class="shop__details-area section-py-120">
@@ -135,10 +136,10 @@
                                 <?php foreach ($images as $index => $imageLink): ?>
                                     <?php if($imageLink){?>
                                         <img src="<?php echo htmlspecialchars($imageLink); ?>" alt="<?php echo htmlspecialchars($imageLink); ?>" style="display: flex;  justify-content: center;
-    align-items: center;">
+                                            align-items: center;">
                                     <?php }else{ ?>
                                         <img src="images/default.png" alt="default" style="display: flex;  justify-content: center;
-    align-items: center;">
+                                            align-items: center;">
                                     <?php } ?>
                                 <?php endforeach; ?>
                             <?php else: ?>
@@ -163,19 +164,17 @@
                                     if (!empty($brand['logo']) && !empty($brand['extension'])) {
                                         $brandLogo = "uploads/assets/logos/" . $brand['logo'] . "." . $brand['extension'];
                                 ?>
-                                <a href="brands.php?id=<?php echo intval($product['brand_id']); ?>">
-                                    <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($product['name']); ?> Image" style="width:15rem;">
-                                </a>
+                                    <a href="brands.php?id=<?php echo intval($product['brand_id']); ?>">
+                                        <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($product['name']); ?> Image" style="width:15rem;">
+                                    </a>
                                 <?php
                                 } else {
                                 ?>
-                                <h4 class="price">Brand : 
-                                    
+                                    <h4 class="price">Brand : 
                                         <a href="brands.php?id=<?php echo intval($product['brand_id']); ?>">
                                             <span class="title"><?php echo htmlspecialchars($brand['name']); ?></span>
                                         </a>
-                                    
-                                </h4>
+                                    </h4>
                                 <?php } ?>
                                     <!-- <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -186,51 +185,126 @@
                                 <!-- <span>(2 customer reviews)</span> -->
                             </div>
                             <p><?php echo nl2br(htmlspecialchars($product['short_description'])); ?></p>
-                            <?php if(is_array($product['features'])) { ?>
-                            <div class="shop__list-wrap">Features:
-                                <ul class="list-wrap">
-                                <?php
-                                    $featuresJson=$product['features'];
-                                    // Decode the JSON into an array
-                                    $features = json_decode($featuresJson, true);
+                            
+                            <?php if (!empty($product['features']) && is_string($product['features'])) { ?>
+                                <div class="shop__list-wrap">
+                                    <h3>Short Description:</h3>
+                                    <?php
+                                    // Decode the JSON into an associative array
+                                    $featuresJson = $product['features'];
+                                    $featuresArray = json_decode($featuresJson, true);
 
-                                    // Iterate through each feature and remove <li> tags
-                                    foreach ($features as $feature) {
-                                        if (is_string($feature)) {
-                                            // Strip <li> and </li> tags and output the feature
-                                            $cleanFeature = strip_tags($feature);
-                                    ?>
-                                    <li><i class="far fa-check-circle"></i><?php echo $cleanFeature; ?></li>
-                                    <?php 
+                                    // Check if the decoded result is an array
+                                    if (is_array($featuresArray)) {
+                                        // Display the Short Description
+                                        if (!empty($featuresArray['Short Description'])) {
+                                            $shortDescription = htmlspecialchars_decode($featuresArray['Short Description']);
+                                            echo "<p>$shortDescription</p>";
+                                        }
+                                        ?>
+                                        <h3>Features:</h3>
+                                        <ul class="list-wrap">
+                                        <?php
+                                        // Iterate through the feature keys and values
+                                        foreach ($featuresArray as $key => $feature) {
+                                            // Display only features (keys starting with "Features")
+                                            if (strpos($key, 'Features') === 0 && is_string($feature)) {
+                                                // Decode HTML entities to render them properly
+                                                $renderedFeature = htmlspecialchars_decode($feature);
+                                                ?>
+                                                <li><i class="far fa-check-circle"></i><?php echo $renderedFeature; ?></li>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
+                                        </ul>
+                                    <?php } ?>
+                                </div>
+                            <?php } ?>
+
+
+                            <?php if (!empty($product['shop_lines']) && is_string($product['shop_lines'])) { ?>
+                                <div class="shop__list-wrap">
+                                    <h3>Shop Lines:</h3>
+                                    <ul class="list-wrap">
+                                    <?php
+                                        // Decode the JSON into an array
+                                        $shopJson = $product['shop_lines'];
+                                        $shop_lines = json_decode($shopJson, true);
+
+                                        // Check if the decoded result is an array
+                                        if (is_array($shop_lines)) {
+                                            // Iterate through each shop line
+                                            foreach ($shop_lines as $shop) {
+                                                if (is_string($shop)) {
+                                                    // Output the shop line with HTML rendered correctly
+                                                    $renderedShopLine = htmlspecialchars_decode($shop);
+                                                    ?>
+                                                    <li><i class="far fa-check-circle"></i><?php echo $renderedShopLine; ?></li>
+                                                    <?php
+                                                }
                                             }
                                         }
                                     ?>
-                                </ul>
-                            </div>
+                                    </ul>
+                                </div>
                             <?php } ?>
-                            <?php if(is_array($product['shop_lines'])) { ?>
-                            <div class="shop__list-wrap">Shop Lines:
-                                <ul class="list-wrap">
-                                <?php
-                                    $shopJson=$product['shop_lines'];
-                                    // Decode the JSON into an array
-                                    $shop_lines = json_decode($shopJson, true);
 
-                                    // Iterate through each feature and remove <li> tags
-                                    foreach ($shop_lines as $shop) {
-                                        if (is_string($shop)) {
-                                            // Strip <li> and </li> tags and output the feature
-                                            $cleanFeature = strip_tags($shop);
-                                    ?>
-                                    <li><i class="far fa-check-circle"></i><?php echo $cleanFeature; ?></li>
-                                    <?php 
-                                            }
-                                        }
-                                    ?>
-                                </ul>
-                            </div>
-                            <?php } ?>
                             <div class="shop__details-qty">
+                                <style>
+                                    .whatsapp-button {
+                                        margin-top: 20px;
+                                        padding: 10px;
+                                        background-color: #25D366;
+                                        color: white;
+                                        border-radius: 5px;
+                                        display: flex;
+                                        align-items: center;
+                                        max-width: 20rem;
+                                        cursor: pointer;
+                                        flex-wrap: wrap;
+                                    }
+
+                                    .whatsapp-button img {
+                                        width: 42px;
+                                        height: 50px;
+                                        margin-right: 10px;
+                                        flex-shrink: 0;
+                                    }
+
+                                    .whatsapp-button a {
+                                        text-decoration: none;
+                                        color: white;
+                                        font-size: 16px;
+                                        text-align: left;
+                                        line-height: 1.2;
+                                    }
+
+                                    @media (max-width: 520px) {
+                                        .whatsapp-button {
+                                        flex-direction: row;
+                                        padding: 5px 5px;
+                                        margin-top: 5px;
+                                        max-width: 18rem;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        }
+                                        .whatsapp-button img {
+                                        margin-bottom: 0px;
+                                        margin-right: 0;
+                                        }
+                                        .whatsapp-button a {
+                                            margin-left: 5px;
+                                        }
+                                    }
+                                </style>
+                                <div class="whatsapp-button">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                                    <a href="https://wa.me/+919831420324?text=I'm%20interested%20in%20your%20product">
+                                        Mr. Huzefa / An Hussuanally & Co.<br>Need help? Chat via WhatsApp
+                                    </a>
+                                </div>
                                 <!-- <div class="cart-plus-minus">
                                     <form action="#" class="num-block">
                                         <input type="text" class="in-num" value="1" readonly="">
@@ -240,14 +314,6 @@
                                         </div>
                                     </form>
                                 </div> -->
-
-                                <div style="margin-top: 20px; padding: 10px; background-color: #25D366; color: white; border-radius: 5px; display: flex; align-items: center; width: fit-content; cursor: pointer;">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 42px; height: 50px; margin-right: 10px;">
-                                    <a href="https://wa.me/<+919831420324>?text=I'm%20interested%20in%20your%20product" style="text-decoration: none; color: white;">
-                                        Mr. Huzefa / An Hussuanally & Co.<br>Need help? Chat via WhatsApp
-                                    </a>
-                                </div>
-
                             </div>
                             <style>
                                 .gmail-button {
@@ -279,22 +345,31 @@
                             </style>
                             <div class="cc" style="display:flex; flex-direction:row; justify-content: start; gap: 3vw; align-items: center;">
                                 <a href="images/pdf.png" download="">
-                                    <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="max-width:160px">
+                                    <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="width: 10rem; height: 3rem;">
                                 </a>
-                                <a href="mailto:your-email@gmail.com" style="background: #262424; padding: 5px 10px; border-radius: 8px; margin: 5px;">
+                                <a href="mailto:your-email@gmail.com" style="background: #262424; padding: 5px 10px; border-radius: 8px; margin: 5px; width:10rem;
+                                        height: 3rem; justify-content: space-evenly;  display: flex; align-items: center;">
                                     <img src="images/gmail.png" alt="mail" style="width: 30px;">
                                     <span style="color:white; font-weight:bold;">Send Email</span>
                                 </a>
                             </div>
+
                             <div class="shop__details-bottom">
                                 <ul class="list-wrap">
                                     <li class="sd-sku">
-                                        <span class="title">SKU:</span>
+                                        <span class="title" style="min-width: 35px;">SKU:</span>
                                         <span class="code"><?php echo htmlspecialchars($product['sku']); ?></span>
                                     </li>
+                                    <?php
+                                        $selt = "SELECT name FROM categories WHERE id = " . intval($product['category_id']);
+                                        $catresult = $conn->query($selt);
+                                            if ($catresult && $catresult->num_rows > 0) {
+                                            $category = $catresult->fetch_assoc();             
+                                            }
+                                    ?>
                                     <li class="sd-category">
-                                        <span class="title">Category:</span>
-                                        <a href="shop-details.html"><?php echo htmlspecialchars($product['category']); ?></a>
+                                        <span class="title" style="min-width: 35px;">Category:</span>
+                                        <a href="shop-details.html"><?php echo htmlspecialchars($category['name']); ?></a>
                                     </li>
                                     <!-- <li class="sd-tag">
                                         <span class="title">Tags:</span>
@@ -527,3 +602,5 @@
 </body>
 
 </html>
+
+<?php $stmt->close(); ?>

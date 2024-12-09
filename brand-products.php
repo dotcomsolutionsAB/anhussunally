@@ -177,6 +177,7 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
                                                                 </a>
                                                             </h4>
                                                             <p class='category-name'>Brand: <?php echo htmlspecialchars($product['brand_name']); ?></p>
+                                                            <p class='category-name'>SKU: <?php echo htmlspecialchars($product['sku']); ?></p>
                                                         </div>        
                                                     </div>
                                                 </div>
@@ -215,7 +216,7 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
                                                 <div class='shop__content'>
                                                     <h4 class='title'>
                                                         <a href='product-details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>'>
-                                                        <?php echo strlen($product['name']) > 24 ? htmlspecialchars(substr($product['name'], 0, 24)) . '...' : htmlspecialchars($product['name']); ?>
+                                                            <?php echo strlen($product['name']) > 24 ? htmlspecialchars(substr($product['name'], 0, 24)) . '...' : htmlspecialchars($product['name']); ?>
                                                         </a>
                                                     </h4>
                                                     <p class='category-name'>Brand: <?php echo htmlspecialchars($product['brand_name']); ?></p>

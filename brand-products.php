@@ -219,6 +219,7 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
                                                         </a>
                                                     </h4>
                                                     <p class='category-name'>Brand: <?php echo htmlspecialchars($product['brand_name']); ?></p>
+                                                    <p class='category-name'>SKU: <?php echo htmlspecialchars($product['sku']); ?></p>
                                                 </div>
                                             </div>
                                         </div>

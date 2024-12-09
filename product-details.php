@@ -242,9 +242,9 @@
                                 </div> -->
 
                                 <div style="margin-top: 20px; padding: 10px; background-color: #25D366; color: white; border-radius: 5px; display: flex; align-items: center; width: fit-content; cursor: pointer;">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 24px; height: 24px; margin-right: 10px;">
-                                    <a href="https://wa.me/<YOUR_PHONE_NUMBER>?text=I'm%20interested%20in%20your%20product" style="text-decoration: none; color: white; font-weight: bold;">
-                                        Mr Abdeali / Efficient Hardware & Tools Co.<br>Need help? Chat via WhatsApp
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 42px; height: 50px; margin-right: 10px;">
+                                    <a href="https://wa.me/<+919831420324>?text=I'm%20interested%20in%20your%20product" style="text-decoration: none; color: white;">
+                                        Mr. Huzefa / An Hussuanally & Co.<br>Need help? Chat via WhatsApp
                                     </a>
                                 </div>
 

@@ -206,7 +206,7 @@
     }
 </style>
 <div class="sticky-buttons">
-    <a href="https://wa.me/+1234567890" target="_blank" class="whatsapp-btn" title="WhatsApp">
+    <a href="https://wa.me/+919831420324" target="_blank" class="whatsapp-btn" title="WhatsApp">
         <i class="fab fa-whatsapp"></i> <!-- WhatsApp Icon -->
     </a>
 </div>

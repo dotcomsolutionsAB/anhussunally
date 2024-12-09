@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 
 // Handle file upload
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
-    $uploadDir = "uploads/";
+    $uploadDir = "../uploads/assets/";
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0777, true);
     }
@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
     foreach ($_FILES['image']['tmp_name'] as $key => $tmpName) {
         $originalName = $_FILES['image']['name'][$key];
         $uniqueName = uniqid() . "_" . basename($originalName);
+        $originalName=$uniqueName;
         $targetFile = $uploadDir . $uniqueName;
 
         if (move_uploaded_file($tmpName, $targetFile)) {
@@ -33,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             $userId = 1; // Replace with the current user's ID if available
 
             // Insert file metadata into the database
-            $stmt = $conn->prepare("INSERT INTO files (file_original_name, image_link, user_id, file_size, extension, type, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, NOW(), NOW())");
+            $stmt = $conn->prepare("INSERT INTO upload (file_original_name, image_link, user_id, file_size, extension, type, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, NOW(), NOW())");
             $stmt->bind_param("ssisss", $originalName, $targetFile, $userId, $fileSize, $extension, $type);
             $stmt->execute();
         }
@@ -173,7 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
     <div class="gallery">
         <?php
         // Fetch images from the database
-        $result = $conn->query("SELECT * FROM files WHERE deleted_at IS NULL ORDER BY created_at DESC");
+        $result = $conn->query("SELECT * FROM upload WHERE deleted_at IS NULL ORDER BY created_at DESC");
         while ($row = $result->fetch_assoc()) {
             echo '<img src="' ."../uploads/assets/". $row['file_original_name']. '" alt="' . htmlspecialchars($row['file_original_name']) . '">';
         }

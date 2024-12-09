@@ -128,7 +128,7 @@
                                 while ($image = $imageResult->fetch_assoc()) {
                                     $images[] = "uploads/assets/" . $image['file_original_name'];
                                 }
-                                $stmt->close();
+                                // $stmt->close();
                                 }
                             ?>
                             <?php if (!empty($images)): ?>
@@ -186,7 +186,7 @@
                                 <!-- <span>(2 customer reviews)</span> -->
                             </div>
                             <p><?php echo nl2br(htmlspecialchars($product['short_description'])); ?></p>
-                            <?php if(!empty($product['features']) && is_array($product['features'])) { ?>
+                            <?php if(is_array($product['features'])) { ?>
                             <div class="shop__list-wrap">Features:
                                 <ul class="list-wrap">
                                 <?php
@@ -208,7 +208,7 @@
                                 </ul>
                             </div>
                             <?php } ?>
-                            <?php if(!empty($product['shop_lines']) && is_array($product['shop_lines'])) { ?>
+                            <?php if(is_array($product['shop_lines'])) { ?>
                             <div class="shop__list-wrap">Shop Lines:
                                 <ul class="list-wrap">
                                 <?php
@@ -241,7 +241,13 @@
                                     </form>
                                 </div> -->
 
-                                <a href="shop-details.html" class="btn btn-two">Add To Cart</a>
+                                <div style="margin-top: 20px; padding: 10px; background-color: #25D366; color: white; border-radius: 5px; display: flex; align-items: center; width: fit-content; cursor: pointer;">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 24px; height: 24px; margin-right: 10px;">
+                                    <a href="https://wa.me/<YOUR_PHONE_NUMBER>?text=I'm%20interested%20in%20your%20product" style="text-decoration: none; color: white; font-weight: bold;">
+                                        Mr Abdeali / Efficient Hardware & Tools Co.<br>Need help? Chat via WhatsApp
+                                    </a>
+                                </div>
+
                             </div>
                             <style>
                                 .gmail-button {

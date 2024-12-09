@@ -141,3 +141,72 @@
         </div>
     </div>
 </footer>
+ <!-- Add Font Awesome for WhatsApp Icon -->
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+<style>
+    /* Sticky Buttons */
+    .sticky-buttons {
+        position: fixed; /* Keeps the button fixed to the viewport */
+        bottom: 20px; /* Distance from the top of the viewport */
+        left: 20px; /* Distance from the left of the viewport */
+        z-index: 10000; /* Ensures it stays above all other elements */
+        pointer-events: auto; /* Ensures the button is clickable */
+    }
+    .sticky-buttons a:hover {
+        color: #f5f5f5;
+        text-decoration: none;
+    }
+    .whatsapp-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #25D366; /* WhatsApp green color */
+        color: white;
+        border-radius: 50%;
+        width: 60px; /* Size of the button */
+        height: 60px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    .whatsapp-btn i {
+        font-size: 30px; /* Size of the icon */
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .whatsapp-btn {
+            width: 50px; /* Smaller size for mobile */
+            height: 50px;
+        }
+
+        .whatsapp-btn i {
+            font-size: 24px;
+        }
+
+        .sticky-buttons {
+            left: 10px; /* Adjust for smaller screens */
+        }
+    }
+    @media (max-width: 768px) {
+        .whatsapp-btn {
+            width: 50px; /* Smaller size for mobile */
+            height: 50px;
+        }
+
+        .whatsapp-btn i {
+            font-size: 24px;
+        }
+
+        .sticky-buttons {
+            left: 45%; /* Adjust for smaller screens */
+        }
+    }
+</style>
+<div class="sticky-buttons">
+    <a href="https://wa.me/+1234567890" target="_blank" class="whatsapp-btn" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i> <!-- WhatsApp Icon -->
+    </a>
+</div>

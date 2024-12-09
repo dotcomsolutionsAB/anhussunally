@@ -150,6 +150,23 @@ $result = $conn->query($query);
                     </tr>
                 </thead>
                 <tbody>
+                <?php
+                    // Fetch the first product image
+                    $imageLink = "images/default.png"; // Default image
+                    if (!empty($product['images']) && $product['images'] != '') {
+                        $imageIds = explode(',', ltrim($product['images'], ',')); // Remove leading comma if present
+                        $firstImageId = $imageIds[0] ?? null;
+
+                        if ($firstImageId) {
+                            $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
+                            $imageResult = $conn->query($imageQuery);
+                            if ($imageResult && $imageResult->num_rows > 0) {
+                                $image = $imageResult->fetch_assoc();
+                                $imageLink = "uploads/assets/" . $image['file_original_name'];
+                            }
+                        }
+                    }
+                ?>
                     <?php
                     if ($result && $result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
@@ -161,8 +178,8 @@ $result = $conn->query($query);
                             echo "<td>" . htmlspecialchars($row['brand_name']) . "</td>"; // Display brand name
                             echo "<td>" . htmlspecialchars($row['category']) . "</td>";
                             echo "<td>";
-                            if (!empty($row['image_url'])) {
-                                echo '<img class="image-preview" src="' . htmlspecialchars($row['image_url']) . '" alt="' . htmlspecialchars($row['name']) . '">';
+                            if (!empty($imageLink)) {
+                                echo '<img class="image-preview" src="' . htmlspecialchars($imageLink) . '" alt="' . htmlspecialchars($row['name']) . '">';
                             } else {
                                 echo "No Image";
                             }

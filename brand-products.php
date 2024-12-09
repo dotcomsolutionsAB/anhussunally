@@ -176,8 +176,8 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
                                                                 <?php echo strlen($product['name']) > 24 ? htmlspecialchars(substr($product['name'], 0, 24)) . '...' : htmlspecialchars($product['name']); ?>
                                                                 </a>
                                                             </h4>
-                                                            <p class='category-name'>Brand: <?php echo htmlspecialchars($product['brand_name']); ?></p>
-                                                            <p class='category-name'>SKU: <?php echo htmlspecialchars($product['sku']); ?></p>
+                                                            <p class='category-name' style="margin-bottom: 0px;">Brand: <?php echo htmlspecialchars($product['brand_name']); ?></p>
+                                                            <p class='category-name' style="margin-bottom: 0px;">SKU: <?php echo htmlspecialchars($product['sku']); ?></p>
                                                         </div>        
                                                     </div>
                                                 </div>

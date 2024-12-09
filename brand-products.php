@@ -150,30 +150,30 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
                                                     <!-- col-6 col-md-3 use this for mobile 2 grid and desktop 4 grid -->
                                                     <div class="shop__item">
                                                         <div class="shop__thumb">
-                                                            <?php
-                                                                // Fetch the first product image
-                                                                $imageLink = "images/default.png"; // Default image
-                                                                if (!empty($product['images']) && $product['images'] != '') {
-                                                                    $imageIds = explode(',', ltrim($product['images'], ',')); // Remove leading comma if present
-                                                                    $firstImageId = $imageIds[0] ?? null;
+                                                        <?php
+                                                            // Fetch the first product image
+                                                            $imageLink = "images/default.png"; // Default image
+                                                            if (!empty($product['images']) && $product['images'] != '') {
+                                                                $imageIds = explode(',', ltrim($product['images'], ',')); // Remove leading comma if present
+                                                                $firstImageId = $imageIds[0] ?? null;
 
-                                                                    if ($firstImageId) {
-                                                                        $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
-                                                                        $imageResult = $conn->query($imageQuery);
-                                                                        if ($imageResult && $imageResult->num_rows > 0) {
-                                                                            $image = $imageResult->fetch_assoc();
-                                                                            $imageLink = "uploads/assets/" . $image['file_original_name'];
-                                                                        }
+                                                                if ($firstImageId) {
+                                                                    $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageId";
+                                                                    $imageResult = $conn->query($imageQuery);
+                                                                    if ($imageResult && $imageResult->num_rows > 0) {
+                                                                        $image = $imageResult->fetch_assoc();
+                                                                        $imageLink = "uploads/assets/" . $image['file_original_name'];
                                                                     }
                                                                 }
-                                                            ?>
-                                                            <img src="images/default.png" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                                                            }
+                                                        ?>
+                                                        <img src="<?php echo $imageLink; ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
                                                             <a href="product-details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="btn">View Details</a>
                                                         </div>
                                                         <div class='shop__content'>
                                                             <h4 class='title'>
                                                                 <a href='product-details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>'>
-                                                                    <?php echo htmlspecialchars($product['name']); ?>
+                                                                <?php echo strlen($product['name']) > 24 ? htmlspecialchars(substr($product['name'], 0, 24)) . '...' : htmlspecialchars($product['name']); ?>
                                                                 </a>
                                                             </h4>
                                                             <p class='category-name'>Brand: <?php echo htmlspecialchars($product['brand_name']); ?></p>
@@ -215,7 +215,7 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
                                                 <div class='shop__content'>
                                                     <h4 class='title'>
                                                         <a href='product-details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>'>
-                                                            <?php echo htmlspecialchars($product['name']); ?>
+                                                        <?php echo strlen($product['name']) > 24 ? htmlspecialchars(substr($product['name'], 0, 24)) . '...' : htmlspecialchars($product['name']); ?>
                                                         </a>
                                                     </h4>
                                                     <p class='category-name'>Brand: <?php echo htmlspecialchars($product['brand_name']); ?></p>

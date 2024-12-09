@@ -1,29 +1,29 @@
 <?php
-session_start();
+    session_start();
 
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    header('Location: index.php');
-    exit;
-}
+    if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+        header('Location: index.php');
+        exit;
+    }
 
-include("../connection/db_connect.php");
+    include("../connection/db_connect.php");
 
-// Establish database connection
-$conn = mysqli_connect($host, $username, $password, $dbname);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+    // Establish database connection
+    $conn = mysqli_connect($host, $username, $password, $dbname);
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
 
-// Fetch all products with their associated brand, category names, and images
-$query = "
-    SELECT 
-        products.*, 
-        brand.name AS brand_name, 
-        categories.name AS category_name 
-    FROM products 
-    LEFT JOIN brand ON products.brand_id = brand.id 
-    LEFT JOIN categories ON products.category_id = categories.id";
-$result = $conn->query($query);
+    // Fetch all products with their associated brand, category names, and images
+    $query = "
+        SELECT 
+            products.*, 
+            brand.name AS brand_name, 
+            categories.name AS category_name 
+        FROM products 
+        LEFT JOIN brand ON products.brand_id = brand.id 
+        LEFT JOIN categories ON products.category_id = categories.id";
+    $result = $conn->query($query);
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +92,7 @@ $result = $conn->query($query);
             margin-top: 20px;
         }
     </style>
-    <style>
+    <styl>
         .table-container {
             overflow-y: auto;
             margin-top: 20px;
@@ -138,7 +138,7 @@ $result = $conn->query($query);
             background-color: #CC0000;
         }
     </style>
-    </style>
+
 </head>
 <body>
     <!-- Sidebar -->

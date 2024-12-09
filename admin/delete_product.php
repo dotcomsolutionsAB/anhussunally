@@ -30,7 +30,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
             if ($fileResult && $fileResult->num_rows > 0) {
                 $fileData = $fileResult->fetch_assoc();
-                $filePath = "uploads/assets/" . $fileData['file_original_name'];
+                $filePath = "../uploads/assets/" . $fileData['file_original_name'];
 
                 // Check if the file exists and delete it
                 if (file_exists($filePath)) {

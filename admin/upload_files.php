@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // Database configuration
 $host = 'localhost';
 $dbname = 'anh';
@@ -47,8 +50,67 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
         }
+        /* Sidebar styles */
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            font-size: 16px;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        /* Navbar styles */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .navbar {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h2 {
+            margin: 0;
+        }
+        .logout-btn {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .logout-btn:hover {
+            background-color: #e60000;
+        }
+        /* Content styles */
+        .content {
+            padding: 20px;
+        }
+    </style>
+    <style>
         .gallery {
             display: flex;
             flex-wrap: wrap;
@@ -113,7 +175,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
         // Fetch images from the database
         $result = $conn->query("SELECT * FROM files WHERE deleted_at IS NULL ORDER BY created_at DESC");
         while ($row = $result->fetch_assoc()) {
-            echo '<img src="' . $row['image_link'] . '" alt="' . htmlspecialchars($row['file_original_name']) . '">';
+            echo '<img src="' ."../uploads/assets/". $row['file_original_name']. '" alt="' . htmlspecialchars($row['file_original_name']) . '">';
         }
         ?>
     </div>

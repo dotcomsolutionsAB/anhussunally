@@ -394,9 +394,12 @@
                                 </li>
                             </ul>
                             <div class="tab-content" id="myTabContent2">
-                                <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
-                                    <p><?php echo nl2br(htmlspecialchars($product['descriptions'])); ?></p>
-                                </div>
+                            <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+                                <?php if (!empty($product['descriptions'])) { ?>
+                                    <?php echo $product['descriptions']; ?>
+                                <?php } ?>
+                            </div>
+
                                 <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">
                                     <div class="product-desc-review">
                                         <div class="product-desc-review-title mb-15">

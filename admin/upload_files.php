@@ -89,29 +89,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
     </style>
 </head>
 <body>
+<!-- Sidebar -->
+<?php include("admin_inc/sidebar.php"); ?>
 
-<h1>Product Image Gallery</h1>
+<!-- Main content area -->
+<div class="main-content">
+    <!-- Navbar -->
+    <?php include("admin_inc/header.php"); ?>
+    <h1>Product Image Gallery</h1>
 
-<!-- Upload Form -->
-<div class="upload-area" id="uploadArea">
-    Drag & Drop Images Here or Click to Upload
+    <!-- Upload Form -->
+    <div class="upload-area" id="uploadArea">
+        Drag & Drop Images Here or Click to Upload
+    </div>
+    <form class="upload-form" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image[]" id="fileInput" multiple>
+        <button type="submit">Upload Images</button>
+    </form>
+
+    <!-- Image Gallery -->
+    <div class="gallery">
+        <?php
+        // Fetch images from the database
+        $result = $conn->query("SELECT * FROM files WHERE deleted_at IS NULL ORDER BY created_at DESC");
+        while ($row = $result->fetch_assoc()) {
+            echo '<img src="' . $row['image_link'] . '" alt="' . htmlspecialchars($row['file_original_name']) . '">';
+        }
+        ?>
+    </div>
 </div>
-<form class="upload-form" method="POST" enctype="multipart/form-data">
-    <input type="file" name="image[]" id="fileInput" multiple>
-    <button type="submit">Upload Images</button>
-</form>
-
-<!-- Image Gallery -->
-<div class="gallery">
-    <?php
-    // Fetch images from the database
-    $result = $conn->query("SELECT * FROM files WHERE deleted_at IS NULL ORDER BY created_at DESC");
-    while ($row = $result->fetch_assoc()) {
-        echo '<img src="' . $row['image_link'] . '" alt="' . htmlspecialchars($row['file_original_name']) . '">';
-    }
-    ?>
-</div>
-
 <script>
     const uploadArea = document.getElementById('uploadArea');
     const fileInput = document.getElementById('fileInput');

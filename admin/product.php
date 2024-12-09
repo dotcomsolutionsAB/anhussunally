@@ -91,6 +91,12 @@ $result = $conn->query($query);
             overflow-y: auto;
             margin-top: 20px;
         }
+    </style>
+    <style>
+        .table-container {
+            overflow-y: auto;
+            margin-top: 20px;
+        }
         table {
             width: 100vw; /* Ensure table width is 100% of the viewport width */
             border-collapse: collapse;
@@ -106,6 +112,10 @@ $result = $conn->query($query);
         }
         .image-preview {
             width: 100px;
+            height: auto;
+        }
+		.name{
+            width: 60px; /* Limit image width to match column */
             height: auto;
         }
         .action-btn {
@@ -128,34 +138,27 @@ $result = $conn->query($query);
             background-color: #CC0000;
         }
     </style>
+    </style>
 </head>
 <body>
-    <div class="sidebar">
-        <a href="dashboard.php">Dashboard</a>
-        <a href="product.php">Products</a>
-        <a href="brand.php">Brands</a>
-        <a href="#">Category</a>
-        <a href="#">Edit</a>
-        <a href="upload_files.php">Uploads</a>
-    </div>
+    <!-- Sidebar -->
+    <?php include("admin_inc/sidebar.php"); ?>
+
+    <!-- Main content area -->
     <div class="main-content">
-        <div class="navbar">
-            <h2>Products</h2>
-            <a href="logout.php" class="logout-btn">Logout</a>
-        </div>
+        <!-- Navbar -->
+        <?php include("admin_inc/header.php"); ?>
+
         <div class="table-container">
             <table>
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>SKU</th>
                         <th>Name</th>
                         <th>Description</th>
-                        <th>Brand Name</th>
-                        <th>Category</th>
+                        <th>Brand Name / Category</th>
                         <th>Images</th>
-                        <th>Weight (Kgs)</th>
-                        <th>Dimensions (L x B x H cm)</th>
+                        <th>Weight (Kgs) / Dimensions (L x B x H cm)</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -172,18 +175,16 @@ $result = $conn->query($query);
                                     $imageResult = $conn->query($imageQuery);
                                     if ($imageResult && $imageResult->num_rows > 0) {
                                         $imageRow = $imageResult->fetch_assoc();
-                                        $images[] = "uploads/assets/" . htmlspecialchars($imageRow['file_original_name']);
+                                        $images[] = "../uploads/assets/" . htmlspecialchars($imageRow['file_original_name']);
                                     }
                                 }
                             }
 
                             echo "<tr>";
                             echo "<td>" . htmlspecialchars($row['id']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['sku']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+                            echo "<td class='name'>" . htmlspecialchars($row['name']) ."<br> SKU : ". htmlspecialchars($row['sku']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['description']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['brand_name']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['category_name']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['brand_name']) ."<br> / ". htmlspecialchars($row['category_name']) . "</td>";
                             echo "<td>";
                             if (!empty($images)) {
                                 foreach ($images as $image) {
@@ -193,10 +194,10 @@ $result = $conn->query($query);
                                 echo "No Image";
                             }
                             echo "</td>";
-                            echo "<td>" . htmlspecialchars($row['weight']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['length']) . " x " . htmlspecialchars($row['breadth']) . " x " . htmlspecialchars($row['height']) . "</td>";
-                            echo '<td>
+                            echo "<td>" . htmlspecialchars($row['weight']) ."kg"."<br> / ". htmlspecialchars($row['length']) . " x " . htmlspecialchars($row['breadth']) . " x " . htmlspecialchars($row['height']) . "</td>";
+                            echo '<td style=" display: flex; justify-content: space-between; flex-direction: column; align-items: center;">
                                     <a href="update_product.php?id=' . htmlspecialchars($row['id']) . '" class="action-btn">Update</a>
+                                    <br>
                                     <a href="delete_product.php?id=' . htmlspecialchars($row['id']) . '" class="action-btn delete-btn" onclick="return confirm(\'Are you sure you want to delete this product?\')">Delete</a>
                                   </td>';
                             echo "</tr>";

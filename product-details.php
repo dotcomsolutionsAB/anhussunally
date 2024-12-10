@@ -137,7 +137,7 @@
                                 <?php endforeach; ?>
                             <?php else: ?>
                             <?php endif; ?>
-                            <span class="sticker">SALE</span>
+                            <!-- <span class="sticker">SALE</span> -->
                         </div>
                     </div>
 
@@ -316,22 +316,25 @@
                     <div class="col-12">
                         <div class="product-desc-wrap">
                             <ul class="nav nav-tabs" id="myTab2" role="tablist">
+                            <?php if (!empty($product['descriptions']) && trim($product['descriptions']) !== '') { ?>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Description</button>
                                 </li>
+                            <?php } ?>
+
                                 <!-- <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane" type="button" role="tab" aria-controls="reviews-tab-pane" aria-selected="false">Reviews</button>
                                 </li> -->
-                            <?php if (!empty($product['features']) && is_string($product['features'])) { ?>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="features-tab" data-bs-toggle="tab" data-bs-target="#features-tab-pane" type="button" role="tab" aria-controls="features-tab-pane" aria-selected="false">Features</button>
-                                </li>
-                            <?php } ?>
-                            <?php if (!empty($product['shop_lines']) && is_string($product['shop_lines'])) { ?>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="shoplines-tab" data-bs-toggle="tab" data-bs-target="#shoplines-tab-pane" type="button" role="tab" aria-controls="shoplines-tab-pane" aria-selected="false">Shop Lines</button>
-                                </li>
-                            <?php } ?>
+                                <?php if (!empty($product['features']) && is_string($product['features'])) { ?>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="features-tab" data-bs-toggle="tab" data-bs-target="#features-tab-pane" type="button" role="tab" aria-controls="features-tab-pane" aria-selected="false">Features</button>
+                                    </li>
+                                <?php } ?>
+                                <?php if (!empty($product['shop_lines']) && is_string($product['shop_lines'])) { ?>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="shoplines-tab" data-bs-toggle="tab" data-bs-target="#shoplines-tab-pane" type="button" role="tab" aria-controls="shoplines-tab-pane" aria-selected="false">Shop Lines</button>
+                                    </li>
+                                <?php } ?>
                             </ul>
 
                             <div class="tab-content" id="myTabContent2">
@@ -346,7 +349,6 @@
                                 <?php if (!empty($product['features']) && is_string($product['features'])) { ?>
                                     <div class="tab-pane fade" id="features-tab-pane" role="tabpanel" aria-labelledby="features-tab" tabindex="0">
                                         <div class="shop__list-wrap">
-                                            <h3>Short Description:</h3>
                                             <?php
                                             // Decode the JSON into an associative array
                                             $featuresJson = $product['features'];
@@ -354,19 +356,14 @@
 
                                             // Check if the decoded result is an array
                                             if (is_array($featuresArray)) {
-                                                // Display the Short Description
-                                                if (!empty($featuresArray['Short Description'])) {
-                                                    $shortDescription = htmlspecialchars_decode($featuresArray['Short Description']);
-                                                    echo "<p>$shortDescription</p>";
-                                                }
                                                 ?>
                                                 <h3>Features:</h3>
                                                 <ul class="list-wrap">
                                                 <?php
-                                                // Iterate through the feature keys and values
-                                                foreach ($featuresArray as $key => $feature) {
-                                                    // Display only features (keys starting with "Features")
-                                                    if (strpos($key, 'Features') === 0 && is_string($feature)) {
+                                                // Iterate through the features and render them
+                                                foreach ($featuresArray as $feature) {
+                                                    // Ensure the feature is a valid string
+                                                    if (is_string($feature)) {
                                                         // Decode HTML entities to render them properly
                                                         $renderedFeature = htmlspecialchars_decode($feature);
                                                         ?>
@@ -380,6 +377,7 @@
                                         </div>
                                     </div>
                                 <?php } ?>
+
 
                                 <!-- Shoplines data -->
                                 <?php if (!empty($product['shop_lines']) && is_string($product['shop_lines'])) { ?>
@@ -438,7 +436,6 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <div class="section__title section__title-three text-center mb-60">
-                            <span class="sub-title">Product Line</span>
                             <h2 class="title">Our Related Products</h2>
                         </div>
                     </div>
@@ -477,19 +474,19 @@
                                     $relatedProductsResult = $stmt->get_result();
                                     ?>
                                     <?php while ($relatedProduct = $relatedProductsResult->fetch_assoc()) { ?>
-                                        <div class="swiper-slide">
+                                        <div class="swiper-slide" >
                                             <div class="shop__item">
-                                                <div class="shop__thumb">
+                                                <div class="shop__thumb" style="padding:10px;">
                                                     <img src="<?php echo htmlspecialchars($relatedProduct['image_path']); ?>" alt="Product Image">
                                                     <a href="product-details.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="btn">View Details</a>
-                                                    <?php if ($relatedProduct['hours_since_creation'] < 72) { // Mark as NEW if created within the last 72 hours ?>
+                                                    <!-- <?php if ($relatedProduct['hours_since_creation'] < 72) { // Mark as NEW if created within the last 72 hours ?>
                                                         <span class="sticker">NEW</span>
-                                                    <?php } ?>
+                                                    <?php } ?> -->
                                                 </div>
                                                 <div class="shop__content">
-                                                    <h6 class="price">SKU <span><?php echo htmlspecialchars($relatedProduct['sku']); ?></span></h6>
+                                                    <h6 class="price">SKU : <span><?php echo htmlspecialchars($relatedProduct['sku']); ?></span></h6>
                                                     <h4 class="title"><a href="product-details.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
-                                                        <?php echo htmlspecialchars($relatedProduct['product_name']); ?>
+                                                        <?php echo strlen($relatedProduct['product_name']) > 36 ? htmlspecialchars(substr($relatedProduct['product_name'], 0, 24)) . '...' : htmlspecialchars($relatedProduct['product_name']); ?>
                                                     </a></h4>
                                                     <p class="">Brand :<span><?php echo htmlspecialchars($relatedProduct['brand_name']); ?></span></p>
                                                 </div>
@@ -497,7 +494,7 @@
                                         </div>
                                     <?php } ?>
 
-                                <div class="swiper-slide">
+                                <!-- <div class="swiper-slide">
                                     <div class="shop__item">
                                         <div class="shop__thumb">
                                             <img src="assets/img/product/shop_img02.png" alt="img">
@@ -515,7 +512,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -525,32 +522,7 @@
         <!-- related-shop-area-end -->
 
         <!-- cta-area -->
-        <section class="cta__area fix">
-            <div class="cta__bg" data-background="assets/img/bg/cta_bg.jpg"></div>
-            <div class="container">
-                <div class="row align-items-end">
-                    <div class="col-lg-8">
-                        <div class="cta__content">
-                            <h2 class="title">Ready to work with <br> our team?</h2>
-                            <div class="cta__btn">
-                                <a href="contact.html" class="btn btn-two">Let’s build together <img
-                                        src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
-                                <a href="contact.html" class="btn transparent-btn">Contact With Us <img
-                                        src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="cta__content-right" data-aos="fade-up" data-aos-delay="600">
-                            <h4 class="title">Leading Developer Of Commercial & Residential Projects</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cta__shape">
-                <img src="assets/img/images/cta_shape.png" alt="shape" data-aos="fade-down-left" data-aos-delay="400">
-            </div>
-        </section>
+        <?php include("inc_files/cta_area.php"); ?>
         <!-- cta-area-end -->
 
     </main>

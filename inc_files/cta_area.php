@@ -6,8 +6,8 @@
                 <div class="cta__content">
                     <h2 class="title">Ready to work with <br> Us?</h2>
                     <div class="cta__btn">
-                        <a href="contact.html" class="btn btn-two">Let’s build together <img src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
-                        <a href="contact.html" class="btn transparent-btn">Contact With Us <img src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
+                        <!-- <a href="contact.html" class="btn btn-two">Let’s build together <img src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a> -->
+                        <a href="contact.php" class="btn transparent-btn">Contact With Us <img src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
                     </div>
                 </div>
             </div>

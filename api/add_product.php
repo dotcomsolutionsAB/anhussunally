@@ -70,11 +70,19 @@ if ($result && $result->num_rows > 0) {
         $csvData = array_combine($header, $data);
 
         // Extract and normalize product data
-        $sku = str_replace(['–', '—'], '-', $csvData['SKU'] ?? ''); // Normalize SKU
-        $name = $csvData['Product Name'] ?? '';
-        $description = $csvData['Description'] ?? '';
-        $short_description = $csvData['Short Description'] ?? '';
-        $brand = $csvData['Brand'] ?? '';
+        $sku = isset($csvData['SKU']) ? trim(str_replace(['–', '—'], '-', $csvData['SKU'])) : '';
+        $name = isset($csvData['Product Name']) ? trim($csvData['Product Name']) : '';
+        $brand = isset($csvData['Brand']) ? trim($csvData['Brand']) : '';
+
+        // Check if any value is empty, whitespace, or not set
+        if (empty($sku) || empty($name) || empty($brand)) {
+            die("Error: SKU, Product Name, or Brand cannot be empty or consist of only spaces.");
+        }
+
+        // If all values are valid, continue with your code
+        $description = $csvData['Description'] ?? NULL;
+        $short_description = $csvData['Short Description'] ?? NULL;
+        
 
         // Skip rows with missing mandatory fields
         if (empty($sku) || empty($name) || empty($brand) || empty($csvData['Category'])) {
@@ -106,9 +114,54 @@ if ($result && $result->num_rows > 0) {
         $images = ''; // Default value for images
 
         // Construct features and shop lines
-        $featuresJson = json_encode(array_filter(array_map('htmlspecialchars', array_slice($csvData, 12, 12))));
-        $shopLinesJson = json_encode(array_filter(array_map('htmlspecialchars', array_slice($csvData, 24, 6))));
 
+        // Extract feature columns dynamically
+        $features = [];
+        $shopLines = [];
+
+        foreach ($csvData as $key => $value) {
+            // Check for keys starting with 'feature' (case-insensitive)
+            if (stripos($key, 'feature') === 0) {
+                $features[] = htmlspecialchars(trim($value)); // Sanitize and add to features
+            }
+
+            // Check for keys starting with 'Shop_line' (case-insensitive)
+            if (stripos($key, 'Shop_line') === 0) {
+                $shopLines[] = htmlspecialchars(trim($value)); // Sanitize and add to shopLines
+            }
+        }
+
+        // Filter out any empty or null values
+        $features = array_filter($features);
+        $shopLines = array_filter($shopLines);
+
+        // Assign JSON or null
+        $featuresJson = !empty($features) ? json_encode($features) : null;
+        $shopLinesJson = !empty($shopLines) ? json_encode($shopLines) : null;
+
+        // // Print the extracted data
+        // echo "Extracted Features:\n";
+        // echo "<pre>";
+        // print_r($features);
+        // echo "</pre>";
+
+        // echo "\nExtracted Shop Lines:\n";
+        // echo "<pre>";
+        // print_r($shopLines);
+        // echo "</pre>";
+
+        // echo "\nFeatures JSON:\n";
+        // echo "<pre>";
+        // echo $featuresJson;
+        // echo "</pre>";
+
+        // echo "\nShop Lines JSON:\n";
+        // echo "<pre>";
+        // echo $shopLinesJson;
+        // echo "</pre>";
+
+        // die;
+        
         // Check or insert brand
         $brandId = null;
         $brandCheckQuery = "SELECT id FROM brand WHERE name = ?";

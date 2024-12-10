@@ -179,6 +179,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin: 9px;
         }
         .gallery-item img {
             width: 100%;

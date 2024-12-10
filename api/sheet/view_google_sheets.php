@@ -26,9 +26,10 @@
     </style>
 </head>
 <body>
-    <a href="../admin/dashboard.php">Dashboard</a>
+    
     <h2>Google Sheets List</h2>
     <button onclick="openModal()">Add</button>
+    <button><a href="../../admin/dashboard.php">Dashboard</a></button>
 
     <!-- Message Notifications -->
     <div id="syncMessage" class="message top-right"></div>

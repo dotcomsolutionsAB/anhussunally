@@ -93,19 +93,12 @@
 
         $product = $productResult->fetch_assoc();
         
-
-        // Fetch related products from the same brand
-        $brand = $product['brand_id'];
-        $relatedProductsQuery = "SELECT *, TIMESTAMPDIFF(HOUR, created_at, NOW()) AS hours_since_creation FROM products WHERE brand_id = ? AND sku != ? LIMIT 4"; // Exclude the current product
-        $stmt = $conn->prepare($relatedProductsQuery);
-        $stmt->bind_param("ss", $brand, $sku);
-        $stmt->execute();
-        $relatedProductsResult = $stmt->get_result();
-
 ?>
 
     
-<title><?php echo htmlspecialchars($product['name']); ?></title>
+    <title>
+        <?php echo htmlspecialchars($product['name']); ?>
+    </title>
     
         <!-- shop-details-area -->
         <section class="shop__details-area section-py-120">
@@ -147,6 +140,7 @@
                             <span class="sticker">SALE</span>
                         </div>
                     </div>
+
                     <div class="col-lg-6">
                         <div class="shop__details-content">
                             <!-- <h4 class="price">$150.00 <del>$260.00</del></h4> -->
@@ -186,70 +180,6 @@
                             </div>
                             <p><?php echo nl2br(htmlspecialchars($product['short_description'])); ?></p>
                             
-                            <?php if (!empty($product['features']) && is_string($product['features'])) { ?>
-                                <div class="shop__list-wrap">
-                                    <h3>Short Description:</h3>
-                                    <?php
-                                    // Decode the JSON into an associative array
-                                    $featuresJson = $product['features'];
-                                    $featuresArray = json_decode($featuresJson, true);
-
-                                    // Check if the decoded result is an array
-                                    if (is_array($featuresArray)) {
-                                        // Display the Short Description
-                                        if (!empty($featuresArray['Short Description'])) {
-                                            $shortDescription = htmlspecialchars_decode($featuresArray['Short Description']);
-                                            echo "<p>$shortDescription</p>";
-                                        }
-                                        ?>
-                                        <h3>Features:</h3>
-                                        <ul class="list-wrap">
-                                        <?php
-                                        // Iterate through the feature keys and values
-                                        foreach ($featuresArray as $key => $feature) {
-                                            // Display only features (keys starting with "Features")
-                                            if (strpos($key, 'Features') === 0 && is_string($feature)) {
-                                                // Decode HTML entities to render them properly
-                                                $renderedFeature = htmlspecialchars_decode($feature);
-                                                ?>
-                                                <li><i class="far fa-check-circle"></i><?php echo $renderedFeature; ?></li>
-                                                <?php
-                                            }
-                                        }
-                                        ?>
-                                        </ul>
-                                    <?php } ?>
-                                </div>
-                            <?php } ?>
-
-
-                            <?php if (!empty($product['shop_lines']) && is_string($product['shop_lines'])) { ?>
-                                <div class="shop__list-wrap">
-                                    <h3>Shop Lines:</h3>
-                                    <ul class="list-wrap">
-                                    <?php
-                                        // Decode the JSON into an array
-                                        $shopJson = $product['shop_lines'];
-                                        $shop_lines = json_decode($shopJson, true);
-
-                                        // Check if the decoded result is an array
-                                        if (is_array($shop_lines)) {
-                                            // Iterate through each shop line
-                                            foreach ($shop_lines as $shop) {
-                                                if (is_string($shop)) {
-                                                    // Output the shop line with HTML rendered correctly
-                                                    $renderedShopLine = htmlspecialchars_decode($shop);
-                                                    ?>
-                                                    <li><i class="far fa-check-circle"></i><?php echo $renderedShopLine; ?></li>
-                                                    <?php
-                                                }
-                                            }
-                                        }
-                                    ?>
-                                    </ul>
-                                </div>
-                            <?php } ?>
-
                             <div class="shop__details-qty">
                                 <style>
                                     .whatsapp-button {
@@ -389,16 +319,97 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Description</button>
                                 </li>
-                                <li class="nav-item" role="presentation">
+                                <!-- <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane" type="button" role="tab" aria-controls="reviews-tab-pane" aria-selected="false">Reviews</button>
+                                </li> -->
+                            <?php if (!empty($product['features']) && is_string($product['features'])) { ?>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="features-tab" data-bs-toggle="tab" data-bs-target="#features-tab-pane" type="button" role="tab" aria-controls="features-tab-pane" aria-selected="false">Features</button>
                                 </li>
+                            <?php } ?>
+                            <?php if (!empty($product['shop_lines']) && is_string($product['shop_lines'])) { ?>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="shoplines-tab" data-bs-toggle="tab" data-bs-target="#shoplines-tab-pane" type="button" role="tab" aria-controls="shoplines-tab-pane" aria-selected="false">Shop Lines</button>
+                                </li>
+                            <?php } ?>
                             </ul>
+
                             <div class="tab-content" id="myTabContent2">
-                            <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
-                                <?php if (!empty($product['descriptions'])) { ?>
-                                    <?php echo $product['descriptions']; ?>
+
+                                <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+                                    <?php if (!empty($product['descriptions'])) { ?>
+                                        <?php echo $product['descriptions']; ?>
+                                    <?php } ?>
+                                </div>
+                                
+                                <!-- Features datas -->
+                                <?php if (!empty($product['features']) && is_string($product['features'])) { ?>
+                                    <div class="tab-pane fade" id="features-tab-pane" role="tabpanel" aria-labelledby="features-tab" tabindex="0">
+                                        <div class="shop__list-wrap">
+                                            <h3>Short Description:</h3>
+                                            <?php
+                                            // Decode the JSON into an associative array
+                                            $featuresJson = $product['features'];
+                                            $featuresArray = json_decode($featuresJson, true);
+
+                                            // Check if the decoded result is an array
+                                            if (is_array($featuresArray)) {
+                                                // Display the Short Description
+                                                if (!empty($featuresArray['Short Description'])) {
+                                                    $shortDescription = htmlspecialchars_decode($featuresArray['Short Description']);
+                                                    echo "<p>$shortDescription</p>";
+                                                }
+                                                ?>
+                                                <h3>Features:</h3>
+                                                <ul class="list-wrap">
+                                                <?php
+                                                // Iterate through the feature keys and values
+                                                foreach ($featuresArray as $key => $feature) {
+                                                    // Display only features (keys starting with "Features")
+                                                    if (strpos($key, 'Features') === 0 && is_string($feature)) {
+                                                        // Decode HTML entities to render them properly
+                                                        $renderedFeature = htmlspecialchars_decode($feature);
+                                                        ?>
+                                                        <li><i class="far fa-check-circle"></i><?php echo $renderedFeature; ?></li>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+                                                </ul>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
                                 <?php } ?>
-                            </div>
+
+                                <!-- Shoplines data -->
+                                <?php if (!empty($product['shop_lines']) && is_string($product['shop_lines'])) { ?>
+                                    <div class="tab-pane fade" id="shoplines-tab-pane" role="tabpanel" aria-labelledby="shoplines-tab" tabindex="0">
+                                        <div class="shop__list-wrap">
+                                            <h3>Shop Lines:</h3>
+                                            <ul class="list-wrap">
+                                            <?php
+                                                // Decode the JSON into an array
+                                                $shopJson = $product['shop_lines'];
+                                                $shop_lines = json_decode($shopJson, true);
+
+                                                // Check if the decoded result is an array
+                                                if (is_array($shop_lines)) {
+                                                    // Iterate through each shop line
+                                                    foreach ($shop_lines as $shop) {
+                                                        if (is_string($shop)) {
+                                                            // Output the shop line with HTML rendered correctly
+                                                            $renderedShopLine = htmlspecialchars_decode($shop);
+                                                            ?>
+                                                            <li><i class="far fa-check-circle"></i><?php echo $renderedShopLine; ?></li>
+                                                            <?php
+                                                        }
+                                                    }
+                                                }
+                                            ?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                <?php } ?>
 
                                 <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">
                                     <div class="product-desc-review">
@@ -436,26 +447,56 @@
                     <div class="col-lg-12">
                         <div class="swiper related__shop-active fix">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="shop__item">
-                                        <div class="shop__thumb">
-                                            <img src="assets/img/product/shop_img01.png" alt="img">
-                                            <a href="shop-details.html" class="btn">Add To Cart</a>
-                                            <span class="sticker">NEW</span>
-                                        </div>
-                                        <div class="shop__content">
-                                            <h6 class="price">$250.00 <del>$550.00</del></h6>
-                                            <h4 class="title"><a href="shop-details.html">Concrete Admixtures</a></h4>
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
+                                <?php
+                                    // Fetch related products from the same brand with image details
+                                    $brand = $product['brand_id'];
+                                    $sku = $product['sku'];
+                                    
+                                    $relatedProductsQuery = "
+                                        SELECT 
+                                            p.sku, 
+                                            p.name AS product_name, 
+                                            p.brand_id, 
+                                            b.name AS brand_name,
+                                            p.images,
+                                            TIMESTAMPDIFF(HOUR, p.created_at, NOW()) AS hours_since_creation,
+                                            CONCAT('uploads/assets/', u.file_original_name) AS image_path
+                                        FROM 
+                                            products p
+                                        LEFT JOIN 
+                                            upload u ON p.images = u.id
+                                        LEFT JOIN 
+                                            brand b ON p.brand_id = b.id
+                                        WHERE 
+                                            p.brand_id = ? AND p.sku != ? 
+                                        LIMIT 6";
+                                    
+                                    $stmt = $conn->prepare($relatedProductsQuery);
+                                    $stmt->bind_param("ss", $brand, $sku);
+                                    $stmt->execute();
+                                    $relatedProductsResult = $stmt->get_result();
+                                    ?>
+                                    <?php while ($relatedProduct = $relatedProductsResult->fetch_assoc()) { ?>
+                                        <div class="swiper-slide">
+                                            <div class="shop__item">
+                                                <div class="shop__thumb">
+                                                    <img src="<?php echo htmlspecialchars($relatedProduct['image_path']); ?>" alt="Product Image">
+                                                    <a href="product-details.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="btn">View Details</a>
+                                                    <?php if ($relatedProduct['hours_since_creation'] < 72) { // Mark as NEW if created within the last 72 hours ?>
+                                                        <span class="sticker">NEW</span>
+                                                    <?php } ?>
+                                                </div>
+                                                <div class="shop__content">
+                                                    <h6 class="price">SKU <span><?php echo htmlspecialchars($relatedProduct['sku']); ?></span></h6>
+                                                    <h4 class="title"><a href="product-details.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
+                                                        <?php echo htmlspecialchars($relatedProduct['product_name']); ?>
+                                                    </a></h4>
+                                                    <p class="">Brand :<span><?php echo htmlspecialchars($relatedProduct['brand_name']); ?></span></p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    <?php } ?>
+
                                 <div class="swiper-slide">
                                     <div class="shop__item">
                                         <div class="shop__thumb">
@@ -465,65 +506,6 @@
                                         <div class="shop__content">
                                             <h6 class="price">$170.00</h6>
                                             <h4 class="title"><a href="shop-details.html">Rebar Reinforcement Bars</a></h4>
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="shop__item">
-                                        <div class="shop__thumb">
-                                            <img src="assets/img/product/shop_img03.png" alt="img">
-                                            <a href="shop-details.html" class="btn">Add To Cart</a>
-                                            <span class="sticker">SALE</span>
-                                        </div>
-                                        <div class="shop__content">
-                                            <h6 class="price">$270.00 <del>$460.00</del></h6>
-                                            <h4 class="title"><a href="shop-details.html">Brick Veneer Topis</a></h4>
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="shop__item">
-                                        <div class="shop__thumb">
-                                            <img src="assets/img/product/shop_img04.png" alt="img">
-                                            <a href="shop-details.html" class="btn">Add To Cart</a>
-                                        </div>
-                                        <div class="shop__content">
-                                            <h6 class="price">$300.00</h6>
-                                            <h4 class="title"><a href="shop-details.html">Plywood Trolly</a></h4>
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="shop__item">
-                                        <div class="shop__thumb">
-                                            <img src="assets/img/product/shop_img05.png" alt="img">
-                                            <a href="shop-details.html" class="btn">Add To Cart</a>
-                                            <span class="sticker">SALE</span>
-                                        </div>
-                                        <div class="shop__content">
-                                            <h6 class="price">$320.00 <del>$680.00</del></h6>
-                                            <h4 class="title"><a href="shop-details.html">Roofing Shingles</a></h4>
                                             <div class="rating">
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>

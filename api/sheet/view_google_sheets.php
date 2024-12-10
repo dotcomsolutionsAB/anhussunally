@@ -28,8 +28,10 @@
 <body>
     
     <h2>Google Sheets List</h2>
-    <button onclick="openModal()">Add</button>
-    <button><a href="../../admin/dashboard.php">Dashboard</a></button>
+    <div class="box">
+        <button onclick="openModal()">Add</button>
+        <button><a href="../../admin/dashboard.php" style=" text-decoration: none; cursor: pointer; color: white;">Dashboard</a></button>
+    </div>
 
     <!-- Message Notifications -->
     <div id="syncMessage" class="message top-right"></div>

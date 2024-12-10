@@ -159,7 +159,7 @@
                                         $brandLogo = "uploads/assets/logos/" . $brand['logo'] . "." . $brand['extension'];
                                 ?>
                                     <a href="brands.php?id=<?php echo intval($product['brand_id']); ?>">
-                                        <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($product['name']); ?> Image" style="width:15rem;">
+                                        <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($product['name']); ?> Image" style="width:13rem;">
                                     </a>
                                 <?php
                                 } else {

@@ -55,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             padding: 0;
             display: flex;
             height: 100vh;
+            background-color: #f9f9f9;
         }
         /* Sidebar styles */
         .sidebar {
@@ -76,11 +77,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
         .sidebar a:hover {
             background-color: #575757;
         }
-        /* Navbar styles */
+        /* Main content styles */
         .main-content {
             flex: 1;
             display: flex;
             flex-direction: column;
+            padding: 20px;
         }
         .navbar {
             background-color: #4CAF50;
@@ -89,6 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 20px;
         }
         .navbar h2 {
             margin: 0;
@@ -106,22 +109,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
         .logout-btn:hover {
             background-color: #e60000;
         }
-        /* Content styles */
-        .content {
-            padding: 20px;
-        }
-    </style>
-    <style>
-        .gallery {
+        /* Dashboard Info */
+        .dashboard-info {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            justify-content: space-between;
+            margin-bottom: 20px;
         }
-        .gallery img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border: 1px solid #ccc;
+        .dashboard-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            width: 30%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .dashboard-card h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .dashboard-card input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
             border-radius: 5px;
         }
         .upload-area {
@@ -129,25 +139,67 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             border-radius: 5px;
             padding: 20px;
             text-align: center;
-            margin-bottom: 20px;
             cursor: pointer;
+            background-color: #fff;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         .upload-area.dragover {
             background-color: #f0f8ff;
         }
-        .upload-form input[type="file"] {
-            display: none;
-        }
-        button {
+        .upload-form button {
             padding: 10px 20px;
             background-color: #007BFF;
-            color: #fff;
+            color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
-        button:hover {
+        .upload-form button:hover {
             background-color: #0056b3;
+        }
+        /* Gallery styles */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .gallery-item {
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .gallery-item .gallery-buttons {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            width: 100%;
+        }
+        .gallery-item button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .gallery-item button.delete-btn {
+            background-color: #ff4d4d;
+        }
+        .gallery-item button:hover {
+            opacity: 0.9;
         }
     </style>
 </head>
@@ -159,7 +211,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
 <div class="main-content">
     <!-- Navbar -->
     <?php include("admin_inc/header.php"); ?>
-    <h1>Product Image Gallery</h1>
+
+    <!-- Dashboard Info -->
+    <div class="dashboard-info">
+        <div class="dashboard-card">
+            <h3>Total Images</h3>
+            <p>
+                <?php
+                $imageCount = $conn->query("SELECT COUNT(*) AS count FROM upload WHERE deleted_at IS NULL")->fetch_assoc()['count'];
+                echo $imageCount;
+                ?>
+            </p>
+        </div>
+        <div class="dashboard-card">
+            <h3>Duplicate Names</h3>
+            <p>
+                <?php
+                $duplicateCount = $conn->query("SELECT COUNT(*) AS count FROM upload GROUP BY file_original_name HAVING COUNT(file_original_name) > 1")->num_rows;
+                echo $duplicateCount;
+                ?>
+            </p>
+        </div>
+        <div class="dashboard-card">
+            <h3>Set Upload Path</h3>
+            <form method="POST">
+                <input type="text" name="upload_path" placeholder="Set new upload path" required>
+                <button type="submit">Set Path</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Upload Form -->
     <div class="upload-area" id="uploadArea">
@@ -176,11 +256,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
         // Fetch images from the database
         $result = $conn->query("SELECT * FROM upload WHERE deleted_at IS NULL ORDER BY created_at DESC");
         while ($row = $result->fetch_assoc()) {
-            echo '<img src="' ."../uploads/assets/". $row['file_original_name']. '" alt="' . htmlspecialchars($row['file_original_name']) . '">';
+            echo '<div class="gallery-item">';
+            echo '<img src="../uploads/assets/' . htmlspecialchars($row['file_original_name']) . '" alt="' . htmlspecialchars($row['file_original_name']) . '">';
+            echo '<div class="gallery-buttons">';
+            echo '<button class="details-btn">Details</button>';
+            echo '<button class="delete-btn">Delete</button>';
+            echo '</div>';
+            echo '</div>';
         }
         ?>
     </div>
 </div>
+
 <script>
     const uploadArea = document.getElementById('uploadArea');
     const fileInput = document.getElementById('fileInput');
@@ -203,3 +290,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
 
 </body>
 </html>
+

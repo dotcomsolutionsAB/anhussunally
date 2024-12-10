@@ -92,7 +92,7 @@
             margin-top: 20px;
         }
     </style>
-    <styl>
+    <style>
         .table-container {
             overflow-y: auto;
             margin-top: 20px;

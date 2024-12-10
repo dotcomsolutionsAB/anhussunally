@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
         }
         /* Sidebar styles */
         .sidebar {
-            width: 250px;
+            width: 140px;
             background-color: #333;
             color: white;
             padding-top: 20px;
@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 20px;
+            padding: 5px 10px;
         }
         .navbar {
             background-color: #4CAF50;
@@ -109,6 +109,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
         .logout-btn:hover {
             background-color: #e60000;
         }
+    </style>
+    <style>
         /* Dashboard Info */
         .dashboard-info {
             display: flex;
@@ -128,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             font-size: 18px;
         }
         .dashboard-card input {
-            width: 100%;
+            width: 60%;
             padding: 8px;
             margin-top: 10px;
             border: 1px solid #ddd;
@@ -164,6 +166,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             flex-wrap: wrap;
             gap: 20px;
             margin-top: 20px;
+            background: wheat;
+            overflow: scroll;
         }
         .gallery-item {
             width: 200px;
@@ -214,7 +218,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
 
     <!-- Dashboard Info -->
     <div class="dashboard-info">
-        <div class="dashboard-card">
+        <div class="dashboard-card" style="width: 10%;">
             <h3>Total Images</h3>
             <p>
                 <?php
@@ -223,7 +227,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
                 ?>
             </p>
         </div>
-        <div class="dashboard-card">
+        <div class="dashboard-card" style="width: 10%;">
             <h3>Duplicate Names</h3>
             <p>
                 <?php
@@ -239,16 +243,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
                 <button type="submit">Set Path</button>
             </form>
         </div>
+        <div class="drag-drop">
+            <!-- Upload Form -->
+            <div class="upload-area" id="uploadArea" style=" width: 25vw;">
+                Drag & Drop Images Here or Click to Upload
+            </div>
+            <form class="upload-form" method="POST" enctype="multipart/form-data">
+                <input type="file" name="image[]" id="fileInput" multiple>
+                <button type="submit">Upload Images</button>
+            </form>
+        </div>
     </div>
 
-    <!-- Upload Form -->
-    <div class="upload-area" id="uploadArea">
-        Drag & Drop Images Here or Click to Upload
-    </div>
-    <form class="upload-form" method="POST" enctype="multipart/form-data">
-        <input type="file" name="image[]" id="fileInput" multiple>
-        <button type="submit">Upload Images</button>
-    </form>
+    
 
     <!-- Image Gallery -->
     <div class="gallery">

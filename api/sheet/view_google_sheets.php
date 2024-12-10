@@ -64,7 +64,7 @@
             </tr>
             <?php
             // Include database connection
-            include("../db_connection.php");
+            include("../../connection/db_connect.php");
 
             // Establish database connection
             $conn = new mysqli($host, $username, $password, $dbname);

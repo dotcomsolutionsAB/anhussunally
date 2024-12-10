@@ -316,11 +316,11 @@
                     <div class="col-12">
                         <div class="product-desc-wrap">
                             <ul class="nav nav-tabs" id="myTab2" role="tablist">
-                            <?php if (!empty($product['descriptions']) && trim($product['descriptions']) !== '') { ?>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Description</button>
-                                </li>
-                            <?php } ?>
+                                <?php if (!empty($product['descriptions']) && trim($product['descriptions']) !== '') { ?>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Description</button>
+                                    </li>
+                                <?php } ?>
 
                                 <!-- <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane" type="button" role="tab" aria-controls="reviews-tab-pane" aria-selected="false">Reviews</button>
@@ -479,16 +479,16 @@
                                             <div class="shop__thumb" style="padding:10px;">
                                                 <img src="<?php echo htmlspecialchars($relatedProduct['image_path']); ?>" alt="<?php echo htmlspecialchars($relatedProduct['image_path']); ?>">
                                                 <a href="product-details.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="btn">View Details</a>
-                                                <?php if ($relatedProduct['hours_since_creation'] < 72) { // Mark as NEW if created within the last 72 hours ?>
+                                                <!-- <?php if ($relatedProduct['hours_since_creation'] < 72) { // Mark as NEW if created within the last 72 hours ?>
                                                     <span class="sticker">NEW</span>
-                                                <?php } ?>
+                                                <?php } ?> -->
                                             </div>
                                             <div class="shop__content">
                                                 <h6 class="price">SKU : <span><?php echo htmlspecialchars($relatedProduct['sku']); ?></span></h6>
                                                 <h4 class="title"><a href="product-details.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
                                                     <?php echo strlen($relatedProduct['product_name']) > 36 ? htmlspecialchars(substr($relatedProduct['product_name'], 0, 24)) . '...' : htmlspecialchars($relatedProduct['product_name']); ?>
                                                 </a></h4>
-                                                <p class="">Brand :<span><?php echo htmlspecialchars($relatedProduct['brand_name']); ?></span></p>
+                                                <!-- <p class="">Brand :<span><?php echo htmlspecialchars($relatedProduct['brand_name']); ?></span></p> -->
                                             </div>
                                         </div>
                                     </div>

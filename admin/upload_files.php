@@ -301,17 +301,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
     <!-- Image Gallery -->
     <div class="gallery">
         <?php
-        // Fetch images from the database
-        $result = $conn->query("SELECT * FROM upload WHERE deleted_at IS NULL ORDER BY created_at DESC");
-        while ($row = $result->fetch_assoc()) {
-            echo '<div class="gallery-item">';
-            echo '<img src="../uploads/assets/' . htmlspecialchars($row['file_original_name']) . '" alt="' . htmlspecialchars($row['file_original_name']) . '">';
-            echo '<div class="gallery-buttons">';
-            echo '<button class="details-btn" onclick="viewDetails(' . $id . ')">Details</button>';
-            echo '<button class="delete-btn" onclick="deleteItem(' . $id . ')">Delete</button>';
-            echo '</div>';
-            echo '</div>';
-        }
+            // Fetch images from the database
+            $result = $conn->query("SELECT * FROM upload WHERE deleted_at IS NULL ORDER BY created_at DESC");
+            while ($row = $result->fetch_assoc()) {
+                $id = $row['id'];
+                $fileName = htmlspecialchars($row['file_original_name']);
+                $filePath = "../uploads/assets/" . $fileName;
+                echo '<div class="gallery-item" id="item-' . $id . '">';
+                echo '<img src="' . $filePath . '" alt="' . $fileName . '">';
+                echo '<div class="gallery-buttons">';
+                echo '<button class="details-btn" onclick="viewDetails(' . $id . ')">Details</button>';
+                echo '<button class="delete-btn" onclick="deleteItem(' . $id . ')">Delete</button>';
+                echo '</div>';
+                echo '</div>';
+            }
         ?>
     </div>
 </div>

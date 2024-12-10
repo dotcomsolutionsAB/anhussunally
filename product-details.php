@@ -105,7 +105,7 @@
             <div class="container">
                 <div class="row gutter-24">
                     <div class="col-lg-6">
-                        <div class="shop__details-img">
+                        <div class="shop__details-img" style="display: flex; justify-content: center; align-items: center;">
                             <?php
                                 // Fetch images from the upload table based on the image IDs in the images column
                                 $imageIds = explode(',', $product['images']);
@@ -159,7 +159,7 @@
                                         $brandLogo = "uploads/assets/logos/" . $brand['logo'] . "." . $brand['extension'];
                                 ?>
                                     <a href="brands.php?id=<?php echo intval($product['brand_id']); ?>">
-                                        <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($product['name']); ?> Image" style="width:13rem;">
+                                        <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($product['name']); ?> Image" style="width:8rem;">
                                     </a>
                                 <?php
                                 } else {

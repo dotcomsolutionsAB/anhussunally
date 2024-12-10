@@ -76,7 +76,7 @@
             }
 
             // Fetch all Google Sheets data
-            $query = "SELECT * FROM google_sheet";
+            $query = "SELECT * FROM google_sheet ORDER BY id DESC";
             $result = $conn->query($query);
 
             while ($row = $result->fetch_assoc()): ?>

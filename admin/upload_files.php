@@ -164,7 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
         .gallery {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 0px;
             margin-top: 20px;
             background: wheat;
             overflow: scroll;

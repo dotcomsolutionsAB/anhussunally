@@ -20,5 +20,5 @@ while ($row = $result->fetch_assoc()) {
 // Return the result as JSON
 echo json_encode($sheets);
 
-$conn->close();
+// $conn->close();
 ?>

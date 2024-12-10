@@ -28,7 +28,7 @@
 <body>
     
     <h2>Google Sheets List</h2>
-    <div class="box">
+    <div class="box" style="display: flex;">
         <button onclick="openModal()">Add</button>
         <button><a href="../../admin/dashboard.php" style=" text-decoration: none; cursor: pointer; color: white;">Dashboard</a></button>
     </div>

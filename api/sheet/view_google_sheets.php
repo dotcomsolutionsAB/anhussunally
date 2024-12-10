@@ -196,7 +196,7 @@
                     if (sheets.length > 0) {
                         sheets.forEach(sheet => {
                             // Run add_products.php for each sheet with status 0
-                            fetch(`../add_products.php?id=${sheet.id}`)
+                            fetch(`../add_product.php?id=${sheet.id}`)
                                 .then(response => response.text())
                                 .then(data => {
                                     console.log(`Sheet ID: ${sheet.id} - ${data}`);

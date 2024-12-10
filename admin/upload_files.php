@@ -256,7 +256,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
         </div>
     </div>
 
-    
+    <style>
+        /* Popup styling */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 50%;
+            max-height: 80%;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .popup-content .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            color: red;
+        }
+
+    </style>
+    <!-- Popup for Details -->
+    <div id="detailsPopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <div id="popupDetails"></div>
+        </div>
+    </div>
 
     <!-- Image Gallery -->
     <div class="gallery">
@@ -267,8 +307,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             echo '<div class="gallery-item">';
             echo '<img src="../uploads/assets/' . htmlspecialchars($row['file_original_name']) . '" alt="' . htmlspecialchars($row['file_original_name']) . '">';
             echo '<div class="gallery-buttons">';
-            echo '<button class="details-btn">Details</button>';
-            echo '<button class="delete-btn">Delete</button>';
+            echo '<button class="details-btn" onclick="viewDetails(' . $id . ')">Details</button>';
+            echo '<button class="delete-btn" onclick="deleteItem(' . $id . ')">Delete</button>';
             echo '</div>';
             echo '</div>';
         }
@@ -296,6 +336,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
     });
 </script>
 
+<script>
+    // Delete Function
+    function deleteItem(id) {
+        if (confirm("Are you sure you want to delete this item?")) {
+            fetch('delete_up_file.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById(`item-${id}`).remove();
+                    alert("Item deleted successfully!");
+                } else {
+                    alert("Failed to delete item.");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    }
+
+    // View Details Function
+    function viewDetails(id) {
+        fetch('upload_details.php?id=' + id)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const details = data.details;
+                    document.getElementById('popupDetails').innerHTML = `
+                        <h2>Details</h2>
+                        <p><strong>ID:</strong> ${details.id}</p>
+                        <p><strong>File Name:</strong> ${details.file_original_name}</p>
+                        <p><strong>File Path:</strong> ${details.image_link}</p>
+                        <p><strong>File Size:</strong> ${details.file_size} KB</p>
+                        <p><strong>Type:</strong> ${details.type}</p>
+                        <p><strong>Uploaded At:</strong> ${details.created_at}</p>
+                    `;
+                    document.getElementById('detailsPopup').style.display = 'flex';
+                } else {
+                    alert("Failed to fetch details.");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+    }
+
+    // Close Popup
+    function closePopup() {
+        document.getElementById('detailsPopup').style.display = 'none';
+    }
+
+</script>
 </body>
 </html>
 

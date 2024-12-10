@@ -461,7 +461,7 @@
                                         FROM 
                                             products p
                                         LEFT JOIN 
-                                            upload u ON p.images = u.id
+                                            upload u ON u.id = CAST(SUBSTRING_INDEX(TRIM(BOTH ',' FROM p.images), ',', 1) AS UNSIGNED)
                                         LEFT JOIN 
                                             brand b ON p.brand_id = b.id
                                         WHERE 
@@ -472,47 +472,27 @@
                                     $stmt->bind_param("ss", $brand, $sku);
                                     $stmt->execute();
                                     $relatedProductsResult = $stmt->get_result();
-                                    ?>
-                                    <?php while ($relatedProduct = $relatedProductsResult->fetch_assoc()) { ?>
-                                        <div class="swiper-slide" >
-                                            <div class="shop__item">
-                                                <div class="shop__thumb" style="padding:10px;">
-                                                    <img src="<?php echo htmlspecialchars($relatedProduct['image_path']); ?>" alt="Product Image">
-                                                    <a href="product-details.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="btn">View Details</a>
-                                                    <!-- <?php if ($relatedProduct['hours_since_creation'] < 72) { // Mark as NEW if created within the last 72 hours ?>
-                                                        <span class="sticker">NEW</span>
-                                                    <?php } ?> -->
-                                                </div>
-                                                <div class="shop__content">
-                                                    <h6 class="price">SKU : <span><?php echo htmlspecialchars($relatedProduct['sku']); ?></span></h6>
-                                                    <h4 class="title"><a href="product-details.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
-                                                        <?php echo strlen($relatedProduct['product_name']) > 36 ? htmlspecialchars(substr($relatedProduct['product_name'], 0, 24)) . '...' : htmlspecialchars($relatedProduct['product_name']); ?>
-                                                    </a></h4>
-                                                    <p class="">Brand :<span><?php echo htmlspecialchars($relatedProduct['brand_name']); ?></span></p>
-                                                </div>
+                                ?>
+                                <?php while ($relatedProduct = $relatedProductsResult->fetch_assoc()) { ?>
+                                    <div class="swiper-slide">
+                                        <div class="shop__item">
+                                            <div class="shop__thumb" style="padding:10px;">
+                                                <img src="<?php echo htmlspecialchars($relatedProduct['image_path']); ?>" alt="<?php echo htmlspecialchars($relatedProduct['image_path']); ?>">
+                                                <a href="product-details.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="btn">View Details</a>
+                                                <?php if ($relatedProduct['hours_since_creation'] < 72) { // Mark as NEW if created within the last 72 hours ?>
+                                                    <span class="sticker">NEW</span>
+                                                <?php } ?>
                                             </div>
-                                        </div>
-                                    <?php } ?>
-
-                                <!-- <div class="swiper-slide">
-                                    <div class="shop__item">
-                                        <div class="shop__thumb">
-                                            <img src="assets/img/product/shop_img02.png" alt="img">
-                                            <a href="shop-details.html" class="btn">Add To Cart</a>
-                                        </div>
-                                        <div class="shop__content">
-                                            <h6 class="price">$170.00</h6>
-                                            <h4 class="title"><a href="shop-details.html">Rebar Reinforcement Bars</a></h4>
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
+                                            <div class="shop__content">
+                                                <h6 class="price">SKU : <span><?php echo htmlspecialchars($relatedProduct['sku']); ?></span></h6>
+                                                <h4 class="title"><a href="product-details.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>">
+                                                    <?php echo strlen($relatedProduct['product_name']) > 36 ? htmlspecialchars(substr($relatedProduct['product_name'], 0, 24)) . '...' : htmlspecialchars($relatedProduct['product_name']); ?>
+                                                </a></h4>
+                                                <p class="">Brand :<span><?php echo htmlspecialchars($relatedProduct['brand_name']); ?></span></p>
                                             </div>
                                         </div>
                                     </div>
-                                </div> -->
+                                <?php } ?>
                             </div>
                         </div>
                     </div>

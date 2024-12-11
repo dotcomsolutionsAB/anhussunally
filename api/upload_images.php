@@ -16,8 +16,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check the google_sheet table where status is 1
-$sheetQuery = "SELECT id, path, name FROM google_sheet WHERE status = 1 LIMIT 1";
+// Check the google_sheet table where status is 1 desc limi 1
+$sheetQuery = "SELECT id, path, name FROM google_sheet WHERE status = 1 ORDER BY updated_at DESC LIMIT 1";
 $sheetResult = $conn->query($sheetQuery);
 
 if ($sheetResult && $sheetResult->num_rows > 0) {
@@ -132,8 +132,26 @@ if ($sheetResult && $sheetResult->num_rows > 0) {
     } else {
         echo "No products found with valid image URLs." . "<br>";
     }
+
 } else {
+
     echo "No sheet found with status 1 in google_sheet table." . "<br>";
+}
+
+// Update the updated_at column for the google_sheet table
+if (isset($sheetRow['id'])) {
+    $updateSheetQuery = "UPDATE google_sheet SET updated_at = NOW() WHERE id = ?";
+    $updateSheetStmt = $conn->prepare($updateSheetQuery);
+    $updateSheetStmt->bind_param("i", $sheetRow['id']);
+    
+    if ($updateSheetStmt->execute()) {
+        echo "Google sheet updated_at column updated successfully for ID: " . htmlspecialchars($sheetRow['id']) . "<br>";
+    } else {
+        echo "Failed to update updated_at column for google_sheet ID: " . htmlspecialchars($sheetRow['id']) . "<br>";
+        echo "Error: " . $updateSheetStmt->error . "<br>";
+    }
+
+    $updateSheetStmt->close();
 }
 
 // Close the connection

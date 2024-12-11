@@ -139,7 +139,7 @@
                                     // Construct the logo path
                                     $logoPath = '../uploads/assets/logos/' . $brand['logo'] . '.' . $brand['extension'];
                         ?>
-                            <a href="../product-brands.php?id=<?php echo htmlspecialchars($brand['id']); ?>">
+                            <a href="../brand-products.php?id=<?php echo htmlspecialchars($brand['id']); ?>">
                                 <div class="brand-card">
                                     <img src="<?php echo htmlspecialchars($logoPath); ?>" alt="<?php echo htmlspecialchars($brand['name']); ?>" class="brand-logo">
                                 </div>

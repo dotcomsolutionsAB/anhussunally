@@ -118,19 +118,17 @@ $result = $conn->query($query);
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <a href="dashboard.php">Dashboard</a>
-        <a href="product.php">Products</a>
-        <a href="brand.php">Brands</a>
-        <a href="#">Category</a>
-        <a href="#">Edit</a>
-    </div>
-    </div> <a href="add_brand.php">Add Brand</a></div>
+    
+    
+<!-- Sidebar -->
+<?php include("admin_inc/sidebar.php"); ?>
+
+    <!-- Main content area -->
     <div class="main-content">
-        <div class="navbar">
-            <h2>Brands</h2>
-            <a href="logout.php" class="logout-btn">Logout</a>
-        </div>
+        <div> <a href="add_brand.php">Add Brand</a></div>
+        <!-- Navbar -->
+        <?php include("admin_inc/header.php"); ?>
+        
         <div class="table-container">
             <table>
                 <thead>

@@ -183,7 +183,7 @@
                             echo "<tr>";
                             echo "<td>" . htmlspecialchars($row['id']) . "</td>";
                             echo "<td class='name'>" . htmlspecialchars($row['name']) ."<br> SKU : ". htmlspecialchars($row['sku']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['short_description']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['short_description'] ?? '') . "</td>";
                             echo "<td>" . htmlspecialchars($row['brand_name']) ."<br> / ". htmlspecialchars($row['category_name']) . "</td>";
                             echo "<td>";
                             if (!empty($images)) {

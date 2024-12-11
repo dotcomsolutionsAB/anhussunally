@@ -240,7 +240,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
         <div class="dashboard-card">
             <h3>Set Upload Path</h3>
             <form method="POST">
-                <input type="text" name="upload_path" placeholder="Set new upload path" required>
+                <input type="text" name="upload_path" placeholder="Default is ../uploads/assets/" value="../uploads/assets/" required>
                 <button type="submit">Set Path</button>
             </form>
         </div>

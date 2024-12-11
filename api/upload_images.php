@@ -82,7 +82,7 @@ if ($sheetResult && $sheetResult->num_rows > 0) {
                 }
 
                 // Save the image to the uploads/assets directory
-                $imagePath = __DIR__ . "../uploads/assets/" . $imageName;
+                $imagePath = "../uploads/assets/" . $imageName;
                 if (!file_put_contents($imagePath, $imageContents)) {
                     echo "Failed to save image: " . htmlspecialchars($imagePath) . "<br>";
                     continue;

@@ -49,23 +49,23 @@
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-3 col-sm-6">
                     <div class="footer__widget">
-                        <h4 class="footer__widget-title">Our Brand</h4>
+                        <h4 class="footer__widget-title">Our Brands</h4>
                         <div class="footer__widget-link">
                             <ul class="list-wrap">
                                 <li>
-                                    <a href="services.html"><i class="renova-right-arrow"></i><span>Renovation</span></a>
+                                    <a href="https://anh.ongoingwp.xyz/brand-products.php?id=4"><i class="renova-right-arrow"></i><span>HYLOC</span></a>
                                 </li>
                                 <li>
-                                    <a href="services.html"><i class="renova-right-arrow"></i><span>Construction</span></a>
+                                    <a href="https://anh.ongoingwp.xyz/brand-products.php?id=5"><i class="renova-right-arrow"></i><span>POLYHYDR0N</span></a>
                                 </li>
                                 <li>
-                                    <a href="services.html"><i class="renova-right-arrow"></i><span>Architectural</span></a>
+                                    <a href="https://anh.ongoingwp.xyz/brand-products.php?id=1"><i class="renova-right-arrow"></i><span>WALVOIL</span></a>
                                 </li>
                                 <li>
-                                    <a href="services.html"><i class="renova-right-arrow"></i><span>Development</span></a>
+                                    <a href="https://anh.ongoingwp.xyz/brand-products.php?id=6"><i class="renova-right-arrow"></i><span>WIKA</span></a>
                                 </li>
                                 <li>
-                                    <a href="services.html"><i class="renova-right-arrow"></i><span>Building</span></a>
+                                    <a href="https://anh.ongoingwp.xyz/brand-products.php?id=8"><i class="renova-right-arrow"></i><span>STAUFF</span></a>
                                 </li>
                             </ul>
                         </div>

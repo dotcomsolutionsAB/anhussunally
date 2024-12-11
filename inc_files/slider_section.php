@@ -1,3 +1,13 @@
+<?php
+    // Database configuration
+    $host = 'localhost';
+    $dbname = 'anh';
+    $username = 'anh';
+    $password = '9kCuzrb5tO53$xQtf';
+
+    // Establish database connection
+    $conn = mysqli_connect($host, $username, $password, $dbname);
+?>
     <section class="slider__area">
         <div class="swiper slider-active">
             <div class="swiper-wrapper">
@@ -119,68 +129,28 @@
 
                     <div class="flex">
                         <div class="brand-grid">
-                        <div class="brand-card"><img src="assets/images/ALFOMEGA.png" alt="Brand 1" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/Atos.png" alt="Brand 2" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/Bearing-Pullers.png" alt="Brand 3" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/HYDROLINE.png" alt="Brand 4" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/DOWTY.png" alt="Brand 5" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/DEMCON.png" alt="Brand 6" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/DASFOSS.png" alt="Brand 7" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/EPE.jpg" alt="Brand 8" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/GEMELS1.png" alt="Brand 9" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/HAWE.png" alt="Brand 10" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/HYLOC.png" alt="Brand 11" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/POLYHYDR0N.png" alt="Brand 12" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/Positron-1.png" alt="Brand 13" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/REXROTH.png" alt="Brand 14" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/Spica.jpg" alt="Brand 15" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/Minitest.png" alt="Brand 16" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/VELJAN.png" alt="Brand 17" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/WIKAI.png" alt="Brand 18" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/Water-Test-Pump.png" alt="Brand 19" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/YUKEN.png" alt="Brand 20" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/VIP.png" alt="Brand 21" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/Hose-Crimping-Machine.png" alt="Brand 22" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/STAUFF.png" alt="Brand 23" class="brand-logo"></div>
-                        <div class="brand-card"><img src="assets/images/WALVOIL.png" alt="Brand 24" class="brand-logo"></div>
-                        </div>
+                        <?php
+                            // Fetch brand data from the database
+                            $brandsQuery = "SELECT id,name, logo, extension FROM brand";
+                            $result = $conn->query($brandsQuery);
+
+                            if ($result->num_rows > 0) {
+                                while ($brand = $result->fetch_assoc()) {
+                                    // Construct the logo path
+                                    $logoPath = '../uploads/assets/logos/' . $brand['logo'] . '.' . $brand['extension'];
+                        ?>
+                            <a href="../product-brands.php?id=<?php echo htmlspecialchars($brand['id']); ?>">
+                                <div class="brand-card">
+                                    <img src="<?php echo htmlspecialchars($logoPath); ?>" alt="<?php echo htmlspecialchars($brand['name']); ?>" class="brand-logo">
+                                </div>
+                            </a>
+                        <?php
+                                }
+                            } 
+                        ?>                        
+                    </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- <section class="slider__area">
-        <div class="swiper slider-active">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide slider__bg" data-background="assets/img/slider/slider_bg02.jpg">
-                    <div class="container custom-container-two">
-                        <div class="row">
-                            <div class="col-xl-12 col-lg-12">
-                                <div class="slider__content">
-                                    <span class="sub-title">Founded in 1985</span>
-                                    <h2 class="title">We Build That Everything
-                                    Possible by Us!</h2>
-                                    <a href="contact.html" class="btn">Learn More <img src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide slider__bg" data-background="https://anh.ongoingwp.xyz/images/About_Us.png">
-                    <div class="container custom-container-two">
-                        <div class="row">
-                            <div class="col-xl-12 col-lg-12">
-                                <div class="slider__content">
-                                    <span class="sub-title">Founded in 1985</span>
-                                    <h2 class="title">We Build That Everything
-                                    Possible by Us!</h2>
-                                    <a href="contact.html" class="btn">Learn More <img src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->

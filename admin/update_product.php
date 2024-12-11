@@ -214,65 +214,73 @@ if ($productId && is_numeric($productId)) {
     </style>
 </head>
 <body>
-    <h2>Update Product</h2>
-    <form method="post" action="update_product.php" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?= htmlspecialchars($product['id']); ?>">
+    <!-- Sidebar -->
+    <?php include("admin_inc/sidebar.php"); ?>
 
-        <label>Name:</label>
-        <input type="text" name="name" value="<?= htmlspecialchars($product['name']); ?>" required><br>
+    <!-- Main content area -->
+    <div class="main-content">
+        <!-- Navbar -->
+        <?php include("admin_inc/header.php"); ?>
+        <h2>Update Product</h2>
+        <form method="post" action="update_product.php" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?= htmlspecialchars($product['id']); ?>">
 
-        <label>Description:</label>
-        <textarea name="description" required><?= htmlspecialchars($product['descriptions']); ?></textarea><br>
+            <label>Name:</label>
+            <input type="text" name="name" value="<?= htmlspecialchars($product['name']); ?>" required><br>
 
-        <label>Brand:</label>
-        <select name="brand_id" required>
+            <label>Description:</label>
+            <textarea name="description" required><?= htmlspecialchars($product['descriptions']); ?></textarea><br>
+
+            <label>Brand:</label>
+            <select name="brand_id" required>
+                <?php
+                $brands = $conn->query("SELECT id, name FROM brand");
+                while ($brand = $brands->fetch_assoc()) {
+                    $selected = $product['brand_id'] == $brand['id'] ? 'selected' : '';
+                    echo "<option value='{$brand['id']}' $selected>{$brand['name']}</option>";
+                }
+                ?>
+            </select><br>
+
+            <label>Category:</label>
+            <select name="category_id" required>
+                <?php
+                $categories = $conn->query("SELECT id, name FROM categories");
+                while ($category = $categories->fetch_assoc()) {
+                    $selected = $product['category_id'] == $category['id'] ? 'selected' : '';
+                    echo "<option value='{$category['id']}' $selected>{$category['name']}</option>";
+                }
+                ?>
+            </select><br>
+
+            <label>Current Images:</label>
             <?php
-            $brands = $conn->query("SELECT id, name FROM brand");
-            while ($brand = $brands->fetch_assoc()) {
-                $selected = $product['brand_id'] == $brand['id'] ? 'selected' : '';
-                echo "<option value='{$brand['id']}' $selected>{$brand['name']}</option>";
+            $existingImageIds = explode(',', $product['images']);
+            foreach ($existingImageIds as $imageId) {
+                $imageQuery = $conn->prepare("SELECT file_original_name FROM upload WHERE id = ?");
+                $imageQuery->bind_param("i", $imageId);
+                $imageQuery->execute();
+                $imageResult = $imageQuery->get_result();
+                if ($imageResult && $imageResult->num_rows > 0) {
+                    $imageData = $imageResult->fetch_assoc();
+                    echo '<img src="../uploads/assets/' . htmlspecialchars($imageData['file_original_name']) . '" width="100" alt="Product Image"><br>';
+                }
             }
-            ?>
-        </select><br>
+            ?><br>
 
-        <label>Category:</label>
-        <select name="category_id" required>
-            <?php
-            $categories = $conn->query("SELECT id, name FROM categories");
-            while ($category = $categories->fetch_assoc()) {
-                $selected = $product['category_id'] == $category['id'] ? 'selected' : '';
-                echo "<option value='{$category['id']}' $selected>{$category['name']}</option>";
-            }
-            ?>
-        </select><br>
+            <label>Upload New Images:</label>
+            <input type="file" name="images[]" multiple><br>
 
-        <label>Current Images:</label>
-        <?php
-        $existingImageIds = explode(',', $product['images']);
-        foreach ($existingImageIds as $imageId) {
-            $imageQuery = $conn->prepare("SELECT file_original_name FROM upload WHERE id = ?");
-            $imageQuery->bind_param("i", $imageId);
-            $imageQuery->execute();
-            $imageResult = $imageQuery->get_result();
-            if ($imageResult && $imageResult->num_rows > 0) {
-                $imageData = $imageResult->fetch_assoc();
-                echo '<img src="../uploads/assets/' . htmlspecialchars($imageData['file_original_name']) . '" width="100" alt="Product Image"><br>';
-            }
-        }
-        ?><br>
+            <label>Weight (Kgs):</label>
+            <input type="number" name="weight" value="<?= htmlspecialchars($product['weight']); ?>" step="0.01" required><br>
 
-        <label>Upload New Images:</label>
-        <input type="file" name="images[]" multiple><br>
+            <label>Dimensions (L x B x H cm):</label>
+            <input type="number" name="length" value="<?= htmlspecialchars($product['length']); ?>" step="0.01" required>
+            <input type="number" name="breadth" value="<?= htmlspecialchars($product['breadth']); ?>" step="0.01" required>
+            <input type="number" name="height" value="<?= htmlspecialchars($product['height']); ?>" step="0.01" required><br>
 
-        <label>Weight (Kgs):</label>
-        <input type="number" name="weight" value="<?= htmlspecialchars($product['weight']); ?>" step="0.01" required><br>
-
-        <label>Dimensions (L x B x H cm):</label>
-        <input type="number" name="length" value="<?= htmlspecialchars($product['length']); ?>" step="0.01" required>
-        <input type="number" name="breadth" value="<?= htmlspecialchars($product['breadth']); ?>" step="0.01" required>
-        <input type="number" name="height" value="<?= htmlspecialchars($product['height']); ?>" step="0.01" required><br>
-
-        <button type="submit">Update Product</button>
-    </form>
+            <button type="submit">Update Product</button>
+        </form>
+    </div>
 </body>
 </html>

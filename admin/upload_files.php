@@ -232,10 +232,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             <h3>Duplicate Names</h3>
             <p>
                 <?php
-                $duplicateCount = $conn->query("SELECT COUNT(*) AS count FROM upload GROUP BY file_original_name HAVING COUNT(file_original_name) > 1")->num_rows;
+                $duplicateCountQuery = $conn->query("SELECT file_original_name, COUNT(*) AS count FROM upload GROUP BY file_original_name HAVING COUNT(file_original_name) > 1");
+                $duplicateCount = $duplicateCountQuery->num_rows;
                 echo $duplicateCount;
                 ?>
             </p>
+            <button onclick="showDuplicates()">Show Duplicates</button>
         </div>
         <div class="dashboard-card">
             <h3>Set Upload Path</h3>
@@ -255,6 +257,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             </form>
         </div>
     </div>
+
+    <!-- Modal for displaying duplicates -->
+<div id="duplicatesModal" style="display:none; position:fixed; top:10%; left:10%; background:white; padding:20px; border:1px solid black; z-index:1000; width:80%; height:80%; overflow:auto;">
+    <h3>Duplicate Files</h3>
+    <table border="1" style="width:100%; border-collapse:collapse;">
+        <thead>
+            <tr>
+                <th>File Name</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            // Populate the table with duplicate file names
+            if ($duplicateCount > 0) {
+                while ($row = $duplicateCountQuery->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . htmlspecialchars($row['file_original_name']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['count']) . "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='2'>No duplicate files found.</td></tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+    <button onclick="closeModal()">Close</button>
+</div>
+
 
     <style>
         /* Popup styling */
@@ -318,6 +350,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
         ?>
     </div>
 </div>
+
+<script>
+    // JavaScript to handle modal display
+    function showDuplicates() {
+        document.getElementById('duplicatesModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('duplicatesModal').style.display = 'none';
+    }
+</script>
 
 <script>
     const uploadArea = document.getElementById('uploadArea');

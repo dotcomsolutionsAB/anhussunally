@@ -18,21 +18,50 @@ if ($conn->connect_error) {
 // Handle search query
 if (isset($_GET['query']) && strlen(trim($_GET['query'])) >= 2) {
     $searchQuery = $conn->real_escape_string($_GET['query']);
-    $result = $conn->query("
-        SELECT p.*, c.name as category_name, b.name as brand_name 
-        FROM products p
-        LEFT JOIN categories c ON p.category_id = c.id
-        LEFT JOIN brand b ON p.brand_id = b.id
-        WHERE p.name LIKE '%$searchQuery%' 
-           OR p.sku LIKE '%$searchQuery%' 
-           OR b.name LIKE '%$searchQuery%'
-        ORDER BY p.name ASC
-    ");
-    
+    $query = "
+        SELECT 
+            products.*, 
+            brand.name AS brand_name, 
+            categories.name AS category_name 
+        FROM products 
+        LEFT JOIN brand ON products.brand_id = brand.id 
+        LEFT JOIN categories ON products.category_id = categories.id 
+        WHERE products.name LIKE '%$searchQuery%' 
+           OR products.sku LIKE '%$searchQuery%' 
+           OR brand.name LIKE '%$searchQuery%'
+    ";
+    $result = $conn->query($query);
+
     $data = [];
     if ($result && $result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $data[] = $row;
+            $imageIDs = explode(',', trim($row['images'], ',')); // Extract image IDs
+            $firstImageID = $imageIDs[0] ?? null;
+
+            // Fetch the first image file name
+            $imageName = null;
+            if ($firstImageID) {
+                $imageQuery = "SELECT file_original_name FROM upload WHERE id = $firstImageID";
+                $imageResult = $conn->query($imageQuery);
+                if ($imageResult && $imageResult->num_rows > 0) {
+                    $imageRow = $imageResult->fetch_assoc();
+                    $imageName = $imageRow['file_original_name'];
+                }
+            }
+
+            $data[] = [
+                'id' => $row['id'],
+                'name' => $row['name'],
+                'sku' => $row['sku'],
+                'short_description' => $row['short_description'],
+                'brand_name' => $row['brand_name'],
+                'category_name' => $row['category_name'],
+                'weight' => $row['weight'],
+                'length' => $row['length'],
+                'breadth' => $row['breadth'],
+                'height' => $row['height'],
+                'image' => $imageName ? "../uploads/assets/$imageName" : null, // Construct the image path
+            ];
         }
     }
     echo json_encode($data);

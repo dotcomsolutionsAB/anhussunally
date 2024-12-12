@@ -148,13 +148,38 @@
     <div class="main-content">
         <!-- Navbar -->
         <?php include("admin_inc/header.php"); ?>
-        
-    <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search by Name, SKU, or Brand">
-    </div>
-    <div id="searchResults" class="table-container">
-        <!-- Search results will be displayed here -->
-    </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar" style="margin: 20px 0; display: flex; justify-content: flex-start;">
+            <input type="text" id="searchInput" placeholder="Search by Name, SKU, or Brand" 
+                style="width: 50%; padding: 10px; font-size: 16px; border: 1px solid #ddd; border-radius: 5px;">
+        </div>
+
+        <!-- Search Results -->
+        <div id="searchResults" style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <!-- <div style="width: 300px; border: 1px solid #ddd; border-radius: 8px; padding: 16px; background-color: #fff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                <div style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">Product Name</div>
+                <div style="font-size: 14px; color: #555; margin-bottom: 10px;">SKU: ABC123</div>
+                <img src="../uploads/assets/example.jpg" alt="Product Name" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 10px;">
+                <div style="font-size: 14px; margin-bottom: 10px;">
+                    <strong>Brand:</strong> Brand Name<br>
+                    <strong>Category:</strong> Category Name
+                </div>
+                <div style="font-size: 14px; color: #555; margin-bottom: 10px;">
+                    <strong>Weight:</strong> 1.5kg<br>
+                    <strong>Dimensions:</strong> 10 x 20 x 30
+                </div>
+                <div style="display: flex; justify-content: space-between; gap: 10px;">
+                    <a href="update_product.php?id=1" 
+                        style="flex: 1; padding: 8px 12px; text-align: center; font-size: 14px; color: #fff; background-color: #4CAF50; text-decoration: none; border-radius: 5px;">Update</a>
+                    <a href="delete_product.php?id=1" 
+                        style="flex: 1; padding: 8px 12px; text-align: center; font-size: 14px; color: #fff; background-color: #FF0000; text-decoration: none; border-radius: 5px;" 
+                        onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+                </div>
+            </div> -->
+        </div>
+
+
         <div class="table-container">
             <table>
                 <thead>
@@ -216,84 +241,73 @@
             </table>
         </div>
     </div>
+
 <script>
     document.getElementById("searchInput").addEventListener("input", function () {
-            const query = this.value.trim();
-            const resultsContainer = document.getElementById("searchResults");
+    const query = this.value.trim();
+    const resultsContainer = document.getElementById("searchResults");
 
-            // Clear previous results if query length is less than 2
-            if (query.length < 2) {
-                resultsContainer.innerHTML = "";
-                return;
+    if (query.length < 2) {
+        resultsContainer.innerHTML = "";
+        return;
+    }
+
+    fetch(`search_products.php?query=${encodeURIComponent(query)}`)
+        .then(response => response.json())
+        .then(data => {
+            resultsContainer.innerHTML = "";
+
+            if (data.length > 0) {
+                resultsContainer.style.display = "flex";
+                resultsContainer.style.flexWrap = "wrap";
+                resultsContainer.style.gap = "20px";
+
+                data.forEach(product => {
+                    const productCard = document.createElement("div");
+                    productCard.setAttribute(
+                        "style",
+                        "width: 300px; border: 1px solid #ddd; border-radius: 8px; padding: 16px; background-color: #fff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);"
+                    );
+
+                    const productImage = product.image
+                        ? `<img src="${product.image}" alt="${product.name}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-bottom: 10px;">`
+                        : `<div style="width: 100%; height: 150px; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; color: #aaa; font-size: 14px;">No Image</div>`;
+
+                    productCard.innerHTML = `
+                        <div style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">${product.name}</div>
+                        <div style="font-size: 14px; color: #555; margin-bottom: 10px;">SKU: ${product.sku}</div>
+                        ${productImage}
+                        <div style="font-size: 14px; margin-bottom: 10px;">
+                            <strong>Brand:</strong> ${product.brand_name}<br>
+                            <strong>Category:</strong> ${product.category_name}
+                        </div>
+                        <div style="font-size: 14px; color: #555; margin-bottom: 10px;">
+                            <strong>Weight:</strong> ${product.weight || ""}kg<br>
+                            <strong>Dimensions:</strong> ${product.length || ""} x ${product.breadth || ""} x ${product.height || ""}
+                        </div>
+                        <div style="display: flex; justify-content: space-between; gap: 10px;">
+                            <a href="update_product.php?id=${product.id}" 
+                                style="flex: 1; padding: 8px 12px; text-align: center; font-size: 14px; color: #fff; background-color: #4CAF50; text-decoration: none; border-radius: 5px;">Update</a>
+                            <a href="delete_product.php?id=${product.id}" 
+                                style="flex: 1; padding: 8px 12px; text-align: center; font-size: 14px; color: #fff; background-color: #FF0000; text-decoration: none; border-radius: 5px;" 
+                                onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+                        </div>
+                    `;
+
+                    resultsContainer.appendChild(productCard);
+                });
+            } else {
+                resultsContainer.innerHTML = "<p style='font-size: 16px; text-align: center; margin: 20px 0;'>No results found.</p>";
             }
-
-            // Fetch results from the server
-            fetch(`search_products.php?query=${encodeURIComponent(query)}`)
-                .then(response => response.json())
-                .then(data => {
-                    // Clear existing results
-                    resultsContainer.innerHTML = "";
-
-                    // Build table if there are results
-                    if (data.length > 0) {
-                        const table = document.createElement("table");
-                        table.innerHTML = `
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Brand Name / Category</th>
-                                    <th>Images</th>
-                                    <th>Weight (Kgs) / Dimensions (L x B x H cm)</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${data
-                                    .map(
-                                        product => `
-                                    <tr>
-                                        <td>${product.id}</td>
-                                        <td>${product.name}<br>SKU: ${product.sku}</td>
-                                        <td>${product.short_description || ""}</td>
-                                        <td>${product.brand_name}<br>/ ${product.category_name}</td>
-                                        <td>
-                                            ${
-                                                product.images
-                                                    ? product.images
-                                                        .split(",")
-                                                        .map(
-                                                            image =>
-                                                                `<img class="image-preview" src="../uploads/assets/${image.trim()}" alt="${product.name}">`
-                                                        )
-                                                        .join("")
-                                                    : "No Image"
-                                            }
-                                        </td>
-                                        <td>${product.weight || ""}kg<br>/ ${product.length || ""} x ${product.breadth || ""} x ${product.height || ""}</td>
-                                        <td>
-                                            <a href="update_product.php?id=${product.id}" class="action-btn">Update</a><br>
-                                            <a href="delete_product.php?id=${product.id}" class="action-btn delete-btn" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
-                                        </td>
-                                    </tr>`
-                                    )
-                                    .join("")}
-                            </tbody>
-                        `;
-                        resultsContainer.appendChild(table);
-                    } else {
-                        resultsContainer.innerHTML = "<p>No results found.</p>";
-                    }
-                })
-                .catch(error => console.error("Error fetching search results:", error));
-        });
+        })
+        .catch(error => console.error("Error fetching search results:", error));
+});
 
 </script>
 </body>
 </html>
 
 <?php
-// Close the connection
-$conn->close();
+    // Close the connection
+    $conn->close();
 ?>

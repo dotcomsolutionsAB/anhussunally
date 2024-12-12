@@ -167,7 +167,7 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
                                                                 }
                                                             }
                                                         ?>
-                                                        <img src="<?php echo $imageLink; ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                                                        <img src="<?php echo $imageLink; ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" >
                                                             <a href="product-details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="btn">View Details</a>
                                                         </div>
                                                         <div class='shop__content'>
@@ -210,7 +210,7 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
                                                             }
                                                         }
                                                     ?>
-                                                    <img src="<?php echo $imageLink; ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                                                    <img src="<?php echo $imageLink; ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="height: 200px; object-fit: contain;">
                                                     <a href="product-details.php?sku=<?php echo htmlspecialchars($product['sku']); ?>" class="btn">View Details</a>
                                                 </div>
                                                 <div class='shop__content'>

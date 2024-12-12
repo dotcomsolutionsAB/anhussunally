@@ -1,3 +1,4 @@
+<?php
 function addCategory($categoryName, $parentId = 0) {
     global $conn;
     $categoryId = null;
@@ -48,3 +49,5 @@ function addCategory($categoryName, $parentId = 0) {
     $categoryStmt->close();
     return $categoryId;
 }
+
+?>

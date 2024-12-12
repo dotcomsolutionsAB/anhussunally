@@ -257,7 +257,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             </form>
         </div>
     </div>
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <form method="GET">
+            <input type="text" name="search_query" placeholder="Search file name..." value="<?php echo isset($_GET['search_query']) ? $_GET['search_query'] : ''; ?>" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <!-- Search Results -->
+    <!-- Search Results -->
+<div class="search-results">
+    <?php
+    if (isset($_GET['search_query'])) {
+        $searchQuery = $conn->real_escape_string($_GET['search_query']);
+        $searchResults = $conn->query("SELECT * FROM upload WHERE file_original_name LIKE '%$searchQuery%' AND deleted_at IS NULL");
 
+        if ($searchResults->num_rows > 0) {
+            echo "<ul style='list-style: none; padding: 0; display: flex;'>";
+            while ($row = $searchResults->fetch_assoc()) {
+                $id = $row['id'];
+                $fileName = htmlspecialchars($row['file_original_name']);
+                $filePath = "../uploads/assets/" . $fileName;
+
+                echo "<li style='margin-bottom: 10px;'>";
+                echo "<div class='gallery-item' id='item-{$id}' style='display: flex; flex-direction: column; align-items: center;'>";
+                echo "<img src='{$filePath}' alt='{$fileName}' style='width: 100px; height: auto; display: block; margin-bottom: 5px;'>";
+                echo "<div class='gallery-buttons'>";
+                echo "<button class='details-btn' onclick='viewDetails({$id})'>Details</button>";
+                echo "<button class='delete-btn' onclick='deleteItem({$id})'>Delete</button>";
+                echo "</div>";
+                echo "</div>";
+                echo "</li>";
+            }
+            echo "</ul>";
+        } else {
+            echo "<p>No files found matching '$searchQuery'</p>";
+        }
+    }
+    ?>
+</div>
+
+    
     <!-- Modal for displaying duplicates -->
 <div id="duplicatesModal" style="display:none; position:fixed; top:10%; left:10%; background:white; padding:20px; border:1px solid black; z-index:1000; width:80%; height:80%; overflow:auto;">
     <h3>Duplicate Files</h3>
@@ -434,6 +474,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
     }
 
 </script>
+
 </body>
 </html>
 

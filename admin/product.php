@@ -98,7 +98,7 @@
             margin-top: 20px;
         }
         table {
-            width: 100vw; /* Ensure table width is 100% of the viewport width */
+            width: 85vw; /* Ensure table width is 100% of the viewport width */
             border-collapse: collapse;
         }
         th, td {
@@ -148,7 +148,13 @@
     <div class="main-content">
         <!-- Navbar -->
         <?php include("admin_inc/header.php"); ?>
-
+        
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search by Name, SKU, or Brand">
+    </div>
+    <div id="searchResults" class="table-container">
+        <!-- Search results will be displayed here -->
+    </div>
         <div class="table-container">
             <table>
                 <thead>
@@ -210,6 +216,80 @@
             </table>
         </div>
     </div>
+<script>
+    document.getElementById("searchInput").addEventListener("input", function () {
+            const query = this.value.trim();
+            const resultsContainer = document.getElementById("searchResults");
+
+            // Clear previous results if query length is less than 2
+            if (query.length < 2) {
+                resultsContainer.innerHTML = "";
+                return;
+            }
+
+            // Fetch results from the server
+            fetch(`search_products.php?query=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Clear existing results
+                    resultsContainer.innerHTML = "";
+
+                    // Build table if there are results
+                    if (data.length > 0) {
+                        const table = document.createElement("table");
+                        table.innerHTML = `
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Brand Name / Category</th>
+                                    <th>Images</th>
+                                    <th>Weight (Kgs) / Dimensions (L x B x H cm)</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${data
+                                    .map(
+                                        product => `
+                                    <tr>
+                                        <td>${product.id}</td>
+                                        <td>${product.name}<br>SKU: ${product.sku}</td>
+                                        <td>${product.short_description || ""}</td>
+                                        <td>${product.brand_name}<br>/ ${product.category_name}</td>
+                                        <td>
+                                            ${
+                                                product.images
+                                                    ? product.images
+                                                        .split(",")
+                                                        .map(
+                                                            image =>
+                                                                `<img class="image-preview" src="../uploads/assets/${image.trim()}" alt="${product.name}">`
+                                                        )
+                                                        .join("")
+                                                    : "No Image"
+                                            }
+                                        </td>
+                                        <td>${product.weight || ""}kg<br>/ ${product.length || ""} x ${product.breadth || ""} x ${product.height || ""}</td>
+                                        <td>
+                                            <a href="update_product.php?id=${product.id}" class="action-btn">Update</a><br>
+                                            <a href="delete_product.php?id=${product.id}" class="action-btn delete-btn" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+                                        </td>
+                                    </tr>`
+                                    )
+                                    .join("")}
+                            </tbody>
+                        `;
+                        resultsContainer.appendChild(table);
+                    } else {
+                        resultsContainer.innerHTML = "<p>No results found.</p>";
+                    }
+                })
+                .catch(error => console.error("Error fetching search results:", error));
+        });
+
+</script>
 </body>
 </html>
 

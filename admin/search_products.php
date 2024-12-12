@@ -22,7 +22,7 @@ if (isset($_GET['query']) && strlen(trim($_GET['query'])) >= 2) {
         SELECT p.*, c.name as category_name, b.name as brand_name 
         FROM products p
         LEFT JOIN categories c ON p.category_id = c.id
-        LEFT JOIN brands b ON p.brand_id = b.id
+        LEFT JOIN brand b ON p.brand_id = b.id
         WHERE p.name LIKE '%$searchQuery%' 
            OR p.sku LIKE '%$searchQuery%' 
            OR b.name LIKE '%$searchQuery%'

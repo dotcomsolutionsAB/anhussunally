@@ -6,7 +6,7 @@
                     <img src="../images/about_2.jpg" alt="img">
                     <div class="about__img-content">
                         <h4 class="title">Let’s work together</h4>
-                        <a href="contact.html" class="btn">Contact Us <img src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
+                        <a href="../contact.php" class="btn">Contact Us <img src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
                     </div>
                 </div>
             </div>

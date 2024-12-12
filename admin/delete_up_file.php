@@ -23,14 +23,28 @@ if (!$id) {
 $conn->begin_transaction();
 
 try {
-    // Soft delete from upload table
-    $stmt = $conn->prepare("UPDATE upload SET deleted_at = NOW() WHERE id = ?");
+    // Fetch the file name before deletion
+    $stmt = $conn->prepare("SELECT file_original_name FROM upload WHERE id = ?");
     $stmt->bind_param("i", $id);
     if (!$stmt->execute()) {
-        throw new Exception("Failed to delete file in upload table.");
+        throw new Exception("Failed to fetch file information.");
+    }
+    $result = $stmt->get_result();
+    if ($result->num_rows === 0) {
+        throw new Exception("File not found.");
+    }
+    $row = $result->fetch_assoc();
+    $fileName = $row['file_original_name'];
+    $filePath = "../uploads/assets/" . $fileName;
+
+    // Delete the record from the upload table
+    $stmt = $conn->prepare("DELETE FROM upload WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    if (!$stmt->execute()) {
+        throw new Exception("Failed to delete file from upload table.");
     }
 
-    // Remove the ID from products table's images column
+    // Remove the ID from the products table's images column
     $updateProductsQuery = "
         UPDATE products
         SET images = TRIM(BOTH ',' FROM REPLACE(CONCAT(',', images, ','), CONCAT(',', ?, ','), ','))
@@ -44,6 +58,18 @@ try {
 
     // Commit transaction
     $conn->commit();
+
+    // Delete the actual file from the filesystem
+    if (file_exists($filePath)) {
+        if (!unlink($filePath)) {
+            // Log error but don't throw exception to avoid rollback
+            error_log("Failed to delete file at $filePath");
+        }
+    } else {
+        // Log that file does not exist
+        error_log("File not found at $filePath");
+    }
+
     echo json_encode(['success' => true, 'message' => 'File deleted successfully.']);
 } catch (Exception $e) {
     // Rollback transaction on error

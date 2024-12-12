@@ -74,6 +74,24 @@ if ($result && $result->num_rows > 0) {
         $name = isset($csvData['Product Name']) ? trim(str_replace(['–', '—', '/'], '-', $csvData['Product Name'])) : '';
         $brand = isset($csvData['Brand']) ? trim(str_replace(['–', '—', '/'], ',', $csvData['Brand'])) : '';
 
+        // echo $sku;
+        // echo "<br> he ";
+        // echo $name . "<br> : name ";
+        // echo "<br> he ";
+        // echo $brand;
+        // echo "<br> he ";
+        // Check if any value is empty, whitespace, or not set
+        if (empty($sku)) {
+            die("Error: SKU cannot be empty or consist of only spaces.");
+        }
+        // Check if any value is empty, whitespace, or not set
+        if (empty($brand) || trim($brand) === '') {
+            die("Error:  Brand cannot be empty or consist of only spaces.");
+        }
+        // Check if any value is empty, whitespace, or not set
+        if (empty($name) || trim($name) === '' ) {
+            die("Error:  Product Name cannot be empty or consist of only spaces.");
+        }
         // Check if any value is empty, whitespace, or not set
         if (empty($sku) || empty($name) || empty($brand)) {
             die("Error: SKU, Product Name, or Brand cannot be empty or consist of only spaces.");

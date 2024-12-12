@@ -266,7 +266,7 @@
                     const productCard = document.createElement("div");
                     productCard.setAttribute(
                         "style",
-                        "width: 300px; border: 1px solid #ddd; border-radius: 8px; padding: 16px; background-color: #fff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);"
+                        "width: 200px; border: 1px solid #ddd; border-radius: 8px; padding: 16px; background-color: #fff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);"
                     );
 
                     const productImage = product.image
@@ -274,8 +274,8 @@
                         : `<div style="width: 100%; height: 150px; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; color: #aaa; font-size: 14px;">No Image</div>`;
 
                     productCard.innerHTML = `
-                        <div style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">${product.name}</div>
-                        <div style="font-size: 14px; color: #555; margin-bottom: 10px;">SKU: ${product.sku}</div>
+                        <div style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">${product.name} / <span style="font-size: 14px; color: #555; margin-bottom: 10px;">${product.sku} </span></div>
+                        
                         ${productImage}
                         <div style="font-size: 14px; margin-bottom: 10px;">
                             <strong>Brand:</strong> ${product.brand_name}<br>

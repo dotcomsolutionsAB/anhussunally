@@ -70,9 +70,9 @@ if ($result && $result->num_rows > 0) {
         $csvData = array_combine($header, $data);
 
         // Extract and normalize product data
-        $sku = isset($csvData['SKU']) ? trim(str_replace(['–', '—'], '-', $csvData['SKU'])) : '';
-        $name = isset($csvData['Product Name']) ? trim($csvData['Product Name']) : '';
-        $brand = isset($csvData['Brand']) ? trim($csvData['Brand']) : '';
+        $sku = isset($csvData['SKU']) ? trim(str_replace(['–', '—', '/'], '-', $csvData['SKU'])) : '';
+        $name = isset($csvData['Product Name']) ? trim(str_replace(['–', '—', '/'], '-', $csvData['Product Name'])) : '';
+        $brand = isset($csvData['Brand']) ? trim(str_replace(['–', '—', '/'], ',', $csvData['Brand'])) : '';
 
         // Check if any value is empty, whitespace, or not set
         if (empty($sku) || empty($name) || empty($brand)) {

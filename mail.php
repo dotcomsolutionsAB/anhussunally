@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $message = $conn->real_escape_string($_POST['message']);
 
     // Insert into database
-    $sql = "INSERT INTO mail (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$message')";
+    $sql = "INSERT INTO mail (user_name, email, subject, message) VALUES ('$name', '$email', '$subject', '$message')";
     if ($conn->query($sql) === TRUE) {
         echo json_encode(['status' => 'success', 'message' => 'Message sent successfully!']);
     } else {
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Invalid request method']);
 }
-
-// Close connection
 $conn->close();
+exit; // Terminate script to prevent further output
 ?>
+

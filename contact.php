@@ -159,13 +159,14 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <script>
-       $('#contact-form').on('submit', function (e) {
+        $('#contact-form').on('submit', function (e) {
             e.preventDefault(); // Prevent the default form submission
 
             const formData = $(this).serialize(); // Serialize form data
 
             // AJAX request
             $.post('mail.php', formData, function (response) {
+                console.log('Raw response:', response); // Debug raw response
                 try {
                     const res = JSON.parse(response); // Parse JSON response
                     $('.ajax-response').text(res.message).css('color', res.status === 'success' ? 'green' : 'red');
@@ -180,6 +181,7 @@
                 $('.ajax-response').text('Failed to submit the form. Please try again.').css('color', 'red');
             });
         });
+
     </script>
 
     <!-- JS here -->

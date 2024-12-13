@@ -159,25 +159,25 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <script>
-        // Intercept the form submit event
-        $('#contact-form').on('submit', function (e) {
-            e.preventDefault(); // Prevent default form submission
+       $('#contact-form').on('submit', function (e) {
+            e.preventDefault(); // Prevent the default form submission
 
-            // Serialize form data
-            var formData = $(this).serialize();
+            const formData = $(this).serialize(); // Serialize form data
 
-            // AJAX request to mail.php
+            // AJAX request
             $.post('mail.php', formData, function (response) {
-                var res = JSON.parse(response); // Parse JSON response
-                // Display response message
-                $('.ajax-response').text(res.message).css('color', res.status === 'success' ? 'green' : 'red');
-                // Optionally clear form fields on success
-                if (res.status === 'success') {
-                    $('#contact-form')[0].reset();
+                try {
+                    const res = JSON.parse(response); // Parse JSON response
+                    $('.ajax-response').text(res.message).css('color', res.status === 'success' ? 'green' : 'red');
+                    if (res.status === 'success') {
+                        $('#contact-form')[0].reset(); // Reset the form
+                    }
+                } catch (err) {
+                    console.error('Invalid JSON response', err);
+                    $('.ajax-response').text('Unexpected server response.').css('color', 'red');
                 }
             }).fail(function () {
-                // Handle AJAX errors
-                $('.ajax-response').text('An unexpected error occurred. Please try again.').css('color', 'red');
+                $('.ajax-response').text('Failed to submit the form. Please try again.').css('color', 'red');
             });
         });
     </script>

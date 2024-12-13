@@ -253,56 +253,56 @@
 
     </header>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  
-    <script>
-        document.getElementById('searchInput').addEventListener('input', function() {
-            var query = this.value.trim();
-            if (query.length >= 3) {
-                // Perform the AJAX request only if the query has 3 or more characters
-                fetchSearchResults(query);
-            } else {
-                // Clear search results if query is less than 3 characters
-                document.getElementById('searchResults').innerHTML = '';
-            }
-        });
-    </script>
-    <script>
-        function fetchSearchResults(query) {
-            fetch('search.php?q=' + query)
-                .then(response => response.json())
-                .then(data => {
-                    let resultsHtml = '';
-                    if (data.length > 0) {
-                        data.forEach(item => {
-                            resultsHtml += `
-                                <div class="search-result-item" style="display: flex; justify-content: space-between; align-items: center;">
-                                    <div>
-                                        <strong>${item.product_name}</strong>
-                                        <div style="display: flex; gap: 10px; margin-top: 5px;">
-                                            <p>Category: ${item.category_name}</p>
-                                            <p>Brand: ${item.brand_name}</p>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <img src="uploads/assets/${item.image}" style="width: 70px; height: auto; border-radius: 5px;">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    document.getElementById('searchInput').addEventListener('input', function() {
+        var query = this.value.trim();
+        if (query.length >= 3) {
+            // Perform the AJAX request only if the query has 3 or more characters
+            fetchSearchResults(query);
+        } else {
+            // Clear search results if query is less than 3 characters
+            document.getElementById('searchResults').innerHTML = '';
+        }
+    });
+</script>
+
+<script>
+    function fetchSearchResults(query) {
+        fetch('search.php?q=' + query)
+            .then(response => response.json())
+            .then(data => {
+                let resultsHtml = '';
+                if (data.length > 0) {
+                    data.forEach(item => {
+                        resultsHtml += `
+                            <div class="search-result-item" style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <strong>${item.product_name}</strong>
+                                    <div style="display: flex; gap: 10px; margin-top: 5px;">
+                                        <p>Category: ${item.category_name}</p>
+                                        <p>Brand: ${item.brand_name}</p>
                                     </div>
                                 </div>
-                                <a href="product-details.php?sku=${item.sku}" style="text-decoration: none; color: blue;">View Details</a>
-                                <hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
-                            `;
-                        });
-                    } else {
-                        resultsHtml = '<p>No results found</p>';
-                    }
-                    document.getElementById('searchResults').innerHTML = resultsHtml;
-                })
-                .catch(error => {
-                    console.error('Error fetching search results:', error);
-                });
-        }
-    </script>
-
+                                <div>
+                                    <img src="uploads/assets/${item.image}" style="width: 70px; height: auto; border-radius: 5px;">
+                                </div>
+                            </div>
+                            <a href="product-details.php?sku=${item.sku}" style="text-decoration: none; color: blue;">View Details</a>
+                            <hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+                        `;
+                    });
+                } else {
+                    resultsHtml = '<p>No results found</p>';
+                }
+                document.getElementById('searchResults').innerHTML = resultsHtml;
+            })
+            .catch(error => {
+                console.error('Error fetching search results:', error);
+            });
+    }
+</script>
 
 <script>
     // Listen for input changes in the mobile search bar

@@ -121,7 +121,7 @@
                                 <span class="sub-title">Get In Touch</span>
                                 <h2 class="title">Needs Help? Let’s Get in Touch</h2>
                             </div>
-                            <form id="contact-form" action="assets/mail.php" method="post" class="contact__form">
+                            <form id="contact-form" method="post" class="contact__form">
                                 <div class="row gutter-20">
                                     <div class="col-md-6">
                                         <div class="form-grp">
@@ -156,9 +156,31 @@
     <!-- footer-area -->
     <?php include("inc_files/footer.php"); ?>
     <!-- footer-area-end -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        // Intercept the form submit event
+        $('#contact-form').on('submit', function (e) {
+            e.preventDefault(); // Prevent default form submission
 
+            // Serialize form data
+            var formData = $(this).serialize();
 
-
+            // AJAX request to mail.php
+            $.post('mail.php', formData, function (response) {
+                var res = JSON.parse(response); // Parse JSON response
+                // Display response message
+                $('.ajax-response').text(res.message).css('color', res.status === 'success' ? 'green' : 'red');
+                // Optionally clear form fields on success
+                if (res.status === 'success') {
+                    $('#contact-form')[0].reset();
+                }
+            }).fail(function () {
+                // Handle AJAX errors
+                $('.ajax-response').text('An unexpected error occurred. Please try again.').css('color', 'red');
+            });
+        });
+    </script>
 
     <!-- JS here -->
     <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>

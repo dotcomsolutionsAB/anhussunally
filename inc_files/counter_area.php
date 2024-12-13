@@ -5,7 +5,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="counter__item">
                         <div class="counter__icon">
-                            <i class="fa-envelope"></i>
+                            <i class="fa fa-tasks"></i>
                         </div>
                         <div class="counter__content">
                             <h3 class="count"><span class="odometer" data-count="98"></span>+</h3>
@@ -16,7 +16,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="counter__item">
                         <div class="counter__icon">
-                            <i class="renova-brick"></i>
+                            <i class="fa fa-history"></i>
                         </div>
                         <div class="counter__content">
                             <h3 class="count"><span class="odometer" data-count="15"></span>+</h3>
@@ -27,7 +27,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="counter__item">
                         <div class="counter__icon">
-                            <i class=" renova-user-rating-2"></i>
+                            <i class="fa fa-users"></i>
                         </div>
                         <div class="counter__content">
                             <h3 class="count"><span class="odometer" data-count="65"></span>+</h3>
@@ -38,7 +38,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="counter__item">
                         <div class="counter__icon">
-                            <i class="renova-badge"></i>
+                            <i class="fa fa-building"></i>
                         </div>
                         <div class="counter__content">
                             <h3 class="count"><span class="odometer" data-count="15"></span></h3>

@@ -129,7 +129,7 @@ if ($result && $result->num_rows > 0) {
         $length = !empty($csvData['Lenght (cm)']) ? $csvData['Lenght (cm)'] : 0;
         $breadth = !empty($csvData['Breadth (cm)']) ? $csvData['Breadth (cm)'] : 0;
         $height = !empty($csvData['Height (cm)']) ? $csvData['Height (cm)'] : 0;
-        $images = ''; // Default value for images
+        $images = 0; // Default value for images
 
         // Construct features and shop lines
 

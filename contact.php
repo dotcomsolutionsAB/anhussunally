@@ -160,55 +160,48 @@
     
     <script>
         $('#contact-form').on('submit', function (e) {
-        e.preventDefault(); // Prevent the default form submission
+    e.preventDefault(); // Prevent default form submission
 
-        const formData = $(this).serialize(); // Serialize form data
+    const formData = $(this).serialize(); // Serialize form data
 
-        // AJAX request
-        $.post('mail.php', formData, function (response) {
-                try {
-                    const res = JSON.parse(response); // Parse JSON response
-                    const messageElement = $('.ajax-response');
+    // AJAX request
+    $.post('mail.php', formData, function (response) {
+        console.log('Raw response:', response); // Debug the raw response
 
-                    // Display the message
-                    messageElement.text(res.message).css('color', res.status === 'success' ? 'green' : 'red');
+        try {
+            const res = JSON.parse(response); // Parse JSON response
+            const messageElement = $('.ajax-response');
 
-                    // Automatically hide the message after 10 seconds
-                    setTimeout(function () {
-                        messageElement.text('');
-                    }, 10000);
+            // Display user-friendly message
+            messageElement.text(res.message).css('color', res.status === 'success' ? 'green' : 'red');
 
-                    // Reset the form if success
-                    if (res.status === 'success') {
-                        $('#contact-form')[0].reset();
-                    }
-                } catch (err) {
-                    console.error('Invalid JSON response', err);
-                    const messageElement = $('.ajax-response');
+            // Automatically hide the message after 10 seconds
+            setTimeout(function () {
+                messageElement.text('');
+            }, 10000);
 
-                    // Display error message
-                    messageElement.text('Unexpected server response.').css('color', 'red');
+            // Reset the form on success
+            if (res.status === 'success') {
+                $('#contact-form')[0].reset();
+            }
+        } catch (err) {
+            console.error('Error parsing response:', err); // Debug parsing errors
+            $('.ajax-response').text('Unexpected server response.').css('color', 'red');
+        }
+    }).fail(function (xhr, status, error) {
+        console.error('Network error:', error); // Debug network errors
+        const messageElement = $('.ajax-response');
 
-                    // Automatically hide the message after 10 seconds
-                    setTimeout(function () {
-                        messageElement.text('');
-                    }, 10000);
-                }
-            }).fail(function () {
-                const messageElement = $('.ajax-response');
+        // Display network error message
+        messageElement.text('Failed to submit the form. Please try again.').css('color', 'red');
 
-                // Display network error message
-                messageElement.text('Failed to submit the form. Please try again.').css('color', 'red');
-
-                // Automatically hide the message after 10 seconds
-                setTimeout(function () {
-                    messageElement.text('');
-                }, 10000);
-            });
-        });
-
-
-    </script>
+        // Automatically hide the message after 10 seconds
+        setTimeout(function () {
+            messageElement.text('');
+        }, 10000);
+    });
+});
+</script>
 
     <!-- JS here -->
     <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>

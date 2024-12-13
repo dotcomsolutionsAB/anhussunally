@@ -160,27 +160,53 @@
     
     <script>
         $('#contact-form').on('submit', function (e) {
-            e.preventDefault(); // Prevent the default form submission
+        e.preventDefault(); // Prevent the default form submission
 
-            const formData = $(this).serialize(); // Serialize form data
+        const formData = $(this).serialize(); // Serialize form data
 
-            // AJAX request
-            $.post('mail.php', formData, function (response) {
-                console.log('Raw response:', response); // Debug raw response
+        // AJAX request
+        $.post('mail.php', formData, function (response) {
                 try {
                     const res = JSON.parse(response); // Parse JSON response
-                    $('.ajax-response').text(res.message).css('color', res.status === 'success' ? 'green' : 'red');
+                    const messageElement = $('.ajax-response');
+
+                    // Display the message
+                    messageElement.text(res.message).css('color', res.status === 'success' ? 'green' : 'red');
+
+                    // Automatically hide the message after 10 seconds
+                    setTimeout(function () {
+                        messageElement.text('');
+                    }, 10000);
+
+                    // Reset the form if success
                     if (res.status === 'success') {
-                        $('#contact-form')[0].reset(); // Reset the form
+                        $('#contact-form')[0].reset();
                     }
                 } catch (err) {
                     console.error('Invalid JSON response', err);
-                    $('.ajax-response').text('Unexpected server response.').css('color', 'red');
+                    const messageElement = $('.ajax-response');
+
+                    // Display error message
+                    messageElement.text('Unexpected server response.').css('color', 'red');
+
+                    // Automatically hide the message after 10 seconds
+                    setTimeout(function () {
+                        messageElement.text('');
+                    }, 10000);
                 }
             }).fail(function () {
-                $('.ajax-response').text('Failed to submit the form. Please try again.').css('color', 'red');
+                const messageElement = $('.ajax-response');
+
+                // Display network error message
+                messageElement.text('Failed to submit the form. Please try again.').css('color', 'red');
+
+                // Automatically hide the message after 10 seconds
+                setTimeout(function () {
+                    messageElement.text('');
+                }, 10000);
             });
         });
+
 
     </script>
 

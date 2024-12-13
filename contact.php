@@ -160,13 +160,13 @@
     
     <script>
         $('#contact-form').on('submit', function (e) {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault(); // Prevent the default form submission
 
     const formData = $(this).serialize(); // Serialize form data
 
     // AJAX request
     $.post('mail.php', formData, function (response) {
-        console.log('Raw response:', response); // Debug the raw response
+        console.log('Raw response:', response); // Log the raw response
 
         try {
             const res = JSON.parse(response); // Parse JSON response
@@ -201,6 +201,7 @@
         }, 10000);
     });
 });
+
 </script>
 
     <!-- JS here -->

@@ -99,96 +99,87 @@ $loggedInId = $_SESSION['id'];
             }
 
             // Handle form submission
-            $message = '';
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $name = $conn->real_escape_string($_POST['name']);
-                $specifications = $conn->real_escape_string($_POST['specifications']);
-                $extension = $conn->real_escape_string($_POST['extension']);
-                $logo = '';
+                $message = '';
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $name = $conn->real_escape_string($_POST['name']);
+                    $specifications = $conn->real_escape_string($_POST['specifications']);
+                    $logo = '';
+                    $extension = '';
 
-                // Check if brand already exists
-                $query = "SELECT * FROM brands WHERE name = '$name'";
-                $result = $conn->query($query);
+                    // Check if brand already exists
+                    $query = "SELECT * FROM brands WHERE name = '$name'";
+                    $result = $conn->query($query);
 
-                if ($result->num_rows > 0) {
-                    $message = "Brand with name '$name' already exists!";
-                } else {
-                    // Handle logo upload
-                    if (isset($_FILES['logo']) && $_FILES['logo']['error'] === UPLOAD_ERR_OK) {
-                        $logoName = time() . '_' . $_FILES['logo']['name'];
-                        $targetDir = "uploads/assets/logos/";
-                        if (!file_exists($targetDir)) {
-                            mkdir($targetDir, 0777, true);
+                    if ($result->num_rows > 0) {
+                        $message = "Brand with name '$name' already exists!";
+                    } else {
+                        // Handle logo upload
+                        if (isset($_FILES['logo']) && $_FILES['logo']['error'] === UPLOAD_ERR_OK) {
+                            // Get original file name and extension
+                            $originalFileName = pathinfo($_FILES['logo']['name'], PATHINFO_FILENAME); // File name without extension
+                            $extension = pathinfo($_FILES['logo']['name'], PATHINFO_EXTENSION); // File extension
+
+                            // Rename the logo file with a timestamp to avoid conflicts
+                            $logoName = time() . '_' . $originalFileName . '.' . $extension;
+                            $targetDir = "uploads/brands/";
+                            if (!file_exists($targetDir)) {
+                                mkdir($targetDir, 0777, true);
+                            }
+                            $targetFile = $targetDir . $logoName;
+
+                            // Move uploaded file
+                            if (move_uploaded_file($_FILES['logo']['tmp_name'], $targetFile)) {
+                                $logo = $originalFileName; // Save only the file name without the extension in the database
+                            } else {
+                                $message = "Failed to upload logo.";
+                            }
                         }
-                        $targetFile = $targetDir . $logoName;
 
-                        if (move_uploaded_file($_FILES['logo']['tmp_name'], $targetFile)) {
-                            $logo = $logoName;
-                        } else {
-                            $message = "Failed to upload logo.";
-                        }
-                    }
-
-                    // Insert the new brand
-                    if ($logo !== '' || empty($_FILES['logo']['name'])) {
-                        $sql = "INSERT INTO brands (name, specifications, logo, extension) VALUES ('$name', '$specifications', '$logo', '$extension')";
-                        if ($conn->query($sql) === TRUE) {
-                            $message = "Brand added successfully!";
-                        } else {
-                            $message = "Error: " . $conn->error;
+                        // Insert the new brand
+                        if ($logo !== '' || empty($_FILES['logo']['name'])) {
+                            $sql = "INSERT INTO brands (name, specifications, logo, extension) VALUES ('$name', '$specifications', '$logo', '$extension')";
+                            if ($conn->query($sql) === TRUE) {
+                                $message = "Brand added successfully!";
+                            } else {
+                                $message = "Error: " . $conn->error;
+                            }
                         }
                     }
                 }
-            }
-
-            // Close connection
-            $conn->close();
         ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Brand</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-</head>
-<body>
-<div class="container mt-5">
-    <h2>Add Brand</h2>
+        <div class="container mt-5">
+                <h2>Add Brand</h2>
 
-    <!-- Flash Message -->
-    <?php if (!empty($message)): ?>
-        <div class="alert alert-info">
-            <?php echo $message; ?>
-        </div>
-    <?php endif; ?>
+                <!-- Flash Message -->
+                <?php if (!empty($message)): ?>
+                    <div class="alert alert-info">
+                        <?php echo $message; ?>
+                    </div>
+                <?php endif; ?>
 
-    <!-- Search Form -->
-    <form method="POST" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label for="name" class="form-label">Brand Name</label>
-            <input type="text" name="name" id="name" class="form-control" required>
+                <!-- Search Form -->
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Brand Name</label>
+                        <input type="text" name="name" id="name" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="specifications" class="form-label">Specifications</label>
+                        <textarea name="specifications" id="specifications" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="logo" class="form-label">Brand Logo</label>
+                        <input type="file" name="logo" id="logo" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Brand</button>
+                </form>
         </div>
-        <div class="mb-3">
-            <label for="specifications" class="form-label">Specifications</label>
-            <textarea name="specifications" id="specifications" class="form-control"></textarea>
-        </div>
-        <div class="mb-3">
-            <label for="extension" class="form-label">Extension</label>
-            <input type="text" name="extension" id="extension" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="logo" class="form-label">Brand Logo</label>
-            <input type="file" name="logo" id="logo" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-primary">Add Brand</button>
-    </form>
-</div>
-</body>
-</html>
-
 
     </div>
 </body>
 </html>
+<?php
+// Close connection
+$conn->close();
+?>

@@ -1,3 +1,6 @@
+<?php
+    session_start(); // Start the session
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -121,7 +124,7 @@
                                 <span class="sub-title">Get In Touch</span>
                                 <h2 class="title">Needs Help? Let’s Get in Touch</h2>
                             </div>
-                            <form id="contact-form" method="post" class="contact__form">
+                            <form id="contact-form" method="post" action="mail.php" class="contact__form">
                                 <div class="row gutter-20">
                                     <div class="col-md-6">
                                         <div class="form-grp">
@@ -141,7 +144,16 @@
                                     <textarea name="message" placeholder="Type Your Message"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-two">Send Message</button>
-                                <p class="ajax-response mb-0"></p>
+                                 <!-- Flash Message -->
+                                <?php if (isset($_SESSION['message'])): ?>
+                                    <div class="alert alert-<?php echo $_SESSION['message_type'] === 'success' ? 'success' : 'danger'; ?>" role="alert">
+                                        <?php
+                                        echo $_SESSION['message'];
+                                        unset($_SESSION['message']); // Clear the message
+                                        unset($_SESSION['message_type']); // Clear the message type
+                                        ?>
+                                    </div>
+                                <?php endif; ?>
                             </form>
                         </div>
                     </div>
@@ -156,53 +168,6 @@
     <!-- footer-area -->
     <?php include("inc_files/footer.php"); ?>
     <!-- footer-area-end -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    <script>
-        $('#contact-form').on('submit', function (e) {
-    e.preventDefault(); // Prevent the default form submission
-
-    const formData = $(this).serialize(); // Serialize form data
-
-    // AJAX request
-    $.post('mail.php', formData, function (response) {
-        console.log('Raw response:', response); // Log the raw response
-
-        try {
-            const res = JSON.parse(response); // Parse JSON response
-            const messageElement = $('.ajax-response');
-
-            // Display user-friendly message
-            messageElement.text(res.message).css('color', res.status === 'success' ? 'green' : 'red');
-
-            // Automatically hide the message after 10 seconds
-            setTimeout(function () {
-                messageElement.text('');
-            }, 10000);
-
-            // Reset the form on success
-            if (res.status === 'success') {
-                $('#contact-form')[0].reset();
-            }
-        } catch (err) {
-            console.error('Error parsing response:', err); // Debug parsing errors
-            $('.ajax-response').text('Unexpected server response.').css('color', 'red');
-        }
-    }).fail(function (xhr, status, error) {
-        console.error('Network error:', error); // Debug network errors
-        const messageElement = $('.ajax-response');
-
-        // Display network error message
-        messageElement.text('Failed to submit the form. Please try again.').css('color', 'red');
-
-        // Automatically hide the message after 10 seconds
-        setTimeout(function () {
-            messageElement.text('');
-        }, 10000);
-    });
-});
-
-</script>
 
     <!-- JS here -->
     <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>

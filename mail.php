@@ -1,5 +1,5 @@
 <?php
-
+header('Content-Type: application/json'); // Ensure the correct content type
  // Database configuration
  $host = 'localhost';
  $dbname = 'anh';
@@ -11,18 +11,18 @@ $conn = new mysqli($host, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die(json_encode(['status' => 'error', 'message' => 'Database connection failed: ' . $conn->connect_error]));
+    echo json_encode(['status' => 'error', 'message' => 'Database connection failed: ' . $conn->connect_error]);
+    exit;
 }
 
-// Check if POST request
+// Handle POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Sanitize input data
     $name = $conn->real_escape_string($_POST['name']);
     $email = $conn->real_escape_string($_POST['email']);
     $subject = $conn->real_escape_string($_POST['subject']);
     $message = $conn->real_escape_string($_POST['message']);
 
-    // Insert into database
+    // Insert data into the database
     $sql = "INSERT INTO mail (user_name, email, subject, message) VALUES ('$name', '$email', '$subject', '$message')";
     if ($conn->query($sql) === TRUE) {
         echo json_encode(['status' => 'success', 'message' => 'Message sent successfully!']);
@@ -32,7 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Invalid request method']);
 }
-$conn->close();
-exit; // Terminate script to prevent further output
-?>
 
+// Close the connection
+$conn->close();
+exit; // Prevent further output
+?>

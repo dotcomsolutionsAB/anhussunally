@@ -4,8 +4,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 // Database configuration
 $host = 'localhost';
-$dbname = 'anh';
-$username = 'anh';
+$dbname = 'anhuszzw_html';
+$username = 'anhuszzw_html';
 $password = '9kCuzrb5tO53$xQtf';
 
 // Connect to the database

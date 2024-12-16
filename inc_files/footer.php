@@ -53,19 +53,19 @@
                         <div class="footer__widget-link">
                             <ul class="list-wrap">
                                 <li>
-                                    <a href="https://anh.ongoingwp.xyz/brand-products.php?id=4"><i class="renova-right-arrow"></i><span>HYLOC</span></a>
+                                    <a href="../brand-products.php?id=1"><i class="renova-right-arrow"></i><span>HYLOC</span></a>
                                 </li>
                                 <li>
-                                    <a href="https://anh.ongoingwp.xyz/brand-products.php?id=5"><i class="renova-right-arrow"></i><span>POLYHYDR0N</span></a>
+                                    <a href="../brand-products.php?id=11"><i class="renova-right-arrow"></i><span>POLYHYDR0N</span></a>
                                 </li>
                                 <li>
-                                    <a href="https://anh.ongoingwp.xyz/brand-products.php?id=1"><i class="renova-right-arrow"></i><span>WALVOIL</span></a>
+                                    <a href="../brand-products.php?id=17"><i class="renova-right-arrow"></i><span>WALVOIL</span></a>
                                 </li>
                                 <li>
-                                    <a href="https://anh.ongoingwp.xyz/brand-products.php?id=6"><i class="renova-right-arrow"></i><span>WIKA</span></a>
+                                    <a href="../brand-products.php?id=2"><i class="renova-right-arrow"></i><span>WIKA</span></a>
                                 </li>
                                 <li>
-                                    <a href="https://anh.ongoingwp.xyz/brand-products.php?id=8"><i class="renova-right-arrow"></i><span>STAUFF</span></a>
+                                    <a href="../brand-products.php?id=18"><i class="renova-right-arrow"></i><span>STAUFF</span></a>
                                 </li>
                             </ul>
                         </div>

@@ -5,22 +5,21 @@ error_reporting(E_ALL);
 
 include("connection/db_connect.php");
 
-$conn = mysqli_connect($host, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 // Fetch parent categories for the selected brand
 $categories = [];
+$selectedCategoryId = null;
+
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $brand_id = intval($_GET['id']); // Ensure it's an integer
 
+    // Fetch parent categories for the selected brand
     $categoryQuery = "
         SELECT DISTINCT c.id, c.name
         FROM categories c
         LEFT JOIN categories child ON child.parent_id = c.id
         LEFT JOIN products p ON (p.category_id = c.id OR p.category_id = child.id)
-        WHERE c.parent_id = 0 AND p.brand_id = $brand_id";
+        WHERE c.parent_id = 0 AND p.brand_id = $brand_id
+        ORDER BY c.id ASC"; // Ensure consistent ordering of parent categories
 
     $categoryResult = $conn->query($categoryQuery);
 
@@ -28,21 +27,26 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         while ($row = $categoryResult->fetch_assoc()) {
             $categories[] = $row;
         }
+
+        // Auto-select the first parent category
+        if (!isset($_GET['category_id']) && count($categories) > 0) {
+            $selectedCategoryId = $categories[0]['id']; // Default to the first parent category
+        } else {
+            $selectedCategoryId = intval($_GET['category_id']);
+        }
     }
-} else {
-    echo "<div class='alert alert-warning'>No brand ID provided. Please select a brand to view products.</div>";
 }
 
-// Fetch products and categorize them
+// Fetch products based on the selected category
 $products = [];
 $childCategoryNames = [];
-if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
-    $category_id = intval($_GET['category_id']); // Ensure category_id is an integer
 
+if ($selectedCategoryId) {
     // Fetch child categories for the selected parent category
-    $childCategoriesQuery = "SELECT id, name FROM categories WHERE parent_id = $category_id";
+    $childCategoriesQuery = "SELECT id, name FROM categories WHERE parent_id = $selectedCategoryId";
     $childCategoriesResult = $conn->query($childCategoriesQuery);
     $childCategoryIds = [];
+
     if ($childCategoriesResult->num_rows > 0) {
         while ($row = $childCategoriesResult->fetch_assoc()) {
             $childCategoryIds[] = $row['id'];
@@ -53,19 +57,18 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
     // Fetch products for child categories or parent category
     if (!empty($childCategoryIds)) {
         $childCategoryIdsStr = implode(',', $childCategoryIds);
-
         $productQuery = "
             SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
             FROM products
             LEFT JOIN brand ON products.brand_id = brand.id
-            WHERE (products.category_id IN ($childCategoryIdsStr) OR products.category_id = $category_id)
+            WHERE (products.category_id IN ($childCategoryIdsStr) OR products.category_id = $selectedCategoryId)
               AND products.brand_id = $brand_id";
     } else {
         $productQuery = "
             SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
             FROM products
             LEFT JOIN brand ON products.brand_id = brand.id
-            WHERE products.category_id = $category_id AND products.brand_id = $brand_id";
+            WHERE products.category_id = $selectedCategoryId AND products.brand_id = $brand_id";
     }
 
     $productResult = $conn->query($productQuery);
@@ -76,6 +79,7 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
         }
     }
 }
+
 ?>
 
 <!doctype html>
@@ -108,20 +112,96 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
 </head>
 <body>
     <?php include("inc_files/header.php"); ?>
-    <?php include("inc_files/breadcrumb.php"); ?>
     
     <main class="main-area fix">
-        <section class="shop__area section-py-120">
+        <section class="shop__area section">
+            <div class="breadcrumb__area breadcrumb__bg" data-background="images/page-header.jpg">
+                <div class="">
+                    <div class="row">
+                        <div class="col-lg-12"> 
+                            <div class="blog__cat-list shop__cat-list">
+                                <div class="abc">
+                                    <style>
+                                        .abc {
+                                            display: flex;
+                                            gap: 20px; /* Space between grid items */
+                                            justify-content:center;
+                                            align-items: center; /* Centers items vertically */
+                                        }
+
+                                        .abc div {
+                                            background: #fff;
+                                            padding: 15px 30px; /* Default padding */
+                                            transition: transform 0.3s ease, box-shadow 0.3s ease;
+                                            text-align: center; /* Center content inside div */
+                                            margin: 0px 10px;
+                                        }
+
+                                        .abc div:hover {
+                                            transform: scale(1.1); /* Makes the div "pop" */
+                                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+                                        }
+
+                                        .abc div a {
+                                            font-size: xx-large;
+                                            font-weight: 900;
+                                            text-decoration: none; /* Removes underline */
+                                            color: black; /* Ensures default font color is black */
+                                        }
+
+                                        .abc div a:hover {
+                                            color: var(--tg-theme-primary); /* Changes font color on hover */
+                                        }
+
+                                        /* Mobile-specific styles */
+                                        @media (max-width: 520px) {
+                                            .abc{
+                                                display: grid;
+                                                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Auto grid layout */
+                                                gap: 10px; /* Space between grid items */
+                                                justify-content:space-between;
+                                            }
+                                            .abc div {
+                                                padding: 10px 15px; /* Mobile-specific padding */
+                                                margin: 0px 10px;
+                                            }
+
+                                            .abc div a {
+                                                font-size: large; /* Reduce font size for smaller screens */
+                                            }
+                                        }
+                                    </style>
+                                        <?php
+    if (!empty($categories)) {
+        // Display parent categories
+        foreach ($categories as $category) {
+            $isActive = ($category['id'] == $selectedCategoryId) ? 'style="font-weight:bold; color:var(--tg-theme-primary);"' : '';
+            echo '<div><a href="?category_id=' . $category['id'] . '&id=' . $brand_id . '" ' . $isActive . '>'
+                 . htmlspecialchars($category['name']) . '</a></div>';
+        }
+    } else {
+        echo '<div>No categories found for this brand.</div>';
+    }
+    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+
             <div class="container">
                 <div class="row gutter-24">
-                    <div class="col-xl-9 col-lg-8 order-0 order-lg-2">
+                    <div class="col-xl-12 col-lg-8 order-0 order-lg-2">
                         <div class="shop__top-wrap">
                             <div class="row gutter-24 align-items-center">
                                 <div class="col-md-5">
                                     <div class="shop__showing-result">
                                         <p>Showing <?php echo count($products); ?> Results</p>
                                     </div>
-                                    </div>
+                                </div>
                                 <div class="col-md-7">
                                     <div class="shop__ordering">
                                         <select name="category_id" class="orderby" onchange="window.location.href=this.value;">
@@ -233,7 +313,7 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
                         </div>
                     </div>
 
-                    <div class="col-xl-3 col-lg-4">
+                    <!-- <div class="col-xl-3 col-lg-4">
                         <aside class="shop__sidebar">
                             <div class="blog__widget">
                                 <h4 class="blog__widget-title">Categories</h4>
@@ -252,7 +332,7 @@ if (isset($_GET['category_id']) && !empty($_GET['category_id'])) {
                                 </div>
                             </div>
                         </aside>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>

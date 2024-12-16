@@ -173,6 +173,28 @@
         </div>
         <div class="tgmobile__menu-backdrop"></div>
         <!-- End Mobile Menu -->
+        <style>
+            #searchResults {
+                max-height: 400px; /* Set a max height for the results container */
+                overflow-y: auto; /* Enable vertical scrolling when results exceed max height */
+                padding: 10px; /* Optional padding for better styling */
+                border: 1px solid #ddd; /* Optional border for better visibility */
+                background-color: #fff; /* Ensure the background is white */
+            }
+
+            #searchResults::-webkit-scrollbar {
+                width: 8px; /* Customize scrollbar width */
+            }
+
+            #searchResults::-webkit-scrollbar-thumb {
+                background: #ccc; /* Customize scrollbar color */
+                border-radius: 4px; /* Optional rounded edges */
+            }
+
+            #searchResults::-webkit-scrollbar-thumb:hover {
+                background: #aaa; /* Darker color on hover */
+            }
+        </style>
 
         <!-- header-search -->
         <div class="search__popup">
@@ -256,6 +278,32 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
+    // Get elements
+    const searchOpenBtn = document.querySelector('.search-open-btn');
+    const searchCloseBtn = document.querySelector('.search-close-btn');
+    const searchPopup = document.querySelector('.search__popup');
+    const searchInput = document.getElementById('searchInput');
+
+    // Open search popup
+    searchOpenBtn.addEventListener('click', () => {
+        searchPopup.style.display = 'block'; // Show the search popup
+        searchInput.focus(); // Automatically focus the input box
+    });
+
+    // Close search popup
+    searchCloseBtn.addEventListener('click', () => {
+        searchPopup.style.display = 'none'; // Hide the search popup
+    });
+
+    // Optional: Hide popup if clicked outside
+    document.addEventListener('click', (e) => {
+        if (!searchPopup.contains(e.target) && !searchOpenBtn.contains(e.target)) {
+            searchPopup.style.display = 'none'; // Hide the popup
+        }
+    });
+</script>
+
+<script>
     document.getElementById('searchInput').addEventListener('input', function() {
         var query = this.value.trim();
         if (query.length >= 3) {
@@ -277,19 +325,19 @@
                 if (data.length > 0) {
                     data.forEach(item => {
                         resultsHtml += `
-                            <div class="search-result-item" style="display: flex; justify-content: space-between; align-items: center;">
-                                <div>
+                            <div class="search-result-item" style="display: flex; align-items: center;">
+                                <div style="width: 210px; height: 200px;display: flex; justify-content: center; align-items: center;">
+                                    <img src="uploads/assets/${item.image}" style="width:100%; object-fit:contain; border-radius: 5px;">
+                                </div>    
+                                <div style="padding-left:20px;">
                                     <strong>${item.product_name}</strong>
                                     <div style="display: flex; gap: 10px; margin-top: 5px;">
                                         <p>Category: ${item.category_name}</p>
                                         <p>Brand: ${item.brand_name}</p>
                                     </div>
-                                </div>
-                                <div>
-                                    <img src="uploads/assets/${item.image}" style="width: 70px; height: auto; border-radius: 5px;">
+                                    <a href="product-details.php?sku=${item.sku}" style="text-decoration: none; color: blue;">View Details</a>
                                 </div>
                             </div>
-                            <a href="product-details.php?sku=${item.sku}" style="text-decoration: none; color: blue;">View Details</a>
                             <hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
                         `;
                     });

@@ -31,8 +31,8 @@ try {
             LEFT JOIN brand b ON p.brand_id = b.id
             LEFT JOIN upload u ON u.id = CAST(SUBSTRING_INDEX(p.images, ',', 1) AS UNSIGNED)
             WHERE p.name LIKE :searchQuery OR p.sku LIKE :searchQuery
-            LIMIT 3
         ");
+        // LIMIT 3
         $stmt->execute(['searchQuery' => "%$searchQuery%"]);
 
         // Fetch results

@@ -1,7 +1,7 @@
 <?php
     ini_set('display_errors', 0);
     // Include the database connection file
-    include(__DIR__ . '../connection/db_connect.php');
+    include('../connection/db_connect.php');
 
     // Get the current page name dynamically
     $current_page = basename($_SERVER['PHP_SELF'], ".php");

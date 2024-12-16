@@ -1,14 +1,18 @@
 <?php
 session_start();
+
+// Display errors for debugging
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// Restrict access to logged-in users only
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header('Location: index.php');
     exit;
 }
 
+// Fetch the logged-in user ID from session
 $loggedInId = $_SESSION['id'];
 ?>
 

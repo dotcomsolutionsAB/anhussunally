@@ -1,10 +1,14 @@
 <?php
 session_start();
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Trim the input to remove any extra spaces
-    $id = trim($_POST['id']);
-    $password = trim($_POST['password']);
+    // Trim and sanitize inputs
+    $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
     // Static credentials
     $staticId = "Shaqlin@8905";
@@ -20,5 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: index.php'); // Redirect back to the login page
         exit;
     }
+} else {
+    // Redirect to login page if accessed without POST
+    header('Location: index.php');
+    exit;
 }
 ?>

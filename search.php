@@ -6,8 +6,8 @@ error_reporting(E_ALL);
 try {
     // Database connection
     $host = 'localhost';
-    $dbname = 'anh';
-    $username = 'anh';
+    $dbname = 'anhuszzw_html';
+    $username = 'anhuszzw_html';
     $password = '9kCuzrb5tO53$xQtf';
 
     // Create PDO instance

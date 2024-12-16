@@ -32,16 +32,16 @@
                         <div class="footer__widget-link">
                             <ul class="list-wrap">
                                 <li>
-                                    <a href="about.php"><i class="renova-right-arrow"></i><span>Home</span></a>
+                                    <a href="index.php"><i class="renova-right-arrow"></i><span>Home</span></a>
                                 </li>
                                 <li>
-                                    <a href="contact.php"><i class="renova-right-arrow"></i><span>About Us</span></a>
+                                    <a href="about.php"><i class="renova-right-arrow"></i><span>About Us</span></a>
                                 </li>
                                 <li>
-                                    <a href="services.php"><i class="renova-right-arrow"></i><span>Brands</span></a>
+                                    <a href="#"><i class="renova-right-arrow"></i><span>Brands</span></a>
                                 </li>
                                 <li>
-                                    <a href="team.php"><i class="renova-right-arrow"></i><span>Contact Us</span></a>
+                                    <a href="contact.php"><i class="renova-right-arrow"></i><span>Contact Us</span></a>
                                 </li>
                             </ul>
                         </div>

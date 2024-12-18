@@ -274,9 +274,12 @@
                                 }
                             </style>
                             <div class="cc" style="display:flex; flex-direction:row; justify-content: start; gap: 3vw; align-items: center;">
-                                <a href="images/pdf.png" download="">
-                                    <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="width: 10rem; height: 3rem;">
-                                </a>
+                                <?php if (!empty($product['pdf'])): ?>
+                                    <a href="<?php echo htmlspecialchars($product['pdf'], ENT_QUOTES, 'UTF-8'); ?>" target="_blank" download>
+                                        <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="width: 10rem; height: 3rem;">
+                                    </a>
+                                <?php endif; ?>
+
                                 <a href="mailto:your-email@gmail.com" style="background: #262424; padding: 5px 10px; border-radius: 8px; margin: 5px; width:10rem;
                                         height: 3rem; justify-content: space-evenly;  display: flex; align-items: center;">
                                     <img src="images/gmail.png" alt="mail" style="width: 30px;">

@@ -5,36 +5,42 @@
 
 ?>
 <header>
-        <!-- <div class="tg-header__top">
+        <div class="tg-header__top">
             <div class="container custom-container">
                 <div class="row align-items-center">
                     <div class="col-lg-4">
                         <div class="tg-header__top-menu">
                             <ul class="list-wrap">
-                                <li><a href="contact.php">Contact</a></li>
-                                <li><a href="contact.php">Careers</a></li>
-                                <li><a href="contact.php">Insights</a></li>
+                                <!-- <li><a href=""></a></li> -->
+                                <li>
+                                    <a href="tel:+913322304140">📞 +91-33-2230 4140</a>
+                                </li> |
+                                <li>
+                                    <a href="mailto:hussunally@gmail.com">✉️ hussunally@gmail.com</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="tg-header__top-delivery">
-                            <p>Express delivery and free returns within 24 hours</p>
+                            <p></p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="tg-header__top-social">
                             <ul class="list-wrap">
-                                <li><a href="https://www.facebook.com/" target="_blank">FB</a></li>
-                                <li><a href="https://twitter.com/home" target="_blank">TW</a></li>
-                                <li><a href="https://www.linkedin.com/" target="_blank">LI</a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank">IN</a></li>
+                                <!-- <li><a href=""> Hussunally Buildings</a></li> -->
+                                <li>
+                                    <a href="#">🏢 Post Box No. 68628, Strand Road, Kolkata West Bengal-700 001</a>
+                                </li>
+                                <!-- <li><a href="https://www.linkedin.com/" target="_blank">LI</a></li> -->
+                                <!-- <li><a href="https://www.instagram.com/" target="_blank">IN</a></li> -->
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
         <div id="header-fixed-height"></div>
         <div id="sticky-header" class="tg-header__area">
             <div class="container custom-container">
@@ -42,11 +48,11 @@
                     <div class="col-12">
                         <div class="tgmenu__wrap">
                             <nav class="tgmenu__nav">
-                                <div class="offCanvas-toggle">
+                                <!-- <div class="offCanvas-toggle">
                                     <a href="javascript:void(0)" class="menu-tigger">
                                         <img src="assets/img/icons/bar_icon.svg" alt="" class="injectable">
                                     </a>
-                                </div>
+                                </div> -->
                                 <div class="logo">
                                     <a href="index.php"><img src="images/logo.png" alt="Logo"></a>
                                 </div>
@@ -244,7 +250,9 @@
                 <button><i class="far fa-window-close"></i></button>
             </div>
             <div class="offCanvas__logo mb-30">
-                <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Logo">
+                </a>
             </div>
             <div class="offCanvas__side-info mb-30">
                 <div class="contact-list mb-30">
@@ -255,20 +263,20 @@
                 <div class="contact-list mb-30">
                     <h4>Phone Number</h4>
                     <p>+91-33-2230 4140</p>
-                    <!-- <p>+(090) 0000 0000 000</p> -->
+                    <p>+(090) 0000 0000 000</p>
                 </div>
                 <div class="contact-list mb-30">
                     <h4>Email Address</h4>
                     <p>hussunally@gmail.com</p>
-                    <!-- <p>example.mail@hum.com</p> -->
+                    <p>example.mail@hum.com</p>
                 </div>
             </div>
-            <!-- <div class="offCanvas__social-icon mt-30">
+            <div class="offCanvas__social-icon mt-30">
                 <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
                 <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
                 <a href="javascript:void(0)"><i class="fab fa-google-plus-g"></i></a>
                 <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
-            </div> -->
+            </div>
         </div>
         <div class="offCanvas__overly"></div>
         <!-- offCanvas-menu-end -->

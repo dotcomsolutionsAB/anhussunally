@@ -144,7 +144,6 @@
                     <div class="col-lg-6">
                         <div class="shop__details-content">
                             <!-- <h4 class="price">$150.00 <del>$260.00</del></h4> -->
-                            <h2 class="title"><?php echo htmlspecialchars($product['name']); ?></h2>
                             <div class="review-wrap">
                                 <div class="rating">
                                 <?php
@@ -158,7 +157,7 @@
                                     if (!empty($brand['logo']) && !empty($brand['extension'])) {
                                         $brandLogo = "uploads/assets/logos/" . $brand['logo'] . "." . $brand['extension'];
                                 ?>
-                                    <a href="brands.php?id=<?php echo intval($product['brand_id']); ?>">
+                                    <a href="#">
                                         <img src="<?php echo $brandLogo; ?>" alt="<?php echo htmlspecialchars($product['name']); ?> Image" style="width:8rem;">
                                     </a>
                                 <?php
@@ -178,9 +177,67 @@
                                 </div>
                                 <!-- <span>(2 customer reviews)</span> -->
                             </div>
+                                <h2 class="title"><?php echo htmlspecialchars($product['name']); ?></h2>
+                                <ul class="list-wrap">
+                                    <li class="sd-sku">
+                                        <span class="title" style="min-width: 35px;">SKU:</span>
+                                        <span class="code"><?php echo htmlspecialchars($product['sku']); ?></span>
+                                    </li>
+                                    <?php
+                                        $selt = "SELECT name FROM categories WHERE id = " . intval($product['category_id']);
+                                        $catresult = $conn->query($selt);
+                                            if ($catresult && $catresult->num_rows > 0) {
+                                            $category = $catresult->fetch_assoc();             
+                                            }
+                                    ?>
+                                    <li class="sd-category">
+                                        <span class="title" style="min-width: 35px;">Category:</span>
+                                        <a href="shop-details.html"><?php echo htmlspecialchars($category['name']); ?></a>
+                                    </li>
+                                    <!-- <li class="sd-tag">
+                                        <span class="title">Tags:</span>
+                                        <a href="shop-details.html">automotive parts,</a>
+                                        <a href="shop-details.html">wheels</a>
+                                    </li> -->
+                                </ul>
                             <p><?php echo nl2br(htmlspecialchars($product['short_description'])); ?></p>
                             
-                            <div class="shop__details-qty">
+                            <div class="shop__details-qty" style="display: block!important;">
+                                
+                                <style>
+                                .gmail-button {
+                                    display: inline-flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    background-color: #DB4437;
+                                    color: #fff;
+                                    font-size: 18px;
+                                    font-weight: 600;
+                                    text-decoration: none;
+                                    padding: 12px 25px;
+                                    border-radius: 50px;
+                                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                                    transition: all 0.3s ease;
+                                }
+
+                                .gmail-button img {
+                                    margin-right: 10px;
+                                    width: 24px;
+                                    height: 24px;
+                                }
+
+                                .gmail-button:hover {
+                                    background-color: #C03527;
+                                    transform: translateY(-2px);
+                                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+                                }
+                            </style>
+                                <?php if (!empty($product['pdf'])): ?>
+                                    <a href="<?php echo htmlspecialchars($product['pdf'], ENT_QUOTES, 'UTF-8'); ?>" target="_blank">
+                                        <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="width: 20rem; height: 6rem;">
+                                    </a>
+                                <?php endif; ?>
+                                <br/>
                                 <style>
                                     .whatsapp-button {
                                         margin-top: 20px;
@@ -235,81 +292,14 @@
                                         Mr. Huzefa / An Hussuanally & Co.<br>Need help? Chat via WhatsApp
                                     </a>
                                 </div>
-                                <!-- <div class="cart-plus-minus">
-                                    <form action="#" class="num-block">
-                                        <input type="text" class="in-num" value="1" readonly="">
-                                        <div class="qtybutton-box">
-                                            <span class="plus"><i class="renova-down-arrow"></i></span>
-                                            <span class="minus dis"><i class="renova-down-arrow"></i></span>
-                                        </div>
-                                    </form>
-                                </div> -->
-                            </div>
-                            <style>
-                                .gmail-button {
-                                    display: inline-flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    background-color: #DB4437;
-                                    color: #fff;
-                                    font-size: 18px;
-                                    font-weight: 600;
-                                    text-decoration: none;
-                                    padding: 12px 25px;
-                                    border-radius: 50px;
-                                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-                                    transition: all 0.3s ease;
-                                }
-
-                                .gmail-button img {
-                                    margin-right: 10px;
-                                    width: 24px;
-                                    height: 24px;
-                                }
-
-                                .gmail-button:hover {
-                                    background-color: #C03527;
-                                    transform: translateY(-2px);
-                                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-                                }
-                            </style>
-                            <div class="cc" style="display:flex; flex-direction:row; justify-content: start; gap: 3vw; align-items: center;">
-                                <?php if (!empty($product['pdf'])): ?>
-                                    <a href="<?php echo htmlspecialchars($product['pdf'], ENT_QUOTES, 'UTF-8'); ?>" target="_blank" download>
-                                        <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="width: 10rem; height: 3rem;">
-                                    </a>
-                                <?php endif; ?>
-
-                                <a href="mailto:your-email@gmail.com" style="background: #262424; padding: 5px 10px; border-radius: 8px; margin: 5px; width:10rem;
-                                        height: 3rem; justify-content: space-evenly;  display: flex; align-items: center;">
-                                    <img src="images/gmail.png" alt="mail" style="width: 30px;">
-                                    <span style="color:white; font-weight:bold;">Send Email</span>
+                                <br/>
+                                <a href="mailto:hussunally@gmail.com" style="background: #262424; padding: 5px 10px; border-radius: 8px; margin: 5px; width:20rem;
+                                        height: 6rem; justify-content: space-evenly;  display: flex; align-items: center;">
+                                    <img src="images/gmail.png" alt="mail" style="width: 60px;">
+                                    <span style="color:white; font-weight:bold; font-size:25px">Send Email</span>
                                 </a>
                             </div>
-
                             <div class="shop__details-bottom">
-                                <ul class="list-wrap">
-                                    <li class="sd-sku">
-                                        <span class="title" style="min-width: 35px;">SKU:</span>
-                                        <span class="code"><?php echo htmlspecialchars($product['sku']); ?></span>
-                                    </li>
-                                    <?php
-                                        $selt = "SELECT name FROM categories WHERE id = " . intval($product['category_id']);
-                                        $catresult = $conn->query($selt);
-                                            if ($catresult && $catresult->num_rows > 0) {
-                                            $category = $catresult->fetch_assoc();             
-                                            }
-                                    ?>
-                                    <li class="sd-category">
-                                        <span class="title" style="min-width: 35px;">Category:</span>
-                                        <a href="shop-details.html"><?php echo htmlspecialchars($category['name']); ?></a>
-                                    </li>
-                                    <!-- <li class="sd-tag">
-                                        <span class="title">Tags:</span>
-                                        <a href="shop-details.html">automotive parts,</a>
-                                        <a href="shop-details.html">wheels</a>
-                                    </li> -->
-                                </ul>
                             </div>
                         </div>
                     </div>

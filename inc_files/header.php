@@ -5,7 +5,7 @@
 
 ?>
 <header>
-        <div class="tg-header__top">
+        <div class="tg-header__top" style="display:none;">
             <div class="container custom-container">
                 <div class="row align-items-center">
                     <div class="col-lg-4">
@@ -75,7 +75,7 @@
                                             }
 
                                             // Fetch all brands from the brand table
-                                            $brandQuery = "SELECT id, name FROM brand";
+                                            $brandQuery = "SELECT id, name FROM brand ORDER BY `custom_order`";
                                             $brandResult = $conn->query($brandQuery);
                                         ?>
                                         <li class="menu-item-has-children"><a href="#">Brands</a>

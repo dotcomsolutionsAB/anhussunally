@@ -131,7 +131,7 @@
                         <div class="brand-grid">
                         <?php
                             // Fetch brand data from the database
-                            $brandsQuery = "SELECT id,name, logo, extension FROM brand";
+                            $brandsQuery = "SELECT id,name, logo, extension FROM brand ORDER BY `custom_order`";
                             $result = $conn->query($brandsQuery);
 
                             if ($result->num_rows > 0) {

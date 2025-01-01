@@ -66,7 +66,7 @@
     }   
 ?>
 
-<div class="breadcrumb__area breadcrumb__bg" data-background="images/page-header.jpg">
+<div class="breadcrumb__area breadcrumb__bg" style="display:none;" data-background="images/page-header.jpg">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

@@ -339,9 +339,10 @@
                                 </div>    
                                 <div style="padding-left:20px;">
                                     <strong>${item.product_name}</strong>
-                                    <div style="display: flex; gap: 10px; margin-top: 5px;">
-                                        <p>Category: ${item.category_name}</p>
-                                        <p>Brand: ${item.brand_name}</p>
+                                    <div style="display: flex; flex-direction:column; margin-top: 5px;">
+                                        <p style="margin: 0px;"><span style="font-weight: 500; margin-bottom: 0px;"> SKU: ${item.sku}</span></p>
+                                        <p style="margin: 0px;">Category: ${item.category_name}</p>
+                                        <p style="margin: 0px;">Brand: ${item.brand_name}</p>
                                     </div>
                                     <a href="product-details.php?sku=${item.sku}" style="text-decoration: none; color: blue;">View Details</a>
                                 </div>

@@ -7,8 +7,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Contact Us</title>
-    <meta name="description" content="Renova - Construction Building & Renovation Template">
+    <title>AN Hussunally & Co - Contact Us</title>
+    <meta name="description" content="AN Hussunally & Co">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">

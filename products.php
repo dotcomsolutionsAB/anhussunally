@@ -83,7 +83,7 @@ if (isset($_GET['category_id'])) {
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>AN Hussunally & Co</title>
-    <meta name="description" content="Renova - Construction Building & Renovation Template">
+    <meta name="description" content="AN Hussunally & Co">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">

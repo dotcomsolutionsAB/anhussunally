@@ -115,7 +115,7 @@ if ($selectedCategoryId) {
     
     <main class="main-area fix">
         <section class="shop__area section">
-            <div class="breadcrumb__area breadcrumb__bg" data-background="images/page-header.jpg">
+            <div class="breadcrumb__area">
                 <div class="">
                     <div class="row">
                         <div class="col-lg-12"> 
@@ -123,18 +123,23 @@ if ($selectedCategoryId) {
                                 <div class="abc">
                                     <style>
                                         .abc {
-                                            display: flex;
-                                            gap: 20px; /* Space between grid items */
-                                            justify-content:center;
-                                            align-items: center; /* Centers items vertically */
+                                            display: grid;
+                                            grid-template-columns: repeat(5, 1fr);
+                                            gap: 20px;
+                                            /* display: flex; */
+                                            /* gap: 15px; */
+                                            justify-content: center;
+                                            align-items: center;
+                                            margin: 5px 10px;
                                         }
 
                                         .abc div {
                                             background: #fff;
-                                            padding: 15px 30px; /* Default padding */
+                                            padding: 5px 10px;
+                                            border: 4px solid #11a1dfc2;
                                             transition: transform 0.3s ease, box-shadow 0.3s ease;
                                             text-align: center; /* Center content inside div */
-                                            margin: 0px 10px;
+                                            /* margin: 0px 10px; */
                                         }
 
                                         .abc div:hover {
@@ -143,8 +148,8 @@ if ($selectedCategoryId) {
                                         }
 
                                         .abc div a {
-                                            font-size: xx-large;
-                                            font-weight: 900;
+                                            font-size: x-large;
+                                            font-weight: 600;
                                             text-decoration: none; /* Removes underline */
                                             color: black; /* Ensures default font color is black */
                                         }
@@ -171,18 +176,18 @@ if ($selectedCategoryId) {
                                             }
                                         }
                                     </style>
-                                        <?php
-    if (!empty($categories)) {
-        // Display parent categories
-        foreach ($categories as $category) {
-            $isActive = ($category['id'] == $selectedCategoryId) ? 'style="font-weight:bold; color:var(--tg-theme-primary);"' : '';
-            echo '<div><a href="?category_id=' . $category['id'] . '&id=' . $brand_id . '" ' . $isActive . '>'
-                 . htmlspecialchars($category['name']) . '</a></div>';
-        }
-    } else {
-        echo '<div>No categories found for this brand.</div>';
-    }
-    ?>
+                                    <?php
+                                        if (!empty($categories)) {
+                                            // Display parent categories
+                                            foreach ($categories as $category) {
+                                                $isActive = ($category['id'] == $selectedCategoryId) ? 'style="font-weight:bold; color:var(--tg-theme-primary);"' : '';
+                                                echo '<div><a href="?category_id=' . $category['id'] . '&id=' . $brand_id . '" ' . $isActive . '>'
+                                                    . htmlspecialchars($category['name']) . '</a></div>';
+                                            }
+                                        } else {
+                                            echo '<div>No categories found for this brand.</div>';
+                                        }
+                                    ?>
                                 </div>
                             </div>
                         </div>

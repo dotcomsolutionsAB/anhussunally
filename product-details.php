@@ -192,7 +192,7 @@
                                     ?>
                                     <li class="sd-category">
                                         <span class="title" style="min-width: 35px;">Category:</span>
-                                        <a href="shop-details.html"><?php echo htmlspecialchars($category['name']); ?></a>
+                                        <a href="#"><?php echo htmlspecialchars($category['name']); ?></a>
                                     </li>
                                     <!-- <li class="sd-tag">
                                         <span class="title">Tags:</span>
@@ -204,7 +204,7 @@
                             
                             <div class="shop__details-qty" style="display: block!important;">
                                 
-                                <style>
+                            <style>
                                 .gmail-button {
                                     display: inline-flex;
                                     align-items: center;
@@ -450,7 +450,7 @@
                                             b.name AS brand_name,
                                             p.images,
                                             TIMESTAMPDIFF(HOUR, p.created_at, NOW()) AS hours_since_creation,
-                                            CONCAT('uploads/assets/', u.file_original_name) AS image_path
+                                            u.file_original_name AS image_path
                                         FROM 
                                             products p
                                         LEFT JOIN 
@@ -470,7 +470,11 @@
                                     <div class="swiper-slide">
                                         <div class="shop__item">
                                             <div class="shop__thumb" style="padding:10px;">
-                                                <img src="<?php echo htmlspecialchars($relatedProduct['image_path']); ?>" alt="<?php echo htmlspecialchars($relatedProduct['image_path']); ?>">
+                                            <img 
+                                                src="uploads/assets/<?php echo htmlspecialchars($relatedProduct['image_path'], ENT_QUOTES, 'UTF-8'); ?>" 
+                                                alt="<?php echo htmlspecialchars($relatedProduct['image_path'], ENT_QUOTES, 'UTF-8'); ?>"
+                                            >
+
                                                 <a href="product-details.php?sku=<?php echo htmlspecialchars($relatedProduct['sku']); ?>" class="btn">View Details</a>
                                                 <!-- <?php if ($relatedProduct['hours_since_creation'] < 72) { // Mark as NEW if created within the last 72 hours ?>
                                                     <span class="sticker">NEW</span>

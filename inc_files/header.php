@@ -128,7 +128,8 @@
                                 <div class="tgmenu__action">
                                     <ul class="list-wrap">
                                         <li class="header-search">
-                                            <a href="javascript:void(0)" class="search-open-btn"><i class="renova-search"></i></a>
+                                            <a href="javascript:void(0)" class="search-open-btn" style="display: flex; justify-content: center;
+    align-items: center; gap:10px; font-size: x-large;"><i class="renova-search"></i>Search</a>
                                         </li>
                                         <!-- <li class="header-cart">
                                             <a href="shop.html" class="cart-count">
@@ -178,29 +179,26 @@
             </nav>
         </div>
         <div class="tgmobile__menu-backdrop"></div>
-        <!-- End Mobile Menu -->
-        <style>
-            #searchResults {
-                max-height: 400px; /* Set a max height for the results container */
-                overflow-y: auto; /* Enable vertical scrolling when results exceed max height */
-                padding: 10px; /* Optional padding for better styling */
-                border: 1px solid #ddd; /* Optional border for better visibility */
-                background-color: #fff; /* Ensure the background is white */
-            }
-
-            #searchResults::-webkit-scrollbar {
-                width: 8px; /* Customize scrollbar width */
-            }
-
-            #searchResults::-webkit-scrollbar-thumb {
-                background: #ccc; /* Customize scrollbar color */
-                border-radius: 4px; /* Optional rounded edges */
-            }
-
-            #searchResults::-webkit-scrollbar-thumb:hover {
-                background: #aaa; /* Darker color on hover */
-            }
-        </style>
+            <!-- End Mobile Menu -->
+            <style>
+                #searchResults {
+                    max-height: 400px; /* Set a max height for the results container */
+                    overflow-y: auto; /* Enable vertical scrolling when results exceed max height */
+                    padding: 10px; /* Optional padding for better styling */
+                    border: 1px solid #ddd; /* Optional border for better visibility */
+                    background-color: #fff; /* Ensure the background is white */
+                }
+                #searchResults::-webkit-scrollbar {
+                    width: 8px; /* Customize scrollbar width */
+                }
+                #searchResults::-webkit-scrollbar-thumb {
+                    background: #ccc; /* Customize scrollbar color */
+                    border-radius: 4px; /* Optional rounded edges */
+                }
+                #searchResults::-webkit-scrollbar-thumb:hover {
+                    background: #aaa; /* Darker color on hover */
+                }
+            </style>
 
         <!-- header-search -->
         <div class="search__popup">
@@ -286,6 +284,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
+    
     // Get elements
     const searchOpenBtn = document.querySelector('.search-open-btn');
     const searchCloseBtn = document.querySelector('.search-close-btn');

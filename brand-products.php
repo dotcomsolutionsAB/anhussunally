@@ -1,85 +1,84 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 
-include("connection/db_connect.php");
-
-// Fetch parent categories for the selected brand
-$categories = [];
-$selectedCategoryId = null;
-
-if (isset($_GET['id']) && !empty($_GET['id'])) {
-    $brand_id = intval($_GET['id']); // Ensure it's an integer
+    include("connection/db_connect.php");
 
     // Fetch parent categories for the selected brand
-    $categoryQuery = "
-        SELECT DISTINCT c.id, c.name
-        FROM categories c
-        LEFT JOIN categories child ON child.parent_id = c.id
-        LEFT JOIN products p ON (p.category_id = c.id OR p.category_id = child.id)
-        WHERE c.parent_id = 0 AND p.brand_id = $brand_id
-        ORDER BY c.id ASC"; // Ensure consistent ordering of parent categories
+    $categories = [];
+    $selectedCategoryId = null;
 
-    $categoryResult = $conn->query($categoryQuery);
+    if (isset($_GET['id']) && !empty($_GET['id'])) {
+        $brand_id = intval($_GET['id']); // Ensure it's an integer
 
-    if ($categoryResult->num_rows > 0) {
-        while ($row = $categoryResult->fetch_assoc()) {
-            $categories[] = $row;
+        // Fetch parent categories for the selected brand
+        $categoryQuery = "
+            SELECT DISTINCT c.id, c.name
+            FROM categories c
+            LEFT JOIN categories child ON child.parent_id = c.id
+            LEFT JOIN products p ON (p.category_id = c.id OR p.category_id = child.id)
+            WHERE c.parent_id = 0 AND p.brand_id = $brand_id
+            ORDER BY c.id ASC"; // Ensure consistent ordering of parent categories
+
+        $categoryResult = $conn->query($categoryQuery);
+
+        if ($categoryResult->num_rows > 0) {
+            while ($row = $categoryResult->fetch_assoc()) {
+                $categories[] = $row;
+            }
+
+            // Auto-select the first parent category
+            if (!isset($_GET['category_id']) && count($categories) > 0) {
+                $selectedCategoryId = $categories[0]['id']; // Default to the first parent category
+            } else {
+                $selectedCategoryId = intval($_GET['category_id']);
+            }
+        }
+    }
+
+    // Fetch products based on the selected category
+    $products = [];
+    $childCategoryNames = [];
+
+    if ($selectedCategoryId) {
+        // Fetch child categories for the selected parent category
+        $childCategoriesQuery = "SELECT id, name FROM categories WHERE parent_id = $selectedCategoryId";
+        $childCategoriesResult = $conn->query($childCategoriesQuery);
+        $childCategoryIds = [];
+
+        if ($childCategoriesResult->num_rows > 0) {
+            while ($row = $childCategoriesResult->fetch_assoc()) {
+                $childCategoryIds[] = $row['id'];
+                $childCategoryNames[$row['id']] = $row['name'];
+            }
         }
 
-        // Auto-select the first parent category
-        if (!isset($_GET['category_id']) && count($categories) > 0) {
-            $selectedCategoryId = $categories[0]['id']; // Default to the first parent category
+        // Fetch products for child categories or parent category
+        if (!empty($childCategoryIds)) {
+            $childCategoryIdsStr = implode(',', $childCategoryIds);
+            $productQuery = "
+                SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
+                FROM products
+                LEFT JOIN brand ON products.brand_id = brand.id
+                WHERE (products.category_id IN ($childCategoryIdsStr) OR products.category_id = $selectedCategoryId)
+                AND products.brand_id = $brand_id";
         } else {
-            $selectedCategoryId = intval($_GET['category_id']);
+            $productQuery = "
+                SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
+                FROM products
+                LEFT JOIN brand ON products.brand_id = brand.id
+                WHERE products.category_id = $selectedCategoryId AND products.brand_id = $brand_id";
+        }
+
+        $productResult = $conn->query($productQuery);
+
+        if ($productResult && $productResult->num_rows > 0) {
+            while ($row = $productResult->fetch_assoc()) {
+                $products[] = $row;
+            }
         }
     }
-}
-
-// Fetch products based on the selected category
-$products = [];
-$childCategoryNames = [];
-
-if ($selectedCategoryId) {
-    // Fetch child categories for the selected parent category
-    $childCategoriesQuery = "SELECT id, name FROM categories WHERE parent_id = $selectedCategoryId";
-    $childCategoriesResult = $conn->query($childCategoriesQuery);
-    $childCategoryIds = [];
-
-    if ($childCategoriesResult->num_rows > 0) {
-        while ($row = $childCategoriesResult->fetch_assoc()) {
-            $childCategoryIds[] = $row['id'];
-            $childCategoryNames[$row['id']] = $row['name'];
-        }
-    }
-
-    // Fetch products for child categories or parent category
-    if (!empty($childCategoryIds)) {
-        $childCategoryIdsStr = implode(',', $childCategoryIds);
-        $productQuery = "
-            SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
-            FROM products
-            LEFT JOIN brand ON products.brand_id = brand.id
-            WHERE (products.category_id IN ($childCategoryIdsStr) OR products.category_id = $selectedCategoryId)
-              AND products.brand_id = $brand_id";
-    } else {
-        $productQuery = "
-            SELECT products.*, brand.name AS brand_name, TIMESTAMPDIFF(HOUR, products.created_at, NOW()) AS hours_since_creation
-            FROM products
-            LEFT JOIN brand ON products.brand_id = brand.id
-            WHERE products.category_id = $selectedCategoryId AND products.brand_id = $brand_id";
-    }
-
-    $productResult = $conn->query($productQuery);
-
-    if ($productResult && $productResult->num_rows > 0) {
-        while ($row = $productResult->fetch_assoc()) {
-            $products[] = $row;
-        }
-    }
-}
-
 ?>
 
 <!doctype html>

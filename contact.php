@@ -107,7 +107,7 @@
                                     </div>
                                     <div class="content">
                                         <span>Call Us 24/7</span>
-                                        <h2 class="title"><a href="tel:0123456789">+91-33-2230-4140</a></h2>
+                                        <h2 class="title"><a href="tel:+918240652588">+91 82406 52588</a></h2>
                                     </div>
                                 </div>
                             </div>

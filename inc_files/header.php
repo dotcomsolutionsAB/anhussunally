@@ -313,11 +313,11 @@
 <script>
     document.getElementById('searchInput').addEventListener('input', function() {
         var query = this.value.trim();
-        if (query.length >= 3) {
-            // Perform the AJAX request only if the query has 3 or more characters
+        if (query.length >= 2) {
+            // Perform the AJAX request only if the query has 2 or more characters
             fetchSearchResults(query);
         } else {
-            // Clear search results if query is less than 3 characters
+            // Clear search results if query is less than 2 characters
             document.getElementById('searchResults').innerHTML = '';
         }
     });
@@ -364,7 +364,7 @@
     // Listen for input changes in the mobile search bar
     document.getElementById('mobileSearchInput').addEventListener('input', function () {
         const query = this.value.trim();
-        if (query.length >= 3) {
+        if (query.length >= 2) {
             fetchMobileSearchResults(query);
         } else {
             document.getElementById('mobile-search-results').innerHTML = '';

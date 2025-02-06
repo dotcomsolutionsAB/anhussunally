@@ -218,9 +218,9 @@ if ($result && $result->num_rows > 0) {
 
         if ($existingProduct) {
             // Update product
-            $updateQuery = "UPDATE products SET name = ?, descriptions = ?, short_description = ?, brand_id = ?, category_id = ?, image_url = ?,images=?, pdf = ?, weight = ?, length = ?, breadth = ?, height = ?, features = ?, shop_lines = ? WHERE sku = ?";
+            $updateQuery = "UPDATE products SET name = ?, descriptions = ?, short_description = ?, brand_id = ?, category_id = ?, image_url = ?, pdf = ?, weight = ?, length = ?, breadth = ?, height = ?, features = ?, shop_lines = ? WHERE sku = ?";
             $stmt = $conn->prepare($updateQuery);
-            $stmt->bind_param("ssssssssddddsss", $name, $description, $short_description, $brandId, $categoryId, $image_url,$images, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson, $sku);
+            $stmt->bind_param("sssssssddddsss", $name, $description, $short_description, $brandId, $categoryId, $image_url, $pdf, $weight, $length, $breadth, $height, $featuresJson, $shopLinesJson, $sku);
 
             if ($stmt->execute()) {
                 $updatedSKUs[] = $sku;

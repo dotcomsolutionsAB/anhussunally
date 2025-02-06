@@ -313,7 +313,7 @@
 <script>
     document.getElementById('searchInput').addEventListener('input', function() {
         var query = this.value.trim();
-        if (query.length >= 2) {
+        if (query.length >= 1) {
             // Perform the AJAX request only if the query has 2 or more characters
             fetchSearchResults(query);
         } else {
@@ -364,7 +364,7 @@
     // Listen for input changes in the mobile search bar
     document.getElementById('mobileSearchInput').addEventListener('input', function () {
         const query = this.value.trim();
-        if (query.length >= 2) {
+        if (query.length >= 1) {
             fetchMobileSearchResults(query);
         } else {
             document.getElementById('mobile-search-results').innerHTML = '';

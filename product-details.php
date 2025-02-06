@@ -309,11 +309,6 @@
                     <div class="col-12">
                         <div class="product-desc-wrap">
                             <ul class="nav nav-tabs" id="myTab2" role="tablist">
-                                <?php if (!empty($product['descriptions']) && trim($product['descriptions']) !== '') { ?>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Description</button>
-                                    </li>
-                                <?php } ?>
 
                                 <!-- <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane" type="button" role="tab" aria-controls="reviews-tab-pane" aria-selected="false">Reviews</button>
@@ -323,24 +318,15 @@
                                         <button class="nav-link" id="features-tab" data-bs-toggle="tab" data-bs-target="#features-tab-pane" type="button" role="tab" aria-controls="features-tab-pane" aria-selected="false">Features</button>
                                     </li>
                                 <?php } ?>
-                                <?php if (!empty($product['shop_lines']) && is_string($product['shop_lines'])) { ?>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="shoplines-tab" data-bs-toggle="tab" data-bs-target="#shoplines-tab-pane" type="button" role="tab" aria-controls="shoplines-tab-pane" aria-selected="false">Shop Lines</button>
-                                    </li>
-                                <?php } ?>
                             </ul>
 
                             <div class="tab-content" id="myTabContent2">
 
-                                <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
-                                    <?php if (!empty($product['descriptions'])) { ?>
-                                        <?php echo $product['descriptions']; ?>
-                                    <?php } ?>
-                                </div>
+                                
                                 
                                 <!-- Features datas -->
                                 <?php if (!empty($product['features']) && is_string($product['features'])) { ?>
-                                    <div class="tab-pane fade" id="features-tab-pane" role="tabpanel" aria-labelledby="features-tab" tabindex="0">
+                                    <div class="tab-pane fade show active" id="features-tab-pane" role="tabpanel" aria-labelledby="features-tab" tabindex="0">
                                         <div class="shop__list-wrap">
                                             <?php
                                             // Decode the JSON into an associative array
@@ -368,37 +354,12 @@
                                                 </ul>
                                             <?php } ?>
                                         </div>
-                                    </div>
-                                <?php } ?>
-
-
-                                <!-- Shoplines data -->
-                                <?php if (!empty($product['shop_lines']) && is_string($product['shop_lines'])) { ?>
-                                    <div class="tab-pane fade" id="shoplines-tab-pane" role="tabpanel" aria-labelledby="shoplines-tab" tabindex="0">
-                                        <div class="shop__list-wrap">
-                                            <h3>Shop Lines:</h3>
-                                            <ul class="list-wrap">
-                                            <?php
-                                                // Decode the JSON into an array
-                                                $shopJson = $product['shop_lines'];
-                                                $shop_lines = json_decode($shopJson, true);
-
-                                                // Check if the decoded result is an array
-                                                if (is_array($shop_lines)) {
-                                                    // Iterate through each shop line
-                                                    foreach ($shop_lines as $shop) {
-                                                        if (is_string($shop)) {
-                                                            // Output the shop line with HTML rendered correctly
-                                                            $renderedShopLine = htmlspecialchars_decode($shop);
-                                                            ?>
-                                                            <li><i class="far fa-check-circle"></i><?php echo $renderedShopLine; ?></li>
-                                                            <?php
-                                                        }
-                                                    }
-                                                }
-                                            ?>
-                                            </ul>
-                                        </div>
+                                        <?php if (!empty($product['descriptions'])) { ?>
+                                            <h3>Descriptions:</h3>
+                                            <p>
+                                                <?php echo $product['descriptions']; ?>
+                                            </p>
+                                        <?php } ?>
                                     </div>
                                 <?php } ?>
 

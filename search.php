@@ -15,7 +15,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Check if query parameter 'q' exists and has at least 2 characters
-    if (isset($_GET['q']) && strlen($_GET['q']) >= 2) {
+    if (isset($_GET['q']) && strlen($_GET['q']) >= 1) {
         $searchQuery = htmlspecialchars($_GET['q']); // Sanitize user input
 
         // Prepare and execute the SQL query

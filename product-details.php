@@ -232,33 +232,41 @@
                                     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
                                 }
                             </style>
-                            <?php
+                                <?php
                                 $pdfUrl = ""; // Default empty PDF URL
 
-if (!empty($product['pdf_id'])) {
-    $pdfId = $product['pdf_id'];
+                                if (!empty($product['pdf_id'])) {
+                                    $pdfId = $product['pdf_id'];
+                                
+                                    // Fetch file_original_name from the upload table using pdf_id
+                                    $stmt = $conn->prepare("SELECT file_original_name FROM upload WHERE id = ?");
+                                    $stmt->bind_param("i", $pdfId);
+                                    $stmt->execute();
+                                    $stmt->bind_result($fileOriginalName);
+                                    $stmt->fetch();
+                                    $stmt->close();
+                                
+                                    if (!empty($fileOriginalName)) {
+                                        $pdfUrl = "uploads/bro/" . htmlspecialchars($fileOriginalName, ENT_QUOTES, 'UTF-8');
+                                    }
+                                } elseif (empty($product['pdf_id'])) {
 
-    // Fetch file_original_name from upload table using pdf_id
-    $stmt = $conn->prepare("SELECT file_original_name FROM upload WHERE id = ?");
-    $stmt->bind_param("i", $pdfId);
-    $stmt->execute();
-    $stmt->bind_result($fileOriginalName);
-    $stmt->fetch();
-    $stmt->close();
-
-    if (!empty($fileOriginalName)) {
-        $pdfUrl = "https://www.anhussunally.com//uploads/bro/" . htmlspecialchars($fileOriginalName, ENT_QUOTES, 'UTF-8');
-    }
-} elseif (!empty($product['pdf']) && filter_var($product['pdf'], FILTER_VALIDATE_URL)) {
-    // If pdf column already contains a valid URL, use it
-    $pdfUrl = htmlspecialchars($product['pdf'], ENT_QUOTES, 'UTF-8');
-}
-
-if (!empty($pdfUrl)): ?>
-    <a href="<?php echo $pdfUrl; ?>" target="_blank">
-        <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="width: 20rem; height: 6rem;">
-    </a>
-<?php endif; ?>
+                                    if (!empty($product['pdf']) && $product['pdf'] != 'NA') {
+                                        // Check if pdf starts with "https://www.anhussunally.com/uploads/brochure/"
+                                        if (strpos($product['pdf'], "https://www.anhussunally.com/uploads/brochure/") === 0) {
+                                            $pdfUrl = $product['pdf']; // Use the full URL as it is
+                                        } else {
+                                            $pdfUrl = "uploads/brochure/" . htmlspecialchars($product['pdf'], ENT_QUOTES, 'UTF-8');
+                                        }
+                                    }  
+                                }
+                                
+                                // Display the PDF link if there is a valid URL
+                                if (!empty($pdfUrl)): ?>
+                                    <a href="<?php echo $pdfUrl; ?>" target="_blank">
+                                        <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="width: 20rem; height: 6rem;">
+                                    </a>
+                                <?php endif; ?>
                                 <br/>
                                 <style>
                                     .whatsapp-button {

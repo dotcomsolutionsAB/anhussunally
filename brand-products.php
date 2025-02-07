@@ -111,7 +111,61 @@
 </head>
 <body>
     <?php include("inc_files/header.php"); ?>
-    
+    <style>
+        .abc {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            /* display: flex; */
+            /* gap: 15px; */
+            justify-content: center;
+            align-items: center;
+            margin: 5px 10px;
+        }
+
+        .abc .div {
+            background: #fff;
+            padding: 5px 10px;
+            border: 4px solid #11a1dfc2;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center; /* Center content inside div */
+            /* margin: 0px 10px; */
+        }
+
+        .abc .div:hover {
+            transform: scale(1.1); /* Makes the div "pop" */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+        }
+
+        .abc .div a {
+            font-size: x-large;
+            font-weight: 600;
+            text-decoration: none; /* Removes underline */
+            color: black; /* Ensures default font color is black */
+        }
+
+        .abc .div a:hover {
+            color: var(--tg-theme-primary); /* Changes font color on hover */
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 520px) {
+            .abc{
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Auto grid layout */
+                gap: 10px; /* Space between grid items */
+                justify-content:space-between;
+            }
+            .abc .div {
+                padding: 10px 15px; /* Mobile-specific padding */
+                margin: 0px 10px;
+            }
+
+            .abc .div a {
+                font-size: large; /* Reduce font size for smaller screens */
+            }
+        }
+    </style>
     <main class="main-area fix">
         <section class="shop__area section">
             <div class="breadcrumb__area">
@@ -120,68 +174,20 @@
                         <div class="col-lg-12"> 
                             <div class="blog__cat-list shop__cat-list">
                                 <div class="abc">
-                                    <style>
-                                        .abc {
-                                            display: grid;
-                                            grid-template-columns: repeat(5, 1fr);
-                                            gap: 20px;
-                                            /* display: flex; */
-                                            /* gap: 15px; */
-                                            justify-content: center;
-                                            align-items: center;
-                                            margin: 5px 10px;
-                                        }
-
-                                        .abc div {
-                                            background: #fff;
-                                            padding: 5px 10px;
-                                            border: 4px solid #11a1dfc2;
-                                            transition: transform 0.3s ease, box-shadow 0.3s ease;
-                                            text-align: center; /* Center content inside div */
-                                            /* margin: 0px 10px; */
-                                        }
-
-                                        .abc div:hover {
-                                            transform: scale(1.1); /* Makes the div "pop" */
-                                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
-                                        }
-
-                                        .abc div a {
-                                            font-size: x-large;
-                                            font-weight: 600;
-                                            text-decoration: none; /* Removes underline */
-                                            color: black; /* Ensures default font color is black */
-                                        }
-
-                                        .abc div a:hover {
-                                            color: var(--tg-theme-primary); /* Changes font color on hover */
-                                        }
-
-                                        /* Mobile-specific styles */
-                                        @media (max-width: 520px) {
-                                            .abc{
-                                                display: grid;
-                                                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Auto grid layout */
-                                                gap: 10px; /* Space between grid items */
-                                                justify-content:space-between;
-                                            }
-                                            .abc div {
-                                                padding: 10px 15px; /* Mobile-specific padding */
-                                                margin: 0px 10px;
-                                            }
-
-                                            .abc div a {
-                                                font-size: large; /* Reduce font size for smaller screens */
-                                            }
-                                        }
-                                    </style>
+                                    
                                     <?php
                                         if (!empty($categories)) {
                                             // Display parent categories
                                             foreach ($categories as $category) {
-                                                $isActive = ($category['id'] == $selectedCategoryId) ? 'style="font-weight:bold; color:var(--tg-theme-primary);"' : '';
-                                                echo '<div><a href="?category_id=' . $category['id'] . '&id=' . $brand_id . '" ' . $isActive . '>'
-                                                    . htmlspecialchars($category['name']) . '</a></div>';
+                                                // Only show categories if the ID is NOT 39
+                                                if ($category['id'] != 39) {
+                                                    $isActive = ($category['id'] == $selectedCategoryId) ? 'style="font-weight:bold; color:var(--tg-theme-primary);"' : '';
+
+                                                    echo '<div class="div">
+                                                            <a href="?category_id=' . $category['id'] . '&id=' . $brand_id . '" ' . $isActive . '>'
+                                                            . htmlspecialchars($category['name']) . '</a>
+                                                        </div>';
+                                                }
                                             }
                                         } else {
                                             echo '<div>No categories found for this brand.</div>';

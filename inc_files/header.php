@@ -198,6 +198,11 @@
                 #searchResults::-webkit-scrollbar-thumb:hover {
                     background: #aaa; /* Darker color on hover */
                 }
+                @media only screen and (max-width: 520px) {
+                    .mob p{
+                        margin-bottom:0px;
+                    }
+                }
             </style>
 
         <!-- header-search -->
@@ -284,7 +289,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-    
     // Get elements
     const searchOpenBtn = document.querySelector('.search-open-btn');
     const searchCloseBtn = document.querySelector('.search-close-btn');
@@ -324,13 +328,60 @@
 </script>
 
 <script>
+    // function fetchSearchResults(query) {
+    //     fetch('search.php?q=' + query)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             let resultsHtml = '';
+    //             if (data.length > 0) {
+    //                 data.forEach(item => {
+    //                     resultsHtml += `
+    //                         <div class="search-result-item" style="display: flex; align-items: center;">
+    //                             <div style="width: 210px; height: 200px;display: flex; justify-content: center; align-items: center;">
+    //                                 <img src="uploads/assets/${item.image}" style="width:100%; object-fit:contain; border-radius: 5px;">
+    //                             </div>    
+    //                             <div style="padding-left:20px;">
+    //                                 <strong>${item.product_name}</strong>
+    //                                 <div style="display: flex; flex-direction:column; margin-top: 5px;">
+    //                                     <p style="margin: 0px;"><span style="font-weight: 500; margin-bottom: 0px;"> SKU: ${item.sku}</span></p>
+    //                                     <p style="margin: 0px;">Category: ${item.category_name}</p>
+    //                                     <p style="margin: 0px;">Brand: ${item.brand_name}</p>
+    //                                 </div>
+    //                                 <a href="product-details.php?sku=${item.sku}" style="text-decoration: none; color: blue;">View Details</a>
+    //                             </div>
+    //                         </div>
+    //                         <hr style="border: 0; border-top: 1px solid #ddd; margin: 10px 0;">
+    //                     `;
+    //                 });
+    //             } else {
+    //                 resultsHtml = '<p>No results found</p>';
+    //             }
+    //             document.getElementById('searchResults').innerHTML = resultsHtml;
+    //         })
+    //         .catch(error => {
+    //             console.error('Error fetching search results:', error);
+    //         });
+    // }
     function fetchSearchResults(query) {
         fetch('search.php?q=' + query)
             .then(response => response.json())
             .then(data => {
+                let exactMatches = [];
+                let partialMatches = [];
+
+                data.forEach(item => {
+                    if (item.sku.toLowerCase() === query.toLowerCase()) {
+                        exactMatches.push(item); // Exact match on SKU
+                    } else {
+                        partialMatches.push(item); // Partial matches
+                    }
+                });
+
+                let sortedResults = [...exactMatches, ...partialMatches]; // Merge exact matches at top
+
                 let resultsHtml = '';
-                if (data.length > 0) {
-                    data.forEach(item => {
+                if (sortedResults.length > 0) {
+                    sortedResults.forEach(item => {
                         resultsHtml += `
                             <div class="search-result-item" style="display: flex; align-items: center;">
                                 <div style="width: 210px; height: 200px;display: flex; justify-content: center; align-items: center;">
@@ -358,6 +409,7 @@
                 console.error('Error fetching search results:', error);
             });
     }
+
 </script>
 
 <script>
@@ -372,18 +424,65 @@
     });
 
     // Fetch search results for mobile
+    // function fetchMobileSearchResults(query) {
+    //     fetch('search.php?q=' + query)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             let resultsHtml = '';
+    //             if (data.length > 0) {
+    //                 data.forEach(item => {
+    //                     resultsHtml += `
+    //                         <div class="search-result-item" style="display: flex; flex-direction: column; gap: 10px; padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; border-radius: 5px;">
+    //                             <div style="display: flex; justify-content: space-between; align-items: center;">
+    //                                 <div>
+    //                                     <strong>${item.product_name}</strong>
+    //                                     <p style="font-size: 14px; color: #666;">Category: ${item.category_name}</p>
+    //                                     <p style="font-size: 14px; color: #666;">Brand: ${item.brand_name}</p>
+    //                                 </div>
+    //                                 <div>
+    //                                     <img src="uploads/assets/${item.image}" alt="${item.product_name}" style="width: 60px; height: auto; border-radius: 5px;">
+    //                                 </div>
+    //                             </div>
+    //                             <a href="product-details.php?sku=${item.sku}" style="text-decoration: none; color: #007bff; font-size: 14px;">View Details</a>
+    //                         </div>
+    //                     `;
+    //                 });
+    //             } else {
+    //                 resultsHtml = '<p style="color: #999; text-align: center;">No results found</p>';
+    //             }
+    //             document.getElementById('mobile-search-results').innerHTML = resultsHtml;
+    //         })
+    //         .catch(error => {
+    //             console.error('Error fetching search results:', error);
+    //         });
+    // }
     function fetchMobileSearchResults(query) {
         fetch('search.php?q=' + query)
             .then(response => response.json())
             .then(data => {
+                let exactMatches = [];
+                let partialMatches = [];
+
+                // Separate exact SKU matches from partial matches
+                data.forEach(item => {
+                    if (item.sku.toLowerCase() === query.toLowerCase()) {
+                        exactMatches.push(item); // Exact SKU match
+                    } else {
+                        partialMatches.push(item); // Partial match
+                    }
+                });
+
+                let sortedResults = [...exactMatches, ...partialMatches]; // Merge exact matches at top
+
                 let resultsHtml = '';
-                if (data.length > 0) {
-                    data.forEach(item => {
+                if (sortedResults.length > 0) {
+                    sortedResults.forEach(item => {
                         resultsHtml += `
-                            <div class="search-result-item" style="display: flex; flex-direction: column; gap: 10px; padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; border-radius: 5px;">
+                            <div class="search-result-item mob" style="display: flex; flex-direction: column; gap: 10px; padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; border-radius: 5px;">
                                 <div style="display: flex; justify-content: space-between; align-items: center;">
                                     <div>
                                         <strong>${item.product_name}</strong>
+                                        <p style="font-size: 14px; color: #666;">SKU: ${item.sku}</p>
                                         <p style="font-size: 14px; color: #666;">Category: ${item.category_name}</p>
                                         <p style="font-size: 14px; color: #666;">Brand: ${item.brand_name}</p>
                                     </div>
@@ -404,4 +503,5 @@
                 console.error('Error fetching search results:', error);
             });
     }
+
 </script>

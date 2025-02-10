@@ -249,6 +249,10 @@
                                     if (!empty($fileOriginalName)) {
                                         $pdfUrl = "uploads/bro/" . htmlspecialchars($fileOriginalName, ENT_QUOTES, 'UTF-8');
                                     }
+                                }elseif($product['pdf_id']==0){
+
+                                    $pdfUrl = $product['pdf'];
+                                    
                                 } elseif (empty($product['pdf_id'])) {
 
                                     if (!empty($product['pdf']) && $product['pdf'] != 'NA') {

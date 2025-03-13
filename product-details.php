@@ -194,44 +194,74 @@
                                         <span class="title" style="min-width: 35px;">Category:</span>
                                         <a href="#"><?php echo htmlspecialchars($category['name']); ?></a>
                                     </li>
-                                    <!-- <li class="sd-tag">
-                                        <span class="title">Tags:</span>
-                                        <a href="shop-details.html">automotive parts,</a>
-                                        <a href="shop-details.html">wheels</a>
-                                    </li> -->
                                 </ul>
                             <p><?php echo nl2br(htmlspecialchars($product['short_description'])); ?></p>
-                            
-                            <div class="shop__details-qty" style="display: block!important;">
-                                
-                            <style>
-                                .gmail-button {
-                                    display: inline-flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    background-color: #DB4437;
-                                    color: #fff;
-                                    font-size: 18px;
-                                    font-weight: 600;
-                                    text-decoration: none;
-                                    padding: 12px 25px;
-                                    border-radius: 50px;
-                                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-                                    transition: all 0.3s ease;
-                                }
 
-                                .gmail-button img {
-                                    margin-right: 10px;
-                                    width: 24px;
-                                    height: 24px;
-                                }
+                        <style>
+                            .feature_lists{
+                                /* margin-left: 35px; */
+                            }
+                        </style>
+                        <!-- Features datas -->
+                        <?php if (!empty($product['features']) && is_string($product['features'])) { ?>
+                            <div class="shop__list-wrap feature_lists">
+                                <?php
+                                // Decode the JSON into an associative array
+                                $featuresJson = $product['features'];
+                                $featuresArray = json_decode($featuresJson, true);
 
-                                .gmail-button:hover {
-                                    background-color: #C03527;
-                                    transform: translateY(-2px);
-                                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-                                }
-                            </style>
+                                // Check if the decoded result is an array
+                                if (is_array($featuresArray)) {
+                                    ?>
+                                    <h3>Features:</h3>
+                                    <ul class="list-wrap">
+                                    <?php
+                                    // Iterate through the features and render them
+                                    foreach ($featuresArray as $feature) {
+                                        // Ensure the feature is a valid string
+                                        if (is_string($feature)) {
+                                            // Decode HTML entities to render them properly
+                                            $renderedFeature = htmlspecialchars_decode($feature);
+                                            ?>
+                                            <li><i class="far fa-check-circle"></i><?php echo $renderedFeature; ?></li>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+                                    </ul>
+                                <?php } ?>
+                            </div>
+                        <?php } ?>
+
+                            <div class="shop__details-qty" style="">
+                                <style>
+                                    .gmail-button {
+                                        display: inline-flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        background-color: #DB4437;
+                                        color: #fff;
+                                        font-size: 18px;
+                                        font-weight: 600;
+                                        text-decoration: none;
+                                        padding: 12px 25px;
+                                        border-radius: 50px;
+                                        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                                        transition: all 0.3s ease;
+                                    }
+
+                                    .gmail-button img {
+                                        margin-right: 10px;
+                                        width: 24px;
+                                        height: 24px;
+                                    }
+
+                                    .gmail-button:hover {
+                                        background-color: #C03527;
+                                        transform: translateY(-2px);
+                                        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+                                    }
+                                </style>
                                 <?php
                                     $pdfUrl = ""; // Default empty PDF URL
 
@@ -276,13 +306,58 @@
 
                                     // Display the PDF link if a valid URL exists
                                     if (!empty($pdfUrl)): ?>
-                                        <a href="<?php echo $pdfUrl; ?>" target="_blank">
-                                            <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="width: 20rem; height: 6rem;">
-                                        </a>
+                                        <div class="pdfbtn">
+                                            <a href="<?php echo $pdfUrl; ?>" target="_blank">
+                                                <div class="pdfimg">
+                                                    <img class="brochure-pdf" src="images/pdf.png" alt="pdf" style="">
+                                                </div>
+                                            </a>
+                                        </div>
                                     <?php endif; ?>
 
                                 <br/>
                                 <style>
+                                    /* pdf button */
+                                    .pdfimg img{
+                                        width: 100%;
+                                        height: 4rem;
+                                    }
+                                    .pdfimg{
+                                        width: 13rem;
+                                        height: 4rem;
+                                        background: #262424;
+                                        border-radius: 15px;
+                                        margin: 5px;
+                                        display: flex;
+                                        align-items: center;
+                                    }
+                                    /* Main button box */
+                                    .shop__details-qty {
+                                        display:flex;
+                                        flex-wrap: wrap;
+                                        margin-bottom: 0px;
+                                        gap:10px;
+                                    }
+
+                                    /* email button */
+                                    .emailbtn{
+                                        width: 13rem;
+                                        height: 4rem;
+                                        background: #262424; 
+                                        padding: 5px 10px; 
+                                        border-radius: 8px; 
+                                        margin: 5px; 
+                                        justify-content: space-evenly;  
+                                        display: flex; 
+                                        align-items: center;
+                                    }
+                                    .emailbtn a{
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 5px;
+                                    }
+
+                                    /* Whatsapp btn */
                                     .whatsapp-button {
                                         margin-top: 20px;
                                         padding: 10px;
@@ -295,14 +370,12 @@
                                         cursor: pointer;
                                         flex-wrap: wrap;
                                     }
-
                                     .whatsapp-button img {
                                         width: 42px;
                                         height: 50px;
                                         margin-right: 10px;
                                         flex-shrink: 0;
                                     }
-
                                     .whatsapp-button a {
                                         text-decoration: none;
                                         color: white;
@@ -310,7 +383,6 @@
                                         text-align: left;
                                         line-height: 1.2;
                                     }
-
                                     @media (max-width: 520px) {
                                         .whatsapp-button {
                                         flex-direction: row;
@@ -330,100 +402,28 @@
                                         }
                                     }
                                 </style>
+                                
+                                <div class="emailbtn">
+                                    <a href="mailto:hussunally@gmail.com" style="">
+                                        <img src="images/gmail.png" alt="mail" style="width: 60px;">
+                                        <span style="color:white; font-weight:bold; font-size:25px">Send Email</span>
+                                    </a>
+                                </div>
+                                <br/>
                                 <div class="whatsapp-button">
                                     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
                                     <a href="https://wa.me/+919831420324?text=I'm%20interested%20in%20your%20product">
                                         Mr. Huzefa / An Hussuanally & Co.<br>Need help? Chat via WhatsApp
                                     </a>
                                 </div>
-                                <br/>
-                                <a href="mailto:hussunally@gmail.com" style="background: #262424; padding: 5px 10px; border-radius: 8px; margin: 5px; width:20rem;
-                                        height: 6rem; justify-content: space-evenly;  display: flex; align-items: center;">
-                                    <img src="images/gmail.png" alt="mail" style="width: 60px;">
-                                    <span style="color:white; font-weight:bold; font-size:25px">Send Email</span>
-                                </a>
                             </div>
                             <div class="shop__details-bottom">
                             </div>
-                        </div>
+                        </div>                        
                     </div>
                 </div>
                 
-                <div class="row">
-                    <div class="col-12">
-                        <div class="product-desc-wrap">
-                            <ul class="nav nav-tabs" id="myTab2" role="tablist">
-
-                                <!-- <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane" type="button" role="tab" aria-controls="reviews-tab-pane" aria-selected="false">Reviews</button>
-                                </li> -->
-                                <?php if (!empty($product['features']) && is_string($product['features'])) { ?>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="features-tab" data-bs-toggle="tab" data-bs-target="#features-tab-pane" type="button" role="tab" aria-controls="features-tab-pane" aria-selected="false">Features</button>
-                                    </li>
-                                <?php } ?>
-                            </ul>
-
-                            <div class="tab-content" id="myTabContent2">
-
-                                
-                                
-                                <!-- Features datas -->
-                                <?php if (!empty($product['features']) && is_string($product['features'])) { ?>
-                                    <div class="tab-pane fade show active" id="features-tab-pane" role="tabpanel" aria-labelledby="features-tab" tabindex="0">
-                                        <div class="shop__list-wrap">
-                                            <?php
-                                            // Decode the JSON into an associative array
-                                            $featuresJson = $product['features'];
-                                            $featuresArray = json_decode($featuresJson, true);
-
-                                            // Check if the decoded result is an array
-                                            if (is_array($featuresArray)) {
-                                                ?>
-                                                <h3>Features:</h3>
-                                                <ul class="list-wrap">
-                                                <?php
-                                                // Iterate through the features and render them
-                                                foreach ($featuresArray as $feature) {
-                                                    // Ensure the feature is a valid string
-                                                    if (is_string($feature)) {
-                                                        // Decode HTML entities to render them properly
-                                                        $renderedFeature = htmlspecialchars_decode($feature);
-                                                        ?>
-                                                        <li><i class="far fa-check-circle"></i><?php echo $renderedFeature; ?></li>
-                                                        <?php
-                                                    }
-                                                }
-                                                ?>
-                                                </ul>
-                                            <?php } ?>
-                                        </div>
-                                        <?php if (!empty($product['descriptions'])) { ?>
-                                            <h3>Descriptions:</h3>
-                                            <p>
-                                                <?php echo $product['descriptions']; ?>
-                                            </p>
-                                        <?php } ?>
-                                    </div>
-                                <?php } ?>
-
-                                <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">
-                                    <div class="product-desc-review">
-                                        <div class="product-desc-review-title mb-15">
-                                            <h5 class="title">Customer Reviews (0)</h5>
-                                        </div>
-                                        <div class="left-rc">
-                                            <p>No reviews yet</p>
-                                        </div>
-                                        <div class="right-rc">
-                                            <a href="#">Write a review</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </section>
         <!-- shop-details-area-end -->
